@@ -1,0 +1,225 @@
+<div id="saisie" class="block">
+
+  <form ng-submit="update()">
+  
+  	<!-- lists -->
+    <datalist id="pays">
+    	<select>
+    		<option ng-repeat="pays in saisie.liste_pays">{{pays.pays}}</option>
+    	</select>
+		</datalist>
+		
+		<datalist id="source">
+			<select>
+		  	<option ng-repeat="source in saisie.liste_sources">{{source.source}}</option>
+		  </select>
+		</datalist>
+  
+  	<!-- ids -->
+  	<div hidden="hidden">
+	    <div class="control-group">
+	      <label class="control-label" for="idMarque">Id Marque</label>
+	      <div class="controls">
+	        <input type="text" readonly="readonly" class="input-xlarge" name="idMarque" ng-model="saisie.idMarque" />
+	      </div>
+	    </div>
+	
+			<div class="control-group">
+		     <label class="control-label" for="idModele">Id Modèle</label>
+		     <div class="controls">
+		       <input type="text" readonly="readonly" class="input-xlarge" name="idModele" ng-model="saisie.idModele" />
+		     </div>
+		   </div>
+	
+			<div class="control-group">
+	      <label class="control-label" for="idVersion">Id Version</label>
+	      <div class="controls">
+	        <input type="text" readonly="readonly" class="input-xlarge" name="idVersion" ng-model="saisie.idVersion" />
+	      </div>
+	    </div>
+	
+			<div class="control-group">
+	      <label class="control-label" for="idDocMarque">Id Doc Marque</label>
+	      <div class="controls">
+	        <input type="text" readonly="readonly" class="input-xlarge" name="idDocMarque" ng-model="saisie.idDocumentMarque" />
+	      </div>
+	    </div>
+		      
+	    <div class="control-group">
+	      <label class="control-label" for="idDocVersion">Id Doc Version</label>
+	      <div class="controls">
+	        <input type="text" readonly="readonly" class="input-xlarge" name="idDocVersion" ng-model="saisie.idDocumentVersion" />
+	      </div>
+	    </div>
+    </div>
+
+		<!-- marque -->
+		<div class="control-group">
+      <label class="control-label" for="nomMarque">Nom Marque</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" id="nomMarque" ng-model="saisie.nomMarque" ng-readonly="objet != 'marque'" />
+      </div>
+    </div>
+    
+    <div class="control-group" ng-show="objet == 'marque'">
+      <label class="control-label" for="pays">Pays</label>
+      <div class="controls">
+        <input list="pays" type="text" class="input-xlarge" ng-model="saisie.pays" />
+      </div>
+    </div>
+    
+    <!-- modele -->
+    <div class="control-group" ng-show="objet != 'marque' && objet != 'docMarque'">
+      <label class="control-label" for="nomModele">Nom Modèle</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" id="nomModele" ng-model="saisie.nomModele" ng-readonly="objet != 'modele'" />
+      </div>
+    </div>
+    
+    <div class="control-group" ng-show="objet == 'modele'">
+      <label class="control-label" for="categorie">Catégorie</label>
+      <div class="controls">
+      	<select ng-model="saisie.categorie" ng-options="item.categorie as item.categorie | categorieType for item in saisie.liste_categories"></select>
+      </div>
+    </div>
+    
+    <div class="control-group" ng-show="objet == 'modele'">
+      <label class="control-label" for="debut">Début</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" id="debut" ng-model="saisie.debut" />
+      </div>
+    </div>
+    
+    <div class="control-group" ng-show="objet == 'modele'">
+      <label class="control-label" for="fin">Fin</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" id="fin" ng-model="saisie.fin" />
+      </div>
+    </div>
+    
+    <div class="control-group" ng-show="objet == 'modele'">
+      <label class="control-label" for="cylMin">Cylindrée Min</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" id="cylMin" ng-model="saisie.cylindree_min" />
+      </div>
+    </div>
+    
+    <div class="control-group" ng-show="objet == 'modele'">
+      <label class="control-label" for="cylMax">Cylindrée Max</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" id="cylMax" ng-model="saisie.cylindree_max" />
+      </div>
+    </div>
+    
+    <div class="control-group" ng-show="objet == 'modele'">
+      <label class="control-label" for="puissMin">Puissance Min</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" id="puissMin" ng-model="saisie.puissance_min" />
+      </div>
+    </div>
+    
+    <div class="control-group" ng-show="objet == 'modele'">
+      <label class="control-label" for="puissMax">Puissance Max</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" id="puissMax" ng-model="saisie.puissance_max" />
+      </div>
+    </div>
+    
+    <div class="control-group" ng-show="objet == 'modele'">
+      <label class="control-label" for="production">Production</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" id="production" ng-model="saisie.production" />
+      </div>
+    </div>
+    
+    <div class="control-group" ng-show="objet == 'modele'">
+      <label class="control-label" for="commentaire">Commentaire</label>
+      <div class="controls">
+        <textarea type="text" class="input-xlarge" id="commentaire" ng-model="saisie.commentaire" ></textarea>
+      </div>
+    </div>
+    
+    <!-- version -->		    
+    <div class="control-group"  ng-show="objet == 'version' || objet == 'docVersion'">
+      <label class="control-label" for="anneeModele">Année Modèle</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" id="anneeModele" ng-model="saisie.anneeModele" ng-readonly="objet == 'docVersion'" />
+      </div>
+    </div>
+    
+    <div class="control-group" ng-show="objet == 'version'">
+      <label class="control-label" for="type">Nom Année Modèle</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" ng-model="saisie.nom" />
+      </div>
+    </div>
+    
+    <div class="control-group" ng-show="objet == 'version'">
+      <label class="control-label" for="type">Type</label>
+	  <div class="controls">
+      	<select ng-model="saisie.type" ng-options="item.type as item.type | categorieType for item in saisie.liste_types"></select>
+      </div>
+    </div>
+    
+    
+    <!-- doc -->
+		<div class="control-group" ng-show="objet == 'docMarque' || objet == 'docVersion'">
+      <label class="control-label" for="source">Source</label>
+      <div class="controls">
+        <input list="source" type="text" class="input-xlarge" id="source" ng-model="saisie.source" />
+      </div>
+    </div>
+    
+    <div class="control-group" ng-show="objet == 'docMarque' || objet == 'docVersion'">
+      <label class="control-label" for="date">Date</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" id="date" ng-model="saisie.date" />
+      </div>
+    </div>
+    
+   <div class="control-group" ng-show="objet == 'docMarque' || objet == 'docVersion'">
+      <label class="control-label" for="legende">Légende</label>
+      <div class="controls">
+        <textarea type="text" class="input-xlarge" id="legende" ng-model="saisie.legende" ></textarea>
+      </div>
+    </div>
+    
+    <div class="control-group" ng-show="objet == 'docMarque' || objet == 'docVersion'">
+      <label class="control-label" for="ordre">Ordre</label>
+      <div class="controls">
+        <input type="number" min="0" class="input-xlarge" id="ordre" ng-model="saisie.ordre" />
+      </div>
+    </div>
+    
+    <div class="control-group" ng-show="objet == 'docMarque' || objet == 'docVersion'">
+      <label class="control-label" for="motCle">Emblématique</label>
+      <div class="controls">
+        <input type="checkbox" class="input-xlarge" id="motCle" ng-model="saisie.motCle" ng-checked="saisie.motCle == 'EMB'" />
+      </div>
+    </div>
+    
+    <!--  miniature -->
+    <div class="control-group" ng-show="objet == 'modele'">
+      <label class="control-label" for="miniModele">Je l'ai en miniature</label>
+      <div class="controls">
+        <input type="checkbox" class="input-xlarge" id="miniModele" ng-model="saisie.miniModele" ng-checked="saisie.miniModele == 'Y'" />
+      </div>
+    </div>
+    
+    <div class="control-group" ng-show="objet == 'version'">
+      <label class="control-label" for="miniVersion">Je l'ai en miniature</label>
+      <div class="controls">
+        <input type="checkbox" class="input-xlarge" id="miniVersion" ng-model="saisie.miniVersion" ng-checked="saisie.miniVersion == 'Y'" />
+      </div>
+    </div>
+    
+    <!-- ordres -->   
+    <div ng-sorter cfg="modeleSorterCfg"></div>
+    <div ng-sorter cfg="versionSorterCfg"></div>
+    
+    <div class="form-actions">
+      <button type="submit" id="update" class="button"><span class="fa fa-check"></span><span>Sauvegarder</span></button>
+    </div>
+
+  </form>
+</div>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" ng-app="auto">
+
+<head>
+  <meta charset="utf-8">
+  <title ng:bind-template="Mes Autos{{pageTitle}}"></title>
+
+  <link rel="stylesheet" href="lib/reset-css/reset.css">
+  <link rel="stylesheet" href="lib/font-awesome-4.1.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="lib/timeline/timeline.css">
+  <link rel="stylesheet" href="style/app.css">
+  <link rel="stylesheet" href="app/ui/home/home.css">
+  <link rel="stylesheet" href="app/ui/marque/marque.css">
+  <link rel="stylesheet" href="app/ui/modele/modele.css">
+  <link rel="stylesheet" href="app/ui/version/version.css">
+  <link rel="stylesheet" href="app/ui/saisie/saisie.css">
+
+  <script src="lib/angular/angular.js"></script>
+  <script src="lib/angular/angular-resource.js"></script>
+  <script src="lib/timeline/timeline.js"></script>
+  <script src="app/ui/app.js"></script>
+  <script src="app/ui/filters.js"></script>
+  <script src="app/ui/services.js"></script>
+  <script src="app/ui/directives.js"></script>
+  <script src="app/ui/home/home.js"></script>
+  <script src="app/ui/marque/marque.js"></script>
+  <script src="app/ui/modele/modele.js"></script>
+  <script src="app/ui/version/version.js"></script>
+  <script src="app/ui/saisie/saisie.js"></script>
+</head>
+
+<body ng-controller="MainCtrl" ng-click="hideResults()">
+
+  <div id="header">
+    <a href="#">Mes <span class="maj">A</span>utos</a>
+    <img src="style/logo.png">
+	</div>
+	
+  <div ng-view id="app"></div>
+  
+  <div id="search">
+    <span class="input-icon fa fa-search"></span>
+    <input type="text" ng-model="searchText" ng-click="showResults($event)" ng-change="showResults($event)"></input>
+    <ul class="results" ng-show="show">
+      <li ng-repeat="item in list.marques | searchMarque: searchText | orderBy: 'nomMarque'" ng-click="goToMarque(item)">{{item.nomMarque}}</li>
+      <li ng-repeat="item in list.modeles | searchModele: searchText | orderBy: 'nomModele'" ng-click="goToModele(item)">{{item.nomModele}}<span class="marque-modele">{{item.nomMarque}}</span></li>
+    </ul>
+  </div>
+
+</body>
+</html>

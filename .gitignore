@@ -1,0 +1,8 @@
+.settings/
+.buildpath
+.project
+
+img/
+app/server/texte/marque/
+*.sqlite
+

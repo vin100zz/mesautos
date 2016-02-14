@@ -1,0 +1,11 @@
+
+  <div class="control-group sorter" ng-show="cfg.show">
+    <label class="control-label">{{cfg.label}}</label>
+    <ul>
+      <li ng-repeat="item in cfg.list" ng-class="{selected: selected == cfg.idFn(item)}" ng-click="toggle(item)">
+        <span class="label">{{cfg.labelFn(item)}}</span>
+      </li>
+    </ul>
+    <a class="fa fa-chevron-down" ng-show="true" ng-click="moveDown()"></a>
+    <a class="fa fa-chevron-up" ng-show="true" ng-click="moveUp()"></a>
+  </div>

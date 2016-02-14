@@ -1,0 +1,70 @@
+#home #sidebar {
+  width: 65px;
+}
+
+#home #content {
+  left: 80px;
+  padding: 0 10px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+#home #content li {
+  position: relative;
+  cursor: pointer;
+  width: 120px;
+  height: 120px;
+  background: #ddd;
+  margin-bottom: 5px;
+}
+#home #content li:empty {
+  height: 0;
+}
+
+#home #content .logo {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+}
+
+#home #content .mask {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: background-color 0.2s ease;
+  font-size: 11pt;
+  color: #ddd;
+  text-align: center;
+}
+#home #content li:hover .mask {
+  background-color: #333;
+}
+#home #content .mask .info {
+  display: none;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+#home #content li:hover .mask .info {
+  display: block;
+}
+#home #content .mask .info img {
+  width: 30px;
+  margin-top: 10px;
+}
+#home #content li:hover .mask {
+  opacity: 1;
+}
+
+#home #content .mesautosamoi:before {
+  display: block;
+  font-size: 70pt;
+  text-align: center;
+  padding-top: 5px;
+  color: #F8512F;
+}

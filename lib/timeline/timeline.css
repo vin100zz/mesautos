@@ -1,0 +1,78 @@
+.timeline-container {
+	position: relative;
+	overflow-x: auto;
+	overflow-y: hidden;
+	width: 100%;
+}
+.timeline-container * {
+  box-sizing: border-box;
+}
+
+.timeline-container .event-picture {
+  position: absolute;
+  border-left: 6px solid #006666;
+  z-index: 10;
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-color: #fff;
+}
+.timeline-container .event-desc {
+  position: absolute;
+  background: #fff;
+  padding: 12px 0 0 5px;
+  z-index: 10;
+  font-size: 9pt;
+  cursor: pointer;
+}
+.timeline-container .event-desc li:first-child {
+  font-weight: bold;
+  margin-bottom: 3px;
+}
+.timeline-container .event-desc li:not(:first-child) {
+  font-size: 8pt;
+  font-style: italic;
+}
+
+.timeline-container .event-marker {
+  position: absolute;
+  background: #006666;
+}
+.timeline-container .event-marker:after {
+  position: absolute;
+  bottom: -5px;
+  left: -5px;
+  content: "";
+  width: 10px;
+  height: 10px;
+  background: #006666;
+  border-radius: 50%;
+  z-index: 11;
+}
+
+.timeline-container .event-duration {
+  position: absolute;
+  background: #006666;
+  opacity: 0.5;
+}
+
+.timeline-container .year {
+  position: absolute;
+  background: #333;
+  border-right: 1px solid #666;
+  color: #fff;
+  text-align: center;
+  vertical-align: middle;
+}
+.timeline-container .year-arrow {
+  position: absolute;
+  right: -20px;
+  top: 0;
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 20px solid transparent;
+  border-bottom: 20px solid transparent;
+  border-left: 20px solid #333;
+}

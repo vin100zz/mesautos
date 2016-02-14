@@ -1,0 +1,42 @@
+<div id="home">
+
+  <ul id="sidebar">
+    <li ng-repeat="item in sidebar">
+      <a href="{{item.link}}" class="fa fa-{{item.icon}}"></a>
+      <div>{{item.tooltip}}</div>
+    </li>
+  </ul>
+
+  <ul id="content">
+    <li>
+      <div class="thumbnail logo fa fa-star mesautosamoi" ng-click="goToMesAutosAMoi()"></div>
+      <div class="mask">
+        <div class="info">
+          <span>Mes autos à moi</span>
+        </div>
+      </div>
+    </li>
+    <li ng-repeat="marque in marques | orderBy: 'nomMarque'" ng-click="goToMarque(marque)">
+  		<div ng-style="backgroundImage(marque)" class="thumbnail logo"></div>
+  		<div class="mask">
+        <div class="info">
+          <div>{{marque.nomMarque}}</div>
+    		  <img ng-src="img/pays/{{marque.pays}}.png" class="pays"/>
+        </div>
+  		</div>
+    </li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+
+</div>
+
+

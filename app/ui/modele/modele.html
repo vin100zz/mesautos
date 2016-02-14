@@ -1,0 +1,40 @@
+<div id="modele">
+
+  <div id="titlebar">
+  <!--
+    <div>{{version.marque.nomMarque}}</div>
+    <div>{{version.modele.nomModele}}</div>
+    <div>{{version.version.nom}}</div>
+-->
+
+    <!--
+    <a href="#/saisie/edit/version?id={{versionId}}" class="fa fa-edit"></a>
+    <a href="#/saisie/add/docVersion?id={{versionId}}" class="fa fa-plus"></a>
+    <a href="#/marque/{{version.marque.idMarque}}#modele-{{version.modele.idModele}}" class="fa fa-times exit"></a>
+    -->
+  </div>
+
+  <ul id="carousel">
+    <li ng-repeat="version in modele.versions">
+      <div class="version">
+        <div>{{version.nom}}</div>
+        <div>{{version.type | categorieType}}</div>
+        <div class="year">{{version.anneeModele}}</div>
+      </div>
+      <ul class="pictures">
+        <li ng-repeat="doc in version.docs" ng-style="backgroundImage(doc.idDocumentVersion)" class="thumbnail" ng-class="{selected: doc.idDocumentVersion == selected}" ng-click="maximize(doc.idDocumentVersion)"></li>
+      </ul>
+    </li>
+  </ul>
+
+  <div id="photo" ng-style="backgroundImage(selected)" class="thumbnail" ng-click="openInNewWindow()"></div>
+
+<!--
+  <div id="legend">
+    <div>{{getLegend()}}</div>
+
+    <a href="#/saisie/edit/docVersion?id={{version.docs[selected].idDocumentVersion}}" class="fa fa-edit"></a>
+    
+  </div>
+ -->
+</div>
