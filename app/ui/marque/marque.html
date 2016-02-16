@@ -1,115 +1,64 @@
 <div id="marque">
 
-  <ul id="sidebar">
-    <div class="title">{{marque.nomMarque}}</div>
-    <div class="logo">
-      <div>
-        <div ng-style="backgroundImage(marque)" class="thumbnail"></div>
-      </div>
-    </div>
-    <li ng-repeat="item in sidebar">
-      <a href="{{item.link}}" class="fa fa-{{item.icon}}"></a>
-      <div>{{item.tooltip}}</div>
-    </li>
-  </ul>
-
-  <!--
-  <div id="actions">
-    <a href="#/saisie/edit/marque?id={{marque.idMarque}}" class="fa fa-edit"></a>
-    <a href="#/saisie/add/modele?id={{marque.idMarque}}" class="fa fa-plus"></a>
-  </div>
-
-  <div id="toggle">
-    <div ng-class="{true:'selected', false:'notSelected'}[toggle == 'MODELES']" ng-click="showModeles()"><span class="fa fa-car"></span>Modèles</div>
-    <div ng-class="{true:'selected', false:'notSelected'}[toggle == 'TIMELINE']" ng-click="showTimeline()"><span class="fa fa-sort-amount-asc"></span>Timeline</div>
-    <div ng-class="{true:'selected', false:'notSelected'}[toggle == 'WIKI']" ng-click="showWiki()"><span class="fa fa-quote-left"></span>Wiki</div>
-    <div ng-class="{true:'selected', false:'notSelected'}[toggle == 'HISTOIRE']" ng-click="showHistoire()"><span class="fa fa-clock-o"></span>Histoire</div>
-  </div>
-  -->
-
   <div id="content">
-  	
-    <ul id="modeles" ng-show="toggle == 'MODELES'">
-      <li ng-repeat="modele in marque.modeles | filter:queryModele | filter:queryCategorie" class="block">
-      
-        <!-- hack to have a margin on top of the modele when scrolling to it -->
-        <div id="modele-{{modele.idModele}}" class="anchor-hack"></div>
+    <ul id="modeles">
+      <li ng-repeat="modele in marque.modeles | filter: filterCategorie">
 
-        <div class="modele-content">
-      	   
-          <div class="infos-modele">
-            <div class="nom-modele">
-              <span ng-show="modele.miniModele == 'Y'" class="fa fa-check-square jelai"></span>
-              <span ng-show="modele.miniModele != 'Y'" class="fa fa-square jelai"></span>
-          	  <div class="nom">{{modele.nomModele}}</div>
-              <div class="year" ng-if="modele.yearInName">{{modele.yearInName}}</div>
-            </div>
-
-            <div class="carac-modele">
-              <p>{{modele.categorie | categorieType}}</p>
-              
-              <p ng-show="modele.debut != ''"><span class='key'>Date :</span>
-              {{modele.debut}}<span ng-show="modele.fin != ''"> - </span>{{modele.fin}}</p>
-              
-              <p ng-show="modele.cylindree_min != ''"><span class='key'>Cylindrée :</span>
-              {{modele.cylindree_min}}<span ng-show="modele.cylindree_max != ''"> - </span>{{modele.cylindree_max}}</p>
-              
-              <p ng-show="modele.puissance_min != ''"><span class='key'>Puissance :</span>
-              {{modele.puissance_min}}<span ng-show="modele.puissance_max != ''"> - </span>{{modele.puissance_max}}</p>
-              
-              <p ng-show="modele.production != ''"><span class='key'>Production :</span> {{modele.production}}</p>
-              
-              <p ng-show="modele.commentaire != ''"><span class='key'>Note :</span> {{modele.commentaire}}</p>
-            </div>  
-        	</div>
-        	
-          <!--
-        	<div class="actions">
-      	  	<a ng-href="#/saisie/edit/modele?id={{modele.idModele}}" class="fa fa-edit"></a>
-      	    <a ng-href="#/saisie/add/version?id={{modele.idModele}}" class="fa fa-plus"></a>
+        <div class="infos">
+          <div class="title">
+        	  <div class="nom">{{modele.nomModele}}</div>
+            <div class="year" ng-if="modele.yearInName">{{modele.yearInName}}</div>
           </div>
-          -->
-        	
-        	<div class="content"> 
-      			<ul class="versions">
-      				<li ng-repeat="version in modele.versions">
-      				  <div ng-style="backgroundImage(version)" class="thumbnail emblematic" ng-click="goToModele(modele)"></div>
-      				  <div class="comment">
-      				    <div class="type">{{version.anneeModele}}<span ng-show="version.type != ''"> - </span>{{version.type | categorieType}}</div>
-      					  <div>
-                    <span ng-show="version.miniVersion == 'Y'" class="fa fa-check-square jelai"></span>
-                    <span ng-show="version.miniVersion != 'Y'" class="fa fa-square jelai"></span>
-                    <span>{{version.nom}}</span>
-                  </div>
-      			    </div>
-      				</li>
-      			</ul>
-         
-         </div>
 
-        </div>
+          <div class="categorie" style="background-color: {{modele.categorieCfg.color}}">{{modele.categorieCfg.label}}</div>
+
+          <div class="carac">
+            <p ng-show="modele.debut != ''"><span class='key'>Date :</span>
+            {{modele.debut}}<span ng-show="modele.fin != ''"> - </span>{{modele.fin}}</p>
+            
+            <p ng-show="modele.cylindree_min != ''"><span class='key'>Cylindrée :</span>
+            {{modele.cylindree_min}}<span ng-show="modele.cylindree_max != ''"> - </span>{{modele.cylindree_max}}</p>
+            
+            <p ng-show="modele.puissance_min != ''"><span class='key'>Puissance :</span>
+            {{modele.puissance_min}}<span ng-show="modele.puissance_max != ''"> - </span>{{modele.puissance_max}}</p>
+            
+            <p ng-show="modele.production != ''"><span class='key'>Production :</span> {{modele.production}}</p>
+            
+            <p ng-show="modele.commentaire != ''"><span class='key'>Note :</span> {{modele.commentaire}}</p>
+          </div>  
+      	</div>
+      	
+      	<div class="picture thumbnail" ng-style="backgroundImage(modele.version)" ng-click="goToModele(modele)"></div>
         
       </li>
     </ul>
+  </div>
 
-    <div id="timeline" ng-show="toggle == 'TIMELINE'"></div>
-      
-    <div id="wiki" ng-show="toggle == 'WIKI'">
-      <div ng-bind-html-unsafe="wiki"></div>
-    </div>
-          
-    <div id="histo" ng-show="toggle == 'HISTOIRE'">
 
-     	<div ng-bind-html-unsafe="histo" ng-show="histo != null"></div>
-     	
-     	<div ng-repeat="doc in marque.docs">
-     		<p ng-show="doc.legende != ''">{{doc.legende}}</p>
-      	<a ng-href="img/marque/{{doc.idDocumentMarque}}.jpg" target="_blank"><img ng-src="img/marque/{{doc.idDocumentMarque}}.jpg"/></a>
-    	  <legend>{{doc.source}}<span ng-show="doc.source != ''"> - </span>{{doc.date}}</legend>
-        <hr/>
-    	</div>
-    </div>
+  <div id="sidebar">
 
+    <mesautos-sidebar cfg="sidebarCfg"></mesautos-sidebar>
+
+    <hr/>
+
+    <ul class="filters">
+      <li ng-repeat="categorie in categories">
+        <div ng-click="toggleFilter(categorie)">
+          <span ng-show="categorie.filter">&#x2714;</span>
+        </div>
+        <div ng-click="selectFilter(categorie.code)">{{categorie.label}}</div>
+      </li>
+    </ul>
+
+    <hr/>
+
+    <ul class="actions">
+      <li ng-repeat="item in sidebar">
+        <a href="{{item.link}}" class="fa fa-{{item.icon}}"></a>
+        <div>{{item.tooltip}}</div>
+      </li>
+    </ul>
+  
   </div>
 
 </div>

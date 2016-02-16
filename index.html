@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="auto">
+<html lang="en" ng-app="mesautos">
 
 <head>
   <meta charset="utf-8">
@@ -9,30 +9,36 @@
   <link rel="stylesheet" href="lib/font-awesome-4.1.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="lib/timeline/timeline.css">
   <link rel="stylesheet" href="style/app.css">
+  <link rel="stylesheet" href="app/ui/common/sidebar/sidebar.css">
   <link rel="stylesheet" href="app/ui/home/home.css">
   <link rel="stylesheet" href="app/ui/marque/marque.css">
+  <link rel="stylesheet" href="app/ui/modele/annee-modele/annee-modele.css">
   <link rel="stylesheet" href="app/ui/modele/modele.css">
-  <link rel="stylesheet" href="app/ui/version/version.css">
   <link rel="stylesheet" href="app/ui/saisie/saisie.css">
 
   <script src="lib/angular/angular.js"></script>
-  <script src="lib/angular/angular-resource.js"></script>
+  <script src="lib/angular/angular-route.min.js"></script>
+  <script src="lib/angular/angular-locale_fr-fr.js"></script>
+  <script src="lib/angular/angular-resource.min.js"></script>
+  <script src="lib/angular/angular-sanitize.min.js"></script>
   <script src="lib/timeline/timeline.js"></script>
   <script src="app/ui/app.js"></script>
   <script src="app/ui/filters.js"></script>
-  <script src="app/ui/services.js"></script>
+  <script src="app/ui/common/auto.js"></script>
+  <script src="app/ui/common/categorie.js"></script>
+  <script src="app/ui/common/sidebar/sidebar.js"></script>
   <script src="app/ui/directives.js"></script>
   <script src="app/ui/home/home.js"></script>
   <script src="app/ui/marque/marque.js"></script>
+  <script src="app/ui/modele/annee-modele/annee-modele.js"></script>
   <script src="app/ui/modele/modele.js"></script>
-  <script src="app/ui/version/version.js"></script>
   <script src="app/ui/saisie/saisie.js"></script>
 </head>
 
 <body ng-controller="MainCtrl" ng-click="hideResults()">
 
   <div id="header">
-    <a href="#">Mes <span class="maj">A</span>utos</a>
+    <a href="#home">Mes <span class="maj">A</span>utos</a>
     <img src="style/logo.png">
 	</div>
 	

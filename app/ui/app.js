@@ -1,35 +1,40 @@
+var app = angular.module('mesautos', ['ngResource', 'ngRoute', 'ngSanitize', 'autoFilters', 'autoServices', 'autoDirectives']);
+
 /* Routing */
-angular.module('auto', ['autoFilters', 'autoServices', 'autoDirectives']).
-config(['$routeProvider', function ($routeProvider) {
+app.config(['$routeProvider', function ($routeProvider) {
 	$routeProvider.
-	when('', {
+	when('/home', {
 		templateUrl: 'app/ui/home/home.html',
-		controller: HomeCtrl
+		controller: 'HomeCtrl'
 	}).
 	when('/marque/:marqueId', {
 		templateUrl: 'app/ui/marque/marque.html',
-		controller: MarqueCtrl
+		controller: 'MarqueCtrl'
 	}).
 	when('/marque/:marqueId/:modeleId', {
 		templateUrl: 'app/ui/marque/marque.html',
-		controller: MarqueCtrl
+		controller: 'MarqueCtrl'
 	}).
-	when('/modele/:versionId', {
+	when('/modele/:modeleId', {
 		templateUrl: 'app/ui/modele/modele.html',
-		controller: ModeleCtrl
+		controller: 'ModeleCtrl'
+	}).
+	when('/modele/:modeleId/:versionId', {
+		templateUrl: 'app/ui/modele/modele.html',
+		controller: 'ModeleCtrl'
 	}).
 	when('/saisie/:action/:objet', {
 		templateUrl: 'app/ui/saisie/saisie.html',
-		controller: SaisieCtrl
+		controller: 'SaisieCtrl'
 	}).
 	otherwise({
-		redirectTo: ''
+		redirectTo: '/home'
 	});
 }]);
 
 
 /* Main */
-function MainCtrl($scope, $routeParams, Auto) {
+app.controller('MainCtrl', function ($scope, $routeParams, Auto) {
 	$scope.list = Auto.get({
 		service: 'list'
 	});
@@ -52,4 +57,4 @@ function MainCtrl($scope, $routeParams, Auto) {
 		$scope.show = false;
 		window.location = '#/marque/' + modele.idMarque + '#modele-' + modele.idModele;
 	}
-}
+});

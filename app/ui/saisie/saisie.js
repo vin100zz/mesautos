@@ -1,4 +1,4 @@
-function SaisieCtrl($scope, $routeParams, Auto) {
+app.controller('SaisieCtrl', function ($scope, $routeParams, Auto) {
 
   var cb = function (saisie) {
     $scope.$parent.$root.pageTitle = ' - Saisie';
@@ -68,4 +68,5 @@ function SaisieCtrl($scope, $routeParams, Auto) {
       history.back();
     });
   };
-}
+
+});

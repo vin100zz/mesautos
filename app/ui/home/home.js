@@ -1,4 +1,4 @@
-function HomeCtrl($scope, Auto) {
+app.controller('HomeCtrl', function ($scope, Auto) {
 
   $scope.marques = Auto.query();
 
@@ -24,4 +24,4 @@ function HomeCtrl($scope, Auto) {
     window.location = '#/marque/1129';
   }
 
-}
+});

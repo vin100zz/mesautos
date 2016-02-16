@@ -1,0 +1,14 @@
+<div ng-if="cfg.marque">
+
+  <div class="title">
+    <img src="img/pays/{{cfg.marque.pays}}.png" class="flag"/>
+    <a href="#marque/{{cfg.marque.idMarque}}">{{cfg.marque.nomMarque}}</a>
+  </div>
+    
+  <div class="logo">
+    <div>
+      <div ng-style="logoBackground(cfg.marque)" class="thumbnail"></div>
+    </div>
+  </div>
+
+</div>

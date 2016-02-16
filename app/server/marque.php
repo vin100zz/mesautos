@@ -5,29 +5,29 @@ include_once "db.php";
 $idMarque = $_REQUEST["id"];
 
 // SQL
-$aMarque = DBAccess::querySingle
+$marque = DBAccess::querySingle
 (
 	"SELECT * FROM marque WHERE idMarque='$idMarque'"
 );
-$aMarques = DBAccess::query
+$marques = DBAccess::query
 (
 	"SELECT * FROM marque ORDER BY nomMarque"
 );
-$aModeles = DBAccess::query
+$modeles = DBAccess::query
 (
 	"SELECT * FROM modele WHERE idMarque='$idMarque' ORDER BY ordre"
 );
-$aDocumentsMarque = DBAccess::query
+$documentsMarque = DBAccess::query
 (
 	"SELECT * FROM documentMarque WHERE idMarque='$idMarque' ORDER BY ordre"
 );
 
 
-foreach($aModeles as $aId => $aModele)
+foreach($modeles as $id => $modele)
 {
-	$idModele = $aModele['idModele'];
+	$idModele = $modele['idModele'];
 	
-	$aModeles[$aId]['versions'] = DBAccess::query
+	$modeles[$id]['versions'] = DBAccess::query
 	(
 		"SELECT *
 		FROM version
@@ -35,12 +35,13 @@ foreach($aModeles as $aId => $aModele)
 		ORDER BY ordre, anneeModele"
 	);
 	
-	foreach($aModeles[$aId]['versions'] as $aId => &$aVersion)
+	foreach($modeles[$id]['versions'] as $id => &$version)
 	{
-		$aDoc = DBAccess::querySingle("SELECT * FROM documentVersion WHERE idVersion='" . $aVersion['idVersion'] . "' AND (motCle='EMB' OR motCle='SUP')");
+		$doc = DBAccess::querySingle("SELECT * FROM documentVersion WHERE idVersion='" . $version['idVersion'] . "' AND (motCle='EMB' OR motCle='SUP')");
 		
-		if(isset($aDoc['idDocumentVersion']))
-			$aVersion['img'] = getImage("img/version/" . $aDoc['idDocumentVersion']);
+		if(isset($doc['idDocumentVersion'])) {
+			$version['img'] = getImage("img/version/" . $doc['idDocumentVersion']);
+		}
 	}
 	
 	$aCategories = DBAccess::query
@@ -52,18 +53,18 @@ foreach($aModeles as $aId => $aModele)
 	);
 }
 
-$aMarque['modeles'] = $aModeles;
-$aMarque['docs'] = $aDocumentsMarque;
-$aMarque['categories'] = isset($aCategories) ? $aCategories : null;
+$marque['modeles'] = $modeles;
+$marque['docs'] = $documentsMarque;
+$marque['categories'] = isset($aCategories) ? $aCategories : null;
 
 $aText = "texte/marque/$idMarque.txt";
-if(is_file($aText) && $aDesc = implode(file($aText)))
+if(is_file($aText) && $desc = implode(file($aText)))
 {
-	//$aMarque['histo'] = utf8_encode($aDesc);
-	$aMarque['histo'] = $aDesc;
+	//$marque['histo'] = utf8_encode($desc);
+	$marque['histo'] = $desc;
 }
 
-print json_encode($aMarque, JSON_PRETTY_PRINT);
+print json_encode($marque, JSON_PRETTY_PRINT);
 
 
 ?>

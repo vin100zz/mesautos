@@ -1,33 +1,42 @@
 <div id="modele">
 
+<!--
   <div id="titlebar">
-  <!--
+  
     <div>{{version.marque.nomMarque}}</div>
     <div>{{version.modele.nomModele}}</div>
     <div>{{version.version.nom}}</div>
--->
 
-    <!--
     <a href="#/saisie/edit/version?id={{versionId}}" class="fa fa-edit"></a>
     <a href="#/saisie/add/docVersion?id={{versionId}}" class="fa fa-plus"></a>
     <a href="#/marque/{{version.marque.idMarque}}#modele-{{version.modele.idModele}}" class="fa fa-times exit"></a>
-    -->
+    
   </div>
+-->
 
-  <ul id="carousel">
-    <li ng-repeat="version in modele.versions">
-      <div class="version">
-        <div>{{version.nom}}</div>
-        <div>{{version.type | categorieType}}</div>
-        <div class="year">{{version.anneeModele}}</div>
-      </div>
-      <ul class="pictures">
-        <li ng-repeat="doc in version.docs" ng-style="backgroundImage(doc.idDocumentVersion)" class="thumbnail" ng-class="{selected: doc.idDocumentVersion == selected}" ng-click="maximize(doc.idDocumentVersion)"></li>
+  <div id="content">
+    <div class="carousel">
+      <div class="title">{{modele.modele.nomModele}}</div>
+      <ul>
+        <li ng-repeat="version in modele.versions" ng-class="{selected: version.idVersion == selectedVersion.idVersion}" ng-click="maximize(version)">
+          <div class="version">
+            <div>
+              <!--<span class="nom">{{version.nom}}</span>-->
+              <span class="year">{{version.anneeModele}}</span>
+            </div>
+            <!--<div class="categorie">{{version.type | categorieType}}</div>-->
+          </div>
+          <div class="picture" ng-style="backgroundImage(version.doc.idDocumentVersion)" class="thumbnail"></div>
+        </li>
       </ul>
-    </li>
-  </ul>
+    </div>
 
-  <div id="photo" ng-style="backgroundImage(selected)" class="thumbnail" ng-click="openInNewWindow()"></div>
+    <mesautos-annee-modele cfg="anneeModeleCfg" class="annee-modele"></mesautos-annee-modele>
+  </div>
+  
+  <div id="sidebar">
+    <mesautos-sidebar cfg="sidebarCfg"></mesautos-sidebar>
+  </div>
 
 <!--
   <div id="legend">

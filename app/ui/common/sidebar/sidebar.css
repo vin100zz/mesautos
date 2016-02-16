@@ -1,0 +1,72 @@
+#sidebar {
+  position: fixed;
+  left: 0;
+  width: 190px;
+  top: 60px;
+  bottom: 0;
+  padding: 15px 10px 0 10px;
+  border-right: 1px solid var(--title-color);
+  color: #999;
+}
+#sidebar .actions > li {
+  position: relative;
+  margin-bottom: 15px;
+  text-align: center;
+}
+#sidebar .actions div {
+  display: none;
+  position: absolute;
+  top: -3px;
+  right: -150px;
+  font-family: 'MesAutos_Body_Font';
+  color: #ddd;
+  background: #333;
+  white-space: nowrap;
+  padding: 5px 10px;
+}
+#sidebar .actions div:before {
+  content: '';
+  border-style: solid;
+  border-width: 12px 15px 12px 0;
+  border-color: transparent #333 transparent transparent;
+  position: absolute;
+  top: 0;
+  left: -15px;
+}
+#sidebar .actions:hover div {
+  display: block;
+}
+
+#sidebar .title {
+  margin-bottom: 15px;
+  text-align: center;
+}
+#sidebar .title a {
+  color: var(--subtitle-color);
+  font-family: "MesAutos_Body_Font";
+  font-size: 18pt;
+}
+#sidebar .flag {
+  height: 16px;
+  margin-right: 7px;
+}
+#sidebar .logo > div {
+  width: 120px;
+  height: 120px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  background-color: #ddd;
+}
+#sidebar .logo > div > div {
+  width: 100px;
+  height: 100px;
+}
+
+#sidebar hr {
+  border: none;
+  height: 1px;
+  margin: 15px 0;
+  padding: 0;
+  background: #333;
+}

@@ -24,12 +24,12 @@ foreach($versions as $key => $version) {
 	);
 }
 
-$aResponse = array();
-$aResponse['marque'] = $marque;
-$aResponse['modele'] = $modele;
-$aResponse['versions'] = $versions;
+$response = array();
+$response['marque'] = $marque;
+$response['modele'] = $modele;
+$response['versions'] = $versions;
 
-print json_encode($aResponse, JSON_PRETTY_PRINT);
+print json_encode($response, JSON_PRETTY_PRINT);
 
 
 ?>

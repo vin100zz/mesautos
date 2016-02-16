@@ -1,12 +1,5 @@
 <div id="home">
 
-  <ul id="sidebar">
-    <li ng-repeat="item in sidebar">
-      <a href="{{item.link}}" class="fa fa-{{item.icon}}"></a>
-      <div>{{item.tooltip}}</div>
-    </li>
-  </ul>
-
   <ul id="content">
     <li>
       <div class="thumbnail logo fa fa-star mesautosamoi" ng-click="goToMesAutosAMoi()"></div>
@@ -36,6 +29,15 @@
     <li></li>
     <li></li>
   </ul>
+
+  <div id="sidebar">
+    <ul class="actions">
+      <li ng-repeat="item in sidebar">
+        <a href="{{item.link}}" class="fa fa-{{item.icon}}"></a>
+        <div>{{item.tooltip}}</div>
+      </li>
+    </ul>
+  </div>
 
 </div>
 
