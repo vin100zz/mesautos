@@ -2,7 +2,7 @@
 
   <div id="content">
     <ul id="modeles">
-      <li ng-repeat="modele in marque.modeles | filter: filterCategorie">
+      <li ng-repeat="modele in marque.modeles | filter: filterCategorie" ng-click="goToModele(modele)">
 
         <div class="infos">
           <div class="title">
@@ -28,7 +28,7 @@
           </div>  
       	</div>
       	
-      	<div class="picture thumbnail" ng-style="backgroundImage(modele.version)" ng-click="goToModele(modele)"></div>
+      	<div class="picture thumbnail" ng-style="backgroundImage(modele.version)"></div>
         
       </li>
     </ul>

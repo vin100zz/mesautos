@@ -29,69 +29,50 @@ a {
   text-decoration: none;
 }
 
-/* Forms */
-input[type='text'],
-input[type='number'],
-select,
-textarea {
-	padding: 5px 10px;
-	width: 200px;
-	box-sizing: border-box;
-}
-input[readonly='readonly'],
-select[readonly='readonly'],
-textarea[readonly='readonly'] {
-	opacity: 0.5;
-	cursor: not-allowed;
-}
-.control-group {
-  margin-bottom: 20px;
-  display: flex;
-  align-items: center;
-}
-.control-label {
-  display: inline-block;
-  width: 400px;
-  margin-right: 10px;
-  text-align: right;
-}
-.control-label:after {
-  content: ' :';
-}
-.controls {
-  display: inline-block;
-}
-.form-actions {
-  margin-left: 410px;
+/* App */
+#app {
+  position: absolute;
+  top: 70px;
+  left: 10px;
+  right: 10px;
+  bottom: 0;
 }
 
-/* Sorter */
-.sorter > ul {
-	border: 0 solid #aaa;
-  border-width: 0 0 1px 1px;
+/* Content */
+#content {
+  position: absolute;
+  top: 0;
+  left: 195px;
+  right: 0;
+  bottom: 0;
 }
-.sorter > ul > li {
-	width: 300px;
-	padding: 5px 10px;
-	border: 0 solid #aaa;
-  border-width: 1px 1px 0 0;
-	box-sizing: border-box;
-	cursor: pointer;
+
+/* Header */
+#header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #111;
+  padding: 5px 0 10px 15px;
+  text-align: left;
+  border-bottom: 1px solid var(--title-color);
+  z-index: 20;
+  font-family: 'MesAutos_Title_Font';
+  font-size: 24pt;
+  text-transform: uppercase;
 }
-.sorter > ul > li.selected {
-  background: #ddd;
+#header a,
+#header a:hover {
+  color: var(--title-color);
+  text-decoration: none;
 }
-.sorter > ul > li .label {
-  width: 300px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  display: inline-block;
-  line-height: 14px;
+#header .maj {
+  font-size: 32pt;
 }
-.sorter .fa {
-  font-size: 14px;
-  margin-left: 10px;
+#header img {
+  height: 24px;
+  margin-left: 5px;
 }
 
 /* Buttons */
@@ -121,68 +102,6 @@ textarea[readonly='readonly'] {
 	vertical-align: middle;
 }
 
-/* Header */
-#header {
-	position: fixed;
-	top: 0;
-  left: 0;
- 	right: 0;
-  background: #111;
-	padding: 5px 0 10px 15px;
-  text-align: left;
-	border-bottom: 1px solid var(--title-color);
-	z-index: 20;
-  font-family: 'MesAutos_Title_Font';
-  font-size: 24pt;
-  text-transform: uppercase;
-}
-#header a,
-#header a:hover {
-	color: var(--title-color);
-	text-decoration: none;
-}
-#header .maj {
-  font-size: 32pt;
-}
-#header img {
-  height: 24px;
-  margin-left: 5px;
-}
-
-/* Animation */
-.cd-intro {
-  background: none;
-  height: auto;
-}
-.cd-intro .cd-intro-content {
-  background: none;
-  padding: 0;
-}
-.cd-intro .cd-intro-content .content-wrapper {
-  padding: 0;
-  margin: 0;
-  width: 280px;
-}
-
-/* App */
-#app {
-	position: absolute;
-	top: 70px;
-	left: 10px;
-	right: 10px;
-	bottom: 0;
-}
-
-/* Content */
-#content {
-  position: absolute;
-  top: 0;
-  left: 195px;
-  right: 0;
-  bottom: 0;
-}
-
-
 /* Actions */
 #actions {
 	position: fixed;
@@ -205,12 +124,12 @@ textarea[readonly='readonly'] {
 #search .input-icon {
 	opacity: 0.99;
   color: var(--title-color);
-	margin-right: -25px;
+	margin-right: -30px;
 	font-size: 16px;
 }
 #search input {
 	width: 250px;
-	padding-left: 30px;
+	padding: 7px 7px 7px 40px;
   background: #111;
   border: 1px solid #333;
   color: #ddd;

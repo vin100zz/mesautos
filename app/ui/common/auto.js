@@ -10,4 +10,4 @@ factory('Auto', function ($resource) {
       isArray: true
     }
   });
-})
+});

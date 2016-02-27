@@ -5,13 +5,9 @@ include_once "db.php";
 $idMarque = $_REQUEST["id"];
 
 // SQL
-$marque = DBAccess::querySingle
+$marque = DBAccess::singleRow
 (
 	"SELECT * FROM marque WHERE idMarque='$idMarque'"
-);
-$marques = DBAccess::query
-(
-	"SELECT * FROM marque ORDER BY nomMarque"
 );
 $modeles = DBAccess::query
 (
@@ -37,14 +33,14 @@ foreach($modeles as $id => $modele)
 	
 	foreach($modeles[$id]['versions'] as $id => &$version)
 	{
-		$doc = DBAccess::querySingle("SELECT * FROM documentVersion WHERE idVersion='" . $version['idVersion'] . "' AND (motCle='EMB' OR motCle='SUP')");
+		$doc = DBAccess::singleRow("SELECT * FROM documentVersion WHERE idVersion='" . $version['idVersion'] . "' AND (motCle='EMB' OR motCle='SUP')");
 		
 		if(isset($doc['idDocumentVersion'])) {
 			$version['img'] = getImage("img/version/" . $doc['idDocumentVersion']);
 		}
 	}
 	
-	$aCategories = DBAccess::query
+	$categories = DBAccess::query
 	(
 		"SELECT DISTINCT categorie
 		FROM modele
@@ -55,7 +51,7 @@ foreach($modeles as $id => $modele)
 
 $marque['modeles'] = $modeles;
 $marque['docs'] = $documentsMarque;
-$marque['categories'] = isset($aCategories) ? $aCategories : null;
+$marque['categories'] = isset($categories) ? $categories : null;
 
 $aText = "texte/marque/$idMarque.txt";
 if(is_file($aText) && $desc = implode(file($aText)))

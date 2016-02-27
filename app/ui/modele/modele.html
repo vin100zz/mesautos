@@ -16,34 +16,40 @@
 
   <div id="content">
     <div class="carousel">
-      <div class="title">{{modele.modele.nomModele}}</div>
+      <div class="title">{{modele.nomModele}}</div>
       <ul>
-        <li ng-repeat="version in modele.versions" ng-class="{selected: version.idVersion == selectedVersion.idVersion}" ng-click="maximize(version)">
-          <div class="version">
-            <div>
-              <!--<span class="nom">{{version.nom}}</span>-->
-              <span class="year">{{version.anneeModele}}</span>
-            </div>
-            <!--<div class="categorie">{{version.type | categorieType}}</div>-->
+        <li ng-repeat="anneeModele in anneeModeles" class="link">
+          <img ng-src="{{getImageForAnneeModele(anneeModele)}}">
+
+          <div class="annee-modele">
+            <div class="year">{{anneeModele.annee}}</div>
+            <ul class="gammes">
+              <li ng-repeat="gamme in anneeModele.gammes" ng-class="{selected: gamme.idGamme == selectedGamme.idGamme}" ng-click="select(gamme)">
+                <span class="nom-gamme" ng-if="gamme.nom">{{gamme.nom}}</span>
+                <span class="type-gamme" ng-class="{mini: !!gamme.nom}" ng-if="gamme.type">{{gamme.type | categorieType}}</span>
+                <div class="nom-gamme" ng-if="!gamme.nom && !gamme.type">...</div>
+              </li>
+            </ul>
           </div>
-          <div class="picture" ng-style="backgroundImage(version.doc.idDocumentVersion)" class="thumbnail"></div>
+
         </li>
       </ul>
     </div>
 
-    <mesautos-annee-modele cfg="anneeModeleCfg" class="annee-modele"></mesautos-annee-modele>
+    <mesautos-gamme cfg="gammeCfg" class="gamme-photos"></mesautos-gamme>
   </div>
   
   <div id="sidebar">
     <mesautos-sidebar cfg="sidebarCfg"></mesautos-sidebar>
+
+    <hr/>
+
+    <ul class="actions">
+      <li ng-repeat="item in sidebar">
+        <a href="{{item.link}}" class="fa fa-{{item.icon}}"></a>
+        <div>{{item.tooltip}}</div>
+      </li>
+    </ul>
   </div>
 
-<!--
-  <div id="legend">
-    <div>{{getLegend()}}</div>
-
-    <a href="#/saisie/edit/docVersion?id={{version.docs[selected].idDocumentVersion}}" class="fa fa-edit"></a>
-    
-  </div>
- -->
 </div>

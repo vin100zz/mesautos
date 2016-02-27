@@ -3,52 +3,61 @@ app.controller('ModeleCtrl', function ($scope, $route, $routeParams, Auto) {
   Auto.get({
     service: 'modele',
     id: $routeParams.modeleId
-  }, function (modele) {
-    $scope.$parent.$root.pageTitle = " - " + modele.marque.nomMarque + " - " + modele.modele.nomModele;
+  }, function (res) {
+    $scope.marque = res.marque;
+    $scope.modele = res.modele;
+    $scope.anneeModeles = res.anneeModeles;
 
-    $scope.selectedVersion = modele.versions.find(function (version) {
-      return version.idVersion === $routeParams.versionId;
-    }) || modele.versions[0];
+    $scope.$parent.$root.pageTitle = " - " + $scope.marque.nomMarque + " - " + $scope.modele.nomModele;
 
-    $scope.anneeModeleCfg = {
-      version: $scope.selectedVersion
+    /*$scope.sidebar = [{
+      link: '#/saisie/edit/version?id=' + marque.idMarque,
+      icon: 'edit',
+      tooltip: 'Éditer ' + marque.nomMarque
+    }, {
+      link: '#/saisie/add/docVersion?id=' + marque.idMarque,
+      icon: 'plus',
+      tooltip: 'Ajouter un modèle ' + marque.nomMarque
+    }];*/
+
+    $scope.selectedGamme = null;
+    $scope.anneeModeles.forEach(function (anneeModele) {
+      anneeModele.gammes.forEach(function (gamme) {
+        if (gamme.idGamme === $routeParams.idGamme) {
+          $scope.selectedGamme = gamme;
+        }
+      });
+    });
+    if (!$scope.selectedGamme && $scope.anneeModeles.length && $scope.anneeModeles[0].gammes.length) {
+      $scope.selectedGamme = $scope.anneeModeles[0].gammes[0];
+    }
+
+    $scope.gammeCfg = {
+      gamme: $scope.selectedGamme
     };
 
-    $scope.modele = modele;
-    $scope.modele.versions = $scope.modele.versions.map(function (version) {
-      version.doc = version.docs[0];
-      return version;
-    });
-
     $scope.sidebarCfg = {
-      marque: modele.marque
+      marque: $scope.marque
     };
   });
 
-
-  $scope.getLegend = function () {
-    var doc = $scope.version.docs[$scope.selectedVersion.idVersion];
-    var legend = [];
-    if (doc.source != '') legend.push(doc.source);
-    if (doc.date != '') legend.push(doc.date);
-    if (doc.legende != '') legend.push(doc.legende);
-    return legend.join(' - ');
+  $scope.getImageForAnneeModele = function (anneeModele) {
+    var idDocumentGamme = anneeModele.gammes[0].docs[0].idDocumentGamme;
+    return 'img/version/' + idDocumentGamme + '.jpg';
   };
 
-  function getImage(idDocumentVersion) {
-    return 'img/version/' + idDocumentVersion + '.jpg';
-  };
-
-  $scope.maximize = function (version) {
-    $scope.selectedVersion = version;
-    $scope.anneeModeleCfg.version = version;
-    window.location = '#modele/' + $scope.modele.modele.idModele + '/' + version.idVersion;
+  $scope.select = function (gamme) {
+    $scope.selectedGamme = gamme;
+    $scope.gammeCfg.gamme = gamme;
+    window.location = '#modele/' + $scope.modele.idModele + '/' + gamme.idGamme;
   };
 
   // do not reload on hash change
   var lastRoute = $route.current;
   $scope.$on('$locationChangeSuccess', function (event) {
-    $route.current = lastRoute;
+    if ($route.current.$$route.controller === 'ModeleCtrl') {
+      $route.current = lastRoute;
+    }
   });
 
 });

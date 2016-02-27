@@ -8,11 +8,11 @@ app.controller('MarqueCtrl', function ($scope, $routeParams, $location, $anchorS
       $scope.$parent.$root.pageTitle = " - " + marque.nomMarque;
 
       $scope.sidebar = [{
-        link: '#/saisie/add/modele?id=marque.idMarque',
+        link: '#/saisie/edit/marque?id=' + marque.idMarque,
         icon: 'edit',
         tooltip: 'Éditer ' + marque.nomMarque
       }, {
-        link: '#/saisie/edit/marque?id=marque.idMarque',
+        link: '#/saisie/add/modele?id=' + marque.idMarque,
         icon: 'plus',
         tooltip: 'Ajouter un modèle ' + marque.nomMarque
       }];
@@ -68,6 +68,9 @@ app.controller('MarqueCtrl', function ($scope, $routeParams, $location, $anchorS
 
   /* Pictures */
   $scope.backgroundImage = function (version) {
+    if (!version) {
+      return null;
+    }
     return {
       'background-image': 'url(' + version.img + ')'
     };

@@ -3,13 +3,13 @@
   top: 0;
   left: 0;
   bottom: 0;
-	width: 200px;
+	width: 190px;
   padding-top: 10px;
   padding-right: 10px;
 	text-align: center;
 	max-height: 100%;
   overflow-x: hidden;
-	overflow-y: auto;
+	overflow-y: scroll;
   color: #ddd;
 }
 #modele .carousel .title {
@@ -18,42 +18,52 @@
   font-size: 14pt;
   margin-bottom: 15px;
 }
-#modele .carousel li {
-  padding: 10px;
-  margin-bottom: 15px;
+#modele .carousel .link {
+  width: 165px;
+  margin-bottom: 35px;
+  border-right: 5px solid #111;
+}
+#modele .carousel .link img {
+  display: block;
+  width: 160px;
+}
+
+#modele .carousel .link .annee-modele {
+  margin-top: 2px;
+  padding: 5px;
   background: #ddd;
-  cursor: pointer;
+  color: #333;
 }
-#modele .carousel li.selected {
-  background: #efc18f;
-}
-#modele .carousel .version {
+#modele .carousel .link .year {
   padding: 5px;
   background: #d2d2d2;
   color: var(--subtitle-color);
 }
-/*#modele .carousel .version .nom {
-  font-size: 12pt;
-}*/
-#modele .carousel .version .year {
-  margin-left: 3px;
-  color: #666;
+#modele .carousel .link .gammes > li {
+  padding: 5px;
+  cursor: pointer;
 }
-/*#modele .carousel .version .categorie {
-  display: inline-block;
-  color: #eee;
-  padding: 0 7px;
-  margin-top: 4px;
-  border-radius: 5px;
-  background: green;
-  font-size: 9pt;
-  line-height: 16px;
-}*/
+#modele .carousel .link .gammes > li.selected {
+  color: var(--title-color);
+}
+#modele .carousel .link .gammes > li:hover {
+  text-decoration: underline;
+}
+#modele .carousel .link .gammes > li .type-gamme.mini {
+  font-size: 8pt;
+  margin-left: 2px;
+}
+#modele .carousel .link .gammes > li .type-gamme.mini:before {
+  content: '[';
+}
+#modele .carousel .link .gammes > li .type-gamme.mini:after {
+  content: ']';
+}
 
-#modele .annee-modele {
+#modele .gamme-photos {
   position: absolute;
   top: 0;
-  left: 210px;
+  left: 200px;
   bottom: 0;
   right: 0
 }

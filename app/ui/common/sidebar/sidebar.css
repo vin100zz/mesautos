@@ -10,14 +10,15 @@
 }
 #sidebar .actions > li {
   position: relative;
-  margin-bottom: 15px;
+  width: 24px;
+  margin: 0 auto 15px auto;
   text-align: center;
 }
 #sidebar .actions div {
   display: none;
   position: absolute;
   top: -3px;
-  right: -150px;
+  left: 50px;
   font-family: 'MesAutos_Body_Font';
   color: #ddd;
   background: #333;
@@ -33,7 +34,7 @@
   top: 0;
   left: -15px;
 }
-#sidebar .actions:hover div {
+#sidebar .actions li:hover div {
   display: block;
 }
 

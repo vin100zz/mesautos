@@ -1,4 +1,4 @@
-var app = angular.module('mesautos', ['ngResource', 'ngRoute', 'ngSanitize', 'autoFilters', 'autoServices', 'autoDirectives']);
+var app = angular.module('mesautos', ['ngResource', 'ngRoute', 'ngSanitize', 'autoFilters', 'autoServices', 'autoDirectives', 'akoenig.deckgrid']);
 
 /* Routing */
 app.config(['$routeProvider', function ($routeProvider) {
@@ -19,7 +19,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 		templateUrl: 'app/ui/modele/modele.html',
 		controller: 'ModeleCtrl'
 	}).
-	when('/modele/:modeleId/:versionId', {
+	when('/modele/:modeleId/:idGamme', {
 		templateUrl: 'app/ui/modele/modele.html',
 		controller: 'ModeleCtrl'
 	}).

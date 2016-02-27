@@ -1,0 +1,73 @@
+#saisie {
+  width: 800px;
+  margin: 30px auto 0 auto;
+  padding: 15px;
+  background: #ddd;
+}
+
+#saisie input[type='text'],
+#saisie input[type='number'],
+#saisie select,
+#saisie textarea {
+  padding: 5px 10px;
+  width: 200px;
+  box-sizing: border-box;
+}
+#saisie input[readonly='readonly'],
+#saisie select[readonly='readonly'],
+#saisie textarea[readonly='readonly'] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+#saisie .control-group {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+#saisie .control-label {
+  display: inline-block;
+  width: 200px;
+  margin-right: 10px;
+  text-align: right;
+}
+#saisie .control-label:after {
+  content: ' :';
+}
+#saisie .controls {
+  display: inline-block;
+}
+#saisie .form-actions {
+  margin-top: 20px;
+  text-align: center;
+}
+
+
+/* Sorter */
+#saisie .sorter > ul {
+  border: 0 solid #aaa;
+  border-width: 0 0 1px 1px;
+}
+#saisie .sorter > ul > li {
+  width: 300px;
+  padding: 5px 10px;
+  border: 0 solid #aaa;
+  border-width: 1px 1px 0 0;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+#saisie .sorter > ul > li.selected {
+  color: var(--subtitle-color);
+}
+#saisie .sorter > ul > li .label {
+  width: 300px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: inline-block;
+  line-height: 14px;
+}
+#saisie .sorter .fa {
+  font-size: 14px;
+  margin-left: 10px;
+  cursor: pointer;
+}

@@ -1,0 +1,885 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"idD",
+				"idDocumentGamme"
+			],
+			[
+				"margin",
+				"margin-bottom"
+			],
+			[
+				"p",
+				"position"
+			],
+			[
+				"border",
+				"border-bottom"
+			],
+			[
+				"insert",
+				"insert-before"
+			],
+			[
+				"annee",
+				"anneeModele"
+			],
+			[
+				"pa",
+				"padding"
+			],
+			[
+				"max-",
+				"max-height"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"vers",
+				"versions"
+			],
+			[
+				"text",
+				"text-align"
+			],
+			[
+				"padding",
+				"padding-right"
+			],
+			[
+				"paddin",
+				"padding-bottom"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"border-r",
+				"border-radius"
+			],
+			[
+				"font",
+				"font-family"
+			],
+			[
+				"border-co",
+				"border-collapse"
+			],
+			[
+				"st",
+				"style	Tag"
+			],
+			[
+				"inlin",
+				"inline-block"
+			],
+			[
+				"F",
+				"F8512F"
+			],
+			[
+				"tex",
+				"text-align"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "app/server/_mig.php",
+			"settings":
+			{
+				"buffer_size": 2389,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/server/modele.php",
+			"settings":
+			{
+				"buffer_size": 1038,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/ui/modele/modele.html",
+			"settings":
+			{
+				"buffer_size": 1627,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/ui/modele/modele.css",
+			"settings":
+			{
+				"buffer_size": 1360,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/ui/modele/modele.js",
+			"settings":
+			{
+				"buffer_size": 1879,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 2543,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/ui/modele/gamme/gamme.css",
+			"settings":
+			{
+				"buffer_size": 539,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 219.0,
+		"last_filter": "indent",
+		"selected_items":
+		[
+			[
+				"indent",
+				"JSON Reindent: reindent file or selection"
+			],
+			[
+				"REMOVE",
+				"Package Control: Remove Package"
+			],
+			[
+				"packa",
+				"Preferences: Browse Packages"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"lint",
+				"SublimeLinter: Show All Errors"
+			],
+			[
+				"ja",
+				"Format: Javascript"
+			],
+			[
+				"forma",
+				"Format: Javascript"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"json",
+				"JSON Reindent: reindent file or selection"
+			]
+		],
+		"width": 416.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/www/babouch/mesautos",
+		"/D/www/babouch/mesautos/app",
+		"/D/www/babouch/mesautos/app/server",
+		"/D/www/babouch/mesautos/app/ui",
+		"/D/www/babouch/mesautos/app/ui/common",
+		"/D/www/babouch/mesautos/app/ui/common/sidebar",
+		"/D/www/babouch/mesautos/app/ui/home",
+		"/D/www/babouch/mesautos/app/ui/marque",
+		"/D/www/babouch/mesautos/app/ui/modele",
+		"/D/www/babouch/mesautos/app/ui/modele/gamme",
+		"/D/www/babouch/mesautos/app/ui/saisie",
+		"/D/www/babouch/mesautos/img",
+		"/D/www/babouch/mesautos/style"
+	],
+	"file_history":
+	[
+		"/C/Users/V/Desktop/dnd2.html",
+		"/C/Users/V/Desktop/dnd.html",
+		"/D/www/babouch/mesautos/app/ui/app.js",
+		"/D/www/babouch/mesautos/app/ui/modele/gamme/gamme.js",
+		"/D/www/babouch/mesautos/app/ui/modele/modele.css",
+		"/D/www/babouch/mesautos/app/ui/modele/gamme/gamme.css",
+		"/D/www/babouch/mesautos/app/ui/modele/gamme/gamme.html",
+		"/D/www/babouch/mesautos/app/server/marque.php",
+		"/D/www/babouch/mesautos/app/ui/modele/modele.js",
+		"/D/www/babouch/mesautos/app/ui/modele/modele.html",
+		"/D/www/babouch/mesautos/app/server/modele.php",
+		"/D/www/babouch/mesautos/app/server/db.php",
+		"/D/www/lvdlom/services/utils/db.php",
+		"/D/www/lvdlom/services/saisie.php",
+		"/D/www/babouch/mesautos/app/ui/modele/annee-modele/annee-modele.js",
+		"/D/www/babouch/mesautos/app/ui/modele/annee-modele/annee-modele.html",
+		"/D/www/fm/app.js",
+		"/D/www/babouch/mesautos/app/ui/home/home.css",
+		"/C/Users/V/AppData/Roaming/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
+		"/C/Users/V/AppData/Roaming/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
+		"/D/www/babouch/mesautos/app/ui/common/auto.js",
+		"/D/www/babouch/mesautos/app/server/autos.php",
+		"/D/www/babouch/mesautos/app/ui/marque/marque.js",
+		"/D/www/babouch/mesautos/app/ui/marque/marque.html",
+		"/D/www/babouch/mesautos/app/ui/common/sidebar/sidebar.css",
+		"/D/www/babouch/mesautos/style/app.css",
+		"/D/www/babouch/mesautos/app/ui/saisie/saisie.css",
+		"/D/www/babouch/mesautos/app/ui/saisie/saisie.html",
+		"/D/www/babouch/mesautos/app/ui/home/home.js",
+		"/D/www/babouch/mesautos/app/ui/home/home.html",
+		"/D/www/babouch/mesautos/index.html",
+		"/D/www/babouch/mesautos/app/ui/modele/annee-modele/card.html",
+		"/D/www/babouch/mesautos/app/ui/modele/annee-modele/annee-modele.css",
+		"/D/www/lvdlom/app/directives/charts.js",
+		"/D/www/lvdlom/app/directives/liste-age.js",
+		"/D/www/babouch/mesautos/app/ui/common/sidebar/sidebar.js",
+		"/D/www/babouch/mesautos/app/ui/common/sidebar/sidebar.html",
+		"/D/www/lvdlom/app/directives/maillot.js",
+		"/D/www/lvdlom/app/directives/breadcrumb.js",
+		"/D/www/babouch/mesautos/app/ui/modele/version.js",
+		"/D/www/babouch/mesautos/app/ui/common/categorie.js",
+		"/D/www/babouch/mesautos/app/ui/version/version.css",
+		"/D/www/babouch/mesautos/app/ui/version/version.js",
+		"/D/www/babouch/mesautos/app/ui/version/version.html",
+		"/D/www/lvdlom/app/modules/anniversaire.js",
+		"/D/www/lvdlom/app/main.js",
+		"/D/www/babouch/mesautos/app/ui/saisie/saisie.js",
+		"/D/www/lvdlom/app/modules/age.js",
+		"/D/www/babouch/mesautos/app/ui/marque/marque-sidebar.html",
+		"/D/www/babouch/mesautos/app/ui/marque/marque-sidebar.js",
+		"/D/www/lvdlom/app/directives/table.html",
+		"/D/www/lvdlom/app/utils/widget.js",
+		"/D/www/babouch/mesautos/app/ui/marque/marque-sidebar.css",
+		"/D/www/lvdlom/app/directives/documents.js",
+		"/D/www/lvdlom/index.html",
+		"/D/www/babouch/mesautos/lib/angular/angular.js",
+		"/D/www/lvdlom/lib/angular/angular.js",
+		"/D/www/lvdlom/app/directives/breadcrumb.html",
+		"/D/www/lvdlom/app/modules/dirigeant.html",
+		"/D/www/lvdlom/app/modules/joueur.html",
+		"/D/www/babouch/mesautos/app/ui/sidebar/sidebar.html",
+		"/D/www/babouch/mesautos/app/ui/sidebar/sidebar.js",
+		"/D/www/lvdlom/app/modules/dirigeant.js",
+		"/D/www/babouch/mesautos/app/ui/marque/marque.css",
+		"/D/www/lvdlom/app/utils/dictionary.js",
+		"/D/www/lvdlom/app/utils/diacritics.js",
+		"/C/Users/V/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/D/www/babouch/mesautos/.gitignore",
+		"/D/www/babouch/mesautos/.gitattributes",
+		"/C/Users/V/AppData/Roaming/Sublime Text 3/Packages/User/JsFormat.sublime-settings",
+		"/C/Users/V/AppData/Roaming/Sublime Text 3/Packages/JsFormat/JsFormat.sublime-settings",
+		"/D/www/babouch/mesautos/app/app.js",
+		"/D/www/babouch/mesautos/js/directives.js",
+		"/D/www/babouch/mesautos/js/filters.js",
+		"/D/www/babouch/mesautos/js/services.js",
+		"/D/www/babouch/mesautos/js/controllers.js",
+		"/D/www/babouch/mesautos/app/ui/directives.js",
+		"/D/www/playground/google.html",
+		"/D/www/babouch/mesautos/js/app.js",
+		"/D/www/babouch/mesautos/style/framework.css",
+		"/D/www/babouch/mesautos/app/ui/autos/autos.css",
+		"/D/www/babouch/mesautos/app/ui/autos/autos.html",
+		"/D/www/babouch/mesautos/partials/autos.html",
+		"/D/www/babouch/mesautos/modules/autos/autos.js",
+		"/D/www/babouch/mesautos/css/framework.css",
+		"/D/www/babouch/chefs/delete.php",
+		"/D/www/babouch/chefs/data.php",
+		"/D/www/babouch/chefs/logs.txt",
+		"/D/www/babouch/chefs/new_edit.php",
+		"/D/www/babouch/chefs/script/chefs.js",
+		"/D/www/babouch/chefs/index.php",
+		"/D/www/fm/style/style.css",
+		"/D/www/babouch/ngauto/partials/version.html",
+		"/D/www/babouch/ngauto/css/app.css",
+		"/D/www/babouch/ngauto/css/framework.css",
+		"/D/www/babouch/ngauto/js/controllers.js",
+		"/D/www/babouch/ngauto/partials/marque.html",
+		"/D/www/babouch/ngauto/partials/autos.html",
+		"/D/www/babouch/ngauto/index.html",
+		"/D/www/fm/index.html",
+		"/C/Users/V/Documents/Sports Interactive/Football Manager 2016/games/config.xml",
+		"/C/Users/V/Desktop/toto.html",
+		"/D/www/babouch/chefs/html.php",
+		"/D/www/bnp/bnp.csv",
+		"/D/www/bnp/script.js",
+		"/D/www/bnp/index.html",
+		"/C/Users/V/AppData/Local/Google/Chrome/User Data/Default/Bookmarks.bak",
+		"/C/Users/V/AppData/Local/Google/Chrome/User Data/Default/Bookmarks",
+		"/C/Program Files (x86)/Steam/steamapps/common/Football Manager 2016/data/db/1601/lnc/City, Club and Stadium Names.lnc",
+		"/D/www/fm/style.css",
+		"/D/www/lvdlom/style/style.less",
+		"/D/www/lvdlom/style/main.less",
+		"/D/www/fm/lib/bower_components/angular-dragdrop/src/angular-dragdrop.js",
+		"/D/www/babouch/tdfng/index.html",
+		"/D/www/babouch/tdfng/js/app.js",
+		"/D/www/babouch/tdfng/partials/score.html",
+		"/D/www/fm/script.js",
+		"/D/www/laviedelom/index.php",
+		"/D/www/babouch/index.html",
+		"/D/www/babouch/2016/alsace/css/pages.css",
+		"/D/www/babouch/2016/alsace/css/app.css",
+		"/D/www/babouch/2016/alsace/index.html",
+		"/D/www/babouch/2016/alsace/partials/home.html",
+		"/D/www/babouch/2016/alsace/pages/pages.json",
+		"/D/www/babouch/2016/alsace/pages/content/9_24/index.html",
+		"/D/www/babouch/2016/alsace/pages/content/8_mans/index.html",
+		"/D/www/babouch/2016/alsace/pages/content/7a_croisic/index.html",
+		"/D/www/babouch/2016/alsace/pages/content/7_goix/index.html"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 90.0,
+		"where_history":
+		[
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"docs",
+			" ",
+			"\\n",
+			"anneeM",
+			"annee-modele",
+			"annee",
+			"{\n",
+			"last",
+			"version",
+			"modele.",
+			"version",
+			"getLegend",
+			"modele.modele",
+			"marque",
+			"modele.marque",
+			"replace",
+			"MD",
+			"selected",
+			"form",
+			"saisie",
+			"search",
+			"backgroundImage",
+			"content",
+			"#photo",
+			"#carousel",
+			"-->\n",
+			"MainCtrl",
+			"ngResource",
+			"auto",
+			"$aR",
+			".squaredThree",
+			"ngLocale",
+			"queryCategorie",
+			"jelai",
+			"nom-modele",
+			"infos-modele",
+			"#modeles",
+			"versions",
+			"$aD",
+			"$aV",
+			"$aI",
+			"$aM",
+			".content",
+			"content",
+			"getImage",
+			"gif",
+			"backgroundImage",
+			"emblema",
+			"#F8512F",
+			"--s",
+			"tool",
+			"#marque ",
+			"#home #content",
+			"sorter",
+			"#marques",
+			"#autos",
+			"#autos ",
+			"	",
+			"#marques",
+			"content",
+			"partials",
+			"#sidebar .title",
+			"#F8512F",
+			"F8512F",
+			"MesAutos_Title_Font",
+			"clearNewEditForm",
+			"new",
+			"Tanganyika",
+			"-color: none",
+			"logo",
+			"thumbnail",
+			"thumnail",
+			"MesAutos_Title_Font",
+			"breadcrumb",
+			"tooltip",
+			"content",
+			"showResults",
+			"quick_filtre",
+			"Bayern",
+			" ",
+			"\\n",
+			"460",
+			"</mark>",
+			"<mark>",
+			"Angers",
+			"</mark>",
+			"<mark>",
+			"mark",
+			"476",
+			"fond",
+			"orange",
+			"background.",
+			"background",
+			"Eboracum",
+			"784",
+			"804",
+			"784",
+			"804",
+			"784",
+			"Morientes",
+			"MORIENTES",
+			"AYEW",
+			"joueurs.json",
+			".fa",
+			"MesAutos_Title_Font",
+			"#version",
+			"header",
+			"version",
+			"anchor-hack",
+			"333",
+			"actions",
+			"header",
+			"titre",
+			"content",
+			"MesAutos_Body_Font",
+			"thuùbn",
+			"MesAutos_Body_Font",
+			"MesAutos_Title_Font",
+			"131313",
+			"#eee",
+			"006666",
+			"#066",
+			"#ccc",
+			"titre",
+			"#333",
+			"click",
+			"emblema",
+			"body"
+		],
+		"highlight": false,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"",
+			"gamme",
+			"$scope.modele",
+			"$scope.marque",
+			".photo",
+			".carousel",
+			"$r",
+			"#marque #sidebar .filters > li",
+			"#marque #sidebar .filters input",
+			"title",
+			"nom",
+			"infos",
+			"#marque #content #modeles",
+			"$d",
+			"$v",
+			"$i",
+			"$m",
+			".picture",
+			"var(--subtitle-color)",
+			"#marque #content ",
+			"#home",
+			"#marque",
+			"#home",
+			"#autos #content ",
+			"#autos #content",
+			"  ",
+			"#autos",
+			"var(--title-color)",
+			"",
+			"Chinyen",
+			"#modele",
+			"111",
+			"#ddd",
+			"F8512F",
+			"#F8512F",
+			"#ddd",
+			"#eee",
+			"#131313",
+			"#01131F"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 6,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "app/server/_mig.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2389,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2274,
+								2274
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 630.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/server/modele.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1038,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								818,
+								818
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/ui/modele/modele.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1627,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								670,
+								692
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "app/ui/modele/modele.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1360,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								433,
+								433
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 45.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/ui/modele/modele.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1879,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1338,
+								1338
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 180.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2543,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1469,
+								1469
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/ui/modele/gamme/gamme.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 539,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								319,
+								319
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 23.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "mesautos.sublime-project",
+	"replace":
+	{
+		"height": 62.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"db",
+				"app\\server\\db.php"
+			],
+			[
+				"marque",
+				"app\\ui\\marque\\marque.js"
+			],
+			[
+				"appcss",
+				"style\\app.css"
+			],
+			[
+				"app",
+				"app\\ui\\app.js"
+			],
+			[
+				"css",
+				"css\\framework.css"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 230.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

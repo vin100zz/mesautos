@@ -1,0 +1,46 @@
+#gamme .deckgrid {
+  width: 1400px;
+  margin: auto;
+}
+
+#gamme .deckgrid[deckgrid]::before {
+  content: '5 .column.column-1-5';
+  font-size: 0;
+  visibility: hidden;
+}
+#gamme .deckgrid .column {
+  float: left;
+}
+#gamme .deckgrid .column-1-5 {
+  width: 20%;
+}
+
+#gamme .deckgrid .card {
+  display: block;
+  margin: 30px 15px;
+}
+#gamme .deckgrid .card img {
+  display: block;
+  max-width: 100%;
+}
+#gamme .deckgrid .card > div {
+  margin-top: 2px;
+  padding: 5px;
+  background: #ddd;
+  color: #333;
+  text-align: center;
+  line-height: 15px;
+}
+#gamme .deckgrid .card .source-date {
+  margin-bottom: 2px;
+}
+#gamme .deckgrid .card .source-date > span {
+  font-size: 9pt;
+  margin: 0 2px;
+}
+#gamme .deckgrid .card .source-date .source {
+  color: var(--subtitle-color);
+}
+#gamme .deckgrid .card .source-date .date {
+  color: #999;
+}
