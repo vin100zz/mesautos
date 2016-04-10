@@ -1,8 +1,12 @@
 <div id="marque">
 
   <div id="content">
-    <ul id="modeles">
+
+    <ul id="modeles" class="view" ng-show="selectedView == 'modeles'">
       <li ng-repeat="modele in marque.modeles | filter: filterCategorie" ng-click="goToModele(modele)">
+
+        <!-- hack to have a margin on top of the modele when scrolling to it -->
+        <div id="modele-{{modele.idModele}}" class="anchor-hack"></div>
 
         <div class="infos">
           <div class="title">
@@ -28,10 +32,23 @@
           </div>  
       	</div>
       	
-      	<div class="picture thumbnail" ng-style="backgroundImage(modele.version)"></div>
+      	<div class="picture thumbnail" ng-style="backgroundImage(modele.firstAnneeModele)"></div>
         
       </li>
     </ul>
+
+    <div id="timeline" class="view" ng-show="selectedView == 'timeline'">
+    </div>
+
+    <div id="histo" class="view" ng-show="selectedView == 'histoire'">
+      <div ng-bind-html-unsafe="histo" ng-show="histo != null"></div>
+      <div ng-repeat="doc in marque.docs">
+        <p ng-show="doc.legende != ''">{{doc.legende}}</p>
+        <a ng-href="img/marque/{{doc.idDocumentMarque}}.jpg" target="_blank"><img ng-src="img/marque/{{doc.idDocumentMarque}}.jpg"/></a>
+        <div class="legend">{{doc.source}}<span ng-show="doc.source != ''"> - </span>{{doc.date}}</div>
+      </div>
+    </div>
+
   </div>
 
 
@@ -41,21 +58,39 @@
 
     <hr/>
 
-    <ul class="filters">
-      <li ng-repeat="categorie in categories">
-        <div ng-click="toggleFilter(categorie)">
-          <span ng-show="categorie.filter">&#x2714;</span>
-        </div>
-        <div ng-click="selectFilter(categorie.code)">{{categorie.label}}</div>
+    <ul class="views">
+      <li ng-class="{selected: selectedView == 'modeles'}">
+        <div ng-click="showView('modeles')" class="tooltiped fa fa-list-ul"></div>
+        <div class="tooltip"><pre>Modèles</pre></div>
+      </li>
+      <li ng-class="{selected: selectedView == 'timeline'}">
+        <div ng-click="showView('timeline')" class="tooltiped fa fa-clock-o"></div>
+        <div class="tooltip"><pre>Timeline</pre></div>
+      </li>
+      <li ng-class="{selected: selectedView == 'histoire'}">
+        <div ng-click="showView('histoire')" class="tooltiped fa fa-quote-left"></div>
+        <div class="tooltip"><pre>Historique</pre></div>
       </li>
     </ul>
+
+    <div class="filters" ng-show="selectedView == 'modeles'">
+      <hr/>
+      <ul>
+        <li ng-repeat="categorie in categories">
+          <div ng-click="toggleFilter(categorie)">
+            <span ng-show="categorie.filter">&#x2714;</span>
+          </div>
+          <div ng-click="selectFilter(categorie.code)">{{categorie.label}}</div>
+        </li>
+      </ul>
+    </div>
 
     <hr/>
 
     <ul class="actions">
       <li ng-repeat="item in sidebar">
-        <a href="{{item.link}}" class="fa fa-{{item.icon}}"></a>
-        <div>{{item.tooltip}}</div>
+        <a href="{{item.link}}" class="tooltiped fa fa-{{item.icon}}"></a>
+        <div class="tooltip"><pre>{{item.tooltip}}</pre></div>
       </li>
     </ul>
   

@@ -1,0 +1,25 @@
+#salon .deckgrid {
+  width: 1400px;
+  margin: auto;
+}
+
+#salon .deckgrid[deckgrid]::before {
+  content: '5 .column.column-1-5';
+  font-size: 0;
+  visibility: hidden;
+}
+#salon .deckgrid .column {
+  float: left;
+}
+#salon .deckgrid .column-1-5 {
+  width: 20%;
+}
+
+#salon .deckgrid .card {
+  display: block;
+  margin: 30px 15px;
+}
+#salon .deckgrid .card img {
+  display: block;
+  max-width: 100%;
+}

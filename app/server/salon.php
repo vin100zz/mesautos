@@ -1,18 +1,12 @@
 <?php
 
-include_once "db.php";
+$annee = $_REQUEST["annee"];
 
-// SQL
-$marques = DBAccess::query
-(
-	"SELECT * FROM marque
-	 WHERE idMarque <> 1129"
-);
+$relPath = "../..";
 
-// salons
-$path = "../../img/salon";
+$path = "img/salon/" . $annee;
 
-$files = scandir($path);
+$files = scandir($relPath . "/" . $path);
 
 function remove_array_item($array, $item) {
   $index = array_search($item, $array);
@@ -26,12 +20,13 @@ $files = remove_array_item($files, '.');
 $files = remove_array_item($files, '..');
 $files = remove_array_item($files, 'mini');
 
-$res = array(
-  "marques" => $marques,
-  "salons" => $files
+$salon = array(
+  "annee" => $annee,
+  "path" => $path,
+  "photos" => $files
 );
 
-print json_encode($res, JSON_PRETTY_PRINT);
+print json_encode($salon, JSON_PRETTY_PRINT);
 
 ?>
 

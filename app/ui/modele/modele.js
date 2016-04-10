@@ -10,15 +10,15 @@ app.controller('ModeleCtrl', function ($scope, $route, $routeParams, Auto) {
 
     $scope.$parent.$root.pageTitle = " - " + $scope.marque.nomMarque + " - " + $scope.modele.nomModele;
 
-    /*$scope.sidebar = [{
-      link: '#/saisie/edit/version?id=' + marque.idMarque,
+    $scope.sidebar = [{
+      link: '#/saisie/edit/modele?id=' + $scope.modele.idModele,
       icon: 'edit',
-      tooltip: 'Éditer ' + marque.nomMarque
+      tooltip: 'Éditer\n' + $scope.modele.nomModele
     }, {
-      link: '#/saisie/add/docVersion?id=' + marque.idMarque,
+      link: '#/saisie/add/gamme?id=' + $scope.modele.idModele,
       icon: 'plus',
-      tooltip: 'Ajouter un modèle ' + marque.nomMarque
-    }];*/
+      tooltip: 'Ajouter une gamme\n' + $scope.modele.nomModele
+    }];
 
     $scope.selectedGamme = null;
     $scope.anneeModeles.forEach(function (anneeModele) {

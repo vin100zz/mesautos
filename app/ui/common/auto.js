@@ -6,8 +6,7 @@ factory('Auto', function ($resource) {
       method: 'GET',
       params: {
         'service': 'autos'
-      },
-      isArray: true
+      }
     }
   });
 });

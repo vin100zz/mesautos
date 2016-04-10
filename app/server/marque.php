@@ -23,20 +23,26 @@ foreach($modeles as $id => $modele)
 {
 	$idModele = $modele['idModele'];
 	
-	$modeles[$id]['versions'] = DBAccess::query
+	$modeles[$id]['anneeModeles'] = DBAccess::query
 	(
 		"SELECT *
-		FROM version
+		FROM anneeModele
 		WHERE idModele='$idModele'
-		ORDER BY ordre, anneeModele"
+		ORDER BY annee"
 	);
 	
-	foreach($modeles[$id]['versions'] as $id => &$version)
+	foreach($modeles[$id]['anneeModeles'] as $id => &$anneeModele)
 	{
-		$doc = DBAccess::singleRow("SELECT * FROM documentVersion WHERE idVersion='" . $version['idVersion'] . "' AND (motCle='EMB' OR motCle='SUP')");
+		$doc = DBAccess::singleRow(
+			"SELECT *
+			FROM documentGamme, gamme, anneeModele
+			WHERE documentGamme.idGamme=gamme.idGamme
+			  AND gamme.idAnneeModele=anneeModele.idAnneeModele
+			  AND anneeModele.idAnneeModele='" . $anneeModele['idAnneeModele'] . "'"
+		);
 		
-		if(isset($doc['idDocumentVersion'])) {
-			$version['img'] = getImage("img/version/" . $doc['idDocumentVersion']);
+		if(isset($doc['idDocumentGamme'])) {
+			$anneeModele['img'] = getImage("img/version/" . $doc['idDocumentGamme']);
 		}
 	}
 	

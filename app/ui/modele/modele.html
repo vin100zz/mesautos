@@ -1,22 +1,20 @@
 <div id="modele">
 
-<!--
-  <div id="titlebar">
-  
-    <div>{{version.marque.nomMarque}}</div>
-    <div>{{version.modele.nomModele}}</div>
-    <div>{{version.version.nom}}</div>
-
-    <a href="#/saisie/edit/version?id={{versionId}}" class="fa fa-edit"></a>
-    <a href="#/saisie/add/docVersion?id={{versionId}}" class="fa fa-plus"></a>
-    <a href="#/marque/{{version.marque.idMarque}}#modele-{{version.modele.idModele}}" class="fa fa-times exit"></a>
-    
-  </div>
--->
-
   <div id="content">
     <div class="carousel">
-      <div class="title">{{modele.nomModele}}</div>
+      <div class="title subtitle">{{modele.nomModele}}</div>
+
+      <hr/>
+
+      <ul class="actions">
+        <li ng-repeat="item in sidebar">
+          <a href="{{item.link}}" class="tooltiped fa fa-{{item.icon}}"></a>
+          <div class="tooltip"><pre>{{item.tooltip}}</pre></div>
+        </li>
+      </ul>
+
+      <hr/>
+    
       <ul>
         <li ng-repeat="anneeModele in anneeModeles" class="link">
           <img ng-src="{{getImageForAnneeModele(anneeModele)}}">
@@ -41,15 +39,6 @@
   
   <div id="sidebar">
     <mesautos-sidebar cfg="sidebarCfg"></mesautos-sidebar>
-
-    <hr/>
-
-    <ul class="actions">
-      <li ng-repeat="item in sidebar">
-        <a href="{{item.link}}" class="fa fa-{{item.icon}}"></a>
-        <div>{{item.tooltip}}</div>
-      </li>
-    </ul>
   </div>
 
 </div>

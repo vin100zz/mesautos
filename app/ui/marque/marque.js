@@ -1,4 +1,4 @@
-app.controller('MarqueCtrl', function ($scope, $routeParams, $location, $anchorScroll, $http, Auto, Categorie) {
+app.controller('MarqueCtrl', function ($scope, $routeParams, $location, $anchorScroll, Auto, Categorie) {
 
   $scope.marque = Auto.get({
       service: 'marque',
@@ -10,11 +10,11 @@ app.controller('MarqueCtrl', function ($scope, $routeParams, $location, $anchorS
       $scope.sidebar = [{
         link: '#/saisie/edit/marque?id=' + marque.idMarque,
         icon: 'edit',
-        tooltip: 'Éditer ' + marque.nomMarque
+        tooltip: 'Éditer\n' + marque.nomMarque
       }, {
         link: '#/saisie/add/modele?id=' + marque.idMarque,
         icon: 'plus',
-        tooltip: 'Ajouter un modèle ' + marque.nomMarque
+        tooltip: 'Ajouter un modèle\n' + marque.nomMarque
       }];
 
       marque.modeles = marque.modeles.map(modele => {
@@ -25,7 +25,7 @@ app.controller('MarqueCtrl', function ($scope, $routeParams, $location, $anchorS
           modele.yearInName = yearInName[1];
         }
 
-        modele.version = modele.versions[0];
+        modele.firstAnneeModele = modele.anneeModeles.length ? modele.anneeModeles[0] : null;
         modele.categorieCfg = Categorie.cfg(modele.categorie);
         return modele;
       });
@@ -35,20 +35,35 @@ app.controller('MarqueCtrl', function ($scope, $routeParams, $location, $anchorS
         tpl: 'app/ui/marque/marque-sidebar.html'
       };
 
-      // TODO
-      /*setTimeout(function () {
-        $anchorScroll();
-      }, 100);*/
+      var events = marque.modeles.map(function (modele) {
+        return {
+          begin: modele.debut,
+          end: modele.fin,
+          name: modele.nomModele,
+          picture: modele.firstAnneeModele ? modele.firstAnneeModele.img : null,
+          link: '#/marque/' + marque.idMarque + '#modele-' + modele.idModele
+        };
+      });
+      drawTimeline({
+        container: document.querySelector('#timeline'),
+        events: events
+      });
 
+      setTimeout(function () {
+        $anchorScroll();
+      }, 100);
     });
 
-  /* Catégories */
+  /* Filters */
   $scope.categories = Categorie.array().map(function (categorie) {
     categorie.filter = true;
     return categorie;
   });
 
   $scope.filterCategorie = function (value) {
+    if (!value.categorie) {
+      return true;
+    }
     var categorie = $scope.categories.find(function (categorie) {
       return categorie.code === value.categorie;
     });
@@ -65,19 +80,25 @@ app.controller('MarqueCtrl', function ($scope, $routeParams, $location, $anchorS
     categorie.filter = !categorie.filter;
   };
 
+  /* Views */
+  $scope.selectedView = 'modeles';
+
+  $scope.showView = function (view) {
+    $scope.selectedView = view;
+  };
 
   /* Pictures */
-  $scope.backgroundImage = function (version) {
-    if (!version) {
+  $scope.backgroundImage = function (anneeModele) {
+    if (!anneeModele) {
       return null;
     }
     return {
-      'background-image': 'url(' + version.img + ')'
+      'background-image': 'url(' + anneeModele.img + ')'
     };
-  }
+  };
 
   $scope.goToModele = function (modele) {
     window.location = "#/modele/" + modele.idModele;
-  }
+  };
 
 });

@@ -50,13 +50,15 @@
 #saisie .sorter > ul > li {
   width: 300px;
   padding: 5px 10px;
+  background: white;
   border: 0 solid #aaa;
   border-width: 1px 1px 0 0;
   box-sizing: border-box;
   cursor: pointer;
 }
 #saisie .sorter > ul > li.selected {
-  color: var(--subtitle-color);
+  color: white;
+  background: var(--subtitle-color);
 }
 #saisie .sorter > ul > li .label {
   width: 300px;

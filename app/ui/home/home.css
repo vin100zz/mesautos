@@ -1,34 +1,29 @@
-#home #sidebar {
-  width: 65px;
-}
-
-#home #content {
-  left: 80px;
+#home #content .grid {
   padding: 0 10px;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
 }
 
-#home #content li {
+#home #content .grid li {
   position: relative;
   cursor: pointer;
   width: 120px;
   height: 120px;
   background: #ddd;
-  margin-bottom: 5px;
+  margin: 5px 2px;
 }
-#home #content li:empty {
+#home #content .grid li:empty {
   height: 0;
 }
 
-#home #content .logo {
+#home #content .grid .logo {
   width: 100px;
   height: 100px;
   margin: 10px;
 }
 
-#home #content .mask {
+#home #content .grid .mask {
   position: absolute;
   top: 0;
   left: 0;
@@ -39,10 +34,10 @@
   color: #ddd;
   text-align: center;
 }
-#home #content li:hover .mask {
+#home #content .grid li:hover .mask {
   background-color: #333;
 }
-#home #content .mask .info {
+#home #content .grid .mask .info {
   display: none;
   position: absolute;
   left: 0;
@@ -50,21 +45,38 @@
   top: 50%;
   transform: translateY(-50%);
 }
-#home #content li:hover .mask .info {
+#home #content .grid li:hover .mask .info {
   display: block;
 }
-#home #content .mask .info img {
+#home #content .grid .mask .info img {
   width: 30px;
   margin-top: 10px;
 }
-#home #content li:hover .mask {
+#home #content .grid li:hover .mask {
   opacity: 1;
 }
 
-#home #content .mesautosamoi:before {
-  display: block;
-  font-size: 70pt;
+/* Salons */
+#home #content .grid .salon {
+  font-size: 34px;
+  color: #ccc;
   text-align: center;
-  padding-top: 5px;
-  color: #F8512F;
+  line-height: 120px;
 }
+
+/* Filters */
+#home #sidebar .filters {
+  max-height: 320px;
+}
+#home #sidebar .filters.ng-hide {
+  max-height: 0;
+}
+#home #sidebar .filters .pays {
+  width: 20px;
+  vertical-align: middle;
+  margin-right: 2px;
+}
+#home #sidebar .filters > ul {
+  -webkit-columns: 2;
+}
+

@@ -1,12 +1,20 @@
-<a class="card" href="{{card.src}}" target="_blank">
+<div class="card">
 
-  <img src="" data-ng-src="{{card.src}}">
-  <div ng-if="card.legende || card.date || card.source">
-    <div class="source-date" ng-if="card.date || card.source">
-      <span class="source">{{card.source}}</span>
-      <span class="date">{{card.date}}</span>
+  <ul class="actions">
+    <li ng-repeat="item in card.sidebar">
+      <a href="{{item.link}}" class="tooltiped fa fa-{{item.icon}}"></a>
+    </li>
+  </ul>
+
+  <a  href="{{card.src}}" target="_blank">
+    <img src="" data-ng-src="{{card.src}}">
+    <div ng-if="card.legende || card.date || card.source">
+      <div class="source-date" ng-if="card.date || card.source">
+        <span class="source">{{card.source}}</span>
+        <span class="date">{{card.date}}</span>
+      </div>
+      <div class="legend" ng-if="card.legende">{{card.legende}}</div>
     </div>
-    <div class="legend" ng-if="card.legende">{{card.legende}}</div>
-  </div>
+  </a>
 
-</a>
+</div>

@@ -10,7 +10,7 @@
 
 .timeline-container .event-picture {
   position: absolute;
-  border-left: 6px solid #006666;
+  border-left: 6px solid var(--subtitle-color);
   z-index: 10;
   cursor: pointer;
   background-repeat: no-repeat;
@@ -37,7 +37,7 @@
 
 .timeline-container .event-marker {
   position: absolute;
-  background: #006666;
+  background: var(--subtitle-color);
 }
 .timeline-container .event-marker:after {
   position: absolute;
@@ -46,14 +46,14 @@
   content: "";
   width: 10px;
   height: 10px;
-  background: #006666;
+  background: var(--subtitle-color);
   border-radius: 50%;
   z-index: 11;
 }
 
 .timeline-container .event-duration {
   position: absolute;
-  background: #006666;
+  background: var(--subtitle-color);
   opacity: 0.5;
 }
 

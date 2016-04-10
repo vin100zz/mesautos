@@ -5,24 +5,24 @@ include_once "db.php";
 $action = $_REQUEST["action"];
 $objet = $_REQUEST["objet"];
 
-$aResult = array();
+$result = array();
 
 $id = isset($_REQUEST["id"]) ? $_REQUEST["id"] : "";
 
-if($action == "add")
+if ($action == "add")
 {
-	if($objet == "modele" || $objet == "docMarque")
+	if ($objet == "modele" || $objet == "docMarque")
 	{
-		$aResult = DBAccess::querySingle
+		$result = DBAccess::singleRow
 		(
 			"SELECT *
 			FROM marque
 			WHERE idMarque='$id'"
 		);
 	}
-	else if($objet == "version")
+	else if ($objet == "gamme")
 	{
-		$aResult = DBAccess::querySingle
+		$result = DBAccess::singleRow
 		(
 			"SELECT *
 			FROM modele
@@ -30,32 +30,33 @@ if($action == "add")
 			WHERE idModele='$id'"
 		);
 	}
-	else if($objet == "docVersion")
+	else if ($objet == "docGamme")
 	{
-		$aResult = DBAccess::querySingle
+		$result = DBAccess::singleRow
 		(
 			"SELECT *
 			FROM modele
 			JOIN marque on marque.idMarque = modele.idMarque
-			JOIN version on version.idModele = modele.idModele
-			WHERE idVersion='$id'"
+			JOIN anneeModele on anneeModele.idModele = modele.idModele
+			JOIN gamme on gamme.idAnneeModele = anneeModele.idAnneeModele
+			WHERE idGamme='$id'"
 		);
 	}
 }
-else if($action == "edit")
+else if ($action == "edit")
 {
-	if($objet == "marque")
+	if ($objet == "marque")
 	{
-		$aResult = DBAccess::querySingle
+		$result = DBAccess::singleRow
 		(
 			"SELECT *
 			FROM marque
 			WHERE idMarque='$id'"
 		);
 	}
-	else if($objet == "modele")
+	else if ($objet == "modele")
 	{
-		$aResult = DBAccess::querySingle
+		$result = DBAccess::singleRow
 		(
 			"SELECT *
 			FROM modele
@@ -63,76 +64,78 @@ else if($action == "edit")
 			WHERE idModele='$id'"
 		);
 	}
-	else if($objet == "version")
+	else if ($objet == "gamme")
 	{
-		$aResult = DBAccess::querySingle
+		$result = DBAccess::singleRow
 		(
 			"SELECT *
-			FROM version
-			JOIN modele on version.idModele = modele.idModele
+			FROM gamme
+			JOIN anneeModele on gamme.idAnneeModele = anneeModele.idAnneeModele
+			JOIN modele on anneeModele.idModele = modele.idModele
 			JOIN marque on marque.idMarque = modele.idMarque
-			WHERE idVersion='$id'"
+			WHERE idGamme='$id'"
 		);
 	}
-	else if($objet == "docMarque")
+	else if ($objet == "docMarque")
 	{
-		$aResult = DBAccess::querySingle
+		$result = DBAccess::singleRow
 		(
 			"SELECT * FROM documentMarque WHERE idDocumentMarque='$id'"
 		);
 	}
-	else if($objet == "docVersion")
+	else if ($objet == "docGamme")
 	{
-		$aResult = DBAccess::querySingle
+		$result = DBAccess::singleRow
 		(
 			"SELECT *
-			FROM documentVersion
-			JOIN version on version.idVersion = documentVersion.idVersion
-			JOIN modele on version.idModele = modele.idModele
-      JOIN marque on marque.idMarque = modele.idMarque
-			WHERE idDocumentVersion='$id'"
+			FROM documentGamme
+			JOIN gamme on gamme.idGamme = documentGamme.idGamme
+			JOIN anneeModele on gamme.idAnneeModele = anneeModele.idAnneeModele
+			JOIN modele on anneeModele.idModele = modele.idModele
+			JOIN marque on marque.idMarque = modele.idMarque
+			WHERE idDocumentGamme='$id'"
 		);
 	}
 }
 
 
-if($objet == "marque")
+if ($objet == "marque")
 {
-	$aResult['liste_pays'] = DBAccess::query
+	$result['liste_pays'] = DBAccess::query
 	(
 		"SELECT DISTINCT pays FROM marque"
 	);
-	 $aResult['modeles'] = DBAccess::query
+	 $result['modeles'] = DBAccess::query
   (
     "SELECT * FROM modele WHERE idMarque = $id ORDER BY ordre"
   );
 }
-else if($objet == "modele")
+else if ($objet == "modele")
 {
-	$aResult['liste_categories'] = DBAccess::query
+	$result['liste_categories'] = DBAccess::query
 	(
 		"SELECT DISTINCT categorie FROM modele ORDER BY categorie"
 	);
-	$aResult['versions'] = DBAccess::query
+	/*$result['versions'] = DBAccess::query
   (
     "SELECT * FROM version WHERE idModele = $id ORDER BY ordre, anneeModele"
-  );
+  );*/
 }
-else if($objet == "version")
+else if ($objet == "gamme")
 {
-	$aResult['liste_types'] = DBAccess::query
+	$result['liste_types'] = DBAccess::query
 	(
-		"SELECT DISTINCT type FROM version ORDER BY type"
+		"SELECT DISTINCT type FROM gamme ORDER BY type"
 	);
 }
-else if($objet == "docVersion" || $objet == "docMarque")
+else if ($objet == "docGamme" || $objet == "docMarque")
 {
-	$aResult['liste_sources'] = DBAccess::query
+	$result['liste_sources'] = DBAccess::query
 	(
 		"SELECT DISTINCT source
 		 FROM
 		 (SELECT DISTINCT source
-		 FROM documentVersion
+		 FROM documentGamme
 		 UNION
 		 SELECT DISTINCT source
 		 FROM documentMarque)
@@ -141,9 +144,9 @@ else if($objet == "docVersion" || $objet == "docMarque")
 }
 
 
-$aResult['action'] = $action;
-$aResult['objet'] = $objet;
+$result['action'] = $action;
+$result['objet'] = $objet;
 
-print json_encode($aResult, JSON_PRETTY_PRINT);
+print json_encode($result, JSON_PRETTY_PRINT);
 
 ?>

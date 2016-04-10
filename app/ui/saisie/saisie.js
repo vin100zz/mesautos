@@ -2,6 +2,7 @@ app.controller('SaisieCtrl', function ($scope, $routeParams, Auto) {
 
   var cb = function (saisie) {
     $scope.$parent.$root.pageTitle = ' - Saisie';
+    $scope.saisie = saisie;
     $scope.objet = saisie.objet;
     $scope.action = saisie.action;
 
@@ -20,9 +21,9 @@ app.controller('SaisieCtrl', function ($scope, $routeParams, Auto) {
       labelFn: function (item) {
         return item.nomModele;
       }
-    }
+    };
 
-    $scope.versionSorterCfg = {
+    /*$scope.versionSorterCfg = {
       show: $scope.objet === 'modele' && $scope.action === 'edit',
       label: 'Ordre des versions',
       list: $scope.saisie.versions,
@@ -32,7 +33,7 @@ app.controller('SaisieCtrl', function ($scope, $routeParams, Auto) {
       labelFn: function (item) {
         return item.nom + (item.type ? ' ' + item.type : '') + (item.anneeModele ? ' (' + item.anneeModele + ')' : '');
       }
-    }
+    };*/
   };
 
   if ($routeParams.action === 'add' && $routeParams.objet === 'marque') {
@@ -53,18 +54,19 @@ app.controller('SaisieCtrl', function ($scope, $routeParams, Auto) {
   $scope.update = function () {
     if ($scope.saisie.objet === 'marque') {
       $scope.saisie.modeleOrder = [];
-      for (var i = 0; i < $scope.saisie.modeles.length; ++i) {
-        $scope.saisie.modeleOrder.push($scope.saisie.modeles[i].idModele);
-      }
-    } else if ($scope.saisie.objet === 'modele') {
-      $scope.saisie.versionOrder = [];
-      for (var i = 0; i < $scope.saisie.versions.length; ++i) {
-        $scope.saisie.versionOrder.push($scope.saisie.versions[i].idVersion);
-      }
+      ($scope.saisie.modeles || []).forEach(function (modele) {
+        $scope.saisie.modeleOrder.push(modele.idModele);
+      });
     }
+    /* else if ($scope.saisie.objet === 'modele') {
+          $scope.saisie.versionOrder = [];
+          $scope.saisie.versions.forEach(function (version) {
+            $scope.saisie.versionOrder.push(version.idVersion);
+          });
+        }*/
     Auto.save({
       service: 'update'
-    }, this.saisie, function (update) {
+    }, $scope.saisie, function (update) {
       history.back();
     });
   };

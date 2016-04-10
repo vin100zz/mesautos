@@ -12,12 +12,13 @@
 	overflow-y: scroll;
   color: #ddd;
 }
-#modele .carousel .title {
-  color: var(--subtitle-color);
-  font-family: "MesAutos_Body_Font";
-  font-size: 14pt;
+
+#modele .carousel .subtitle {
   margin-bottom: 15px;
+  color: var(--subtitle-color);
+  font-size: 14pt;
 }
+
 #modele .carousel .link {
   width: 165px;
   margin-bottom: 35px;
@@ -43,11 +44,13 @@
   padding: 5px;
   cursor: pointer;
 }
-#modele .carousel .link .gammes > li.selected {
-  color: var(--title-color);
+#modele .carousel .link .gammes > li.selected,
+#modele .carousel .link .gammes > li:not(.selected):hover {
+  background: var(--title-color);
+  color: #eee;
 }
-#modele .carousel .link .gammes > li:hover {
-  text-decoration: underline;
+#modele .carousel .link .gammes > li:not(.selected):hover {
+  opacity: 0.5;
 }
 #modele .carousel .link .gammes > li .type-gamme.mini {
   font-size: 8pt;

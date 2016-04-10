@@ -1,0 +1,23 @@
+<div id="salon">
+
+  <div id="content">
+
+    <div deckgrid source="photos" cardTemplate="app/ui/salon/card.html" class="deckgrid"></div>
+
+  </div>
+
+
+  <div id="sidebar">
+
+    <div class="title">
+      Salon {{salon.annee}}
+    </div>
+
+    <div ng-if="salon.annee >= 1930 && salon.annee <= 1979">
+      <hr/>
+      <a href="http://www.classiccarcatalogue.com/{{salon.annee}}.html" class="link" target="_blank">Classic Car Catalogue</a>
+    </div>
+  
+  </div>
+
+</div>

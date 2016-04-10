@@ -1,3 +1,17 @@
+/* Views */
+#marque #content .view {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: opacity linear 0.5s;
+}
+#marque #content .view.ng-hide {
+  opacity: 0;
+}
+
+/* Modeles */
 #marque #content #modeles {
   display: flex;
   justify-content: space-around;
@@ -61,30 +75,29 @@
 }
 
 /* Filters */
-#marque #sidebar .filters > li {
-  margin-bottom: 5px;
+#marque #sidebar .filters {
+  max-height: 180px;
 }
-#marque #sidebar .filters > li > div {
-  display: inline-block;
-  vertical-align: middle;
+#marque #sidebar .filters.ng-hide {
+  max-height: 0;
 }
-#marque #sidebar .filters > li > div:first-child {
-  cursor: pointer;
-  background: #222;
-  width: 16px;
-  height: 16px;
-  margin-right: 5px;
-}
-#marque #sidebar .filters > li > div:first-child span {
-  display: block;
-  color: var(--subtitle-color);
-  font-size: 12px;
+
+/* Histo */
+#marque #histo {
   text-align: center;
-  padding-top: 2px;
+  width: 600px;
+  margin: auto;
+  color: #999;
+  line-height: 16px;
 }
-#marque #sidebar .filters > li > div:last-child {
-  cursor: pointer;
+#marque #histo .legend {
+  color: var(--subtitle-color);
 }
-#marque #sidebar .filters > li > div:last-child:hover {
-  text-decoration: underline;
+#marque #histo img {
+  max-width: 400px;
+  max-height: 600px;
+  margin: 10px;
+}
+#marque #histo > div {
+  margin-bottom: 40px;
 }

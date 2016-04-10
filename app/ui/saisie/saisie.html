@@ -46,9 +46,9 @@
 	    </div>
 		      
 	    <div class="control-group">
-	      <label class="control-label" for="idDocVersion">Id Doc Version</label>
+	      <label class="control-label" for="iddocGamme">Id Doc Version</label>
 	      <div class="controls">
-	        <input type="text" readonly="readonly" class="input-xlarge" name="idDocVersion" ng-model="saisie.idDocumentVersion" />
+	        <input type="text" readonly="readonly" class="input-xlarge" name="iddocGamme" ng-model="saisie.idDocumentVersion" />
 	      </div>
 	    </div>
     </div>
@@ -139,22 +139,22 @@
       </div>
     </div>
     
-    <!-- version -->		    
-    <div class="control-group"  ng-show="objet == 'version' || objet == 'docVersion'">
+    <!-- annee-modèle -->		    
+    <div class="control-group" ng-show="objet == 'gamme' || objet == 'docGamme'">
       <label class="control-label" for="anneeModele">Année Modèle</label>
       <div class="controls">
-        <input type="text" class="input-xlarge" id="anneeModele" ng-model="saisie.anneeModele" ng-readonly="objet == 'docVersion'" />
+        <input type="text" class="input-xlarge" id="anneeModele" ng-model="saisie.annee" ng-readonly="objet == 'docGamme'" />
       </div>
     </div>
     
-    <div class="control-group" ng-show="objet == 'version'">
-      <label class="control-label" for="type">Nom Année Modèle</label>
+    <div class="control-group" ng-show="objet == 'gamme' || objet == 'docGamme'">
+      <label class="control-label" for="type">Nom Gamme</label>
       <div class="controls">
-        <input type="text" class="input-xlarge" ng-model="saisie.nom" />
+        <input type="text" class="input-xlarge" ng-model="saisie.nom" ng-readonly="objet == 'docGamme'" />
       </div>
     </div>
     
-    <div class="control-group" ng-show="objet == 'version'">
+    <div class="control-group" ng-show="objet == 'gamme'">
       <label class="control-label" for="type">Type</label>
 	  <div class="controls">
       	<select ng-model="saisie.type" ng-options="item.type as item.type | categorieType for item in saisie.liste_types"></select>
@@ -163,40 +163,40 @@
     
     
     <!-- doc -->
-		<div class="control-group" ng-show="objet == 'docMarque' || objet == 'docVersion'">
+		<div class="control-group" ng-show="objet == 'docMarque' || objet == 'docGamme'">
       <label class="control-label" for="source">Source</label>
       <div class="controls">
         <input list="source" type="text" class="input-xlarge" id="source" ng-model="saisie.source" />
       </div>
     </div>
     
-    <div class="control-group" ng-show="objet == 'docMarque' || objet == 'docVersion'">
+    <div class="control-group" ng-show="objet == 'docMarque' || objet == 'docGamme'">
       <label class="control-label" for="date">Date</label>
       <div class="controls">
         <input type="text" class="input-xlarge" id="date" ng-model="saisie.date" />
       </div>
     </div>
     
-   <div class="control-group" ng-show="objet == 'docMarque' || objet == 'docVersion'">
+   <div class="control-group" ng-show="objet == 'docMarque' || objet == 'docGamme'">
       <label class="control-label" for="legende">Légende</label>
       <div class="controls">
         <textarea type="text" class="input-xlarge" id="legende" ng-model="saisie.legende" ></textarea>
       </div>
     </div>
     
-    <div class="control-group" ng-show="objet == 'docMarque' || objet == 'docVersion'">
+    <!-- <div class="control-group" ng-show="objet == 'docMarque' || objet == 'docGamme'">
       <label class="control-label" for="ordre">Ordre</label>
       <div class="controls">
         <input type="number" min="0" class="input-xlarge" id="ordre" ng-model="saisie.ordre" />
       </div>
-    </div>
+    </div>-->
     
-    <div class="control-group" ng-show="objet == 'docMarque' || objet == 'docVersion'">
+    <!-- <div class="control-group" ng-show="objet == 'docMarque' || objet == 'docGamme'">
       <label class="control-label" for="motCle">Emblématique</label>
       <div class="controls">
         <input type="checkbox" class="input-xlarge" id="motCle" ng-model="saisie.motCle" ng-checked="saisie.motCle == 'EMB'" />
       </div>
-    </div>
+    </div> -->
     
     <!--  miniature -->
     <div class="control-group" ng-show="objet == 'modele'">
@@ -215,7 +215,7 @@
     
     <!-- ordres -->   
     <div ng-sorter cfg="modeleSorterCfg"></div>
-    <div ng-sorter cfg="versionSorterCfg"></div>
+    <!-- <div ng-sorter cfg="versionSorterCfg"></div> -->
     
     <div class="form-actions">
       <button type="submit" id="update" class="button"><span class="fa fa-check"></span><span>Sauvegarder</span></button>

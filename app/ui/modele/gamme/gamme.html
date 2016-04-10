@@ -1,6 +1,13 @@
 
 <div id="gamme">
 
- <div deckgrid source="photos" cardTemplate="app/ui/modele/gamme/card.html" class="deckgrid"></div>
+ <div deckgrid source="photos" cardTemplate="app/ui/modele/gamme/card.html" class="deckgrid nb-columns-{{nbColumns}}"></div>
+
+ <ul class="actions">
+    <li ng-repeat="item in sidebar">
+      <a href="{{item.link}}" class="tooltiped fa fa-{{item.icon}}"></a>
+      <div class="tooltip"><pre>{{item.tooltip}}</pre></div>
+    </li>
+  </ul>
 
 </div>

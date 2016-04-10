@@ -70,8 +70,8 @@ function insertGamme ($version, $idAnneeModele) {
 $docs = DBAccess::query
 (
 	"SELECT *
-	FROM documentVersion, version
-	WHERE documentVersion.idVersion = version.idVersion
+	FROM a_supprimer_documentVersion, a_supprimer_version
+	WHERE a_supprimer_documentVersion.idVersion = a_supprimer_version.idVersion AND idModele=4
 ");
 
 foreach ($docs as $id => $doc)
@@ -80,6 +80,8 @@ foreach ($docs as $id => $doc)
 
 	$idModele = $doc["idModele"];
 	$anneeModele = sqlproof($doc["anneeModele"]);
+	$gamme = sqlproof($doc["type"]);
+	$nomGamme = sqlproof($doc["nom"]);
 
 	$ordre = sqlproof($doc["ordre"]);
 	$source = sqlproof($doc["source"]);
@@ -92,13 +94,51 @@ foreach ($docs as $id => $doc)
 		FROM gamme, anneeModele
 		WHERE gamme.idAnneeModele = anneeModele.idAnneeModele
 			AND annee = '$anneeModele'
-			AND idModele = '$idModele' 
+			AND (type='$gamme' AND (nom<>'' AND nom='$nomGamme'))
+			AND idModele = '$idModele'
 	");
+
+	if (!$idGamme) {
+		$idGamme = DBAccess::singleValue
+		(
+			"SELECT idGamme
+			FROM gamme, anneeModele
+			WHERE gamme.idAnneeModele = anneeModele.idAnneeModele
+				AND annee = '$anneeModele'
+				AND (type='$gamme' AND nom='')
+				AND idModele = '$idModele'
+		");
+
+		if (!$idGamme) {
+			$idGamme = DBAccess::singleValue
+			(
+				"SELECT idGamme
+				FROM gamme, anneeModele
+				WHERE gamme.idAnneeModele = anneeModele.idAnneeModele
+					AND annee = '$anneeModele'
+					AND type='$gamme'
+					AND idModele = '$idModele'
+			");
+
+			if (!$idGamme) {
+				$idGamme = DBAccess::singleValue
+				(
+					"SELECT idGamme
+					FROM gamme, anneeModele
+					WHERE gamme.idAnneeModele = anneeModele.idAnneeModele
+						AND annee = '$anneeModele'
+						AND nom='$nomGamme'
+						AND idModele = '$idModele'
+				");
+			}
+		}
+	}
+
 
 	$query = "INSERT INTO documentGamme (idDocumentGamme, idGamme, ordre, source, date, legende) VALUES ('$idDocumentVersion', '$idGamme', '$ordre', '$source', '$date', '$legende')";
 
 	print($query . '<br/>');
-	DBAccess::exec($query);
+	//DBAccess::exec($query);
 }
 
 

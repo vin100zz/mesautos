@@ -1,42 +1,115 @@
 <div id="home">
 
-  <ul id="content">
-    <li>
-      <div class="thumbnail logo fa fa-star mesautosamoi" ng-click="goToMesAutosAMoi()"></div>
-      <div class="mask">
-        <div class="info">
-          <span>Mes autos à moi</span>
+  <div id="content">
+
+    <ul id="marques" class="view grid" ng-show="selectedView == 'marques'">
+      <li ng-repeat="marque in marques | filter: filterPays | orderBy: 'nomMarque'" ng-click="goToMarque(marque)">
+    		<div ng-style="marqueBackgroundImage(marque)" class="thumbnail logo"></div>
+    		<div class="mask">
+          <div class="info">
+            <div>{{marque.nomMarque}}</div>
+      		  <img ng-src="img/pays/{{marque.pays}}.png" class="pays"/>
+          </div>
+    		</div>
+      </li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
+    <ul id="salons" class="view grid" ng-show="selectedView == 'salons'">
+      <li ng-repeat="salon in salons" ng-click="goToSalon(salon)">
+        <div ng-style="salonBackgroundImage(salon)" class="thumbnail logo"></div>
+        <div class="mask">
+          <div class="info">
+            <div>{{salon.annee}}</div>
+          </div>
         </div>
-      </div>
-    </li>
-    <li ng-repeat="marque in marques | orderBy: 'nomMarque'" ng-click="goToMarque(marque)">
-  		<div ng-style="backgroundImage(marque)" class="thumbnail logo"></div>
-  		<div class="mask">
-        <div class="info">
-          <div>{{marque.nomMarque}}</div>
-    		  <img ng-src="img/pays/{{marque.pays}}.png" class="pays"/>
-        </div>
-  		</div>
-    </li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-    <li></li>
-  </ul>
+      </li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
+  </div>
 
   <div id="sidebar">
-    <ul class="actions">
-      <li ng-repeat="item in sidebar">
-        <a href="{{item.link}}" class="fa fa-{{item.icon}}"></a>
-        <div>{{item.tooltip}}</div>
+
+    <ul class="views">
+      <li ng-class="{selected: selectedView == 'marques'}">
+        <div ng-click="showView('marques')" class="tooltiped fa fa-car"></div>
+        <div class="tooltip"><pre>Marques</pre></div>
+      </li>
+      <li ng-class="{selected: selectedView == 'salons'}">
+        <div ng-click="showView('salons')" class="tooltiped fa fa-calendar"></div>
+        <div class="tooltip"><pre>Salons</pre></div>
+      </li>
+      <li ng-class="{selected: selectedView == 'miniatures'}">
+        <div ng-click="showView('miniatures')" class="tooltiped fa fa-star-o"></div>
+        <div class="tooltip"><pre>Miniatures</pre></div>
       </li>
     </ul>
+
+    <div class="filters" ng-show="selectedView == 'marques'">
+      <hr/>
+        <a href="#/marque/1129" class="link">Mes autos à moi</a>
+      <hr/>
+      <ul>
+        <li ng-repeat="p in pays">
+          <div ng-click="toggleFilter(p)">
+            <span ng-show="p.filter">&#x2714;</span>
+          </div>
+          <div ng-click="selectFilter(p.code)">
+            <img ng-src="img/pays/{{p.code}}.png" class="pays"/>
+            <span>{{p.code}}</span>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <hr/>
+
+    <ul class="actions">
+      <li ng-repeat="item in sidebar">
+        <a href="{{item.link}}" class="tooltiped fa fa-{{item.icon}}"></a>
+        <div class="tooltip"><pre>{{item.tooltip}}</pre></div>
+      </li>
+    </ul>
+
   </div>
 
 </div>
