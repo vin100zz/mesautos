@@ -43,7 +43,7 @@ foreach($modeles as $id => $modele)
 		);
 		
 		if(isset($doc['idDocumentGamme'])) {
-			$anneeModele['img'] = getImage("img/version/" . $doc['idDocumentGamme']);
+			$anneeModele['idDocumentGamme'] = $doc['idDocumentGamme'];
 		}
 	}
 	

@@ -1,4 +1,4 @@
-app.directive('mesautosGamme', function (Deckgrid, Auto) {
+app.directive('mesautosGamme', function (Deckgrid, Auto, ImageManager) {
 
   return {
     scope: {
@@ -47,7 +47,7 @@ app.directive('mesautosGamme', function (Deckgrid, Auto) {
       }
 
       function getImage(idDocumentGamme) {
-        return 'img/version/' + idDocumentGamme + '.jpg';
+        return ImageManager.versionPath(idDocumentGamme);
       }
 
       $scope.backgroundImage = function (idDocumentGamme) {

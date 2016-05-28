@@ -1,4 +1,4 @@
-app.controller('MarqueCtrl', function ($scope, $routeParams, $location, $anchorScroll, Auto, Categorie) {
+app.controller('MarqueCtrl', function ($scope, $routeParams, $location, $anchorScroll, Auto, Categorie, ImageManager) {
 
   $scope.marque = Auto.get({
       service: 'marque',
@@ -40,7 +40,7 @@ app.controller('MarqueCtrl', function ($scope, $routeParams, $location, $anchorS
           begin: modele.debut,
           end: modele.fin,
           name: modele.nomModele,
-          picture: modele.firstAnneeModele ? modele.firstAnneeModele.img : null,
+          picture: modele.firstAnneeModele ? ImageManager.versionPath(modele.firstAnneeModele.idDocumentGamme) : null,
           link: '#/marque/' + marque.idMarque + '#modele-' + modele.idModele
         };
       });
@@ -93,7 +93,7 @@ app.controller('MarqueCtrl', function ($scope, $routeParams, $location, $anchorS
       return null;
     }
     return {
-      'background-image': 'url(' + anneeModele.img + ')'
+      'background-image': 'url(' + ImageManager.versionPath(anneeModele.idDocumentGamme) + ')'
     };
   };
 
