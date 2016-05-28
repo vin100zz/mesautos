@@ -39,6 +39,7 @@ foreach($modeles as $id => $modele)
 			WHERE documentGamme.idGamme=gamme.idGamme
 			  AND gamme.idAnneeModele=anneeModele.idAnneeModele
 			  AND anneeModele.idAnneeModele='" . $anneeModele['idAnneeModele'] . "'"
+			. "ORDER BY emblematique DESC"
 		);
 		
 		if(isset($doc['idDocumentGamme'])) {

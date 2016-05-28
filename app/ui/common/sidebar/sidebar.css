@@ -30,7 +30,7 @@
   position: relative;
   left: -50%;
   color: #ddd;
-  background: #333;
+  background: #222;
   border-radius: 5px;
   white-space: nowrap;
   padding: 5px 10px;
@@ -42,7 +42,7 @@
   border-style: solid;
   border-left: 12px solid transparent;
   border-right: 12px solid transparent;
-  border-top: 12px solid #333;
+  border-top: 12px solid #222;
   border-bottom: none;
   position: absolute;
   bottom: -10px;

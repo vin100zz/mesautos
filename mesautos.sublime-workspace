@@ -4,16 +4,24 @@
 		"selected_items":
 		[
 			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"font",
+				"font-style"
+			],
+			[
+				"padd",
+				"padding-left"
+			],
+			[
 				"font-s",
 				"font-size"
 			],
 			[
 				"text",
 				"text-align"
-			],
-			[
-				"margin",
-				"margin-bottom"
 			],
 			[
 				"s",
@@ -80,10 +88,6 @@
 				"border-radius"
 			],
 			[
-				"font",
-				"font-family"
-			],
-			[
 				"border-co",
 				"border-collapse"
 			],
@@ -108,10 +112,50 @@
 	"buffers":
 	[
 		{
-			"file": "/D/www/fm/app.js",
+			"file": "app/ui/home/home.css",
 			"settings":
 			{
-				"buffer_size": 1224,
+				"buffer_size": 1376,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/ui/modele/gamme/gamme.js",
+			"settings":
+			{
+				"buffer_size": 1716,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/ui/modele/gamme/gamme.css",
+			"settings":
+			{
+				"buffer_size": 2015,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "style/app.css",
+			"settings":
+			{
+				"buffer_size": 2858,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/ui/common/sidebar/sidebar.css",
+			"settings":
+			{
+				"buffer_size": 2842,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/ui/modele/gamme/card.html",
+			"settings":
+			{
+				"buffer_size": 791,
 				"line_ending": "Windows"
 			}
 		}
@@ -123,10 +167,14 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 219.0,
-		"last_filter": "indent",
+		"height": 81.0,
+		"last_filter": "json",
 		"selected_items":
 		[
+			[
+				"json",
+				"JSON Reindent: reindent file or selection"
+			],
 			[
 				"indent",
 				"JSON Reindent: reindent file or selection"
@@ -162,13 +210,9 @@
 			[
 				"ins",
 				"Package Control: Install Package"
-			],
-			[
-				"json",
-				"JSON Reindent: reindent file or selection"
 			]
 		],
-		"width": 416.0
+		"width": 400.0
 	},
 	"console":
 	{
@@ -203,11 +247,37 @@
 		"/D/www/babouch/mesautos/app/ui/salon",
 		"/D/www/babouch/mesautos/img",
 		"/D/www/babouch/mesautos/lib",
-		"/D/www/babouch/mesautos/lib/timeline",
 		"/D/www/babouch/mesautos/style"
 	],
 	"file_history":
 	[
+		"/C/Program Files (x86)/EasyPHP-DevServer-14.1VC11/binaries/apache/conf/httpd.conf",
+		"/C/Program Files (x86)/EasyPHP-DevServer-14.1VC11/binaries/conf_files/httpd.conf",
+		"/D/www/babouch/2016/style.css",
+		"/D/www/babouch/2016/index.html",
+		"/D/www/babouch/index.html",
+		"/D/www/babouch/roadbook/activity.html",
+		"/D/www/babouch/roadbook/day.html",
+		"/D/www/babouch/roadbook/app.js",
+		"/D/www/babouch/roadbook/index.html",
+		"/D/www/babouch/roadbook/style/style.css",
+		"/D/www/babouch/roadbook/data.json",
+		"/C/Users/V/Google Drive/Amadeus/suitable.js",
+		"/D/www/babouch/2015/style.css",
+		"/D/www/bnp/bnp.csv",
+		"/C/Program Files (x86)/Tennis Elbow Manager/Tennis.Ini",
+		"/C/Program Files (x86)/Tennis Elbow Manager/Data/Players.ATP.Ini",
+		"/C/Program Files (x86)/Tennis Elbow Manager/Data/HowToMod.html",
+		"/C/Program Files (x86)/Tennis Elbow Manager/Data/Countries_English.txt",
+		"/D/www/babouch/roadbook/activity.js",
+		"/D/www/babouch/roadbook/day.js",
+		"/D/www/lvdlom/app/modules/avancement.js",
+		"/D/www/fm/index.html",
+		"/D/www/fm/app.js",
+		"/D/www/lvdlom/lib/angular/angular.js",
+		"/D/www/babouch/roadbook/lib/angular/angular.js",
+		"/D/www/lvdlom/app/main.js",
+		"/D/www/babouch/mesautos/app/ui/common/auto.js",
 		"/D/www/babouch/mesautos/app/ui/modele/gamme/card.html",
 		"/D/www/babouch/mesautos/app/server/update.php",
 		"/D/www/babouch/mesautos/app/server/saisie.php",
@@ -220,12 +290,10 @@
 		"/D/www/babouch/mesautos/app/ui/modele/modele.css",
 		"/D/www/babouch/mesautos/app/ui/modele/modele.html",
 		"/D/www/babouch/mesautos/app/ui/common/sidebar/sidebar.css",
-		"/D/www/fm/app.js",
 		"/D/www/babouch/2016/suisse/js/controllers.js",
 		"/D/www/babouch/2016/suisse/partials/home.html",
 		"/D/www/babouch/2016/suisse/css/app.css",
 		"/D/www/fm/style/style.css",
-		"/D/www/fm/index.html",
 		"/C/Users/V/Desktop/DataExport_180320161801.csv",
 		"/C/Users/V/Desktop/Suisse/suisse.html",
 		"/D/exemple2/script.js",
@@ -245,8 +313,6 @@
 		"/C/Users/V/Documents/Sports Interactive/Football Manager 2016/shortlists/vv_3587CF13-08F9-43C2-951D-7306ED4F6539.fmf",
 		"/D/www/fm/main.html",
 		"/D/www/babouch/mesautos/app/server/_mig.php",
-		"/D/www/babouch/index.html",
-		"/D/www/bnp/bnp.csv",
 		"/D/www/babouch/mesautos/app/ui/home/home.css",
 		"/D/www/babouch/mesautos/app/ui/home/home.html",
 		"/D/www/babouch/mesautos/app/server/marque.php",
@@ -254,7 +320,6 @@
 		"/D/www/babouch/mesautos/app/server/db.php",
 		"/D/www/babouch/mesautos/app/ui/app.js",
 		"/D/www/babouch/mesautos/app/server/autos.php",
-		"/D/www/babouch/mesautos/app/ui/common/auto.js",
 		"/D/www/babouch/mesautos/app/ui/home/home.js",
 		"/D/www/babouch/mesautos/app/ui/salon/salon.css",
 		"/D/www/babouch/mesautos/app/ui/salon/salon.js",
@@ -291,7 +356,6 @@
 		"/D/www/babouch/mesautos/app/ui/version/version.js",
 		"/D/www/babouch/mesautos/app/ui/version/version.html",
 		"/D/www/lvdlom/app/modules/anniversaire.js",
-		"/D/www/lvdlom/app/main.js",
 		"/D/www/lvdlom/app/modules/age.js",
 		"/D/www/babouch/mesautos/app/ui/marque/marque-sidebar.html",
 		"/D/www/babouch/mesautos/app/ui/marque/marque-sidebar.js",
@@ -300,7 +364,6 @@
 		"/D/www/babouch/mesautos/app/ui/marque/marque-sidebar.css",
 		"/D/www/lvdlom/app/directives/documents.js",
 		"/D/www/lvdlom/index.html",
-		"/D/www/lvdlom/lib/angular/angular.js",
 		"/D/www/lvdlom/app/directives/breadcrumb.html",
 		"/D/www/lvdlom/app/modules/dirigeant.html",
 		"/D/www/lvdlom/app/modules/joueur.html",
@@ -315,27 +378,7 @@
 		"/C/Users/V/AppData/Roaming/Sublime Text 3/Packages/User/JsFormat.sublime-settings",
 		"/C/Users/V/AppData/Roaming/Sublime Text 3/Packages/JsFormat/JsFormat.sublime-settings",
 		"/D/www/babouch/mesautos/app/app.js",
-		"/D/www/babouch/mesautos/js/directives.js",
-		"/D/www/babouch/mesautos/js/filters.js",
-		"/D/www/babouch/mesautos/js/services.js",
-		"/D/www/babouch/mesautos/js/controllers.js",
-		"/D/www/babouch/mesautos/app/ui/directives.js",
-		"/D/www/playground/google.html",
-		"/D/www/babouch/mesautos/js/app.js",
-		"/D/www/babouch/mesautos/style/framework.css",
-		"/D/www/babouch/mesautos/app/ui/autos/autos.css",
-		"/D/www/babouch/mesautos/app/ui/autos/autos.html",
-		"/D/www/babouch/mesautos/partials/autos.html",
-		"/D/www/babouch/mesautos/modules/autos/autos.js",
-		"/D/www/babouch/mesautos/css/framework.css",
-		"/D/www/babouch/chefs/delete.php",
-		"/D/www/babouch/chefs/data.php",
-		"/D/www/babouch/chefs/new_edit.php",
-		"/D/www/babouch/chefs/script/chefs.js",
-		"/D/www/babouch/chefs/index.php",
-		"/D/www/babouch/ngauto/partials/version.html",
-		"/D/www/babouch/ngauto/css/app.css",
-		"/D/www/babouch/ngauto/css/framework.css"
+		"/D/www/babouch/mesautos/js/directives.js"
 	],
 	"find":
 	{
@@ -346,6 +389,8 @@
 		"height": 90.0,
 		"where_history":
 		[
+			"",
+			"*.css",
 			""
 		]
 	},
@@ -354,6 +399,21 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"$location",
+			"#search .results",
+			".tooltip",
+			"#gamme .deckgrid .actions li > a",
+			"www",
+			"DocumentR",
+			"www",
+			"Listen",
+			"8082",
+			"ServerName",
+			"8082",
+			"Los Angeles",
+			"span",
+			"days",
+			"php",
 			"-right",
 			"margin-right",
 			"objet",
@@ -466,22 +526,7 @@
 			"partials",
 			"#sidebar .title",
 			"#F8512F",
-			"F8512F",
-			"MesAutos_Title_Font",
-			"clearNewEditForm",
-			"new",
-			"Tanganyika",
-			"-color: none",
-			"logo",
-			"thumbnail",
-			"thumnail",
-			"MesAutos_Title_Font",
-			"breadcrumb",
-			"tooltip",
-			"content",
-			"showResults",
-			"quick_filtre",
-			"Bayern"
+			"F8512F"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -489,6 +534,7 @@
 		"regex": false,
 		"replace_history":
 		[
+			"div",
 			"docGamme",
 			"if (",
 			"docGamme",
@@ -556,24 +602,54 @@
 	"groups":
 	[
 		{
-			"selected": 0,
+			"selected": 1,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "/D/www/fm/app.js",
+					"file": "app/ui/home/home.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1224,
+						"buffer_size": 1376,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								348,
-								348
+								644,
+								644
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 315.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/ui/modele/gamme/gamme.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1716,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								311,
+								311
 							]
 						],
 						"settings":
@@ -587,6 +663,126 @@
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/ui/modele/gamme/gamme.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2015,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1198,
+								1198
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 720.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "style/app.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2858,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2145,
+								2145
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1952.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/ui/common/sidebar/sidebar.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2842,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								779,
+								779
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 315.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/ui/modele/gamme/card.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 791,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								212,
+								212
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
 					"type": "text"
 				}
 			]
@@ -641,6 +837,10 @@
 		"selected_items":
 		[
 			[
+				"home",
+				"app\\ui\\home\\home.css"
+			],
+			[
 				"modele",
 				"app\\ui\\modele\\modele.css"
 			],
@@ -681,6 +881,10 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"",
+				"D:\\www\\lvdlom\\lvdlom.sublime-project"
+			]
 		],
 		"width": 380.0
 	},

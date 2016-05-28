@@ -44,13 +44,12 @@
   padding: 5px;
   cursor: pointer;
 }
-#modele .carousel .link .gammes > li.selected,
-#modele .carousel .link .gammes > li:not(.selected):hover {
+#modele .carousel .link .gammes > li.selected {
   background: var(--title-color);
   color: #eee;
 }
 #modele .carousel .link .gammes > li:not(.selected):hover {
-  opacity: 0.5;
+  color: var(--title-color);
 }
 #modele .carousel .link .gammes > li .type-gamme.mini {
   font-size: 8pt;

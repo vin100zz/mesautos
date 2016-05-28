@@ -42,8 +42,10 @@ app.controller('ModeleCtrl', function ($scope, $route, $routeParams, Auto) {
   });
 
   $scope.getImageForAnneeModele = function (anneeModele) {
-    var idDocumentGamme = anneeModele.gammes[0].docs[0].idDocumentGamme;
-    return 'img/version/' + idDocumentGamme + '.jpg';
+    var doc = anneeModele.gammes[0].docs.find(function (doc) {
+      return doc.emblematique === '1';
+    }) || anneeModele.gammes[0].docs[0];
+    return 'img/version/' + doc.idDocumentGamme + '.jpg';
   };
 
   $scope.select = function (gamme) {

@@ -1,10 +1,18 @@
 <div class="card">
 
-  <ul class="actions">
-    <li ng-repeat="item in card.sidebar">
-      <a href="{{item.link}}" class="tooltiped fa fa-{{item.icon}}"></a>
-    </li>
-  </ul>
+<div class="actions">
+  <div class="fa fa-ellipsis-h"></div>
+  <div class="dummy-for-hovering">
+    <ul class="menu">
+      <li ng-repeat="item in card.actions">
+        <a ng-click="item.action()">
+          <span class="tooltiped fa fa-{{item.icon}} fw"></span>
+          <span>{{item.label}}</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</div>  
 
   <a  href="{{card.src}}" target="_blank">
     <img src="" data-ng-src="{{card.src}}">

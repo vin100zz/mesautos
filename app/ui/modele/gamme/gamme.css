@@ -61,13 +61,54 @@
 #gamme .deckgrid .actions {
   position: absolute;
   bottom: 3px;
-  right: 0;
+  right: 6px;
   left: auto;
+  cursor: pointer;
 }
-#gamme .deckgrid .actions li {
-  margin: 0;
+#gamme .deckgrid .actions .fa {
+  font-size: 12pt;
 }
-#gamme .deckgrid .actions li > a {
-  margin: 0;
-  zoom: 0.75;
+#gamme .deckgrid .actions .dummy-for-hovering {
+  display: none;
+  position: absolute;
+  top: 5px;
+  right: -6px;
+  width: 140px;
+  padding-top: 20px;
+  z-index: 2;
+}
+#gamme .deckgrid .actions .menu {
+  padding: 2px 5px;
+  color: #ddd;
+  background: #222;
+  border-radius: 5px;
+  text-align: left;
+}
+#gamme .deckgrid .actions .menu:before {
+  content: '';
+  border-style: solid;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 12px solid #222;
+  border-top: none;
+  position: absolute;
+  top: 10px;
+  right: 0;
+}
+#gamme .deckgrid .actions:hover .dummy-for-hovering,
+#gamme .deckgrid .actions .dummy-for-hovering:hover {
+  display: block;
+}
+#gamme .deckgrid .actions .menu li {
+  padding: 5px 5px;
+}
+#gamme .deckgrid .actions .menu li .fa {
+  margin-right: 5px;
+}
+#gamme .deckgrid .actions .menu li a {
+  color: #ddd;
+  opacity: 0.7;
+}
+#gamme .deckgrid .actions .menu li a:hover {
+  opacity: 1;
 }

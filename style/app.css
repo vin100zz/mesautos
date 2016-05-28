@@ -144,7 +144,7 @@ a {
   width: 500px;
   max-height: 400px;
   overflow-y: auto;
-  background: #111;
+  background: #222;
   color: #ddd;
 }
 #search .results > li {

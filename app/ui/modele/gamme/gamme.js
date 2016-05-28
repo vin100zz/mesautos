@@ -1,4 +1,4 @@
-app.directive('mesautosGamme', function (Deckgrid) {
+app.directive('mesautosGamme', function (Deckgrid, Auto) {
 
   return {
     scope: {
@@ -14,9 +14,23 @@ app.directive('mesautosGamme', function (Deckgrid) {
       function render() {
         $scope.photos = $scope.cfg.gamme.docs.map(function (doc) {
           doc.src = getImage(doc.idDocumentGamme);
-          doc.sidebar = [{
-            link: '#/saisie/edit/docGamme?id=' + doc.idDocumentGamme,
-            icon: 'edit'
+          doc.actions = [{
+            icon: 'edit',
+            label: 'Éditer',
+            action: function () {
+              window.location.hash = '#/saisie/edit/docGamme?id=' + doc.idDocumentGamme;
+            }
+          }, {
+            icon: 'star',
+            label: 'Emblématique',
+            action: function () {
+              Auto.get({
+                service: 'set-emblematique',
+                id: doc.idDocumentGamme
+              }, function () {
+                window.location.reload();
+              });
+            }
           }];
           return doc;
         });
