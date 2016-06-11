@@ -22,39 +22,17 @@ $documentsMarque = DBAccess::query
 foreach($modeles as $id => $modele)
 {
 	$idModele = $modele['idModele'];
-	
-	$modeles[$id]['anneeModeles'] = DBAccess::query
-	(
-		"SELECT *
-		FROM anneeModele
-		WHERE idModele='$idModele'
-		ORDER BY annee"
-	);
-	
-	foreach($modeles[$id]['anneeModeles'] as $id => &$anneeModele)
-	{
-		$doc = DBAccess::singleRow(
-			"SELECT *
-			FROM documentGamme, gamme, anneeModele
-			WHERE documentGamme.idGamme=gamme.idGamme
-			  AND gamme.idAnneeModele=anneeModele.idAnneeModele
-			  AND anneeModele.idAnneeModele='" . $anneeModele['idAnneeModele'] . "'"
-			. "ORDER BY emblematique DESC"
-		);
-		
-		if(isset($doc['idDocumentGamme'])) {
-			$anneeModele['idDocumentGamme'] = $doc['idDocumentGamme'];
-		}
-	}
-	
-	$categories = DBAccess::query
-	(
-		"SELECT DISTINCT categorie
-		FROM modele
-		WHERE idMarque='$idMarque'
-		ORDER BY categorie"
-	);
+
+	$modeles[$id]['idDocEmblematique'] = DBAccess::singleValue("
+		SELECT idDocumentGamme
+		FROM documentGamme, gamme, anneeModele
+		WHERE documentGamme.idGamme=gamme.idGamme
+		  AND gamme.idAnneeModele=anneeModele.idAnneeModele
+			AND idModele='$idModele'
+		ORDER BY emblem_modele DESC
+	");
 }
+
 
 $marque['modeles'] = $modeles;
 $marque['docs'] = $documentsMarque;

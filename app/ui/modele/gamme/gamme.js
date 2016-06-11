@@ -21,11 +21,22 @@ app.directive('mesautosGamme', function (Deckgrid, Auto, ImageManager) {
               window.location.hash = '#/saisie/edit/docGamme?id=' + doc.idDocumentGamme;
             }
           }, {
-            icon: 'star',
-            label: 'Emblématique',
+            icon: 'star-o',
+            label: 'Emblématique année-modèle',
             action: function () {
               Auto.get({
-                service: 'set-emblematique',
+                service: 'set-emblem-anneeModele',
+                id: doc.idDocumentGamme
+              }, function () {
+                window.location.reload();
+              });
+            }
+          }, {
+            icon: 'star',
+            label: 'Emblématique modèle',
+            action: function () {
+              Auto.get({
+                service: 'set-emblem-modele',
                 id: doc.idDocumentGamme
               }, function () {
                 window.location.reload();

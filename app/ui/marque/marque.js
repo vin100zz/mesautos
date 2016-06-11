@@ -25,7 +25,6 @@ app.controller('MarqueCtrl', function ($scope, $routeParams, $location, $anchorS
           modele.yearInName = yearInName[1];
         }
 
-        modele.firstAnneeModele = modele.anneeModeles.length ? modele.anneeModeles[0] : null;
         modele.categorieCfg = Categorie.cfg(modele.categorie);
         return modele;
       });
@@ -40,7 +39,7 @@ app.controller('MarqueCtrl', function ($scope, $routeParams, $location, $anchorS
           begin: modele.debut,
           end: modele.fin,
           name: modele.nomModele,
-          picture: modele.firstAnneeModele ? ImageManager.versionPath(modele.firstAnneeModele.idDocumentGamme) : null,
+          picture: ImageManager.versionPath(modele.idDocEmblematique),
           link: '#/marque/' + marque.idMarque + '#modele-' + modele.idModele
         };
       });
@@ -88,12 +87,12 @@ app.controller('MarqueCtrl', function ($scope, $routeParams, $location, $anchorS
   };
 
   /* Pictures */
-  $scope.backgroundImage = function (anneeModele) {
-    if (!anneeModele) {
+  $scope.backgroundImage = function (idDoc) {
+    if (!idDoc) {
       return null;
     }
     return {
-      'background-image': 'url(' + ImageManager.versionPath(anneeModele.idDocumentGamme) + ')'
+      'background-image': 'url(' + ImageManager.versionPath(idDoc) + ')'
     };
   };
 

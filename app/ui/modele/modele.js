@@ -42,10 +42,17 @@ app.controller('ModeleCtrl', function ($scope, $route, $routeParams, Auto, Image
   });
 
   $scope.getImageForAnneeModele = function (anneeModele) {
-    var doc = anneeModele.gammes[0].docs.find(function (doc) {
-      return doc.emblematique === '1';
-    }) || anneeModele.gammes[0].docs[0];
-    return ImageManager.versionPath(doc.idDocumentGamme);
+    var emblemAnneeModele = null;
+    anneeModele.gammes.forEach(function (gamme) {
+      var emblemGamme = gamme.docs.find(function (doc) {
+        return doc.emblem_anneeModele === '1';
+      });
+      if (emblemGamme) {
+        emblemAnneeModele = emblemGamme;
+      }
+    });
+    emblemAnneeModele = emblemAnneeModele || anneeModele.gammes[0].docs[0];
+    return ImageManager.versionPath(emblemAnneeModele.idDocumentGamme);
   };
 
   $scope.select = function (gamme) {
