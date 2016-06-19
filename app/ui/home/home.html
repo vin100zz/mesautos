@@ -2,6 +2,7 @@
 
   <div id="content">
 
+    <!-- MARQUES -->
     <ul id="marques" class="view grid" ng-show="selectedView == 'marques'">
       <li ng-repeat="marque in marques | filter: filterPays | orderBy: 'nomMarque'" ng-click="goToMarque(marque)">
     		<div ng-style="marqueBackgroundImage(marque)" class="thumbnail logo"></div>
@@ -34,6 +35,7 @@
       <li></li>
     </ul>
 
+    <!-- SALONS -->
     <ul id="salons" class="view grid" ng-show="selectedView == 'salons'">
       <li ng-repeat="salon in salons" ng-click="goToSalon(salon)">
         <div ng-style="salonBackgroundImage(salon)" class="thumbnail logo"></div>
@@ -63,6 +65,19 @@
       <li></li>
       <li></li>
       <li></li>
+    </ul>
+
+    <!-- MINIS -->
+    <ul id="miniatures" ng-show="selectedView == 'miniatures'">
+      <li ng-repeat="marque in miniatures.marques">
+        <div class="nom-marque" ng-class="{expanded: isExpanded(marque)}" ng-click="toggleMarque(marque)">{{marque.nomMarque}}</div>
+        <ul ng-if="isExpanded(marque)">
+          <li class="modele" ng-class="{jelai: modele.mini == 'Y'}" ng-repeat="modele in marque.modeles" ng-click="toggleMini(modele)">
+            <span class="fa fa-{{modele.mini == 'Y' ? 'check' : 'times'}}"></span>
+            <span>{{modele.nomModele}}</span>
+          </li>
+        </ul>
+      </li>
     </ul>
 
   </div>

@@ -51,14 +51,13 @@ else if ($objet == "modele")
 	$commentaire = getParam("commentaire");
 	$idMarque = getParam("idMarque");
 	$versionOrder = $aParams["versionOrder"];
-  $miniModele = getParam("miniModele") == '1' ? 'Y' : 'N';
 	
 	if ($action == "add")
 	{
 		$status['query'] = "INSERT INTO modele(nomModele, categorie, debut, fin, cylindree_min, cylindree_max, puissance_min, puissance_max, 
-																					  production, commentaire, idMarque, miniModele)
+																					  production, commentaire, idMarque)
 																		 VALUES('$nomModele', '$categorie', '$debut', '$fin', '$cylindree_min', '$cylindree_max', '$puissance_min', '$puissance_max',
-																					  '$production', '$commentaire', '$idMarque', '$miniModele')";
+																					  '$production', '$commentaire', '$idMarque')";
 	}	
 	else
 	{
@@ -66,7 +65,7 @@ else if ($objet == "modele")
 		$status['query'] = "UPDATE modele
 												 SET nomModele='$nomModele', categorie='$categorie', debut='$debut', fin='$fin', cylindree_min='$cylindree_min',
 														 cylindree_max='$cylindree_max', puissance_min='$puissance_min', puissance_max='$puissance_max',
-														 production='$production', commentaire='$commentaire', idMarque='$idMarque', miniModele='$miniModele'
+														 production='$production', commentaire='$commentaire', idMarque='$idMarque'
 												 WHERE idModele = '$idModele'";
 		
 		$pos = 0;
