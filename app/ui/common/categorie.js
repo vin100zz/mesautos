@@ -1,7 +1,7 @@
 app.service('Categorie', function () {
 
   var _cfg = {
-    "CC": {
+    "COC": {
       label: "Concept Car",
       color: "blue"
     },
