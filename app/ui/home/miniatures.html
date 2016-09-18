@@ -1,0 +1,40 @@
+<div id="home">
+
+  <div id="content">
+
+    <ul id="miniatures">
+      <li ng-repeat="marque in miniatures.marques">
+        <div class="nom-marque" ng-class="{expanded: isExpanded(marque)}" ng-click="toggleMarque(marque)">{{marque.nomMarque}}</div>
+        <ul ng-if="isExpanded(marque)">
+          <li class="modele" ng-class="{jelai: modele.mini == 'Y'}" ng-repeat="modele in marque.modeles" ng-click="toggleMini(modele)">
+            <span class="fa fa-{{modele.mini == 'Y' ? 'check' : 'times'}}"></span>
+            <span>{{modele.nomModele}}</span>
+          </li>
+        </ul>
+      </li>
+    </ul>
+
+  </div>
+
+  <div id="sidebar">
+
+    <ul class="views">
+      <li>
+        <a href="#marques" class="tooltiped fa fa-car"></a>
+        <div class="tooltip"><pre>Marques</pre></div>
+      </li>
+      <li>
+        <a href="#salons" class="tooltiped fa fa-calendar"></a>
+        <div class="tooltip"><pre>Salons</pre></div>
+      </li>
+      <li class="selected">
+        <div class="tooltiped fa fa-star-o"></div>
+        <div class="tooltip"><pre>Miniatures</pre></div>
+      </li>
+    </ul>
+
+  </div>
+
+</div>
+
+

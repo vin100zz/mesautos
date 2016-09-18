@@ -1,20 +1,20 @@
 <div class="card">
 
-<div class="actions">
-  <div class="fa fa-ellipsis-h"></div>
-  <div class="dummy-for-hovering">
-    <ul class="menu">
-      <li ng-repeat="item in card.actions">
-        <a ng-click="item.action()">
-          <span class="tooltiped fa fa-{{item.icon}} fw"></span>
-          <span>{{item.label}}</span>
-        </a>
-      </li>
-    </ul>
-  </div>
-</div>  
+  <div class="actions">
+    <div class="fa fa-ellipsis-h"></div>
+    <div class="dummy-for-hovering">
+      <ul class="menu">
+        <li ng-repeat="item in card.actions">
+          <a ng-click="item.action()">
+            <span class="tooltiped fa fa-{{item.icon}} fw"></span>
+            <span>{{item.label}}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>  
 
-  <a  href="{{card.src}}" target="_blank">
+  <a href="{{card.src}}" target="_blank">
     <img src="" data-ng-src="{{card.src}}">
     <div ng-if="card.legende || card.date || card.source">
       <div class="source-date" ng-if="card.date || card.source">
@@ -23,6 +23,10 @@
       </div>
       <div class="legend" ng-if="card.legende">{{card.legende}}</div>
     </div>
+  </a>
+  
+  <a class="card-link" href="{{card.lien}}" target="_blank" ng-show="card.lien">
+    <span class="fa fa-link"></span>
   </a>
 
 </div>

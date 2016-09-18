@@ -1,13 +1,7 @@
-app.controller('HomeCtrl', function ($scope, Auto) {
+app.controller('MarquesCtrl', function ($scope, Auto) {
 
   Auto.query({}, function (res) {
     $scope.marques = res.marques;
-
-    $scope.salons = res.salons.map(function (salon) {
-      return {
-        annee: salon
-      };
-    });
 
     /* Filters */
     $scope.pays = [];
@@ -48,17 +42,6 @@ app.controller('HomeCtrl', function ($scope, Auto) {
     window.location = '#/marque/' + marque.idMarque;
   };
 
-  /* Salons */
-  $scope.salonBackgroundImage = function (salon) {
-    return {
-      'background-image': 'url(img/salon/' + salon.annee + '/mini/1.jpg)'
-    };
-  };
-
-  $scope.goToSalon = function (salon) {
-    window.location = '#/salon/' + salon.annee;
-  };
-
   /* Filters */
   $scope.filterPays = function (value) {
     if (!value.pays) {
@@ -78,35 +61,6 @@ app.controller('HomeCtrl', function ($scope, Auto) {
 
   $scope.toggleFilter = function (pays) {
     pays.filter = !pays.filter;
-  };
-
-  /* Views */
-  $scope.selectedView = 'marques';
-
-  $scope.showView = function (view) {
-    $scope.selectedView = view;
-  };
-
-  /* Miniatures */
-  $scope.miniatures = Auto.get({
-    service: 'list-mini'
-  });
-
-  $scope.isExpanded = function (marque) {
-    return localStorage.getItem('expanded-' + marque.idMarque) === 'true';
-  };
-
-  $scope.toggleMarque = function (marque) {
-    marque.expanded = !marque.expanded;
-    localStorage.setItem('expanded-' + marque.idMarque, marque.expanded);
-  };
-
-  $scope.toggleMini = function (modele) {
-    $scope.miniatures = Auto.get({
-      service: 'update-mini',
-      idModele: modele.idModele,
-      mini: modele.mini === 'Y' ? 'N' : 'Y'
-    });
   };
 
 });

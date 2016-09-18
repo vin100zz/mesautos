@@ -68,6 +68,17 @@
 #gamme .deckgrid .actions .fa {
   font-size: 12pt;
 }
+#gamme .deckgrid .actions > .fa {
+  width: 20px;
+  height: 20px;
+  background: #333;
+  border-radius: 4px;
+}
+#gamme .deckgrid .actions > .fa:before {
+  position: absolute;
+  top: 5px;
+  left: 4px;
+}
 #gamme .deckgrid .actions .dummy-for-hovering {
   display: none;
   position: absolute;
@@ -112,3 +123,29 @@
 #gamme .deckgrid .actions .menu li a:hover {
   opacity: 1;
 }
+
+#gamme .deckgrid .card-link,
+#gamme .deckgrid .card-link:visited
+{
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: #333;
+  border-radius: 4px;
+  bottom: 3px;
+  left: 6px;
+}
+#gamme .deckgrid .card-link .fa {
+  font-size: 14px;
+  opacity: 0.7;
+}
+#gamme .deckgrid .card-link .fa:before {
+  position: absolute;
+  top: 4px;
+  left: 3px;
+}
+#gamme .deckgrid .card-link .fa:hover {
+  opacity: 1;
+}
+
+

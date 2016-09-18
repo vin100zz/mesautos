@@ -1,0 +1,59 @@
+<div id="home">
+
+  <div id="content">
+
+    <ul id="salons" class="view grid">
+      <li ng-repeat="salon in salons" ng-click="goToSalon(salon)">
+        <div ng-style="salonBackgroundImage(salon)" class="thumbnail logo"></div>
+        <div class="mask">
+          <div class="info">
+            <div>{{salon.annee}}</div>
+          </div>
+        </div>
+      </li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+
+  </div>
+
+  <div id="sidebar">
+
+    <ul class="views">
+      <li>
+        <a href="#marques" class="tooltiped fa fa-car"></a>
+        <div class="tooltip"><pre>Marques</pre></div>
+      </li>
+      <li class="selected">
+        <div class="tooltiped fa fa-calendar"></div>
+        <div class="tooltip"><pre>Salons</pre></div>
+      </li>
+      <li>
+        <a href="#miniatures" class="tooltiped fa fa-star-o"></a>
+        <div class="tooltip"><pre>Miniatures</pre></div>
+      </li>
+    </ul>
+
+  </div>
+
+</div>
+
+

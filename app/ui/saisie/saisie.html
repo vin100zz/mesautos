@@ -177,41 +177,19 @@
       </div>
     </div>
     
-   <div class="control-group" ng-show="objet == 'docMarque' || objet == 'docGamme'">
+    <div class="control-group" ng-show="objet == 'docMarque' || objet == 'docGamme'">
       <label class="control-label" for="legende">Légende</label>
       <div class="controls">
         <textarea type="text" class="input-xlarge" id="legende" ng-model="saisie.legende" ></textarea>
       </div>
     </div>
     
-    <!-- <div class="control-group" ng-show="objet == 'docMarque' || objet == 'docGamme'">
-      <label class="control-label" for="ordre">Ordre</label>
+    <div class="control-group" ng-show="objet == 'docGamme'">
+      <label class="control-label" for="lien">Lien</label>
       <div class="controls">
-        <input type="number" min="0" class="input-xlarge" id="ordre" ng-model="saisie.ordre" />
+        <input type="text" class="input-xlarge" id="lien" ng-model="saisie.lien" ></input>
       </div>
-    </div>-->
-    
-    <!-- <div class="control-group" ng-show="objet == 'docMarque' || objet == 'docGamme'">
-      <label class="control-label" for="motCle">Emblématique</label>
-      <div class="controls">
-        <input type="checkbox" class="input-xlarge" id="motCle" ng-model="saisie.motCle" ng-checked="saisie.motCle == 'EMB'" />
-      </div>
-    </div> -->
-    
-    <!--  miniature -->
-    <!-- <div class="control-group" ng-show="objet == 'modele'">
-      <label class="control-label" for="miniModele">Je l'ai en miniature</label>
-      <div class="controls">
-        <input type="checkbox" class="input-xlarge" id="miniModele" ng-model="saisie.miniModele" ng-checked="saisie.miniModele == 'Y'" />
-      </div>
-    </div> 
-    
-    <div class="control-group" ng-show="objet == 'version'">
-      <label class="control-label" for="miniVersion">Je l'ai en miniature</label>
-      <div class="controls">
-        <input type="checkbox" class="input-xlarge" id="miniVersion" ng-model="saisie.miniVersion" ng-checked="saisie.miniVersion == 'Y'" />
-      </div>
-    </div> -->
+    </div>
     
     <!-- ordres -->   
     <div ng-sorter cfg="modeleSorterCfg"></div>

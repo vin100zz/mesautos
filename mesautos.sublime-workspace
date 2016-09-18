@@ -4,8 +4,16 @@
 		"selected_items":
 		[
 			[
-				"margin",
+				"margi",
 				"margin-right"
+			],
+			[
+				"font",
+				"font-weight"
+			],
+			[
+				"margin",
+				"margin-bottom"
 			],
 			[
 				"tex",
@@ -18,10 +26,6 @@
 			[
 				"id",
 				"idGamme"
-			],
-			[
-				"font",
-				"font-style"
 			],
 			[
 				"padd",
@@ -119,54 +123,6 @@
 	},
 	"buffers":
 	[
-		{
-			"file": "app/server/list-mini.php",
-			"settings":
-			{
-				"buffer_size": 443,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/server/update-mini.php",
-			"settings":
-			{
-				"buffer_size": 228,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/ui/home/home.html",
-			"settings":
-			{
-				"buffer_size": 3675,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/ui/home/home.js",
-			"settings":
-			{
-				"buffer_size": 2551,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/ui/home/home.css",
-			"settings":
-			{
-				"buffer_size": 2317,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/ui/saisie/saisie.html",
-			"settings":
-			{
-				"buffer_size": 8946,
-				"line_ending": "Windows"
-			}
-		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -175,13 +131,37 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 81.0,
-		"last_filter": "json",
+		"height": 392.0,
+		"last_filter": "typesc",
 		"selected_items":
 		[
 			[
+				"typesc",
+				"Build With: TypeScript"
+			],
+			[
 				"json",
+				"Pretty JSON: Validate"
+			],
+			[
+				"install p",
+				"Package Control: Install Package"
+			],
+			[
+				"json rei",
 				"JSON Reindent: reindent file or selection"
+			],
+			[
+				"jso",
+				"JSON Reindent: reindent file or selection"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
 			],
 			[
 				"indent",
@@ -200,10 +180,6 @@
 				"Package Control: Install Package"
 			],
 			[
-				"insta",
-				"Package Control: Install Package"
-			],
-			[
 				"lint",
 				"SublimeLinter: Show All Errors"
 			],
@@ -214,17 +190,13 @@
 			[
 				"forma",
 				"Format: Javascript"
-			],
-			[
-				"ins",
-				"Package Control: Install Package"
 			]
 		],
-		"width": 400.0
+		"width": 432.0
 	},
 	"console":
 	{
-		"height": 126.0,
+		"height": 167.0,
 		"history":
 		[
 			"import urllib.request,os,hashlib; h = '2915d1851351e5ee549c20394736b442' + '8bc59f460fa1548d1514676163dafc88'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
@@ -258,6 +230,66 @@
 	],
 	"file_history":
 	[
+		"/C/civ_net/CIVNET/AUTO_1.SAV",
+		"/C/Users/V/Desktop/civone-0.1.0pre-alpha1-r551/Demo.bat",
+		"/C/Users/V/Desktop/civone-0.1.0pre-alpha1-r551/CivOne.bat",
+		"/C/civ_net/CIVNET/README.TXT",
+		"/C/civ_net/CIVNET/INSTALL.LOG",
+		"/C/civ_net/CIVNET/FAMEHALL.CIV",
+		"/C/civ_net/CIVNET/EXAMPLE.MAP",
+		"/C/civ_net/CIVNET/CHAT.LOG",
+		"/C/civ_net/dosbox.conf",
+		"/D/www/babouch/roadbook/data.json",
+		"/D/www/language-evolution-simulation-master/js/Map.js",
+		"/D/www/language-evolution-simulation-master/js/Simulation.js",
+		"/C/civ_net/dosbox - Copie.conf",
+		"/C/civ_net/NOTE.EXE",
+		"/C/civ_net/civnet.cue",
+		"/C/civ_net/CONFIG.SYS",
+		"/C/civ_net/civnet.bin",
+		"/D/www/babouch/2016/index.html",
+		"/D/www/babouch/2016/style.css",
+		"/D/www/ts/script/greeter.ts",
+		"/D/www/ariadoc/guides/todo/view/TodoScript.js",
+		"/D/www/ariadoc/view/style.css",
+		"/D/www/babouch/13_nicolas/contenu/pages/1_naissance/naissance.html",
+		"/D/www/babouch/13_nicolas/contenu/pages/3_renee/renee.html",
+		"/D/www/at/index.html",
+		"/D/www/at/view/Todo.tpl",
+		"/D/www/babouch/ve/mesautos/index.html",
+		"/D/www/babouch/tdf/pronos.js",
+		"/D/www/babouch/tdf/server/tdf.php",
+		"/D/www/babouch/ve/index.html",
+		"/D/www/babouch/itineraires/data/coordonnees.json",
+		"/D/www/babouch/itineraires/data/voyages.json",
+		"/D/www/babouch/tdf/style/style.css",
+		"/D/www/babouch/tdf-saisie/style/saisie.css",
+		"/D/www/babouch/tdf-saisie/index.html",
+		"/D/www/babouch/tdf-saisie/coureurs.json",
+		"/D/www/babouch/tdf-saisie/app.js",
+		"/D/www/babouch/tdf-saisie/style/flags.css",
+		"/D/www/babouch/tdf-saisie/coureurs.js",
+		"/D/www/babouch/tdf-saisie/coureurs - Copie.json",
+		"/D/www/babouch/tdf/templates/menu.html",
+		"/D/www/babouch/tdf/server/comm_insert.php",
+		"/D/www/babouch/tdf-saisie/style/style.css",
+		"/D/www/babouch/tdf/index.html",
+		"/D/www/babouch/itineraires/app/utils/coordonnees.js",
+		"/D/www/ts/index.html",
+		"/D/www/ts/Gruntfile.js",
+		"/D/www/ts/package.json",
+		"/D/www/ts/greeter.js",
+		"/D/www/ts/greeter.ts",
+		"/C/Users/V/AppData/Roaming/Sublime Text 3/Packages/TypeScript/TypeScriptReact.sublime-settings",
+		"/C/Users/V/AppData/Roaming/Sublime Text 3/Packages/User/TypeScript.sublime-settings",
+		"/C/Users/V/AppData/Roaming/Sublime Text 3/Packages/TypeScript/Preferences.sublime-settings",
+		"/C/Users/V/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/D/www/babouch/mesautos/app/ui/saisie/saisie.html",
+		"/D/www/babouch/mesautos/app/ui/home/home.css",
+		"/D/www/babouch/mesautos/app/ui/home/home.js",
+		"/D/www/babouch/mesautos/app/ui/home/home.html",
+		"/D/www/babouch/mesautos/app/server/update-mini.php",
+		"/D/www/babouch/mesautos/app/server/list-mini.php",
 		"/D/www/babouch/mesautos/app/server/update.php",
 		"/D/www/babouch/chefs/style/flags/stylesheets/flags32.css",
 		"/D/www/babouch/chefs/flags.php",
@@ -277,7 +309,6 @@
 		"/D/www/babouch/mesautos/app/ui/marque/marque.js",
 		"/D/www/babouch/mesautos/app/ui/modele/gamme/gamme.css",
 		"/D/www/babouch/mesautos/app/ui/modele/gamme/gamme.js",
-		"/D/www/babouch/mesautos/app/ui/home/home.css",
 		"/D/www/babouch/mesautos/app/server/set-emblem-modele.php",
 		"/D/www/babouch/mesautos/app/server/set-emblem-anneeModele.php",
 		"/D/www/babouch/mesautos/app/server/set-emblematique.php",
@@ -291,15 +322,12 @@
 		"/D/www/babouch/mesautos/app/ui/modele/gamme/card.html",
 		"/C/Program Files (x86)/EasyPHP-DevServer-14.1VC11/binaries/apache/conf/httpd.conf",
 		"/C/Program Files (x86)/EasyPHP-DevServer-14.1VC11/binaries/conf_files/httpd.conf",
-		"/D/www/babouch/2016/style.css",
-		"/D/www/babouch/2016/index.html",
 		"/D/www/babouch/index.html",
 		"/D/www/babouch/roadbook/activity.html",
 		"/D/www/babouch/roadbook/day.html",
 		"/D/www/babouch/roadbook/app.js",
 		"/D/www/babouch/roadbook/index.html",
 		"/D/www/babouch/roadbook/style/style.css",
-		"/D/www/babouch/roadbook/data.json",
 		"/C/Users/V/Google Drive/Amadeus/suitable.js",
 		"/D/www/babouch/2015/style.css",
 		"/D/www/bnp/bnp.csv",
@@ -317,7 +345,6 @@
 		"/D/www/lvdlom/app/main.js",
 		"/D/www/babouch/mesautos/app/server/saisie.php",
 		"/D/www/babouch/mesautos/app/ui/saisie/saisie.js",
-		"/D/www/babouch/mesautos/app/ui/saisie/saisie.html",
 		"/D/www/babouch/mesautos/app/ui/modele/gamme/gamme.html",
 		"/D/www/babouch/mesautos/app/ui/saisie/saisie.css",
 		"/D/www/babouch/mesautos/app/ui/modele/modele.html",
@@ -330,62 +357,7 @@
 		"/D/exemple2/script.js",
 		"/D/exemple2/style.css",
 		"/D/exemple1/exemple1.html",
-		"/D/exemple2/exemple2.html",
-		"/D/exemple2/exemple1.html",
-		"/D/exemple/exemple.html",
-		"/D/www/babouch/chefs/logs.txt",
-		"/D/www/babouch/2016/suisse/partials/page.html",
-		"/D/www/babouch/2016/suisse/pages/pages.json",
-		"/D/www/babouch/2016/suisse/index.html",
-		"/C/Users/V/Documents/Sports Interactive/Football Manager 2016/shortlists/VC.fmf",
-		"/C/Users/V/Documents/Sports Interactive/Football Manager 2016/shortlists/vv_3587CF13-08F9-43C2-951D-7306ED4F6539.fmf",
-		"/D/www/fm/main.html",
-		"/D/www/babouch/mesautos/app/server/_mig.php",
-		"/D/www/babouch/mesautos/app/ui/home/home.html",
-		"/D/www/babouch/mesautos/app/ui/marque/marque.css",
-		"/D/www/babouch/mesautos/app/server/db.php",
-		"/D/www/babouch/mesautos/app/ui/app.js",
-		"/D/www/babouch/mesautos/app/server/autos.php",
-		"/D/www/babouch/mesautos/app/ui/home/home.js",
-		"/D/www/babouch/mesautos/app/ui/salon/salon.css",
-		"/D/www/babouch/mesautos/app/ui/salon/salon.js",
-		"/D/www/babouch/mesautos/app/ui/salon/salon.html",
-		"/D/www/babouch/mesautos/app/server/salon.php",
-		"/D/www/babouch/mesautos/app/ui/salon/card.html",
-		"/D/www/babouch/mesautos/app/ui/common/sidebar/sidebar.html",
-		"/D/www/babouch/mesautos/lib/timeline/timeline.css",
-		"/D/www/babouch/mesautos/lib/timeline/timeline.js",
-		"/D/www/babouch/mesautos/lib/angular/angular.js",
-		"/D/www/babouch/ngauto/partials/marque.html",
-		"/D/www/babouch/ngauto/js/controllers.js",
-		"/C/Users/V/Desktop/dnd2.html",
-		"/C/Users/V/Desktop/dnd.html",
-		"/D/www/babouch/mesautos/app/ui/modele/annee-modele/annee-modele.js",
-		"/D/www/babouch/mesautos/app/ui/modele/annee-modele/annee-modele.html",
-		"/C/Users/V/AppData/Roaming/Sublime Text 3/Packages/User/SublimeLinter.sublime-settings",
-		"/C/Users/V/AppData/Roaming/Sublime Text 3/Packages/SublimeLinter/SublimeLinter.sublime-settings",
-		"/D/www/babouch/mesautos/app/ui/modele/annee-modele/card.html",
-		"/D/www/babouch/mesautos/app/ui/modele/annee-modele/annee-modele.css",
-		"/D/www/lvdlom/app/directives/charts.js",
-		"/D/www/lvdlom/app/directives/liste-age.js",
-		"/D/www/babouch/mesautos/app/ui/common/sidebar/sidebar.js",
-		"/D/www/lvdlom/app/directives/maillot.js",
-		"/D/www/lvdlom/app/directives/breadcrumb.js",
-		"/D/www/babouch/mesautos/app/ui/modele/version.js",
-		"/D/www/babouch/mesautos/app/ui/common/categorie.js",
-		"/D/www/babouch/mesautos/app/ui/version/version.css",
-		"/D/www/babouch/mesautos/app/ui/version/version.js",
-		"/D/www/babouch/mesautos/app/ui/version/version.html",
-		"/D/www/lvdlom/app/modules/anniversaire.js",
-		"/D/www/lvdlom/app/modules/age.js",
-		"/D/www/babouch/mesautos/app/ui/marque/marque-sidebar.html",
-		"/D/www/babouch/mesautos/app/ui/marque/marque-sidebar.js",
-		"/D/www/lvdlom/app/directives/table.html",
-		"/D/www/lvdlom/app/utils/widget.js",
-		"/D/www/babouch/mesautos/app/ui/marque/marque-sidebar.css",
-		"/D/www/lvdlom/app/directives/documents.js",
-		"/D/www/lvdlom/index.html",
-		"/D/www/lvdlom/app/directives/breadcrumb.html"
+		"/D/exemple2/exemple2.html"
 	],
 	"find":
 	{
@@ -406,6 +378,90 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"note",
+			"civ",
+			"bazeilles",
+			"zoe",
+			"td",
+			"\\n{",
+			"4.jpg",
+			"3.jpg",
+			"1.jpg",
+			"\\n",
+			".+\\. ",
+			"Hambourg",
+			"Genève",
+			"2D3749",
+			"help",
+			"8p",
+			"8p9",
+			"8pt",
+			"total",
+			"\\n",
+			".+\\. ",
+			" 2.C.",
+			".+\\. ",
+			".+\\.",
+			"\\n",
+			".+\\.",
+			"\\d+\\.",
+			"\"(\\w)\\.(\\w+)\"",
+			"flag-mini",
+			".newflags",
+			" \\((.*)\\)",
+			"\\(.*\\)",
+			"\\ (.*\\)",
+			"\\(.*\\)",
+			"} {",
+			"  \"",
+			"   \"",
+			"]",
+			"^(\\d+)\\.\\s+(.*)",
+			"^(\\d+)\\.\\s+(.*?)",
+			"^(\\d+)\\.\\s+(.*?)\\s\\s",
+			"^(\\d+)\\.\\s+(.*?)\\s",
+			"{\"name\"",
+			"^(\\d+)\\.\\s+(.*)",
+			"^(\\d+)\\.\\s+(\\w*)\\s*",
+			"^(\\d+)\\.\\s+(.*)\\s*",
+			"^(\\d+)\\.\\s+(.*)",
+			"^(\\d+)\\.\\s+",
+			"^(\\d+)\\.\\s",
+			"^(\\d+)\\s",
+			"^(\\d+)",
+			"^(\\d+)\\s+(.*)",
+			"^([A-Z].*)",
+			"^[A-Z]",
+			"^\\s",
+			"^\\w",
+			"\\(Directeur sportif.*\\n",
+			"\\(Directeur sportif.*",
+			"(Directeur sportif.*",
+			"\"name\": \"(\\d+) (.*)\"",
+			"\"name\": \"(\\d+)  (.*)\"",
+			"help",
+			"77EFE7",
+			"eee333",
+			"eee",
+			"7acef4",
+			"7ace",
+			"2015",
+			"\"(\\d+\\s+.*)\"",
+			"{\"(\\d+\\s+.*)\"}",
+			"\"team\"",
+			"success",
+			"(team.*\")\\n.*}",
+			"team.*\"\\n.*}",
+			"{\"(\\d+\\s+.*)\"}",
+			"{\"(<\\d+\\s+.*)\"}",
+			"{\"(.*)\"}",
+			"coureurs",
+			"team",
+			"{\"\"},",
+			"\\n",
+			"Directeurs sportifs.*",
+			"Directeurs sportifs.*\\\\n",
+			"watch",
 			"15px",
 			"color",
 			"--var",
@@ -449,91 +505,7 @@
 			"days",
 			"php",
 			"-right",
-			"margin-right",
-			"objet",
-			"ordre",
-			"gamme",
-			"documentVersion",
-			"docVersion",
-			"if(",
-			"docMarque",
-			"embl",
-			"docVersion",
-			"diter",
-			"getLastInsertedLastRow",
-			"aStatus",
-			"anneeM",
-			"if(",
-			"hr",
-			"title",
-			"subtitl",
-			"title",
-			"fore",
-			"green",
-			"fore",
-			"version",
-			"aResult",
-			"querySingle",
-			"aResult",
-			"querySingle",
-			"José",
-			"erd",
-			"AE6926",
-			"ng",
-			"version",
-			"sele",
-			"version",
-			"list",
-			"http",
-			"#marque #sidebar",
-			"#home #content",
-			"filterCategorie",
-			"actions",
-			"sidebar",
-			"var(--title-color)",
-			"--var(subtitle-color)",
-			"#006666",
-			"version",
-			"Timeline",
-			"sidebar",
-			"anchor",
-			"docs",
-			" ",
-			"\\n",
-			"anneeM",
-			"annee-modele",
-			"annee",
-			"{\n",
-			"last",
-			"version",
-			"modele.",
-			"version",
-			"getLegend",
-			"modele.modele",
-			"marque",
-			"modele.marque",
-			"replace",
-			"MD",
-			"selected",
-			"form",
-			"saisie",
-			"search",
-			"backgroundImage",
-			"content",
-			"#photo",
-			"#carousel",
-			"-->\n",
-			"MainCtrl",
-			"ngResource",
-			"auto",
-			"$aR",
-			".squaredThree",
-			"ngLocale",
-			"queryCategorie",
-			"jelai",
-			"nom-modele",
-			"infos-modele",
-			"#modeles"
+			"margin-right"
 		],
 		"highlight": false,
 		"in_selection": false,
@@ -541,6 +513,53 @@
 		"regex": false,
 		"replace_history":
 		[
+			"marseille",
+			"bazeilles",
+			"th",
+			" {",
+			"1.jpg",
+			"3.jpg",
+			"5.jpg",
+			"4.jpg",
+			"5.jpg",
+			"4.jpg",
+			"3.jpg",
+			"2.jpg",
+			"\",\"",
+			"",
+			"FABB00",
+			"\",\"",
+			"",
+			"\",\"",
+			"",
+			"\"\\1\\. \\2\"",
+			"flag",
+			".flag",
+			"\", \"pays\": \"\\1",
+			"\", \"pays\": {\"\\1",
+			"}, {",
+			"\"",
+			"]}",
+			"{\"num\": \\1, \"name\": \"\\2\"}",
+			"], {\"name\"",
+			"{\"num\": \\1, \"name\": \"\\2\"}",
+			"{\"name\": \"\\1\", \"coureurs\": [",
+			"",
+			"\"num\": \\1, \"name\": \"\\2\"",
+			"FA4700",
+			"999",
+			"FA4700",
+			"{\"name\": \"\\1\"}",
+			"\"name\"",
+			"\\1",
+			"\\1,",
+			"\"\\1\"",
+			"\"coureurs\"",
+			"\"team\"",
+			"",
+			"\"},\\n{\"",
+			"\"},{\"",
+			"",
 			"div",
 			"docGamme",
 			"if (",
@@ -609,193 +628,14 @@
 	"groups":
 	[
 		{
-			"selected": 3,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "app/server/list-mini.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 443,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								276,
-								276
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 4,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/server/update-mini.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 228,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								62,
-								62
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/PHP/PHP.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "app/ui/home/home.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3675,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1791,
-								1791
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 720.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/ui/home/home.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2551,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1899,
-								1899
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 945.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/ui/home/home.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2317,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1560,
-								1560
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1035.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "app/ui/saisie/saisie.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8946,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7950,
-								7950
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2584.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 23.0
+		"height": 26.0
 	},
 	"input":
 	{
@@ -824,6 +664,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.doc":
+	{
+		"height": 0.0
+	},
 	"output.find_results":
 	{
 		"height": 0.0

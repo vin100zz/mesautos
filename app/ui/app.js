@@ -3,9 +3,17 @@ var app = angular.module('mesautos', ['ngResource', 'ngRoute', 'ngSanitize', 'ng
 /* Routing */
 app.config(['$routeProvider', function ($routeProvider) {
 	$routeProvider.
-	when('/home', {
-		templateUrl: 'app/ui/home/home.html',
-		controller: 'HomeCtrl'
+	when('/marques', {
+		templateUrl: 'app/ui/home/marques.html',
+		controller: 'MarquesCtrl'
+	}).
+	when('/salons', {
+		templateUrl: 'app/ui/home/salons.html',
+		controller: 'SalonsCtrl'
+	}).
+	when('/miniatures', {
+		templateUrl: 'app/ui/home/miniatures.html',
+		controller: 'MiniaturesCtrl'
 	}).
 	when('/marque/:marqueId', {
 		templateUrl: 'app/ui/marque/marque.html',
@@ -32,7 +40,7 @@ app.config(['$routeProvider', function ($routeProvider) {
 		controller: 'SalonCtrl'
 	}).
 	otherwise({
-		redirectTo: '/home'
+		redirectTo: '/marques'
 	});
 }]);
 

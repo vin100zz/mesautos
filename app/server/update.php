@@ -128,17 +128,18 @@ else if ($objet == "docGamme")
 	$source = getParam("source");
 	$date = getParam("date");
 	$legende = getParam("legende");
+	$lien = getParam("lien");
   
 	if ($action == "add")
 	{
-		$status['query'] = "INSERT INTO documentGamme(idGamme, source, date, legende)
-																		 VALUES('$idGamme', '$source', '$date', '$legende')";
+		$status['query'] = "INSERT INTO documentGamme(idGamme, source, date, legende, lien)
+																		 VALUES('$idGamme', '$source', '$date', '$legende', '$lien')";
 	}	
 	else
 	{
 		$idDocumentGamme = getParam("idDocumentGamme");
 		$status['query'] = "UPDATE documentGamme
-												 SET idGamme='$idGamme', source='$source', date='$date', legende='$legende'
+												 SET idGamme='$idGamme', source='$source', date='$date', legende='$legende', lien='$lien'
 												 WHERE idDocumentGamme = '$idDocumentGamme'";
 	}
 }
