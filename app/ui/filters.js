@@ -11,6 +11,7 @@ angular.module('autoFilters', []).filter('categorieType', function () {
       if (input == "UTI") return "Utilitaire";
 
       // types des versions
+      if (input == "BTE") return "Berlinette";
       if (input == "BD") return "Berline découvrable";
       if (input == "UL") return "Utilitaire Léger";
       if (input == "PL") return "Poids Lourd";
