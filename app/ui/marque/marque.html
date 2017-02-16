@@ -41,12 +41,14 @@
     </div>
 
     <div id="histo" class="view" ng-show="selectedView == 'histoire'">
+      <div ng-bind-html="marque.histo"></div>
+      <!--<hr/>
       <div ng-bind-html-unsafe="histo" ng-show="histo != null"></div>
       <div ng-repeat="doc in marque.docs">
         <p ng-show="doc.legende != ''">{{doc.legende}}</p>
         <a ng-href="img/marque/{{doc.idDocumentMarque}}.jpg" target="_blank"><img ng-src="img/marque/{{doc.idDocumentMarque}}.jpg"/></a>
         <div class="legend">{{doc.source}}<span ng-show="doc.source != ''"> - </span>{{doc.date}}</div>
-      </div>
+      </div>-->
     </div>
 
   </div>

@@ -85,7 +85,7 @@
 /* Histo */
 #marque #histo {
   text-align: center;
-  width: 600px;
+  padding: 0 80px;
   margin: auto;
   color: #999;
   line-height: 16px;
@@ -100,4 +100,24 @@
 }
 #marque #histo > div {
   margin-bottom: 40px;
+}
+
+#marque #histo h1 {
+  color: var(--title-color);
+  font-size: 16pt;
+  padding: 40px 0 15px 0;
+}
+#marque #histo h1:first-child {
+  padding-top: 0;
+}
+#marque #histo h2 {
+  color: var(--title-color);
+  font-size: 11pt;
+  padding: 30px 0 10px 0;
+}
+#marque #histo p {
+  padding: 5px 0;
+}
+#marque #histo b {
+  color: var(--subtitle-color);
 }

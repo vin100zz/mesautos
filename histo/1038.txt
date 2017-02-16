@@ -1,0 +1,12 @@
+﻿	<h2>1898-1904</h2><br />
+	
+	<p>Fahrzeugfabrik Eîsenach, Eisenach</p><br />
+	
+    <p>Cette firme fondée en 1886 par l'ingénieur Heinrich Ehrhardt, commençe à fabriquer des voitures sous le nom d'Eisenach. </p>
+	
+	
+	<p>A partir de 1898 le nom de Wartburg est adopté pour la voiturette Decauville construite sous licence. Elle est équipée d'un moteur 2 cyl.  monté à l'arrière, soit de 3,5 CV et refroidi par air ou de 5 CV refroidi par eau.  Cette petite voiture populaire est fabriquée en grand nombre.</p>
+
+	<p>Après 1900, des modèles à moteur à l'avant sont produits,  les uns à 2 cyl.  de 5/6 - 8/10 CV et les autres de 4cyl.  de  15/30 et 45 CV. </p>
+
+	<p>En  1904 Ehrhardt quitte la firme et les modèles suivants sont vendus sous le nom de <strong>Dixi</strong>.   Ehrhardt, de son côté, commençe à fabriquer des automobiles sous son propre nom.   Le nom de Wartburg réapparut pour une courte période en  1930 avec une version sport de la voiture B.M.W.  Dixi, basée sur l'Austin Seven.</p>	
