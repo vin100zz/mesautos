@@ -16,6 +16,10 @@ app.controller('MarquesCtrl', function ($scope, Auto) {
           filter: true
         });
       }
+
+      if (marque.debut || marque.fin) {
+        marque.annees = (marque.debut ? marque.debut : '...') + ' - ' + (marque.fin ? marque.fin : '...');
+      }
     });
     $scope.pays.sort(function (pays1, pays2) {
       return pays1.code.localeCompare(pays2.code);

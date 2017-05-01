@@ -1,0 +1,8 @@
+﻿<h1>1911-1945</h1>
+<hr/>
+
+<p>L'entreprise est créée en 1885 pour la fabrication de vélos puis de motos à Chemnitz</p>
+
+<p>Un prototype de voitures est construit en 1904-1905.</p>
+
+<p>La production en série commence en 1911.</p>

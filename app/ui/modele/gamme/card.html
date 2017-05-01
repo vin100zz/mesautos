@@ -1,6 +1,6 @@
 <div class="card">
 
-  <div class="actions">
+  <div class="actions edition">
     <div class="fa fa-ellipsis-h"></div>
     <div class="dummy-for-hovering">
       <ul class="menu">
@@ -24,9 +24,19 @@
       <div class="legend" ng-if="card.legende">{{card.legende}}</div>
     </div>
   </a>
-  
-  <a class="card-link" href="{{card.lien}}" target="_blank" ng-show="card.lien">
-    <span class="fa fa-link"></span>
-  </a>
+
+  <div class="actions links" ng-show="card.links.length > 0">
+    <div class="fa fa-info"></div>
+    <div class="dummy-for-hovering">
+      <ul class="menu">
+        <li ng-repeat="item in card.links">
+          <a ng-click="item.action()">
+            <span class="tooltiped fa fa-{{item.icon}} fw"></span>
+            <span>{{item.label}}</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
 
 </div>

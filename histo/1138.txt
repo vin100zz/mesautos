@@ -1,0 +1,27 @@
+﻿<h1>Historique</h1>
+
+<p>
+DS ou DS Automobiles est une marque automobile premium française du groupe PSA Peugeot Citroën. À l'origine, DS était une ligne haut de gamme de Citroën de 2009 à 2014, elle est devenue une marque à part entière après quatre années d'existence en juin 2014. Le lancement officiel de la marque DS Automobiles a eu lieu le <b>3 mars 2015</b> au Salon de Genève. Le nom fait référence à la Citroën DS, un ancien modèle haut de gamme de la marque Citroën commercialisé entre 1955 et 1975.
+</p>
+
+<p>
+La ligne DS s'est construite initialement en Europe sur trois modèles et segments : (Citroën) DS 3 (citadine), DS 4 (compacte) et DS 5 (crossover). Depuis 2014, la marque DS est indépendante et se développe avec les modèles DS 4S (compacte), DS 5LS (berline) et DS 6 (SUV) non vendus en Europe, et avec les DS 5, DS 4 et DS 3 qui reçoivent la nouvelle calandre « DS Wings », sans plus aucune référence à Citroën (sauf dans le logo DS qui reste formé de 3 chevrons identiques à ceux du logo de Citroën).
+</p>
+
+
+<h2>Dates clés</h2>
+
+<p><b>2009:</b> Création de la Ligne DS au sein de Citroën</p>
+<p><b>2012:</b> Lancement de la Ligne DS en Chine</p>
+<p><b>2014:</b> Création de la marque DS en juin</p>
+
+
+<h2>Liens</h2>
+
+<p><a href="http://www.dsautomobiles.fr">Site officiel</a></p>
+<p><a href="#/modele/709">La DS de 1955</a></p>
+
+
+<h2>DS Store à Shanghai</h2>
+<img src="histo/img/ds_shanghai.jpg" />
+

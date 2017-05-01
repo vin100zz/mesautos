@@ -95,6 +95,12 @@ else if ($action == "edit")
 			JOIN marque on marque.idMarque = modele.idMarque
 			WHERE idDocumentGamme='$id'"
 		);
+		$result['liens'] = DBAccess::query
+		(
+			"SELECT *
+			FROM lienGamme
+			WHERE lienGamme.idDocumentGamme = '$id'"
+		);
 	}
 }
 
@@ -116,10 +122,6 @@ else if ($objet == "modele")
 	(
 		"SELECT DISTINCT categorie FROM modele ORDER BY categorie"
 	);
-	/*$result['versions'] = DBAccess::query
-  (
-    "SELECT * FROM version WHERE idModele = $id ORDER BY ordre, anneeModele"
-  );*/
 }
 else if ($objet == "gamme")
 {

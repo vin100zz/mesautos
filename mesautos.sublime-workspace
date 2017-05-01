@@ -4,16 +4,32 @@
 		"selected_items":
 		[
 			[
-				"margi",
-				"margin-right"
+				"margin",
+				"margin-left"
+			],
+			[
+				"border",
+				"border-left"
+			],
+			[
+				"text",
+				"text-decoration"
+			],
+			[
+				"backgro",
+				"background-size"
+			],
+			[
+				"lis",
+				"list-style-type"
 			],
 			[
 				"font",
-				"font-weight"
+				"font-size"
 			],
 			[
-				"margin",
-				"margin-bottom"
+				"margi",
+				"margin-right"
 			],
 			[
 				"tex",
@@ -36,10 +52,6 @@
 				"font-size"
 			],
 			[
-				"text",
-				"text-align"
-			],
-			[
 				"s",
 				"subtitle-color"
 			],
@@ -58,10 +70,6 @@
 			[
 				"p",
 				"position"
-			],
-			[
-				"border",
-				"border-bottom"
 			],
 			[
 				"insert",
@@ -109,7 +117,7 @@
 			],
 			[
 				"st",
-				"style	Tag"
+				"style\tTag"
 			],
 			[
 				"inlin",
@@ -131,10 +139,14 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 392.0,
-		"last_filter": "typesc",
+		"height": 58.0,
+		"last_filter": "valida",
 		"selected_items":
 		[
+			[
+				"valida",
+				"Pretty JSON: Validate"
+			],
 			[
 				"typesc",
 				"Build With: TypeScript"
@@ -192,7 +204,7 @@
 				"Format: Javascript"
 			]
 		],
-		"width": 432.0
+		"width": 416.0
 	},
 	"console":
 	{
@@ -213,23 +225,65 @@
 	},
 	"expanded_folders":
 	[
-		"/D/www/babouch/mesautos",
 		"/D/www/babouch/mesautos/app",
 		"/D/www/babouch/mesautos/app/server",
 		"/D/www/babouch/mesautos/app/ui",
-		"/D/www/babouch/mesautos/app/ui/common",
 		"/D/www/babouch/mesautos/app/ui/home",
-		"/D/www/babouch/mesautos/app/ui/marque",
 		"/D/www/babouch/mesautos/app/ui/modele",
 		"/D/www/babouch/mesautos/app/ui/modele/gamme",
-		"/D/www/babouch/mesautos/app/ui/saisie",
-		"/D/www/babouch/mesautos/app/ui/salon",
-		"/D/www/babouch/mesautos/img",
-		"/D/www/babouch/mesautos/lib",
-		"/D/www/babouch/mesautos/style"
+		"/D/www/babouch/mesautos/app/ui/saisie"
 	],
 	"file_history":
 	[
+		"/D/www/champ/gen/gen.php",
+		"/D/www/babouch/r1/cali/roadbook/data.json",
+		"/D/www/babouch/r1/cali/roadbook/activity.html",
+		"/D/www/babouch/r1/cali/roadbook/day.html",
+		"/D/www/babouch/r1/cali/js/pages/welcome.html",
+		"/D/www/babouch/r1/cali/contenu/chapitres.json",
+		"/D/www/babouch/r1/cali/index.html",
+		"/D/www/babouch/r1/cali/photobook/index.html",
+		"/D/www/babouch/r1/cali/style/reset.css",
+		"/D/www/babouch/r1/cali/style/app.css",
+		"/D/www/babouch/r1/cali/style/pages.css",
+		"/D/www/babouch/r1/cali/contenu/page.php",
+		"/D/www/babouch/r1/cali/js/pages/chapitreCtrl.js",
+		"/D/www/babouch/r1/cali/js/pages/chapitre.html",
+		"/D/www/babouch/r1/bali/js/pages/chapitreCtrl.js",
+		"/D/www/babouch/r1/cali/style/home.css",
+		"/D/www/lvdlom/style/dom.less",
+		"/D/www/lvdlom/style/style.less",
+		"/D/www/lvdlom/style/main.less",
+		"/D/www/babouch/r1/bali/css/app.css",
+		"/D/www/babouch/r1/bali/css/pages.css",
+		"/D/www/babouch/r1/cali/js/pages/welcomeCtrl.js",
+		"/D/www/babouch/r1/cali/js/router.js",
+		"/D/www/babouch/r1/cali/js/chapitresSvc.js",
+		"/D/www/babouch/r1/cali/home.css",
+		"/D/www/babouch/r1/index.html",
+		"/D/www/babouch/r1/bali/index.html",
+		"/D/www/babouch/roadbook/style/style.css",
+		"/D/www/babouch/roadbook/activity.html",
+		"/D/www/babouch/roadbook/activity.js",
+		"/D/www/babouch/roadbook/app.js",
+		"/D/www/babouch/roadbook/data.json",
+		"/D/www/babouch/roadbook/day.html",
+		"/D/www/babouch/roadbook/day.js",
+		"/D/www/bnp/script.js",
+		"/D/www/bnp/style.css",
+		"/D/www/bnp/bnp.csv",
+		"/D/www/babouch/mesautos/app/server/update.php",
+		"/D/www/babouch/mesautos/app/ui/modele/gamme/gamme.css",
+		"/D/www/babouch/mesautos/app/ui/modele/gamme/card.html",
+		"/D/www/babouch/mesautos/app/ui/saisie/saisie.html",
+		"/D/www/babouch/mesautos/app/ui/app.js",
+		"/D/www/babouch/mesautos/app/ui/home/miniatures.js",
+		"/D/www/babouch/mesautos/app/ui/home/miniatures.html",
+		"/D/www/babouch/mesautos/app/ui/home/salons.js",
+		"/D/www/babouch/mesautos/app/ui/home/salons.html",
+		"/D/www/babouch/mesautos/app/ui/home/marques.js",
+		"/D/www/babouch/mesautos/app/ui/home/marques.html",
+		"/D/www/babouch/mesautos/index.html",
 		"/C/civ_net/CIVNET/AUTO_1.SAV",
 		"/C/Users/V/Desktop/civone-0.1.0pre-alpha1-r551/Demo.bat",
 		"/C/Users/V/Desktop/civone-0.1.0pre-alpha1-r551/CivOne.bat",
@@ -239,7 +293,6 @@
 		"/C/civ_net/CIVNET/EXAMPLE.MAP",
 		"/C/civ_net/CIVNET/CHAT.LOG",
 		"/C/civ_net/dosbox.conf",
-		"/D/www/babouch/roadbook/data.json",
 		"/D/www/language-evolution-simulation-master/js/Map.js",
 		"/D/www/language-evolution-simulation-master/js/Simulation.js",
 		"/C/civ_net/dosbox - Copie.conf",
@@ -284,13 +337,11 @@
 		"/C/Users/V/AppData/Roaming/Sublime Text 3/Packages/User/TypeScript.sublime-settings",
 		"/C/Users/V/AppData/Roaming/Sublime Text 3/Packages/TypeScript/Preferences.sublime-settings",
 		"/C/Users/V/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
-		"/D/www/babouch/mesautos/app/ui/saisie/saisie.html",
 		"/D/www/babouch/mesautos/app/ui/home/home.css",
 		"/D/www/babouch/mesautos/app/ui/home/home.js",
 		"/D/www/babouch/mesautos/app/ui/home/home.html",
 		"/D/www/babouch/mesautos/app/server/update-mini.php",
 		"/D/www/babouch/mesautos/app/server/list-mini.php",
-		"/D/www/babouch/mesautos/app/server/update.php",
 		"/D/www/babouch/chefs/style/flags/stylesheets/flags32.css",
 		"/D/www/babouch/chefs/flags.php",
 		"/D/www/babouch/chefs/style/flags/stylesheets/flags16.css",
@@ -307,57 +358,11 @@
 		"/D/www/babouch/mesautos/app/server/marque.php",
 		"/D/www/babouch/mesautos/app/ui/marque/marque.html",
 		"/D/www/babouch/mesautos/app/ui/marque/marque.js",
-		"/D/www/babouch/mesautos/app/ui/modele/gamme/gamme.css",
 		"/D/www/babouch/mesautos/app/ui/modele/gamme/gamme.js",
 		"/D/www/babouch/mesautos/app/server/set-emblem-modele.php",
 		"/D/www/babouch/mesautos/app/server/set-emblem-anneeModele.php",
 		"/D/www/babouch/mesautos/app/server/set-emblematique.php",
-		"/D/www/babouch/mesautos/app/ui/common/imageManager.js",
-		"/D/www/babouch/mesautos/app/server/modele.php",
-		"/D/www/babouch/mesautos/index.html",
-		"/D/www/babouch/mesautos/app/ui/modele/modele.css",
-		"/D/www/babouch/mesautos/app/ui/common/auto.js",
-		"/D/www/babouch/mesautos/style/app.css",
-		"/D/www/babouch/mesautos/app/ui/common/sidebar/sidebar.css",
-		"/D/www/babouch/mesautos/app/ui/modele/gamme/card.html",
-		"/C/Program Files (x86)/EasyPHP-DevServer-14.1VC11/binaries/apache/conf/httpd.conf",
-		"/C/Program Files (x86)/EasyPHP-DevServer-14.1VC11/binaries/conf_files/httpd.conf",
-		"/D/www/babouch/index.html",
-		"/D/www/babouch/roadbook/activity.html",
-		"/D/www/babouch/roadbook/day.html",
-		"/D/www/babouch/roadbook/app.js",
-		"/D/www/babouch/roadbook/index.html",
-		"/D/www/babouch/roadbook/style/style.css",
-		"/C/Users/V/Google Drive/Amadeus/suitable.js",
-		"/D/www/babouch/2015/style.css",
-		"/D/www/bnp/bnp.csv",
-		"/C/Program Files (x86)/Tennis Elbow Manager/Tennis.Ini",
-		"/C/Program Files (x86)/Tennis Elbow Manager/Data/Players.ATP.Ini",
-		"/C/Program Files (x86)/Tennis Elbow Manager/Data/HowToMod.html",
-		"/C/Program Files (x86)/Tennis Elbow Manager/Data/Countries_English.txt",
-		"/D/www/babouch/roadbook/activity.js",
-		"/D/www/babouch/roadbook/day.js",
-		"/D/www/lvdlom/app/modules/avancement.js",
-		"/D/www/fm/index.html",
-		"/D/www/fm/app.js",
-		"/D/www/lvdlom/lib/angular/angular.js",
-		"/D/www/babouch/roadbook/lib/angular/angular.js",
-		"/D/www/lvdlom/app/main.js",
-		"/D/www/babouch/mesautos/app/server/saisie.php",
-		"/D/www/babouch/mesautos/app/ui/saisie/saisie.js",
-		"/D/www/babouch/mesautos/app/ui/modele/gamme/gamme.html",
-		"/D/www/babouch/mesautos/app/ui/saisie/saisie.css",
-		"/D/www/babouch/mesautos/app/ui/modele/modele.html",
-		"/D/www/babouch/2016/suisse/js/controllers.js",
-		"/D/www/babouch/2016/suisse/partials/home.html",
-		"/D/www/babouch/2016/suisse/css/app.css",
-		"/D/www/fm/style/style.css",
-		"/C/Users/V/Desktop/DataExport_180320161801.csv",
-		"/C/Users/V/Desktop/Suisse/suisse.html",
-		"/D/exemple2/script.js",
-		"/D/exemple2/style.css",
-		"/D/exemple1/exemple1.html",
-		"/D/exemple2/exemple2.html"
+		"/D/www/babouch/mesautos/app/ui/common/imageManager.js"
 	],
 	"find":
 	{
@@ -378,6 +383,18 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"antelope",
+			"Goose",
+			"Segoe",
+			"itle",
+			"Dekiru",
+			"body",
+			"Dekiru",
+			"nav",
+			"deux ",
+			"photos",
+			"selectedView",
+			"home",
 			"note",
 			"civ",
 			"bazeilles",
@@ -493,19 +510,7 @@
 			"#search .results",
 			".tooltip",
 			"#gamme .deckgrid .actions li > a",
-			"www",
-			"DocumentR",
-			"www",
-			"Listen",
-			"8082",
-			"ServerName",
-			"8082",
-			"Los Angeles",
-			"span",
-			"days",
-			"php",
-			"-right",
-			"margin-right"
+			"www"
 		],
 		"highlight": false,
 		"in_selection": false,

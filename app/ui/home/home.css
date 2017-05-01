@@ -48,6 +48,11 @@
 #home #content .grid li:hover .mask .info {
   display: block;
 }
+#home #content .grid li:hover .mask .info .subtitle {
+  padding: 5px 0 2px 0;
+  opacity: 0.6;
+  font-size: 80%;
+}
 #home #content .grid .mask .info img {
   width: 30px;
   margin-top: 10px;

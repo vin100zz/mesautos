@@ -83,14 +83,14 @@
       </div>
     </div>
     
-    <div class="control-group" ng-show="objet == 'modele'">
+    <div class="control-group" ng-show="objet == 'marque' || objet == 'modele'">
       <label class="control-label" for="debut">Début</label>
       <div class="controls">
         <input type="text" class="input-xlarge" id="debut" ng-model="saisie.debut" />
       </div>
     </div>
     
-    <div class="control-group" ng-show="objet == 'modele'">
+    <div class="control-group" ng-show="objet == 'marque' || objet == 'modele'">
       <label class="control-label" for="fin">Fin</label>
       <div class="controls">
         <input type="text" class="input-xlarge" id="fin" ng-model="saisie.fin" />
@@ -184,16 +184,19 @@
       </div>
     </div>
     
-    <div class="control-group" ng-show="objet == 'docGamme'">
-      <label class="control-label" for="lien">Lien</label>
-      <div class="controls">
-        <input type="text" class="input-xlarge" id="lien" ng-model="saisie.lien" ></input>
-      </div>
-    </div>
-    
     <!-- ordres -->   
     <div ng-sorter cfg="modeleSorterCfg"></div>
-    <!-- <div ng-sorter cfg="versionSorterCfg"></div> -->
+    <div ng-sorter cfg="lienGammeSorterCfg"></div>
+
+    <!-- ajout lien -->
+    <div class="control-group" ng-show="objet == 'docGamme' && action === 'edit'">
+      <label class="control-label" for="lien">Ajouter un lien</label>
+      <div class="controls">
+        <input type="text" class="input-xlarge" id="lien" ng-model="saisie.urlLien" placeholder="adresse (http://...)"></input>
+        <input type="text" class="input-xlarge" id="lien" ng-model="saisie.titreLien" placeholder="titre"></input>
+        <input type="button" class="button" ng-click="addLink()" value="+"></input>
+      </div>
+    </div>
     
     <div class="form-actions">
       <button type="submit" id="update" class="button"><span class="fa fa-check"></span><span>Sauvegarder</span></button>
