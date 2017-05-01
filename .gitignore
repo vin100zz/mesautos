@@ -3,6 +3,6 @@
 .project
 
 img/
-app/server/texte/marque/
+histo/
+texte/
 *.sqlite
-
