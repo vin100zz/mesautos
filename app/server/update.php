@@ -4,12 +4,15 @@ include_once "db.php";
 
 $status = array();
 
-$aParams = json_decode($HTTP_RAW_POST_DATA, true);
+$params = json_decode($HTTP_RAW_POST_DATA, true);
 
-function getParam($iParam)
-{
-	global $aParams;
-	return isset($aParams[$iParam]) ? str_replace("'", "''", utf8_decode($aParams[$iParam])) : "";
+function getParam($iParam) {
+	global $params;
+	return isset($params[$iParam]) ? escapeString($params[$iParam]) : "";
+}
+
+function escapeString($iParam) {
+	return str_replace("'", "''", utf8_decode($iParam));
 }
 
 $action = getParam("action");
@@ -19,22 +22,24 @@ if ($objet == "marque")
 {
 	$nomMarque = getParam("nomMarque");
 	$pays = getParam("pays");
-	$modeleOrder = $aParams["modeleOrder"];
+	$debut = getParam("debut");
+	$fin = getParam("fin");
+	$modeleOrder = $params["modeleOrder"];
 	
 	if ($action == "add")
 	{
-		$status['query'] = "INSERT INTO marque(nomMarque, pays) VALUES('$nomMarque', '$pays')";
+		$status['query'] = "INSERT INTO marque(nomMarque, pays, debut, fin) VALUES('$nomMarque', '$pays', '$debut', '$fin')";
 	}	
 	else
 	{
 		$idMarque = getParam("idMarque");
-		$status['query'] = "UPDATE marque SET nomMarque='$nomMarque', pays='$pays' WHERE idMarque='$idMarque'";
+		$status['query'] = "UPDATE marque SET nomMarque='$nomMarque', pays='$pays', debut='$debut', fin='$fin' WHERE idMarque='$idMarque'";
 		
 		$pos = 0;
-    foreach ($modeleOrder as $key) {
-      DBAccess::exec("UPDATE modele SET ordre='$pos' WHERE idModele=$key");
-      ++$pos;
-    }
+    	foreach ($modeleOrder as $key) {
+	      DBAccess::exec("UPDATE modele SET ordre='$pos' WHERE idModele=$key");
+	      ++$pos;
+	    }
 	}
 }
 else if ($objet == "modele")
@@ -50,29 +55,25 @@ else if ($objet == "modele")
 	$production = getParam("production");
 	$commentaire = getParam("commentaire");
 	$idMarque = getParam("idMarque");
-	$versionOrder = $aParams["versionOrder"];
+	$versionOrder = $params["versionOrder"];
 	
 	if ($action == "add")
 	{
-		$status['query'] = "INSERT INTO modele(nomModele, categorie, debut, fin, cylindree_min, cylindree_max, puissance_min, puissance_max, 
-																					  production, commentaire, idMarque)
-																		 VALUES('$nomModele', '$categorie', '$debut', '$fin', '$cylindree_min', '$cylindree_max', '$puissance_min', '$puissance_max',
-																					  '$production', '$commentaire', '$idMarque')";
+		$status['query'] = "INSERT INTO modele(nomModele, categorie, debut, fin, cylindree_min, cylindree_max, puissance_min, puissance_max, production, commentaire, idMarque)
+							VALUES('$nomModele', '$categorie', '$debut', '$fin', '$cylindree_min', '$cylindree_max', '$puissance_min', '$puissance_max', '$production', '$commentaire', '$idMarque')";
 	}	
 	else
 	{
 		$idModele = getParam("idModele");
 		$status['query'] = "UPDATE modele
-												 SET nomModele='$nomModele', categorie='$categorie', debut='$debut', fin='$fin', cylindree_min='$cylindree_min',
-														 cylindree_max='$cylindree_max', puissance_min='$puissance_min', puissance_max='$puissance_max',
-														 production='$production', commentaire='$commentaire', idMarque='$idMarque'
-												 WHERE idModele = '$idModele'";
+							SET nomModele='$nomModele', categorie='$categorie', debut='$debut', fin='$fin', cylindree_min='$cylindree_min', cylindree_max='$cylindree_max', puissance_min='$puissance_min', puissance_max='$puissance_max', production='$production', commentaire='$commentaire', idMarque='$idMarque'
+							WHERE idModele = '$idModele'";
 		
 		$pos = 0;
-    foreach ($versionOrder as $key) {
-      DBAccess::exec("UPDATE version SET ordre='$pos' WHERE idVersion=$key");
-      ++$pos;
-    }
+	    foreach ($versionOrder as $key) {
+	      DBAccess::exec("UPDATE version SET ordre='$pos' WHERE idVersion=$key");
+	      ++$pos;
+	    }
 	}
 }
 else if ($objet == "gamme")
@@ -96,8 +97,8 @@ else if ($objet == "gamme")
 	{
 		$idGamme = getParam("idGamme");
 		$status['query'] = "UPDATE gamme
-												 SET type='$type', nom='$nom', idAnneeModele='$idAnneeModele'
-												 WHERE idGamme = '$idGamme'";
+							SET type='$type', nom='$nom', idAnneeModele='$idAnneeModele'
+							WHERE idGamme = '$idGamme'";
 	}
 }
 else if ($objet == "docMarque")
@@ -112,14 +113,14 @@ else if ($objet == "docMarque")
 	if ($action == "add")
 	{
 		$status['query'] = "INSERT INTO documentMarque(idMarque, ordre, source, date, legende, motCle)
-																		 VALUES('$idMarque', '$ordre', '$source', '$date', '$legende', '$motCle')";
+							VALUES('$idMarque', '$ordre', '$source', '$date', '$legende', '$motCle')";
 	}	
 	else
 	{
 		$idDocumentMarque = getParam("idDocumentMarque");
 		$status['query'] = "UPDATE documentMarque
-												 SET idMarque='$idMarque', ordre='$ordre', source='$source', date='$date', legende='$legende', motCle='$motCle'
-												 WHERE idDocumentMarque = '$idDocumentMarque'";
+							SET idMarque='$idMarque', ordre='$ordre', source='$source', date='$date', legende='$legende', motCle='$motCle'
+							WHERE idDocumentMarque = '$idDocumentMarque'";
 	}
 }
 else if ($objet == "docGamme")
@@ -128,19 +129,27 @@ else if ($objet == "docGamme")
 	$source = getParam("source");
 	$date = getParam("date");
 	$legende = getParam("legende");
-	$lien = getParam("lien");
+	$liens = $params["liens"];
   
 	if ($action == "add")
 	{
-		$status['query'] = "INSERT INTO documentGamme(idGamme, source, date, legende, lien)
-																		 VALUES('$idGamme', '$source', '$date', '$legende', '$lien')";
+		$status['query'] = "INSERT INTO documentGamme(idGamme, source, date, legende)
+							 VALUES('$idGamme', '$source', '$date', '$legende', '$lien')";
 	}	
 	else
 	{
 		$idDocumentGamme = getParam("idDocumentGamme");
 		$status['query'] = "UPDATE documentGamme
-												 SET idGamme='$idGamme', source='$source', date='$date', legende='$legende', lien='$lien'
-												 WHERE idDocumentGamme = '$idDocumentGamme'";
+							SET idGamme='$idGamme', source='$source', date='$date', legende='$legende'
+							WHERE idDocumentGamme = '$idDocumentGamme'";
+
+		DBAccess::exec("DELETE FROM lienGamme WHERE idDocumentGamme=$idDocumentGamme");
+    	foreach ($liens as $order => $lien) {
+    		$url = escapeString($lien['lien']);
+    		$titre = escapeString($lien['titre']);
+	     	DBAccess::exec("INSERT INTO lienGamme(idDocumentGamme, lien, titre, ordre)
+	     					VALUES ('$idDocumentGamme', '$url', '$titre', '$order')");
+	    }
 	}
 }
 

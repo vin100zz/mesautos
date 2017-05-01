@@ -43,6 +43,16 @@ app.directive('mesautosGamme', function (Deckgrid, Auto, ImageManager) {
               });
             }
           }];
+          doc.links = doc.liens.map(function (lien) {
+            var label = lien.titre || lien.lien;
+            return {
+              icon: 'external-link',
+              label: label.length > 25 ? (label.substr(0, 25) + '...') : label,
+              action: function () {
+                window.open(lien.lien);
+              }
+            };
+          });
           return doc;
         });
 

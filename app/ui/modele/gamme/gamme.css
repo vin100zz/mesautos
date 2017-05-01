@@ -65,6 +65,17 @@
   left: auto;
   cursor: pointer;
 }
+#gamme .deckgrid .actions.links {
+  left: 6px;
+  right: auto;
+}
+#gamme .deckgrid .actions {
+  position: absolute;
+  bottom: 3px;
+  right: 6px;
+  left: auto;
+  cursor: pointer;
+}
 #gamme .deckgrid .actions .fa {
   font-size: 12pt;
 }
@@ -79,6 +90,10 @@
   top: 5px;
   left: 4px;
 }
+#gamme .deckgrid .actions.links > .fa:before {
+  top: 4px;
+  left: 7px;
+}
 #gamme .deckgrid .actions .dummy-for-hovering {
   display: none;
   position: absolute;
@@ -87,6 +102,9 @@
   width: 220px;
   padding-top: 20px;
   z-index: 2;
+}
+#gamme .deckgrid .actions.links .dummy-for-hovering {
+  left: -6px;
 }
 #gamme .deckgrid .actions .menu {
   padding: 2px 5px;
@@ -104,7 +122,11 @@
   border-top: none;
   position: absolute;
   top: 10px;
-  right: 0;
+  right: 3px;
+}
+#gamme .deckgrid .actions.links .menu:before {
+  left: 3px;
+  right: auto;
 }
 #gamme .deckgrid .actions:hover .dummy-for-hovering,
 #gamme .deckgrid .actions .dummy-for-hovering:hover {

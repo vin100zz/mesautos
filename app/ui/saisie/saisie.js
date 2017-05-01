@@ -23,17 +23,18 @@ app.controller('SaisieCtrl', function ($scope, $routeParams, Auto) {
       }
     };
 
-    /*$scope.versionSorterCfg = {
-      show: $scope.objet === 'modele' && $scope.action === 'edit',
-      label: 'Ordre des versions',
-      list: $scope.saisie.versions,
+    $scope.lienGammeSorterCfg = {
+      show: $scope.objet === 'docGamme' && $scope.action === 'edit',
+      label: 'Ordre des liens',
+      list: $scope.saisie.liens,
       idFn: function (item) {
-        return item.idVersion;
+        return item.idLienGamme;
       },
       labelFn: function (item) {
-        return item.nom + (item.type ? ' ' + item.type : '') + (item.anneeModele ? ' (' + item.anneeModele + ')' : '');
+        var label = item.titre ? (item.titre + ' (' + item.lien + ')') : item.lien;
+        return label.length > 42 ? (label.substr(0, 42) + '...') : label
       }
-    };*/
+    };
   };
 
   if ($routeParams.action === 'add' && $routeParams.objet === 'marque') {
@@ -51,6 +52,15 @@ app.controller('SaisieCtrl', function ($scope, $routeParams, Auto) {
     }, cb);
   }
 
+  $scope.addLink = function () {
+    $scope.saisie.liens.push({
+      idLienGamme: Date.now(),
+      lien: $scope.saisie.urlLien,
+      titre: $scope.saisie.titreLien,
+      ordre: $scope.saisie.liens.length+1
+    });
+  };
+
   $scope.update = function () {
     if ($scope.saisie.objet === 'marque') {
       $scope.saisie.modeleOrder = [];
@@ -58,12 +68,7 @@ app.controller('SaisieCtrl', function ($scope, $routeParams, Auto) {
         $scope.saisie.modeleOrder.push(modele.idModele);
       });
     }
-    /* else if ($scope.saisie.objet === 'modele') {
-          $scope.saisie.versionOrder = [];
-          $scope.saisie.versions.forEach(function (version) {
-            $scope.saisie.versionOrder.push(version.idVersion);
-          });
-        }*/
+
     Auto.save({
       service: 'update'
     }, $scope.saisie, function (update) {
