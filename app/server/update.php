@@ -134,7 +134,7 @@ else if ($objet == "docGamme")
 	if ($action == "add")
 	{
 		$status['query'] = "INSERT INTO documentGamme(idGamme, source, date, legende)
-							 VALUES('$idGamme', '$source', '$date', '$legende', '$lien')";
+							 VALUES('$idGamme', '$source', '$date', '$legende')";
 	}	
 	else
 	{
