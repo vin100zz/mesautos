@@ -1,26 +1,25 @@
-﻿<h1>TALBOT</h1>
-<hr/>
-
-<a href=http://www.polskifiat508.pl/historia.html> </a>
-
-<p>
-
-- 1903 : Adolphe Clément (fondateur de CLÉMENT-BAYARD) et le comte de  Shrewsbury and Talbot fondent <b>CLÉMENT-TALBOT</b> pour assembler en Angleterre les automobiles CLÉMENT-BAYARD françaises.<br /><br />
-
-- 1913 : un groupe financier britannique (qui contrôle déjà la filiale anglaise de DARRACQ) rachète les usines DARRACQ de Suresnes et forme le groupe CLÉMENT-TALBOT-DARRACQ. Owen Clegg dirige l'entreprise DARRACQ de Suresnes.<br /><br />
-
-- 1920 : TALBOT-DARRACQ rachète SUNBEAM et forme le groupe STD (SUNBEAM-TALBOT-DARRACQ). Les voitures produites en France deviennent des TALBOT-DARRACQ.<br /><br />
-
-- 1922 : les TALBOT-DARRACQ deviennent des TALBOT.<br /><br />
-
-- 1934 : le groupe STD anglais est racheté par le groupe ROOTES ( (HILLMAN, HUMBER, COMMER) qui revend en partie la société française Automobiles TALBOT à l'ingénieur Anthony Lago.<br /><br />
-
-- 1958 : SIMCA rachète Automobiles TALBOT.<br /><br />
-
-- 1960 : la marque TALBOT disparaît.<br /><br />
-
-- 1964 : CHRYSLER rachète ROOTES dont la TALBOT anglaise.<br /><br />
-
-- 1970 : CHRYSLER rachète SIMCA et la marque TALBOT française.</p>
-
-
+﻿<h1>Talbot</h1>
+<br><br><hr>
+
+
+<a href=img/marque/1249.jpg> Chronologie</a><br>
+<hr>
+
+<a href="http://leroux.andre.free.fr/revivaltalbot.htm#10">Une histoire de Talbot</a><br>
+<hr>
+
+
+<a href=img/documents/timeline_talbot_30.xlsx> Les Talbot des années Trente</a><br>
+<hr>
+
+
+
+
+
+<p>1934 : L'arrivée d'Anthony Lago</p>
+<img src="img/marque/1318.jpg"/>
+<a>Automobilia, salon 1933</a>
+<br><hr>
+
+<a href=img/documents/timeline_talbot.xlsx> Les dernières Talbot</a><br>
+<hr>

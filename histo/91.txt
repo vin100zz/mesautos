@@ -1,40 +1,18 @@
-﻿
-
-<img src="img/marque/1073.jpg"/><legend></legend>
-<img src="img/marque/1074.jpg"/><legend></legend>
-<img src="img/marque/1075.jpg"/><legend></legend>
-<img src="img/marque/1076.jpg"/><legend></legend>
-<img src="img/marque/1077.jpg"/><legend></legend>
-<img src="img/marque/1078.jpg"/><legend></legend>
-<img src="img/marque/1079.jpg"/><legend></legend>
-<img src="img/marque/1080.jpg"/><legend></legend>
-<img src="img/marque/1081.jpg"/><legend></legend>
-<img src="img/marque/1082.jpg"/><legend></legend>
-<img src="img/marque/1083.jpg"/><legend></legend>
-<img src="img/marque/1084.jpg"/><legend></legend>
-<img src="img/marque/1085.jpg"/><legend></legend>
-<img src="img/marque/1086.jpg"/><legend></legend>
-<img src="img/marque/1087.jpg"/><legend></legend>
-<img src="img/marque/1088.jpg"/><legend></legend>
-<img src="img/marque/1089.jpg"/><legend></legend>
-<img src="img/marque/1090.jpg"/><legend></legend>
-<img src="img/marque/1091.jpg"/><legend></legend>
-<img src="img/marque/1092.jpg"/><legend></legend>
-<img src="img/marque/1093.jpg"/><legend></legend>
-<img src="img/marque/1094.jpg"/><legend></legend>
-<img src="img/marque/1095.jpg"/><legend></legend>
-<img src="img/marque/1096.jpg"/><legend></legend>
-<img src="img/marque/1097.jpg"/><legend></legend>
-<img src="img/marque/1098.jpg"/><legend></legend>
-<img src="img/marque/1099.jpg"/><legend></legend>
-<img src="img/marque/1100.jpg"/><legend></legend>
-<img src="img/marque/1101.jpg"/><legend></legend>
-
-<img src="img/marque/1103.jpg"/><legend></legend>
-<img src="img/marque/1104.jpg"/><legend></legend>
-<img src="img/marque/1105.jpg"/><legend></legend>
-<img src="img/marque/1106.jpg"/><legend></legend>
-<img src="img/marque/1107.jpg"/><legend></legend>
-
-Janvier 1962 : accord entre Renault et René Bonnet.<br/>
-Mars 1962 : la marque René Bonnet succède à DB et consacre la rupture entre C. Deutsch et R Bonnet. La nouvelle entreprise poursuit d'abord la production des cabriolets Le Mans dans l'usine de Romorantin.
+﻿<h1>René Bonnet (1962-1964)</h1>
+<hr><br>
+
+
+<a href="img/documents/rene_bonnet/bonnet.html">Historique René Bonnet</a>
+<hr><br>
+
+
+
+- Janvier 1962 : accord entre Renault et René Bonnet.
+<hr><br>
+
+
+- Mars 1962 : la marque René Bonnet succède à DB et consacre la rupture entre C. Deutsch et R Bonnet. La nouvelle entreprise poursuit d'abord la production des cabriolets Le Mans dans l'usine de Romorantin.
+<hr><br>
+
+- septembre 1964 : Matra et René Bonnet forment Matra-Bonnet.
+<hr><br>

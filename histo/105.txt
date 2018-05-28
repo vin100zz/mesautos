@@ -1,11 +1,11 @@
-﻿<h1>1899-1939</h1>
-<hr/>
-
-<a href="http://www.stoewer-museum.de/framesete.htm"/>Musée Stoewer</a>
-<hr/>
-
-<a href="http://www.stoewer-automobile.de/index.htm"/>Stoewer Magazine</a>
-<hr/>
-
-<a href="http://uniquecarsandparts.com/lost_marques_stoewer.htm"/>Historique de Stoewer </a>
-<hr/>
+﻿<h1>1899-1939</h1>
+<hr/>
+
+<a href="http://www.stoewer-museum.de/framesete.htm"/>Musée Stoewer</a>
+<hr/>
+
+<a href="http://www.stoewer-automobile.de/index.htm"/>Stoewer Magazine</a>
+<hr/>
+
+<a href="http://uniquecarsandparts.com/lost_marques_stoewer.htm"/>Historique de Stoewer </a>
+<hr/>

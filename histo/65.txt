@@ -1,31 +1,34 @@
-﻿
-Depuis 1923
-<br/><br/>
-
-
-
-<strong>1- 1869- 1918 : Dans l'empire d'Autriche-Hongrie</strong> :<br/><br/>
-1869 : à Pilsen, Emil Skoda rachète et dirige l'entreprise de machines-outils où il était employé comme ingénieur. Après sa mort en 1900, l'entreprise se développe encore et fabrique pendant la Pemière Guerre Mondiale locomotives, moteurs d’avions et matériel militaire.
-<br/><br/>
-
-<strong>2- 1919-1939 : Dans la  République tchécoslovaque:</strong>
-<br/><br/>
-
-Skoda produit des camions puis en 1924 rachète au constructeur français Hispano-Suiza la licence de son torpédo H6B (sorti en 1919).
-1925 : Skoda rachète Laurin et Klement (fondée en 1895) implantée à Mlada Boleslav et produit ses propres voitures sous le nom Skoda.
-<br/><br/>
-
-
-<strong>3- 1939-1945 : Dans le protectorat de Bohême-Moravie :</strong>
-<br/><br/>
-En mars 1939, l’armée allemande envahit la Bohême : à Pilsen et Mlada Boleslav, Skoda fabrique du matériel militaire pour l'occupant et seulement 5000 voitures particulières. Bombardements par la Luftwaffe en 1945.
-<br/><br/>
-
-<strong>4- 1948-1989 : Dans la république socialiste tchécoslovaque :</strong> 
-<br/><br/>
-Les usines Skoda sont nationalisées.
-<br/><br/>
-
-<strong>5- depuis 1991 : Volkswagen rachète Skoda et en 1993 la république tchèque se sépare de la Slovaquie<strong>.
-<br/><br/>
-
+﻿<h1>Skoda</h1>
+Depuis 1923
+<br/><br/><hr>
+
+
+<a href=img/documents/skoda_history.pdf> Skoda History</a><br>
+<br><hr>
+
+
+<strong>1- 1869- 1918 : Dans l'empire d'Autriche-Hongrie</strong> :<br/><br/>
+1869 : à Pilsen, Emil Skoda rachète et dirige l'entreprise de machines-outils où il était employé comme ingénieur. Après sa mort en 1900, l'entreprise se développe encore et fabrique pendant la Pemière Guerre Mondiale locomotives, moteurs d’avions et matériel militaire.
+<br/><br/>
+
+<strong>2- 1919-1939 : Dans la  République tchécoslovaque:</strong>
+<br/><br/>
+
+Skoda produit des camions puis en 1924 rachète au constructeur français Hispano-Suiza la licence de son torpédo H6B (sorti en 1919).
+1925 : Skoda rachète Laurin et Klement (fondée en 1895) implantée à Mlada Boleslav et produit ses propres voitures sous le nom Skoda.
+<br/><br/>
+
+
+<strong>3- 1939-1945 : Dans le protectorat de Bohême-Moravie :</strong>
+<br/><br/>
+En mars 1939, l’armée allemande envahit la Bohême : à Pilsen et Mlada Boleslav, Skoda fabrique du matériel militaire pour l'occupant et seulement 5000 voitures particulières. Bombardements par la Luftwaffe en 1945.
+<br/><br/>
+
+<strong>4- 1948-1989 : Dans la république socialiste tchécoslovaque :</strong> 
+<br/><br/>
+Les usines Skoda sont nationalisées.
+<br/><br/>
+
+<strong>5- depuis 1991 : Volkswagen rachète Skoda et en 1993 la république tchèque se sépare de la Slovaquie<strong>.
+<br/><br/>
+

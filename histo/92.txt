@@ -1,23 +1,54 @@
-﻿
-
-    <p><em>Henri Théodore Pigozzi :</em> Né en 1898 à Turin il dirige d'abord une société de récupération de ferrailles
-		destinées aux usines sidérurgiques italiennes travaillant pour Fiat. A partir de 1926, il devint distributeur général des Automobiles
-		Fiat qui importait des Fiat en France depuis 1907 puis propriétaire de la Sté anonyme pour la vente en France des Automobiles Fiat.
-		Dès 1928, pour faire face aux droite de douane excessifs, Pigozzi transforme  sa société commerciale en usine d'assemblage : les moteurs,
-		boîtes, ponts arrière et autres pièces étaient expédiés à la petite usine de Suresnes où ils rejoignaient des carrosseries livrées 
-		depuis Levallois par Manessius. Le tout était monté sur une ligne d'assemblage dépassant à peine une trentaine de mètres de longueur 
-		mais, malgré cette infrastructure légère, H.T. Pigozzi parvint à fabriquer 29.000 Fiat, en majorité des 4 cylindres 8/9 CV du Type 514 
-		mais aussi des cylindres du Type 522/524.</p>
-           
-	    <hr/>
-    <p>2 novembre 1934 Henri Théodore Pigozzi crée sa propre marque, la Société Industrielle de Mécanique et Construction Automobile (SIMCA). peu après il achète les usines Donnet de Nanterre.<p/>    
-
-    
-    <p><em>Salon de Paris 1932 : lancement commercial de la 6 CV Fiat "100% française",</em> version produite à Suresnes de la Balilla présentée à Rome en avril 1932. A partir du Salon de Paris 1933, H.-T. Pigozzi lançe une version "aérodynamique" de sa 6 CV.</p>
-		    </li>
-
-    <hr/>
-
-
-
-
+﻿
+
+    <p><em>Henri Théodore Pigozzi :</em> Né en 1898 à Turin il dirige d'abord une société de récupération de ferrailles
+		destinées aux usines sidérurgiques italiennes travaillant pour Fiat. A partir de 1926, il devint distributeur général des Automobiles
+		Fiat qui importait des Fiat en France depuis 1907 puis propriétaire de la Sté anonyme pour la vente en France des Automobiles Fiat.
+		Dès 1928, pour faire face aux droite de douane excessifs, Pigozzi transforme  sa société commerciale en usine d'assemblage : les moteurs,
+		boîtes, ponts arrière et autres pièces étaient expédiés à la petite usine de Suresnes où ils rejoignaient des carrosseries livrées 
+		depuis Levallois par Manessius. Le tout était monté sur une ligne d'assemblage dépassant à peine une trentaine de mètres de longueur 
+		mais, malgré cette infrastructure légère, H.T. Pigozzi parvint à fabriquer 29.000 Fiat, en majorité des 4 cylindres 8/9 CV du Type 514 
+		mais aussi des cylindres du Type 522/524.</p>
+           
+	    <hr/>
+    <p>2 novembre 1934 Henri Théodore Pigozzi crée sa propre marque, la Société Industrielle de Mécanique et Construction Automobile (SIMCA). peu après il achète les usines Donnet de Nanterre.<p/>    
+
+    
+    <p><em>Salon de Paris 1932 : lancement commercial de la 6 CV Fiat "100% française",</em> version produite à Suresnes de la Balilla présentée à Rome en avril 1932. A partir du Salon de Paris 1933, H.-T. Pigozzi lançe une version "aérodynamique" de sa 6 CV.</p>
+		    </li>
+
+ <br><hr/>
+
+<p>- 1946 : Simca fait partie avec Delahaye, Delage, Laffly et Bernard  de la Generale Française Automobile.</p>
+<p>L'Action Automobile et Touristique, octobre 1946</p>
+<img src="img/marque/1276.jpg"/></p>
+
+<img src="img/marque/108.jpg"/>
+<br><hr/>
+
+<p>- juillet 1954 : Simca rachète Ford-France.</p>
+<a href="img/auto-journal/1954/54.jpg">L'Auto-Journal 1er juillet 1954 (p.1)</a>
+
+<a href="img/auto-journal/1954/54a.jpg">/ (p.3)</a>
+ <br>
+<img src="img/marque/107.jpg"/>
+<img src="img/marque/110.jpg"/>
+<hr/><br>
+
+
+
+<img src="img/marque/115.jpg"/>
+<img src="img/marque/111.jpg"/>
+<img src="img/marque/114.jpg"/>
+<hr/><br>
+
+<p>- 1978 :</p>
+<img src="img/marque/120.jpg"/>
+<img src="img/marque/121.jpg"/>
+<hr/><br>
+
+
+
+
+
+
+

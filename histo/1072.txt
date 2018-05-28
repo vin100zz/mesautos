@@ -1,14 +1,4 @@
-﻿<h1>1895-1975</h1><br/>
-<hr/>
-
-<h3>1895</h3> : <p>la Wolseley Sheep Shearing se lance dans la construction automobile.</p><br /><hr/>
-
-
-<h3>1927</h3> :<p> Wolseley est repris par Morris qui en fait une marque de luxe. </p><br /><hr/>
-
-<h3>1975</h3> : <p>fin de la marque.</p><br /><hr/>
-
-
-
-
-
+﻿1895 : la Wolseley Sheep Shearing se lance dans la construction automobile.<br />
+1927 : Wolseley est repris par Morris qui en fait une marque de luxe. <br />
+1975 : fin de la marque.
+<hr/>

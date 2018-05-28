@@ -1,6 +1,15 @@
-﻿<h1>Renault</h1>
-<hr/>
+﻿<h1>Renault : depuis 1898</h1>
+<hr/>
+
+<a href=http://www.polskifiat508.pl/historia.html> </a>
+<hr><br>
+
+<p>- 1955 : mort du PDG P. Lefaucheux.</p>
 
-<a href=http://www.polskifiat508.pl/historia.html> </a>
-
-
+
+<a href=img/marque/1281.jpg> l'Auto-Journal 15 février 1955</a>
+<br>
+<hr>
+
+<img src="img/marque/1296.jpg"/><a href="img/marque/1296.jpg">Tableau 10 CV</a><br><br>
+<br><hr>
