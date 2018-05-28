@@ -76,7 +76,8 @@
 
 /* Filters */
 #marque #sidebar .filters {
-  max-height: 180px;
+  max-height: 230px;
+  font-size: 80%;
 }
 #marque #sidebar .filters.ng-hide {
   max-height: 0;
@@ -118,6 +119,7 @@
 #marque #histo p {
   padding: 5px 0;
 }
+#marque #histo a,
 #marque #histo b {
   color: var(--subtitle-color);
 }

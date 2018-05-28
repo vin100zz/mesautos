@@ -109,7 +109,7 @@ if ($objet == "marque")
 {
 	$result['liste_pays'] = DBAccess::query
 	(
-		"SELECT DISTINCT pays FROM marque"
+		"SELECT DISTINCT pays FROM marque ORDER BY pays"
 	);
 	 $result['modeles'] = DBAccess::query
   (

@@ -72,6 +72,7 @@
 /* Filters */
 #home #sidebar .filters {
   max-height: 360px;
+  font-size: 80%;
 }
 #home #sidebar .filters.ng-hide {
   max-height: 0;

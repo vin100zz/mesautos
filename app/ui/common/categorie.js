@@ -5,6 +5,10 @@ app.service('Categorie', function () {
       label: "Concept Car",
       color: "blue"
     },
+    "REC": {
+      label: "Voiture de Records",
+      color: "#ffc500"
+    },
     "CPT": {
       label: "Voiture de Compétition",
       color: "red"

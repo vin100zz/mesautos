@@ -4,11 +4,14 @@ angular.module('autoFilters', []).filter('categorieType', function () {
       input = input.toUpperCase();
 
       // catégories des modèles
+	    if (input == "TOU") return "Voiture de Tourisme";
+	    if (input == "PRO") return "Prototype";
+	    if (input == "COC") return "Concept Car"; 
       if (input == "CPT") return "Voiture de Compétition";
-      if (input == "PL") return "Poids Lourd";
-      if (input == "PRO") return "Prototype";
-      if (input == "TOU") return "Voiture de Tourisme";
+	    if (input == "REC") return "Voiture de Records";
+      if (input == "PL") return "Poids Lourd";     
       if (input == "UTI") return "Utilitaire";
+      if (input == "VM") return "Véhicule Militaire";
 
       // types des versions
       if (input == "BTE") return "Berlinette";
@@ -23,7 +26,6 @@ angular.module('autoFilters', []).filter('categorieType', function () {
       if (input == "SPO") return "Sport";
       if (input == "GP") return "Grand Prix";
       if (input == "F1") return "Formule 1";
-      if (input == "REC") return "Voiture de Record";
       if (input == "RAL") return "Rallye";
       if (input == "GT") return "Grand Tourisme";
       if (input == "GAM") return "Gamme";
