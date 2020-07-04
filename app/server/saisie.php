@@ -56,9 +56,10 @@ else if ($action == "edit")
 	}
 	else if ($objet == "modele")
 	{
+		// meffi: colonnes 'debut' et 'fin' presentes dans Marque et Modele
 		$result = DBAccess::singleRow
 		(
-			"SELECT *
+			"SELECT marque.idMarque, nomMarque, idModele, nomModele, categorie, modele.debut, modele.fin, cylindree_min, cylindree_max, puissance_min, puissance_max, production, commentaire
 			FROM modele
 			JOIN marque on marque.idMarque = modele.idMarque
 			WHERE idModele='$id'"
