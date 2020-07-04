@@ -2,6 +2,8 @@
 <br><br><hr>
 
 
+
+
 <a href=img/marque/1249.jpg> Chronologie</a><br>
 <hr>
 
@@ -16,10 +18,28 @@
 
 
 
-<p>1934 : L'arrivée d'Anthony Lago</p>
-<img src="img/marque/1318.jpg"/>
-<a>Automobilia, salon 1933</a>
+<h2>1934 : L'arrivée d'Anthony Lago</h2>
+<div class="center">
+<table>
+   <td>
+          <a href="img/marque/1318.jpg"><q>Automobilia, salon 1933</q><img src="img/marque/1318.jpg"/></a>
+	</td>
+	
+	<td >
+          <a href="img/marque/1459.jpg"><q>Automobilia, salon 1934</q><img src="img/marque/1459.jpg"/></a>
+    </td>	
+
+</table><br><hr>
+</div>
+
+
+
+ <a href="img/marque/1391.jpg"><img src="img/marque/1391.jpg"/></a>
+<br><hr>
+
+ <a href="img/marque/1392.jpg"><img src="img/marque/1392.jpg"/></a>
 <br><hr>
 
 <a href=img/documents/timeline_talbot.xlsx> Les dernières Talbot</a><br>
 <hr>
+

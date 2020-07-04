@@ -2,7 +2,7 @@
 <hr><br>
 
 
-<a href="img/documents/rene_bonnet/bonnet.html">Historique René Bonnet</a>
+<a href="img/documents/rene_bonnet/index.html">Brochure René Bonnet</a>
 <hr><br>
 
 
