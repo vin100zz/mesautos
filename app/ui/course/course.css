@@ -1,0 +1,25 @@
+#course .deckgrid {
+  width: 1400px;
+  margin: auto;
+}
+
+#course .deckgrid[deckgrid]::before {
+  content: '5 .column.column-1-5';
+  font-size: 0;
+  visibility: hidden;
+}
+#course .deckgrid .column {
+  float: left;
+}
+#course .deckgrid .column-1-5 {
+  width: 20%;
+}
+
+#course .deckgrid .card {
+  display: block;
+  margin: 30px 15px;
+}
+#course .deckgrid .card img {
+  display: block;
+  max-width: 100%;
+}

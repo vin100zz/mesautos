@@ -36,7 +36,7 @@
   font-size: 18pt;
   background: #d2d2d2;
   padding: 5px;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
 }
 #marque #content #modeles .infos .title .nom {
   color: var(--subtitle-color);
@@ -49,20 +49,25 @@
 
 #marque #content #modeles .infos .categorie {
   display: inline-block;
-  margin-bottom: 25px;
+  margin-bottom: 15px;
   color: #eee;
   background: #999;
   padding: 5px 10px;
   border-radius: 5px;
+  font-size: 11pt;
 }
 
 #marque #content #modeles .infos .carac p {
   margin-bottom: 10px;
   line-height: 15px;
+  font-size: 10pt;
 }
 #marque #content #modeles .infos .carac .key {
   color: #999;
   opacity: 0.6;
+}
+#marque #content #modeles .infos .carac .commentaire-marque {
+  font-size: 10pt;
 }
 
 /* Picture */

@@ -100,7 +100,7 @@ hr {
 #sidebar .views > li {
   position: relative;
   display: inline-block;
-  margin: 0 5px;
+  margin: 0 2px;
   background-color: #666;
   color: #eee;
   width: 32px;

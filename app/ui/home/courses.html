@@ -1,0 +1,73 @@
+<div id="home">
+
+  <div id="content">
+
+    <ul id="courses">
+
+      <li ng-repeat="(course, annees) in courses" class="course">
+
+        <div class="course-name">{{course | courseFilter}}</div>
+
+        <ul class="view grid">
+          <li ng-repeat="annee in annees" ng-click="goToCourseAnnee(course, annee)">
+            <div ng-style="courseAnneeBackgroundImage(course, annee)" class="thumbnail logo"></div>
+            <div class="mask">
+              <div class="info">
+                <div>{{annee}}</div>
+              </div>
+            </div>
+          </li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+
+      </li>
+
+    </ul>
+
+  </div>
+
+  <div id="sidebar">
+
+    <ul class="views">
+      <li>
+        <a href="#marques" class="tooltiped fa fa-car"></a>
+        <div class="tooltip"><pre>Marques</pre></div>
+      </li>
+      <li>
+        <a href="#salons" class="tooltiped fa fa-calendar"></a>
+        <div class="tooltip"><pre>Salons</pre></div>
+      </li>
+      <li class="selected">
+        <a href="#courses" class="tooltiped fa fa-trophy"></a>
+        <div class="tooltip"><pre>Courses</pre></div>
+      </li>
+      <li>
+        <a href="#miniatures" class="tooltiped fa fa-star-o"></a>
+        <div class="tooltip"><pre>Miniatures</pre></div>
+      </li>
+    </ul>
+
+  </div>
+
+</div>
+
+

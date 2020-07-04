@@ -1,10 +1,36 @@
 .centrer {
   text-align: center;	
-}
+ }
+ 
+ .left {
+   text-align: left;	
+ }
+ 
 .cadre {
   
-   border:1px solid red;
-   width:150px;
-   height:150px;
+   border:1px solid white;
+   width:200px;
+   height:200px;
 
+}
+
+
+
+.taille  {
+	font-size:200%;
+}	
+
+.conteneur1
+{
+ display: flex;
+ justify-content: space-around;
+ align-items: center;
+}
+
+ .box {
+  align-self: auto; 
+}
+
+p {
+text-align:left;	
 }

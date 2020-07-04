@@ -86,6 +86,13 @@
   -webkit-columns: 2;
 }
 
+/* Courses */
+#home #courses .course-name {
+  margin: 5px 0 5px 15px;
+  color: var(--subtitle-color);
+  font-size: 14pt;
+}
+
 /* Miniatures */
 #home #miniatures > li {
   margin: 15px 0;

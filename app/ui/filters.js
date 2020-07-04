@@ -1,5 +1,6 @@
 ﻿/* Filters */
-angular.module('autoFilters', []).filter('categorieType', function () {
+angular.module('autoFilters', [])
+  .filter('categorieType', function () {
     return function (input) {
       input = input.toUpperCase();
 
@@ -56,6 +57,13 @@ angular.module('autoFilters', []).filter('categorieType', function () {
       return input;
     };
   })
+  .filter('courseFilter', function () {
+    return function (input) {
+      if (input == "24h") return "24 Heures du Mans";
+      if (input == "f1") return "Formule 1";
+      return input;
+    };
+  }) 
   .filter('searchMarque', function () {
     return function (items, searchText) {
       if (!searchText) {
