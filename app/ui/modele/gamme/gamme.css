@@ -5,6 +5,13 @@
   bottom: 10px;
 }
 
+/* Histo */
+#gamme .histo {
+  padding: 10px 20px;
+  font-size: 10pt;
+  color: #ccc;
+}
+
 /* Grid */
 #gamme .deckgrid {
   width: 1400px;

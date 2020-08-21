@@ -19,6 +19,7 @@ function remove_array_item($array, $item) {
 
 $files = remove_array_item($files, '.');
 $files = remove_array_item($files, '..');
+$files = remove_array_item($files, '.git');
 $files = remove_array_item($files, 'mini');
 
 $course = array(

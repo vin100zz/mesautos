@@ -96,11 +96,12 @@ hr {
 /* Views */
 #sidebar .views {
   text-align: center;
+  width: 90%;
 }
 #sidebar .views > li {
   position: relative;
   display: inline-block;
-  margin: 0 2px;
+  margin: 0 2px 8px 2px;
   background-color: #666;
   color: #eee;
   width: 32px;
@@ -130,6 +131,10 @@ hr {
 #sidebar .filters > ul> li {
   margin-bottom: 5px;
 }
+#sidebar .filters.filters-marques > ul > li {
+  display: inline-block;
+  width: 50%;
+}
 #sidebar .filters > ul > li > div {
   display: inline-block;
   vertical-align: middle;
@@ -154,6 +159,7 @@ hr {
 #sidebar .filters > ul > li > div:last-child:hover {
   text-decoration: underline;
 }
+
 
 /* Links */
 #sidebar .link {

@@ -2,12 +2,13 @@
 
   <div id="content">
 
-    <ul id="salons" class="view grid">
-      <li ng-repeat="salon in salons" ng-click="goToSalon(salon)">
-        <div ng-style="salonBackgroundImage(salon)" class="thumbnail logo"></div>
+    <ul id="annees" class="view grid">
+      <li ng-repeat="annee in annees" ng-click="goToAnnee(annee)">
+        <div class="thumbnail logo-text">
+          <div>{{annee}}</div>
+        </div>
         <div class="mask">
           <div class="info">
-            <div>{{salon.annee}}</div>
           </div>
         </div>
       </li>
@@ -42,11 +43,11 @@
         <a href="#marques" class="tooltiped fa fa-car"></a>
         <div class="tooltip"><pre>Marques</pre></div>
       </li>
-      <li class="selected">
+      <li>
         <a href="#salons" class="tooltiped fa fa-calendar"></a>
         <div class="tooltip"><pre>Salons</pre></div>
       </li>
-      <li>
+      <li class="selected">
         <a href="#annees" class="tooltiped fa fa-bell"></a>
         <div class="tooltip"><pre>Nouveautés</pre></div>
       </li>

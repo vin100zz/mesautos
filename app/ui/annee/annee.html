@@ -1,0 +1,25 @@
+<div id="annee">
+
+  <div id="content">
+
+  	<ul>
+
+      <li ng-repeat="(pays, gammes) in data" class="pays">
+        <div><img ng-src="img/pays/{{pays}}.png" class="logo-pays"/>{{pays}}<span class="nom-pays">{{pays | nomPays}}</span></div>
+    	  <div deckgrid source="gammes" cardTemplate="app/ui/annee/card.html" class="deckgrid"></div>
+      </li>
+
+    </ul>
+
+  </div>
+
+  <div id="sidebar">
+
+    <div class="title">
+      Nouveautés {{annee}}
+    </div>
+  
+  </div>
+
+
+</div>

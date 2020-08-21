@@ -93,4 +93,42 @@ angular.module('autoFilters', [])
       });
       return filtered;
     }
+  })
+  .filter('nomPays', function () {
+    return function (input) {
+      var nomPays = {
+        A: "Autriche",
+        ARG: "Argentine",
+        AUS: "Australie",
+        B: "Belgique",
+        BRA: "Brésil",
+        CAN: "Canada",
+        CH: "Suisse",
+        CN: "Chine",
+        CZ: "Tchécoslovaquie",
+        D: "Allemagne",
+        DDR: "Allemagne de l'Est",
+        ESP: "Espagne",
+        F: "France",
+        GB: "Grande-Bretagne",
+        H: "Hongrie",
+        I: "Italie",
+        IND: "Inde",
+        ISR: "Israël",
+        J: "Japon",
+        KOR: "Corée du Sud",
+        NL: "Pays-Bas",
+        PL: "Pologne",
+        RO: "Roumanie",
+        SWE: "Suède",
+        TUR: "Turquie",
+        URS: "URSS",
+        USA: "États-Unis",
+        YUG: "Yougoslavie"
+      };
+      return nomPays[input] || input;
+    }
   });
+
+
+  

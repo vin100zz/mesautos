@@ -1,14 +1,0 @@
-﻿<h1>Prost Grand-Prix</h1>
-<hr/>
-
-<a href="https://en.wikipedia.org/wiki/Prost_AP01">Résultats saison 1998 </a>
-<hr/>
-
-<a href=https://fr.wikipedia.org/wiki/Prost_AP02>Résultats saison 1999 </a>
-<hr/>
-
-<a href="https://fr.wikipedia.org/wiki/Prost_AP03">Résultats saison 2000</a>
-<hr/>
-
-<a href="https://fr.wikipedia.org/wiki/Prost_AP04">Résultats saison 2001</a>
-<hr/>

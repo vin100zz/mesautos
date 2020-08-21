@@ -11,6 +11,10 @@ app.config(['$routeProvider', function ($routeProvider) {
 		templateUrl: 'app/ui/home/salons.html',
 		controller: 'SalonsCtrl'
 	}).
+	when('/annees', {
+		templateUrl: 'app/ui/home/annees.html',
+		controller: 'AnneesCtrl'
+	}).
 	when('/courses', {
 		templateUrl: 'app/ui/home/courses.html',
 		controller: 'CoursesCtrl'
@@ -42,6 +46,10 @@ app.config(['$routeProvider', function ($routeProvider) {
 	when('/salon/:annee', {
 		templateUrl: 'app/ui/salon/salon.html',
 		controller: 'SalonCtrl'
+	}).
+	when('/annee/:annee', {
+		templateUrl: 'app/ui/annee/annee.html',
+		controller: 'AnneeCtrl'
 	}).
 	when('/course/:course/:annee', {
 		templateUrl: 'app/ui/course/course.html',

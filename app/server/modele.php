@@ -25,9 +25,12 @@ foreach ($anneeModeles as $key => $anneeModele) {
   );
 
   foreach ($anneeModeles[$key]['gammes'] as $key2 => $gamme) {
+
+    $idGamme = $anneeModeles[$key]['gammes'][$key2]['idGamme'];
+
     $anneeModeles[$key]['gammes'][$key2]['docs'] = DBAccess::query
     (
-      "SELECT * FROM documentGamme WHERE idGamme='" . $anneeModeles[$key]['gammes'][$key2]['idGamme'] . "' ORDER BY ordre, idDocumentGamme"
+      "SELECT * FROM documentGamme WHERE idGamme='$idGamme' ORDER BY ordre, idDocumentGamme"
     );
 
     foreach ($anneeModeles[$key]['gammes'][$key2]['docs'] as $key3 => $doc) {
@@ -35,6 +38,13 @@ foreach ($anneeModeles as $key => $anneeModele) {
       (
         "SELECT * FROM lienGamme WHERE idDocumentGamme='" . $anneeModeles[$key]['gammes'][$key2]['docs'][$key3]['idDocumentGamme'] . "' ORDER BY ordre, idLienGamme"
       );
+    }
+
+    $text = "../../histo/gamme/$idGamme.txt";
+
+    if(is_file($text) && $desc = implode(file($text)))
+    {
+      $anneeModeles[$key]['gammes'][$key2]['histo'] = $desc;
     }
   }
 

@@ -1,6 +1,0 @@
-﻿<h1>Ligier</h1>
-<hr/>
-
-<a href="http://www.statsf1.com/fr/ligier.aspx">Résultats de Ligier en Formule 1 </a>
-
-<hr/>
