@@ -4,7 +4,7 @@ include_once "db.php";
 
 $status = array();
 
-$params = json_decode($HTTP_RAW_POST_DATA, true);
+$params = json_decode(file_get_contents('php://input'), true);
 
 function getParam($iParam) {
 	global $params;
@@ -91,7 +91,8 @@ else if ($objet == "gamme")
 	
 	if ($action == "add")
 	{
-		$status['query'] = "INSERT INTO gamme(type, nom, idAnneeModele) VALUES('$type', '$nom', '$idAnneeModele')";
+		$ordre = DBAccess::singleValue("SELECT MAX(ordre) FROM gamme WHERE idAnneeModele='$idAnneeModele'") + 1;
+		$status['query'] = "INSERT INTO gamme(type, nom, idAnneeModele, ordre) VALUES('$type', '$nom', '$idAnneeModele', '$ordre')";
 	}	
 	else
 	{

@@ -21,7 +21,7 @@ $anneeModeles = DBAccess::query
 foreach ($anneeModeles as $key => $anneeModele) {
   $anneeModeles[$key]['gammes'] = DBAccess::query
   (
-    "SELECT * FROM gamme WHERE idAnneeModele=" . $anneeModele['idAnneeModele']
+    "SELECT * FROM gamme WHERE idAnneeModele=" . $anneeModele['idAnneeModele'] . " ORDER BY ordre"
   );
 
   foreach ($anneeModeles[$key]['gammes'] as $key2 => $gamme) {

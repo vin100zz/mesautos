@@ -89,9 +89,6 @@
   vertical-align: middle;
   margin-right: 2px;
 }
-#home #sidebar .filters > ul {
-  -webkit-columns: 2;
-}
 
 /* Courses */
 #home #courses .course-name {
