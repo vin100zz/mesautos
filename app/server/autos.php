@@ -17,6 +17,10 @@ function listDirectories($path) {
 	$files = remove_array_item($files, '..');
 	$files = remove_array_item($files, 'mini');
 
+  for ($i = 0; $i < sizeof($files); $i++) {
+      $files[$i] = utf8_encode($files[$i]);
+  }
+
   return $files;
 }
 
@@ -34,7 +38,6 @@ $courses = listDirectories("../../img/course");
 foreach ($courses as $course) {
   $courseAnnees[$course] = listDirectories("../../img/course/" . $course);
 }
-
 
 $res = array(
   "marques" => $marques,
