@@ -19,7 +19,7 @@ app.controller('MarqueCtrl', function ($scope, $routeParams, $location, $anchorS
 
       marque.modeles = marque.modeles.map(modele => {
         modele.nomModele = modele.nomModele.trim();
-        var yearInName = / \((\d\d\d\d)\)/.exec(modele.nomModele);
+        var yearInName = / \((\d\d\d\d)\)$/.exec(modele.nomModele);
         if (yearInName && yearInName.length > 1) {
           modele.nomModele = modele.nomModele.substr(0, modele.nomModele.length - 7);
           modele.yearInName = yearInName[1];
