@@ -1,3 +1,61 @@
+
+
+.fond  {
+	background:#95B9C7;
+}
+
+.fondblanc  {
+	background:white;
+}
+
+
+
+.histo p {
+
+color:black;
+text-align:start;
+text-indent:50px;
+}
+
+#marque #histo .fond a {
+color: #00688E;	
+	
+}
+
+
+.black {
+font-style: italic;
+color:black;
+}
+
+
+
+.cadre {
+   font-style: italic;
+   color:black;
+   border:1px solid white;
+   background-color:#95B9C7;;
+   padding-left:50px;
+   padding-right:50px;
+   padding-bottom :20px;
+   padding-top: 20px;
+   text-align: left;
+}
+
+
+.legende{
+	font-style: italic;
+	color:black;
+	text-align: left;
+}
+
+.lien {
+	font-style: italic;
+	color:black;
+	text-align: left;
+}
+
+
 .centrer {
   text-align: center;	
  }
@@ -6,19 +64,8 @@
    text-align: left;	
  }
  
-.cadre {
-  
-   border:1px solid white;
-   width:auto;
-   height:auto;
-   padding:10px;
-}
 
 
-
-.taille  {
-	font-size:200%;
-}	
 
 .conteneur1
 {
@@ -29,9 +76,30 @@
 
  .box {
   align-self: auto; 
+
+  
 }
 
-p {
-text-align:left;
-line-height:2em;	
+ .box30 {
+  width:200px; 
+}
+
+ .box50 {
+  width:50%; 
+}
+
+
+.gallery1 {
+   display: flex-end;
+   flex-wrap: wrap;
+   padding:5px;
+   justify-content: center;
+}
+
+.item {
+ margin: 5px	
+ }
+ 
+.img {
+  width:200px;
 }
