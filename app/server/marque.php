@@ -38,7 +38,7 @@ $marque['modeles'] = $modeles;
 $marque['docs'] = $documentsMarque;
 $marque['categories'] = isset($categories) ? $categories : null;
 
-$text = "../../histo/marque/$idMarque.txt";
+$text = "../../histo/marque/$idMarque.html";
 if(is_file($text) && $desc = implode(file($text)))
 {
 	//$marque['histo'] = utf8_encode($desc);

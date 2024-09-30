@@ -40,7 +40,7 @@ foreach ($anneeModeles as $key => $anneeModele) {
       );
     }
 
-    $text = "../../histo/gamme/$idGamme.txt";
+    $text = "../../histo/gamme/$idGamme.html";
 
     if(is_file($text) && $desc = implode(file($text)))
     {
