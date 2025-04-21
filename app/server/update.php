@@ -24,16 +24,17 @@ if ($objet == "marque")
 	$pays = getParam("pays");
 	$debut = getParam("debut");
 	$fin = getParam("fin");
+	$lieu = getParam("lieu");
 	$modeleOrder = $params["modeleOrder"];
 	
 	if ($action == "add")
 	{
-		$status['query'] = "INSERT INTO marque(nomMarque, pays, debut, fin) VALUES('$nomMarque', '$pays', '$debut', '$fin')";
+		$status['query'] = "INSERT INTO marque(nomMarque, pays, debut, fin, lieu) VALUES('$nomMarque', '$pays', '$debut', '$fin', '$lieu')";
 	}	
 	else
 	{
 		$idMarque = getParam("idMarque");
-		$status['query'] = "UPDATE marque SET nomMarque='$nomMarque', pays='$pays', debut='$debut', fin='$fin' WHERE idMarque='$idMarque'";
+		$status['query'] = "UPDATE marque SET nomMarque='$nomMarque', pays='$pays', debut='$debut', fin='$fin', lieu='$lieu' WHERE idMarque='$idMarque'";
 		
 		$pos = 0;
     	foreach ($modeleOrder as $key) {
