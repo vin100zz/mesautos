@@ -31,9 +31,9 @@
             <p class="commentaire" ng-show="modele.commentaire != ''">{{modele.commentaire}}</p>
           </div>  
       	</div>
-      	
-      	<div class="picture thumbnail" ng-style="backgroundImage(modele.idDocEmblematique)"></div>
-        
+
+          <div class="picture thumbnail" lazy-bg="{{backgroundImage(modele.idDocEmblematique)}}"></div>
+
       </li>
     </ul>
 

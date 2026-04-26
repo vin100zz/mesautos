@@ -6,3 +6,4 @@ img/
 histo/
 texte/
 *.sqlite
+.idea

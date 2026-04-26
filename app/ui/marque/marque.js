@@ -88,13 +88,11 @@ app.controller('MarqueCtrl', function ($scope, $routeParams, $location, $anchorS
 
   /* Pictures */
   $scope.backgroundImage = function (idDoc) {
-    if (!idDoc) {
-      return null;
-    }
-    return {
-      'background-image': 'url(' + ImageManager.versionPath(idDoc) + ')'
+      if (!idDoc) {
+        return null;
+      }
+      return ImageManager.versionPath(idDoc);
     };
-  };
 
   $scope.goToModele = function (modele) {
     window.location = "#/modele/" + modele.idModele;
