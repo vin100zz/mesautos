@@ -1,13 +1,13 @@
 /* En-tête du modèle (compact) */
 .modele-head {
-  --sticky-line: 0%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 12px 18px;
 }
-.modele-head .logo-tile {
-  transition: width 0.2s, height 0.2s, padding 0.2s, border-radius 0.2s;
+/* sans années-modèles : espace avant le trait du bloc collant */
+.modele-head:last-child {
+  padding-bottom: 16px;
 }
 .modele-head__text {
   flex: 1 1 360px;
@@ -29,28 +29,10 @@
   line-height: 1.1;
   letter-spacing: -0.01em;
   overflow-wrap: anywhere;
-  transition: font-size 0.2s;
 }
 .modele-head__annee {
   font-size: 13px;
   color: var(--text-3);
-}
-
-/* Condensé au défilement */
-.modele-head.is-stuck {
-  padding-bottom: 8px;
-}
-.modele-head.is-stuck .logo-tile--md {
-  width: 36px;
-  height: 36px;
-  padding: 5px;
-  border-radius: 10px;
-}
-.modele-head.is-stuck .crumbs {
-  display: none;
-}
-.modele-head.is-stuck .modele-title {
-  font-size: 22px;
 }
 
 /* Années-modèles et gammes : bandeau complet ou réduit (sans vignettes) */
@@ -59,7 +41,6 @@
   align-items: flex-start;
   gap: 8px;
   margin-top: 16px;
-  border-bottom: 1px solid var(--line);
 }
 .am-strip {
   flex: 1 1 auto;

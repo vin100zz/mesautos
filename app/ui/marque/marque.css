@@ -1,7 +1,4 @@
 /* En-tête de marque (compact, une ligne) */
-.marque-head .logo-tile {
-  transition: width 0.2s, height 0.2s, padding 0.2s, border-radius 0.2s;
-}
 .marque-head {
   display: flex;
   flex-wrap: wrap;
@@ -33,32 +30,6 @@
   line-height: 1.05;
   letter-spacing: -0.01em;
   overflow-wrap: anywhere;
-  transition: font-size 0.2s;
-}
-
-/* Condensé au défilement : petit logo, pays et années à côté du nom */
-.marque-sticky.is-stuck .logo-tile--lg {
-  width: 40px;
-  height: 40px;
-  padding: 6px;
-  border-radius: 11px;
-}
-.marque-sticky.is-stuck .marque-head__text {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 2px 14px;
-}
-.marque-sticky.is-stuck .marque-head__meta {
-  order: 2;
-}
-.marque-sticky.is-stuck .marque-title {
-  margin-top: 0;
-  font-size: 24px;
-}
-.marque-sticky.is-stuck .toolbar {
-  margin-top: 8px;
-  padding: 8px 0;
 }
 
 /* Barre : vues, catégories, décennies, affichage */

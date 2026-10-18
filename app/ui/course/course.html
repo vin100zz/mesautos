@@ -1,10 +1,9 @@
 <div class="page gallery-page">
 
-  <nav class="crumbs" aria-label="Fil d'Ariane">
-    <a href="#/courses">Courses</a>
-  </nav>
-
   <div class="page-head sticky-head" ma-sticky-head>
+    <nav class="crumbs" aria-label="Fil d'Ariane">
+      <a href="#/courses">Courses</a>
+    </nav>
     <h1 class="page-title">{{nom | courseFilter}} {{annee}}</h1>
     <div class="actions">
       <a class="btn btn--secondary mono" ng-if="prev" href="#/course/{{nom}}/{{prev}}"><i ma-icon="chevron-left"></i>{{prev}}</a>
