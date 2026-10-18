@@ -1,4 +1,7 @@
 /* En-tête de marque (compact, une ligne) */
+.marque-head .logo-tile {
+  transition: width 0.2s, height 0.2s, padding 0.2s, border-radius 0.2s;
+}
 .marque-head {
   display: flex;
   flex-wrap: wrap;
@@ -30,9 +33,35 @@
   line-height: 1.05;
   letter-spacing: -0.01em;
   overflow-wrap: anywhere;
+  transition: font-size 0.2s;
 }
 
-/* Barre : vues, catégories, affichage */
+/* Condensé au défilement : petit logo, pays et années à côté du nom */
+.marque-sticky.is-stuck .logo-tile--lg {
+  width: 40px;
+  height: 40px;
+  padding: 6px;
+  border-radius: 11px;
+}
+.marque-sticky.is-stuck .marque-head__text {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 2px 14px;
+}
+.marque-sticky.is-stuck .marque-head__meta {
+  order: 2;
+}
+.marque-sticky.is-stuck .marque-title {
+  margin-top: 0;
+  font-size: 24px;
+}
+.marque-sticky.is-stuck .toolbar {
+  margin-top: 8px;
+  padding: 8px 0;
+}
+
+/* Barre : vues, catégories, décennies, affichage */
 .toolbar {
   display: flex;
   flex-wrap: wrap;
@@ -41,7 +70,7 @@
   margin-top: 16px;
   padding: 12px 0;
   border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  transition: margin 0.2s, padding 0.2s;
 }
 .tabs button {
   height: 30px;
@@ -63,10 +92,11 @@
   display: flex;
   flex-wrap: wrap;
   gap: 2px;
-  padding: 8px 0 0;
+  padding-left: 12px;
+  border-left: 1px solid var(--line-2);
 }
 .decennies-nav__item {
-  height: 28px;
+  height: 30px;
   padding: 0 10px;
   border: 0;
   border-radius: 999px;
@@ -76,6 +106,11 @@
   font-size: 12px;
 }
 .decennies-nav__item:hover {
+  background: var(--surface);
+  color: var(--accent-text);
+}
+/* décennies actuellement à l'écran */
+.decennies-nav__item.is-visible {
   background: var(--accent-soft);
   color: var(--accent-text);
 }
@@ -83,7 +118,7 @@
 /* Modèles */
 .model-group {
   padding-top: 22px;
-  scroll-margin-top: var(--header-h);
+  scroll-margin-top: calc(var(--header-h) + var(--sticky-h, 0px));
 }
 .model-grid {
   display: grid;
@@ -97,7 +132,7 @@
   border-radius: 18px;
   background: var(--surface);
   box-shadow: var(--shadow-sm);
-  scroll-margin-top: calc(var(--header-h) + 20px);
+  scroll-margin-top: calc(var(--header-h) + var(--sticky-h, 0px) + 20px);
   transition: box-shadow 0.2s, transform 0.2s;
 }
 .model-card:hover {
@@ -198,7 +233,7 @@
   white-space: nowrap;
 }
 .model-table tr {
-  scroll-margin-top: calc(var(--header-h) + 20px);
+  scroll-margin-top: calc(var(--header-h) + var(--sticky-h, 0px) + 20px);
 }
 .model-table tbody tr:hover {
   background: #FBF9F4;
@@ -355,8 +390,8 @@
   flex: 1 1 240px;
   max-width: 300px;
   position: sticky;
-  top: calc(var(--header-h) + 20px);
-  max-height: calc(100vh - var(--header-h) - 40px);
+  top: calc(var(--header-h) + var(--sticky-h, 0px) + 20px);
+  max-height: calc(100vh - var(--header-h) - var(--sticky-h, 0px) - 40px);
   overflow-y: auto;
 }
 .histoire__toc .label {
@@ -396,7 +431,7 @@
   max-width: 1400px;
 }
 .histoire__body .cadre {
-  scroll-margin-top: calc(var(--header-h) + 16px);
+  scroll-margin-top: calc(var(--header-h) + var(--sticky-h, 0px) + 16px);
 }
 .histoire__body .cadre:first-of-type {
   padding-top: 0;
@@ -408,6 +443,10 @@
   }
   .toolbar__right {
     margin-left: 0;
+  }
+  .decennies-nav {
+    padding-left: 0;
+    border-left: 0;
   }
   .model-grid {
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));

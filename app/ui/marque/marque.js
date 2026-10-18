@@ -1,22 +1,7 @@
-app.controller('MarqueCtrl', function ($scope, $routeParams, $location, $anchorScroll, $timeout, $window, Auto, Categorie, ImageManager, Pays) {
+app.controller('MarqueCtrl', function ($scope, $routeParams, $location, $anchorScroll, $timeout, $window, Auto, Categorie, ImageManager, Pays, Storage) {
 
   var VUES = ['modeles', 'chronologie', 'histoire'];
   var ZOOMS = [1, 2, 4, 8];
-
-  var storage = {
-    get: function (key) {
-      try {
-        return localStorage.getItem(key);
-      } catch (e) {
-        return null;
-      }
-    },
-    set: function (key, value) {
-      try {
-        localStorage.setItem(key, value);
-      } catch (e) {}
-    }
-  };
 
   var annee4 = function (texte) {
     var r = /\d{4}/.exec(texte || '');
@@ -46,16 +31,16 @@ app.controller('MarqueCtrl', function ($scope, $routeParams, $location, $anchorS
   });
 
   /* Préférences d'affichage */
-  $scope.affichage = storage.get('mesautos-affichage') === 'liste' ? 'liste' : 'grille';
+  $scope.affichage = Storage.get('mesautos-affichage') === 'liste' ? 'liste' : 'grille';
   $scope.setAffichage = function (affichage) {
     $scope.affichage = affichage;
-    storage.set('mesautos-affichage', affichage);
+    Storage.set('mesautos-affichage', affichage);
   };
 
-  $scope.ordre = storage.get('mesautos-ordre') === 'desc' ? 'desc' : 'asc';
+  $scope.ordre = Storage.get('mesautos-ordre') === 'desc' ? 'desc' : 'asc';
   $scope.toggleOrdre = function () {
     $scope.ordre = $scope.ordre === 'desc' ? 'asc' : 'desc';
-    storage.set('mesautos-ordre', $scope.ordre);
+    Storage.set('mesautos-ordre', $scope.ordre);
     rebuild();
   };
 

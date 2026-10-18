@@ -4,7 +4,7 @@
     <a href="#/courses">Courses</a>
   </nav>
 
-  <div class="page-head">
+  <div class="page-head sticky-head" ma-sticky-head>
     <h1 class="page-title">{{nom | courseFilter}} {{annee}}</h1>
     <div class="actions">
       <a class="btn btn--secondary mono" ng-if="prev" href="#/course/{{nom}}/{{prev}}"><i ma-icon="chevron-left"></i>{{prev}}</a>

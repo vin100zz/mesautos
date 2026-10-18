@@ -1,9 +1,9 @@
 <div class="page">
 
-  <div class="page-head">
+  <div class="page-head sticky-head" ma-sticky-head>
     <h1 class="page-title">Marques</h1>
-    <nav class="az" aria-label="Index alphabétique">
-      <button type="button" class="az__letter" ng-repeat="l in letters" ng-disabled="!hasLetter[l]" ng-click="scrollTo(l)">{{l}}</button>
+    <nav class="az" aria-label="Index alphabétique" ma-scroll-spy>
+      <button type="button" class="az__letter" ng-repeat="l in letters" data-spy="lettre-{{l}}" ng-disabled="!hasLetter[l]" ng-click="scrollTo(l)">{{l}}</button>
     </nav>
     <button type="button" class="btn btn--primary" ng-click="openSaisie('add', 'marque')"><i ma-icon="plus"></i>Ajouter une marque</button>
   </div>

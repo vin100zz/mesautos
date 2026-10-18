@@ -18,6 +18,11 @@
   font-weight: 500;
 }
 .az__letter:hover:not(:disabled) {
+  background: var(--surface);
+  color: var(--accent-text);
+}
+/* lettres actuellement à l'écran */
+.az__letter.is-visible {
   background: var(--accent-soft);
   color: var(--accent-text);
 }
@@ -36,8 +41,8 @@
   flex: 1 1 200px;
   max-width: 240px;
   position: sticky;
-  top: calc(var(--header-h) + 20px);
-  max-height: calc(100vh - var(--header-h) - 40px);
+  top: calc(var(--header-h) + var(--sticky-h, 0px) + 20px);
+  max-height: calc(100vh - var(--header-h) - var(--sticky-h, 0px) - 40px);
   overflow-y: auto;
 }
 .pays-filter__head {
@@ -94,7 +99,7 @@
 }
 .letter-section {
   margin-bottom: 36px;
-  scroll-margin-top: calc(var(--header-h) + 20px);
+  scroll-margin-top: calc(var(--header-h) + var(--sticky-h, 0px) + 16px);
 }
 .brand-grid {
   display: grid;

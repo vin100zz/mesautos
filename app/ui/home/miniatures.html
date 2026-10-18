@@ -1,6 +1,6 @@
 <div class="page">
 
-  <div class="page-head">
+  <div class="page-head sticky-head" ma-sticky-head>
     <h1 class="page-title">Miniatures</h1>
     <div class="segmented" role="group" aria-label="Afficher">
       <button type="button" ng-repeat="f in filtres" ng-class="{'is-on': filtre === f.id}" aria-pressed="{{filtre === f.id}}" ng-click="setFiltre(f.id)">{{f.label}}</button>

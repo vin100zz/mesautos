@@ -1,57 +1,58 @@
 <div class="page" ng-if="marque">
 
-  <div class="marque-head">
-    <span class="logo-tile logo-tile--lg" data-img-host>
-      <img ng-src="{{logo}}" alt="Logo {{marque.nomMarque}}" ma-img-fallback>
-      <span class="logo-tile__initials">{{initials}}</span>
-    </span>
-    <div class="marque-head__text">
-      <div class="marque-head__meta" ng-if="paysNom || marque.lieu || annees">
-        <img ng-if="flag" class="flag" ng-src="{{flag}}" alt="">
-        <span class="label" ng-if="paysNom || marque.lieu">{{paysNom}}<span ng-if="paysNom && marque.lieu"> · </span>{{marque.lieu}}</span>
-        <span class="mono marque-head__annees" ng-if="annees">{{annees}}</span>
+  <!-- En-tête, vues, filtres et affichage : un seul bloc collant -->
+  <div class="sticky-head marque-sticky" ma-sticky-head>
+    <div class="marque-head">
+      <span class="logo-tile logo-tile--lg" data-img-host>
+        <img ng-src="{{logo}}" alt="Logo {{marque.nomMarque}}" ma-img-fallback>
+        <span class="logo-tile__initials">{{initials}}</span>
+      </span>
+      <div class="marque-head__text">
+        <div class="marque-head__meta" ng-if="paysNom || marque.lieu || annees">
+          <img ng-if="flag" class="flag" ng-src="{{flag}}" alt="">
+          <span class="label" ng-if="paysNom || marque.lieu">{{paysNom}}<span ng-if="paysNom && marque.lieu"> · </span>{{marque.lieu}}</span>
+          <span class="mono marque-head__annees" ng-if="annees">{{annees}}</span>
+        </div>
+        <h1 class="marque-title">{{marque.nomMarque}}</h1>
       </div>
-      <h1 class="marque-title">{{marque.nomMarque}}</h1>
+      <div class="actions">
+        <button type="button" class="btn btn--secondary btn--sm" ng-click="openSaisie('edit', 'marque', marque.idMarque)"><i ma-icon="edit"></i>Modifier la marque</button>
+        <button type="button" class="btn btn--primary btn--sm" ng-click="openSaisie('add', 'modele', marque.idMarque)"><i ma-icon="plus"></i>Ajouter un modèle</button>
+      </div>
     </div>
-    <div class="actions">
-      <button type="button" class="btn btn--secondary btn--sm" ng-click="openSaisie('edit', 'marque', marque.idMarque)"><i ma-icon="edit"></i>Modifier la marque</button>
-      <button type="button" class="btn btn--primary btn--sm" ng-click="openSaisie('add', 'modele', marque.idMarque)"><i ma-icon="plus"></i>Ajouter un modèle</button>
-    </div>
-  </div>
 
-  <!-- Vues, filtres de catégorie et affichage sur une seule barre -->
-  <div class="toolbar">
-    <nav class="segmented tabs" aria-label="Vues de la marque" ng-if="hasChrono || marque.histo">
-      <button type="button" ng-class="{'is-on': vue === 'modeles'}" aria-pressed="{{vue === 'modeles'}}" ng-click="showView('modeles')">Modèles</button>
-      <button type="button" ng-if="hasChrono" ng-class="{'is-on': vue === 'chronologie'}" aria-pressed="{{vue === 'chronologie'}}" ng-click="showView('chronologie')">Chronologie</button>
-      <button type="button" ng-if="marque.histo" ng-class="{'is-on': vue === 'histoire'}" aria-pressed="{{vue === 'histoire'}}" ng-click="showView('histoire')">Histoire</button>
-    </nav>
-    <div class="chips" role="group" aria-label="Catégories" ng-if="vue !== 'histoire' && categories.length > 1">
-      <button type="button" class="chip" ng-repeat="c in categories track by c.code" ng-class="{'is-on': c.on}" aria-pressed="{{c.on}}"
-              ng-style="c.on ? {background: c.tint, color: c.ink} : {}"
-              ng-click="toggleCategorie(c)" ng-dblclick="onlyCategorie(c)">{{c.short}}</button>
-    </div>
-    <div class="toolbar__right" ng-if="vue === 'modeles'">
-      <button type="button" class="btn btn--secondary btn--sm" ng-click="toggleOrdre()"><i ma-icon="sort"></i>{{ordre === 'desc' ? 'Plus récents d’abord' : 'Plus anciens d’abord'}}</button>
-      <div class="segmented segmented--icons" role="group" aria-label="Affichage">
-        <button type="button" ng-class="{'is-on': affichage === 'grille'}" aria-pressed="{{affichage === 'grille'}}" ng-click="setAffichage('grille')" aria-label="Grille"><i ma-icon="grid"></i></button>
-        <button type="button" ng-class="{'is-on': affichage === 'liste'}" aria-pressed="{{affichage === 'liste'}}" ng-click="setAffichage('liste')" aria-label="Liste"><i ma-icon="list"></i></button>
+    <div class="toolbar">
+      <nav class="segmented tabs" aria-label="Vues de la marque" ng-if="hasChrono || marque.histo">
+        <button type="button" ng-class="{'is-on': vue === 'modeles'}" aria-pressed="{{vue === 'modeles'}}" ng-click="showView('modeles')">Modèles</button>
+        <button type="button" ng-if="hasChrono" ng-class="{'is-on': vue === 'chronologie'}" aria-pressed="{{vue === 'chronologie'}}" ng-click="showView('chronologie')">Chronologie</button>
+        <button type="button" ng-if="marque.histo" ng-class="{'is-on': vue === 'histoire'}" aria-pressed="{{vue === 'histoire'}}" ng-click="showView('histoire')">Histoire</button>
+      </nav>
+      <div class="chips" role="group" aria-label="Catégories" ng-if="vue !== 'histoire' && categories.length > 1">
+        <button type="button" class="chip" ng-repeat="c in categories track by c.code" ng-class="{'is-on': c.on}" aria-pressed="{{c.on}}"
+                ng-style="c.on ? {background: c.tint, color: c.ink} : {}"
+                ng-click="toggleCategorie(c)" ng-dblclick="onlyCategorie(c)">{{c.short}}</button>
       </div>
-    </div>
-    <div class="toolbar__right" ng-if="vue === 'chronologie'">
-      <div class="segmented segmented--icons" role="group" aria-label="Zoom">
-        <button type="button" ng-click="zoomOut()" ng-disabled="zoom <= 1" aria-label="Dézoomer"><i ma-icon="zoom-out"></i></button>
-        <button type="button" ng-click="zoomIn()" ng-disabled="zoom >= 8" aria-label="Zoomer"><i ma-icon="zoom-in"></i></button>
+      <nav class="decennies-nav" ng-if="vue === 'modeles' && decennies.length > 1" aria-label="Décennies" ma-scroll-spy>
+        <button type="button" class="decennies-nav__item" ng-repeat="d in decennies" data-spy="{{d.id}}" ng-click="scrollToId(d.id)">{{d.decennie}}</button>
+      </nav>
+      <div class="toolbar__right" ng-if="vue === 'modeles'">
+        <button type="button" class="btn btn--secondary btn--sm" ng-click="toggleOrdre()"><i ma-icon="sort"></i>{{ordre === 'desc' ? 'Plus récents d’abord' : 'Plus anciens d’abord'}}</button>
+        <div class="segmented segmented--icons" role="group" aria-label="Affichage">
+          <button type="button" ng-class="{'is-on': affichage === 'grille'}" aria-pressed="{{affichage === 'grille'}}" ng-click="setAffichage('grille')" aria-label="Grille"><i ma-icon="grid"></i></button>
+          <button type="button" ng-class="{'is-on': affichage === 'liste'}" aria-pressed="{{affichage === 'liste'}}" ng-click="setAffichage('liste')" aria-label="Liste"><i ma-icon="list"></i></button>
+        </div>
+      </div>
+      <div class="toolbar__right" ng-if="vue === 'chronologie'">
+        <div class="segmented segmented--icons" role="group" aria-label="Zoom">
+          <button type="button" ng-click="zoomOut()" ng-disabled="zoom <= 1" aria-label="Dézoomer"><i ma-icon="zoom-out"></i></button>
+          <button type="button" ng-click="zoomIn()" ng-disabled="zoom >= 8" aria-label="Zoomer"><i ma-icon="zoom-in"></i></button>
+        </div>
       </div>
     </div>
   </div>
 
   <!-- Modèles -->
   <div ng-if="vue === 'modeles'">
-    <nav class="decennies-nav" ng-if="decennies.length > 1" aria-label="Décennies">
-      <button type="button" class="decennies-nav__item" ng-repeat="d in decennies" ng-click="scrollToId(d.id)">{{d.decennie}}</button>
-    </nav>
-
     <div class="empty" ng-if="!groups.length">Aucun modèle</div>
 
     <section class="model-group" ng-repeat="g in groups" id="{{g.id}}">

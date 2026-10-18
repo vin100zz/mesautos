@@ -1,6 +1,6 @@
 <div class="page" ng-if="modele">
 
-  <div class="modele-head">
+  <div class="modele-head sticky-head" ma-sticky-head>
     <a class="logo-tile logo-tile--md" href="#/marque/{{marque.idMarque}}" aria-label="{{marque.nomMarque}}" data-img-host>
       <img ng-src="{{logo}}" alt="" ma-img-fallback>
       <span class="logo-tile__initials">{{initials}}</span>
@@ -23,22 +23,25 @@
     </div>
   </div>
 
-  <nav class="am-strip" aria-label="Années-modèles et gammes" ng-if="anneeModeles.length">
-    <div class="am-card" ng-repeat="am in anneeModeles" ng-class="{'is-current': isCurrent(am)}">
-      <button type="button" class="am-card__thumb frame" ng-class="{'is-empty': !am.image}" ng-click="select(am.gammes[0])" aria-label="Année-modèle {{am.annee}}" data-img-host>
-        <img ng-if="am.image" class="frame__img am-card__img" loading="lazy" ng-src="{{am.image}}" alt="" ma-img-fallback>
-        <span class="frame__empty"><i ma-icon="image"></i></span>
-      </button>
-      <div class="am-card__body">
-        <div class="am-card__year mono">{{am.annee}}</div>
-        <button type="button" class="am-gamme" ng-repeat="gamme in am.gammes" ng-class="{'is-on': isSelected(gamme)}" aria-pressed="{{isSelected(gamme)}}" ng-click="select(gamme)">
-          <span ng-if="gamme.nom">{{gamme.nom}}</span>
-          <span class="am-gamme__type" ng-if="gamme.type" ng-class="{'is-mini': !!gamme.nom}">{{gamme.type | categorieType}}</span>
-          <span ng-if="!gamme.nom && !gamme.type">…</span>
+  <div class="am-bar" ng-if="anneeModeles.length" ng-class="{'is-compact': amCompact}">
+    <nav class="am-strip" aria-label="Années-modèles et gammes">
+      <div class="am-card" ng-repeat="am in anneeModeles" ng-class="{'is-current': isCurrent(am)}">
+        <button type="button" class="am-card__thumb frame" ng-class="{'is-empty': !am.image}" ng-click="select(am.gammes[0])" aria-label="Année-modèle {{am.annee}}" data-img-host>
+          <img ng-if="am.image" class="frame__img am-card__img" loading="lazy" ng-src="{{am.image}}" alt="" ma-img-fallback>
+          <span class="frame__empty"><i ma-icon="image"></i></span>
         </button>
+        <div class="am-card__body">
+          <div class="am-card__year mono">{{am.annee}}</div>
+          <button type="button" class="am-gamme" ng-repeat="gamme in am.gammes" ng-class="{'is-on': isSelected(gamme)}" aria-pressed="{{isSelected(gamme)}}" ng-click="select(gamme)">
+            <span ng-if="gamme.nom">{{gamme.nom}}</span>
+            <span class="am-gamme__type" ng-if="gamme.type" ng-class="{'is-mini': !!gamme.nom}">{{gamme.type | categorieType}}</span>
+            <span ng-if="!gamme.nom && !gamme.type">…</span>
+          </button>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+    <button type="button" class="am-toggle" ng-click="toggleAm()" aria-expanded="{{!amCompact}}" aria-label="{{amCompact ? 'Afficher les vignettes' : 'Réduire'}}"><i ma-icon="chevron-up"></i></button>
+  </div>
 
   <mesautos-gamme cfg="gammeCfg"></mesautos-gamme>
 

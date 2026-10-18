@@ -1,9 +1,13 @@
 /* En-tête du modèle (compact) */
 .modele-head {
+  --sticky-line: 0%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 12px 18px;
+}
+.modele-head .logo-tile {
+  transition: width 0.2s, height 0.2s, padding 0.2s, border-radius 0.2s;
 }
 .modele-head__text {
   flex: 1 1 360px;
@@ -25,21 +29,95 @@
   line-height: 1.1;
   letter-spacing: -0.01em;
   overflow-wrap: anywhere;
+  transition: font-size 0.2s;
 }
 .modele-head__annee {
   font-size: 13px;
   color: var(--text-3);
 }
 
-/* Années-modèles et gammes */
+/* Condensé au défilement */
+.modele-head.is-stuck {
+  padding-bottom: 8px;
+}
+.modele-head.is-stuck .logo-tile--md {
+  width: 36px;
+  height: 36px;
+  padding: 5px;
+  border-radius: 10px;
+}
+.modele-head.is-stuck .crumbs {
+  display: none;
+}
+.modele-head.is-stuck .modele-title {
+  font-size: 22px;
+}
+
+/* Années-modèles et gammes : bandeau complet ou réduit (sans vignettes) */
+.am-bar {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 16px;
+  border-bottom: 1px solid var(--line);
+}
 .am-strip {
+  flex: 1 1 auto;
+  min-width: 0;
   display: flex;
   align-items: flex-start;
   gap: 12px;
   overflow-x: auto;
-  margin-top: 16px;
   padding: 4px 4px 16px;
-  border-bottom: 1px solid var(--line);
+}
+.am-toggle {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  margin-top: 4px;
+  border: 1px solid var(--line-2);
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--text-2);
+  font-size: 17px;
+}
+.am-toggle:hover {
+  border-color: var(--line-3);
+  color: var(--text);
+}
+.am-toggle .icon {
+  transition: transform 0.2s;
+}
+.am-bar.is-compact .am-toggle .icon {
+  transform: rotate(180deg);
+}
+.am-bar.is-compact .am-strip {
+  gap: 8px;
+  padding-bottom: 12px;
+}
+.am-bar.is-compact .am-card {
+  width: auto;
+  border-radius: 999px;
+}
+.am-bar.is-compact .am-card__thumb {
+  display: none;
+}
+.am-bar.is-compact .am-card__body {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px;
+}
+.am-bar.is-compact .am-card__year {
+  padding: 0 8px 0 10px;
+}
+.am-bar.is-compact .am-gamme {
+  width: auto;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 .am-card {
   flex: none;
@@ -254,10 +332,6 @@
 @media (max-width: 860px) {
   .modele-title {
     font-size: 24px;
-  }
-  .am-strip {
-    margin-right: calc(var(--gutter) * -1);
-    padding-right: var(--gutter);
   }
   .am-card {
     width: 156px;

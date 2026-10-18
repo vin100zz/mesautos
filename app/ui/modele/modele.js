@@ -1,4 +1,11 @@
-app.controller('ModeleCtrl', function ($scope, $route, $routeParams, Auto, Categorie, ImageManager) {
+app.controller('ModeleCtrl', function ($scope, $route, $routeParams, Auto, Categorie, ImageManager, Storage) {
+
+  /* Bandeau des années-modèles : complet ou réduit (sans vignettes) */
+  $scope.amCompact = Storage.get('mesautos-annees-modeles') === 'reduit';
+  $scope.toggleAm = function () {
+    $scope.amCompact = !$scope.amCompact;
+    Storage.set('mesautos-annees-modeles', $scope.amCompact ? 'reduit' : 'complet');
+  };
 
   Auto.get({
     service: 'modele',

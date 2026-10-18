@@ -208,7 +208,10 @@ img {
 
 /* Page */
 .page {
-  padding: 22px var(--gutter) 80px;
+  padding: 10px var(--gutter) 80px;
+}
+.page > .crumbs:first-child {
+  margin-top: 12px;
 }
 .page-head {
   display: flex;
@@ -218,7 +221,9 @@ img {
   gap: 12px 24px;
   padding-bottom: 16px;
   margin-bottom: 22px;
-  border-bottom: 1px solid var(--line);
+}
+.page-head.is-stuck {
+  padding-bottom: 10px;
 }
 .page-title {
   font-stretch: 125%;
@@ -226,6 +231,30 @@ img {
   font-size: 34px;
   line-height: 1.05;
   letter-spacing: -0.01em;
+  transition: font-size 0.2s;
+}
+.is-stuck .page-title {
+  font-size: 24px;
+}
+
+/* En-tête collant (ma-sticky-head) : pleine largeur une fois accroché, condensé après défilement */
+.sticky-head {
+  --sticky-line: calc(100% - 2 * var(--gutter));
+  position: sticky;
+  top: var(--header-h);
+  z-index: 40;
+  margin-left: calc(var(--gutter) * -1);
+  margin-right: calc(var(--gutter) * -1);
+  padding-top: 12px;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+  background: linear-gradient(var(--line), var(--line)) center bottom / var(--sticky-line) 1px no-repeat, var(--bg);
+  transition: padding 0.2s, background-size 0.2s, box-shadow 0.2s;
+}
+.sticky-head.is-stuck {
+  --sticky-line: 100%;
+  padding-top: 8px;
+  box-shadow: 0 12px 20px -18px rgba(60, 40, 10, 0.45);
 }
 .section-title {
   display: flex;
@@ -809,10 +838,17 @@ select.input option {
     display: none;
   }
   .page {
-    padding-top: 16px;
+    padding-top: 4px;
   }
   .page-title {
     font-size: 28px;
+  }
+  /* petit écran : en-têtes non collants */
+  html {
+    --sticky-h: 0px !important;
+  }
+  .sticky-head {
+    position: relative;
   }
   .field-row {
     grid-template-columns: minmax(0, 1fr);
