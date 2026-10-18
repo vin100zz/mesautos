@@ -848,7 +848,7 @@ select.input option {
     --sticky-h: 0px !important;
   }
   .sticky-head {
-    position: relative;
+    position: static;
   }
   .field-row {
     grid-template-columns: minmax(0, 1fr);

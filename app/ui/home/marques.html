@@ -6,50 +6,36 @@
       <button type="button" class="az__letter" ng-repeat="l in letters" data-spy="lettre-{{l}}" ng-disabled="!hasLetter[l]" ng-click="scrollTo(l)">{{l}}</button>
     </nav>
     <button type="button" class="btn btn--primary" ng-click="openSaisie('add', 'marque')"><i ma-icon="plus"></i>Ajouter une marque</button>
-  </div>
 
-  <div class="marques">
-
-    <aside class="pays-filter" aria-label="Filtrer par pays">
-      <div class="pays-filter__head">
-        <h2 class="label">Pays</h2>
-        <div>
-          <button type="button" class="btn-text" ng-click="selectAll()">Tous</button>
-          <button type="button" class="btn-text" ng-click="selectNone()">Aucun</button>
-        </div>
-      </div>
-      <ul class="pays-filter__list">
-        <li class="pays-filter__item" ng-repeat="p in pays track by p.code" ng-class="{'is-on': p.filter}">
-          <button type="button" class="pays-filter__check" ng-click="toggleFilter(p)" aria-pressed="{{p.filter}}" aria-label="Inclure {{p.nom}}">
-            <span class="check" ng-class="{'is-on': p.filter}"><i ma-icon="check"></i></span>
-          </button>
-          <button type="button" class="pays-filter__name" ng-click="selectFilter(p.code)" title="{{p.nom}}">
-            <img class="flag" ng-src="{{p.flag}}" alt="">
-            <span>{{p.nom}}</span>
-          </button>
-        </li>
-      </ul>
-    </aside>
-
-    <div class="marques__content">
-      <div class="empty" ng-if="loaded && !sections.length">Aucune marque</div>
-      <section class="letter-section" ng-repeat="s in sections track by s.letter" id="lettre-{{s.letter}}">
-        <h2 class="section-title">{{s.letter}}</h2>
-        <div class="brand-grid">
-          <a class="brand" ng-repeat="m in s.items track by m.idMarque" href="#/marque/{{::m.idMarque}}">
-            <span class="logo-tile" data-img-host>
-              <img loading="lazy" ng-src="{{::m.logo}}" alt="" ma-img-fallback>
-              <span class="logo-tile__initials">{{::m.initials}}</span>
-            </span>
-            <span class="brand__name">{{::m.nomMarque}}</span>
-            <span class="brand__meta">
-              <img ng-if="::m.flag" class="flag" ng-src="{{::m.flag}}" alt="{{::m.paysNom}}">
-              <span>{{::m.annees}}</span>
-            </span>
-          </a>
-        </div>
-      </section>
+    <!-- Pays : clic = inclure / exclure, double-clic = seulement ce pays -->
+    <div class="pays-flags" role="group" aria-label="Pays" ng-if="pays.length">
+      <button type="button" class="pays-flags__all" ng-click="selectAll()">Tous</button>
+      <button type="button" class="pays-flags__flag" ng-repeat="p in pays track by p.code" ng-class="{'is-off': !p.filter}" aria-pressed="{{p.filter}}" title="{{p.nom}}"
+              ng-click="toggleFilter(p)" ng-dblclick="selectFilter(p.code)">
+        <img ng-src="{{p.flag}}" alt="{{p.nom}}">
+      </button>
     </div>
-
   </div>
+
+  <div class="empty" ng-if="loaded && !sections.length">Aucune marque</div>
+
+  <section class="letter-section" ng-repeat="s in sections track by s.letter" id="lettre-{{s.letter}}">
+    <h2 class="letter-section__letter">{{s.letter}}</h2>
+    <div class="brand-wall">
+      <a class="brand" ng-repeat="m in s.items track by m.idMarque" href="#/marque/{{::m.idMarque}}">
+        <span class="brand__frame">
+          <span class="brand__logo" data-img-host>
+            <img loading="lazy" ng-src="{{::m.logo}}" alt="" ma-img-fallback>
+            <span class="brand__initials">{{::m.initials}}</span>
+          </span>
+        </span>
+        <span class="brand__name">{{::m.nomMarque}}</span>
+        <span class="brand__meta">
+          <img ng-if="::m.flag" class="flag" ng-src="{{::m.flag}}" alt="{{::m.paysNom}}">
+          <span>{{::m.annees}}</span>
+        </span>
+      </a>
+    </div>
+  </section>
+
 </div>

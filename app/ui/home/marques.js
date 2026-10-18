@@ -110,13 +110,6 @@ app.controller('MarquesCtrl', function ($scope, Auto, Pays, ImageManager) {
     rebuildVisibleMarques();
   };
 
-  $scope.selectNone = function () {
-    $scope.pays.forEach(function (pays) {
-      pays.filter = false;
-    });
-    rebuildVisibleMarques();
-  };
-
   /* Index alphabétique */
   $scope.scrollTo = function (letter) {
     var section = document.getElementById('lettre-' + letter);
