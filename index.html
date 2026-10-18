@@ -1,24 +1,23 @@
 <!doctype html>
-<html lang="en" ng-app="mesautos">
+<html lang="fr" ng-app="mesautos">
 
 <head>
   <meta charset="utf-8">
-  <title ng:bind-template="Mes Autos{{pageTitle}}"></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title ng-bind-template="Mes Autos{{pageTitle}}">Mes Autos</title>
 
+  <link rel="preload" href="style/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style/fonts.css">
   <link rel="stylesheet" href="lib/reset-css/reset.css">
-  <link rel="stylesheet" href="lib/font-awesome-4.1.0/css/font-awesome.min.css">
-  <link rel="stylesheet" href="lib/timeline/timeline.css">
   <link rel="stylesheet" href="style/app.css">
   <link rel="stylesheet" href="style/histo.css">
-  <link rel="stylesheet" href="app/ui/common/sidebar/sidebar.css">
+  <link rel="stylesheet" href="app/ui/common/search/search.css">
+  <link rel="stylesheet" href="app/ui/common/viewer/viewer.css">
+  <link rel="stylesheet" href="app/ui/saisie/saisie.css">
   <link rel="stylesheet" href="app/ui/home/home.css">
   <link rel="stylesheet" href="app/ui/marque/marque.css">
-  <link rel="stylesheet" href="app/ui/modele/gamme/gamme.css">
   <link rel="stylesheet" href="app/ui/modele/modele.css">
-  <link rel="stylesheet" href="app/ui/salon/salon.css">
   <link rel="stylesheet" href="app/ui/annee/annee.css">
-  <link rel="stylesheet" href="app/ui/course/course.css">
-  <link rel="stylesheet" href="app/ui/saisie/saisie.css">
 
   <script src="lib/angular/angular.js"></script>
   <script src="lib/angular/angular-animate.min.js"></script>
@@ -26,14 +25,17 @@
   <script src="lib/angular/angular-locale_fr-fr.js"></script>
   <script src="lib/angular/angular-resource.min.js"></script>
   <script src="lib/angular/angular-sanitize.min.js"></script>
-  <script src="lib/timeline/timeline.js"></script>
   <script src="app/ui/app.js"></script>
   <script src="app/ui/filters.js"></script>
+  <script src="app/ui/directives.js"></script>
   <script src="app/ui/common/auto.js"></script>
   <script src="app/ui/common/categorie.js"></script>
+  <script src="app/ui/common/pays.js"></script>
   <script src="app/ui/common/imageManager.js"></script>
-  <script src="app/ui/common/sidebar/sidebar.js"></script>
-  <script src="app/ui/directives.js"></script>
+  <script src="app/ui/common/icons.js"></script>
+  <script src="app/ui/common/search/search.js"></script>
+  <script src="app/ui/common/viewer/viewer.js"></script>
+  <script src="app/ui/saisie/saisie.js"></script>
   <script src="app/ui/home/marques.js"></script>
   <script src="app/ui/home/miniatures.js"></script>
   <script src="app/ui/home/salons.js"></script>
@@ -45,28 +47,37 @@
   <script src="app/ui/salon/salon.js"></script>
   <script src="app/ui/annee/annee.js"></script>
   <script src="app/ui/course/course.js"></script>
-  <script src="app/ui/saisie/saisie.js"></script>
 
   <script src="bower_components/angular-deckgrid/angular-deckgrid.js"></script>
 </head>
 
-<body ng-controller="MainCtrl" ng-click="hideResults()">
+<body ng-controller="MainCtrl" ng-class="{'is-locked': locked()}">
 
-  <div id="header">
-    <a href="#home">Mes <span class="maj">A</span>utos</a>
-    <img src="style/logo.png">
-	</div>
-	
-  <div ng-view id="app"></div>
-  
-  <div id="search">
-    <span class="input-icon fa fa-search"></span>
-    <input type="text" ng-model="searchText" ng-click="showResults($event)" ng-change="showResults($event)"></input>
-    <ul class="results" ng-show="show">
-      <li ng-repeat="item in list.marques | searchMarque: searchText | orderBy: 'nomMarque'" ng-click="goToMarque(item)">{{item.nomMarque}}</li>
-      <li ng-repeat="item in list.modeles | searchModele: searchText | orderBy: 'nomModele'" ng-click="goToModele(item)">{{item.nomModele}}<span class="marque-modele">{{item.nomMarque}}</span></li>
-    </ul>
-  </div>
+  <header class="site-header">
+    <div class="site-header__inner">
+      <a class="brand-mark" href="#/marques" aria-label="Mes Autos">
+        <svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><rect x="12" y="0" width="10" height="10" rx="2" fill="#D13F17"/><rect x="0" y="12" width="10" height="10" rx="2" fill="#D13F17"/><rect x="12" y="12" width="10" height="10" rx="2" fill="#F2A51A"/></svg>
+        <span>Mes Autos</span>
+      </a>
+      <nav class="site-nav" aria-label="Sections">
+        <a href="#/marques" ng-class="{'is-active': section === 'marques'}"><i ma-icon="car"></i>Marques</a>
+        <a href="#/salons" ng-class="{'is-active': section === 'salons'}"><i ma-icon="calendar"></i>Salons</a>
+        <a href="#/annees" ng-class="{'is-active': section === 'nouveautes'}"><i ma-icon="bell"></i>Nouveautés</a>
+        <a href="#/courses" ng-class="{'is-active': section === 'courses'}"><i ma-icon="trophy"></i>Courses</a>
+        <a href="#/miniatures" ng-class="{'is-active': section === 'miniatures'}"><i ma-icon="star"></i>Miniatures</a>
+      </nav>
+      <div class="site-header__tools">
+        <button type="button" class="search-trigger" ng-click="openSearch()"><i ma-icon="search"></i><span>Rechercher</span></button>
+        <a class="site-header__link" href="#/marque/1129" ng-class="{'is-active': section === 'perso'}"><i ma-icon="home"></i><span>Mes autos à moi</span></a>
+      </div>
+    </div>
+  </header>
+
+  <div ng-view autoscroll="true" id="app"></div>
+
+  <ma-search></ma-search>
+  <ma-viewer></ma-viewer>
+  <ma-saisie></ma-saisie>
 
 </body>
 </html>

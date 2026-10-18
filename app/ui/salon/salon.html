@@ -1,23 +1,18 @@
-<div id="salon">
+<div class="page gallery-page">
 
-  <div id="content">
+  <nav class="crumbs" aria-label="Fil d'Ariane">
+    <a href="#/salons">Salons</a>
+  </nav>
 
-    <div deckgrid source="photos" cardTemplate="app/ui/salon/card.html" class="deckgrid"></div>
-
+  <div class="page-head">
+    <h1 class="page-title">Salon {{annee}}</h1>
+    <div class="actions">
+      <a class="btn btn--secondary" ng-if="ccc" href="http://www.classiccarcatalogue.com/{{annee}}.html" target="_blank" rel="noopener"><i ma-icon="external"></i>Classic Car Catalogue</a>
+      <a class="btn btn--secondary mono" ng-if="prev" href="#/salon/{{prev}}"><i ma-icon="chevron-left"></i>{{prev}}</a>
+      <a class="btn btn--secondary mono" ng-if="next" href="#/salon/{{next}}">{{next}}<i ma-icon="chevron-right"></i></a>
+    </div>
   </div>
 
-
-  <div id="sidebar">
-
-    <div class="title">
-      Salon {{salon.annee}}
-    </div>
-
-    <div ng-if="salon.annee >= 1930 && salon.annee <= 1979">
-      <hr/>
-      <a href="http://www.classiccarcatalogue.com/{{salon.annee}}.html" class="link" target="_blank">Classic Car Catalogue</a>
-    </div>
-  
-  </div>
+  <div deckgrid source="photos" cardTemplate="app/ui/salon/card.html" class="deckgrid"></div>
 
 </div>

@@ -1,73 +1,55 @@
-<div id="home">
+<div class="page">
 
-  <div id="content">
-
-    <ul id="marques" class="view grid">
-      <li ng-repeat="marque in visibleMarques track by marque.idMarque" ng-click="goToMarque(marque)">
-			<div lazy-bg="{{::('img/logo/' + marque.idMarque + '.png')}}" class="thumbnail logo"></div>
-			<div class="mask">
-          <div class="info">
-            <div>{{::marque.nomMarque}}</div>
-            <div class="subtitle">{{::marque.annees}}</div>
-	      	  <img ng-src="{{::('img/pays/' + marque.pays + '.png')}}" class="pays"/>
-          </div>
-			</div>
-      </li>
-    </ul>
-
+  <div class="page-head">
+    <h1 class="page-title">Marques</h1>
+    <nav class="az" aria-label="Index alphabétique">
+      <button type="button" class="az__letter" ng-repeat="l in letters" ng-disabled="!hasLetter[l]" ng-click="scrollTo(l)">{{l}}</button>
+    </nav>
+    <button type="button" class="btn btn--primary" ng-click="openSaisie('add', 'marque')"><i ma-icon="plus"></i>Ajouter une marque</button>
   </div>
 
-  <div id="sidebar">
+  <div class="marques">
 
-    <ul class="views">
-      <li class="selected">
-        <a href="#marques" class="tooltiped fa fa-car"></a>
-        <div class="tooltip"><pre>Marques</pre></div>
-      </li>
-      <li>
-        <a href="#salons" class="tooltiped fa fa-calendar"></a>
-        <div class="tooltip"><pre>Salons</pre></div>
-      </li>
-      <li>
-        <a href="#annees" class="tooltiped fa fa-bell"></a>
-        <div class="tooltip"><pre>Nouveautés</pre></div>
-      </li>
-      <li>
-        <a href="#courses" class="tooltiped fa fa-trophy"></a>
-        <div class="tooltip"><pre>Courses</pre></div>
-      </li>
-      <li>
-        <a href="#miniatures" class="tooltiped fa fa-star-o"></a>
-        <div class="tooltip"><pre>Miniatures</pre></div>
-      </li>
-    </ul>
-
-    <div class="filters filters-marques">
-      <hr/>
-        <a href="#/marque/1129" class="link">Mes autos à moi</a>
-      <hr/>
-      <ul>
-        <li ng-repeat="p in pays track by p.code">
-          <div ng-click="toggleFilter(p)">
-            <span ng-show="p.filter">&#x2714;</span>
-          </div>
-          <div ng-click="selectFilter(p.code)">
-            <img ng-src="{{::('img/pays/' + p.code + '.png')}}" class="pays"/>
-            <span>{{::p.code}}</span>
-          </div>
+    <aside class="pays-filter" aria-label="Filtrer par pays">
+      <div class="pays-filter__head">
+        <h2 class="label">Pays</h2>
+        <div>
+          <button type="button" class="btn-text" ng-click="selectAll()">Tous</button>
+          <button type="button" class="btn-text" ng-click="selectNone()">Aucun</button>
+        </div>
+      </div>
+      <ul class="pays-filter__list">
+        <li class="pays-filter__item" ng-repeat="p in pays track by p.code" ng-class="{'is-on': p.filter}">
+          <button type="button" class="pays-filter__check" ng-click="toggleFilter(p)" aria-pressed="{{p.filter}}" aria-label="Inclure {{p.nom}}">
+            <span class="check" ng-class="{'is-on': p.filter}"><i ma-icon="check"></i></span>
+          </button>
+          <button type="button" class="pays-filter__name" ng-click="selectFilter(p.code)" title="{{p.nom}}">
+            <img class="flag" ng-src="{{p.flag}}" alt="">
+            <span>{{p.nom}}</span>
+          </button>
         </li>
       </ul>
+    </aside>
+
+    <div class="marques__content">
+      <div class="empty" ng-if="loaded && !sections.length">Aucune marque</div>
+      <section class="letter-section" ng-repeat="s in sections track by s.letter" id="lettre-{{s.letter}}">
+        <h2 class="section-title">{{s.letter}}</h2>
+        <div class="brand-grid">
+          <a class="brand" ng-repeat="m in s.items track by m.idMarque" href="#/marque/{{::m.idMarque}}">
+            <span class="logo-tile" data-img-host>
+              <img loading="lazy" ng-src="{{::m.logo}}" alt="" ma-img-fallback>
+              <span class="logo-tile__initials">{{::m.initials}}</span>
+            </span>
+            <span class="brand__name">{{::m.nomMarque}}</span>
+            <span class="brand__meta">
+              <img ng-if="::m.flag" class="flag" ng-src="{{::m.flag}}" alt="{{::m.paysNom}}">
+              <span>{{::m.annees}}</span>
+            </span>
+          </a>
+        </div>
+      </section>
     </div>
 
-    <hr/>
-
-    <ul class="actions">
-      <li ng-repeat="item in sidebar track by $index">
-        <a href="{{::item.link}}" class="tooltiped fa fa-{{::item.icon}}"></a>
-        <div class="tooltip"><pre>{{::item.tooltip}}</pre></div>
-      </li>
-    </ul>
-
   </div>
-
 </div>

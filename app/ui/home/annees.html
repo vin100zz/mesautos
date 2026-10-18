@@ -1,68 +1,19 @@
-<div id="home">
+<div class="page">
 
-  <div id="content">
-
-    <ul id="annees" class="view grid">
-      <li ng-repeat="annee in annees" ng-click="goToAnnee(annee)">
-        <div class="thumbnail logo-text">
-          <div>{{annee}}</div>
-        </div>
-        <div class="mask">
-          <div class="info">
-          </div>
-        </div>
-      </li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-    </ul>
-
+  <div class="page-head">
+    <h1 class="page-title">Nouveautés</h1>
   </div>
 
-  <div id="sidebar">
-
-    <ul class="views">
-      <li>
-        <a href="#marques" class="tooltiped fa fa-car"></a>
-        <div class="tooltip"><pre>Marques</pre></div>
-      </li>
-      <li>
-        <a href="#salons" class="tooltiped fa fa-calendar"></a>
-        <div class="tooltip"><pre>Salons</pre></div>
-      </li>
-      <li class="selected">
-        <a href="#annees" class="tooltiped fa fa-bell"></a>
-        <div class="tooltip"><pre>Nouveautés</pre></div>
-      </li>
-      <li>
-        <a href="#courses" class="tooltiped fa fa-trophy"></a>
-        <div class="tooltip"><pre>Courses</pre></div>
-      </li>
-      <li>
-        <a href="#miniatures" class="tooltiped fa fa-star-o"></a>
-        <div class="tooltip"><pre>Miniatures</pre></div>
-      </li>
-    </ul>
-
+  <div class="decennies">
+    <div class="decennie" ng-repeat="d in decennies track by d.decennie">
+      <div class="decennie__label">{{::d.decennie}}</div>
+      <div class="decennie__annees">
+        <span ng-repeat="a in d.annees track by a.annee" class="decennie__cell">
+          <a ng-if="::a.avec" class="decennie__annee" href="#/annee/{{::a.annee}}">{{::a.annee}}</a>
+          <span ng-if="::!a.avec && !a.futur" class="decennie__annee is-empty">{{::a.annee}}</span>
+        </span>
+      </div>
+    </div>
   </div>
 
 </div>
-
-

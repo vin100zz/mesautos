@@ -1,108 +1,150 @@
-
-p {
-   text-align: left;	
- }
- 
-.fond  {
-	background:#95B9C7;
+/* Textes historiques (fichiers histo/marque/*.html et histo/gamme/*.html) */
+.histo {
+  color: var(--text-2);
+  font-size: 15px;
+  line-height: 1.6;
 }
-
-.fondblanc  {
-	background:white;
+.histo > h1:first-child,
+.histo > h1:first-child + br,
+.histo > h1:first-child + br + hr {
+  display: none;
 }
-
-
-
+.histo h1 {
+  margin: 28px 0 14px;
+  font-stretch: 125%;
+  font-weight: 800;
+  font-size: 24px;
+  line-height: 1.15;
+  color: var(--text);
+}
+.histo h2 {
+  margin: 22px 0 10px;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+}
+.histo hr {
+  height: 1px;
+  margin: 20px 0;
+  border: 0;
+  background: var(--line);
+}
 .histo p {
-
-color:black;
-text-align:start;
-text-indent:50px;
+  margin: 0 0 10px;
+  text-align: left;
+}
+.histo b,
+.histo strong {
+  font-weight: 700;
+  color: var(--text);
+}
+.histo i,
+.histo em {
+  font-style: italic;
+}
+.histo a {
+  color: var(--accent-text);
+}
+.histo a:hover {
+  text-decoration: underline;
+}
+.histo a > img {
+  cursor: zoom-in;
+}
+.histo img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  background: var(--surface-3);
+  box-shadow: var(--shadow-sm);
 }
 
-#marque #histo .fond a {
-color: #00688E;	
-	
+/* Section */
+.histo .cadre {
+  padding: 26px 0;
+  border-bottom: 1px solid var(--line);
+  font-style: normal;
+  color: var(--text-2);
+  text-align: left;
+}
+.histo .cadre > p:first-child {
+  margin-bottom: 14px;
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--text);
+}
+.histo .cadre > p:first-child:empty,
+.histo .cadre > p:first-child + br {
+  display: none;
 }
 
-
-.black {
-font-style: italic;
-color:black;
+/* Documents */
+.histo .conteneur1,
+.histo .gallery1 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 18px 16px;
+  margin: 8px 0;
+}
+.histo .box {
+  max-width: 100%;
+  text-align: left;
+}
+.histo .box > br {
+  display: none;
+}
+.histo .legende {
+  max-width: 320px;
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.45;
+  font-style: normal;
+  color: var(--text-2);
+  text-align: left;
+}
+.histo .legende:empty {
+  display: none;
 }
 
-
-
-.cadre {
-   font-style: italic;
-   color:black;
-   border:1px solid white;
-   background-color:#95B9C7;;
-   padding-left:50px;
-   padding-right:50px;
-   padding-bottom :20px;
-   padding-top: 20px;
-   text-align: center;
+/* Variantes historiques */
+.histo .fond,
+.histo .fondblanc {
+  padding: 16px 20px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  color: var(--text);
+}
+.histo .black,
+.histo .lien {
+  font-style: italic;
+  color: var(--text-2);
+}
+.histo .centrer,
+.histo .center {
+  text-align: center;
+}
+.histo .left {
+  text-align: left;
+}
+.histo .box30 {
+  width: 200px;
+}
+.histo .box50 {
+  width: 50%;
+}
+.histo .item {
+  margin: 5px;
+}
+.histo .img {
+  width: 200px;
 }
 
-
-.legende{
-	font-style: italic;
-	color:black;
-	text-align: centrer;
-}
-
-.lien {
-	font-style: italic;
-	color:black;
-	text-align: left;
-}
-
-
-.centrer {
-  text-align: center;	
- }
- 
- .left {
-   text-align: left;	
- }
- 
-
-
-
-.conteneur1
-{
- display: flex;
- justify-content: space-around;
- align-items: center;
-}
-
- .box {
-    text-align: center;
-
-  
-}
-
- .box30 {
-  width:200px; 
-}
-
- .box50 {
-  width:50%; 
-}
-
-
-.gallery1 {
-   display: flex-end;
-   flex-wrap: wrap;
-   padding:5px;
-   justify-content: center;
-}
-
-.item {
- margin: 5px	
- }
- 
-.img {
-  width:200px;
+/* Note de gamme */
+.histo--note .cadre {
+  padding: 0;
+  border: 0;
 }

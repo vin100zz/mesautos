@@ -1,101 +1,162 @@
-<div id="marque">
+<div class="page" ng-if="marque">
 
-  <div id="content">
-
-    <ul id="modeles" class="view" ng-show="selectedView == 'modeles'">
-      <li ng-repeat="modele in marque.modeles | filter: filterCategorie" ng-click="goToModele(modele)">
-
-        <!-- hack to have a margin on top of the modele when scrolling to it -->
-        <div id="modele-{{modele.idModele}}" class="anchor-hack"></div>
-
-        <div class="infos">
-          <div class="title">
-        	  <div class="nom">{{modele.nomModele}}</div>
-            <div class="year" ng-if="modele.yearInName">{{modele.yearInName}}</div>
-          </div>
-
-          <div class="categorie" style="background-color: {{modele.categorieCfg.color}}">{{modele.categorieCfg.label}}</div>
-
-          <div class="carac">
-            <p ng-show="modele.debut != ''"><span class='key'>Date :</span>
-            {{modele.debut}}<span ng-show="modele.fin != ''"> - </span>{{modele.fin}}</p>
-            
-            <p ng-show="modele.cylindree_min != ''"><span class='key'>Cylindrée :</span>
-            {{modele.cylindree_min}}<span ng-show="modele.cylindree_max != ''"> - </span>{{modele.cylindree_max}}</p>
-            
-            <p ng-show="modele.puissance_min != ''"><span class='key'>Puissance :</span>
-            {{modele.puissance_min}}<span ng-show="modele.puissance_max != ''"> - </span>{{modele.puissance_max}}</p>
-            
-            <p ng-show="modele.production != ''"><span class='key'>Production :</span> {{modele.production}}</p>
-            
-            <p class="commentaire" ng-show="modele.commentaire != ''">{{modele.commentaire}}</p>
-          </div>  
-      	</div>
-
-          <div class="picture thumbnail" lazy-bg="{{backgroundImage(modele.idDocEmblematique)}}"></div>
-
-      </li>
-    </ul>
-
-    <div id="timeline" class="view" ng-show="selectedView == 'timeline'">
+  <div class="marque-head">
+    <span class="logo-tile logo-tile--lg" data-img-host>
+      <img ng-src="{{logo}}" alt="Logo {{marque.nomMarque}}" ma-img-fallback>
+      <span class="logo-tile__initials">{{initials}}</span>
+    </span>
+    <div class="marque-head__text">
+      <div class="marque-head__meta" ng-if="paysNom || marque.lieu || annees">
+        <img ng-if="flag" class="flag" ng-src="{{flag}}" alt="">
+        <span class="label" ng-if="paysNom || marque.lieu">{{paysNom}}<span ng-if="paysNom && marque.lieu"> · </span>{{marque.lieu}}</span>
+        <span class="mono marque-head__annees" ng-if="annees">{{annees}}</span>
+      </div>
+      <h1 class="marque-title">{{marque.nomMarque}}</h1>
     </div>
-
-    <div id="histo" class="view" ng-show="selectedView == 'histoire'">
-      <div ng-bind-html="marque.histo"></div>
-      <!--<hr/>
-      <div ng-bind-html-unsafe="histo" ng-show="histo != null"></div>
-      <div ng-repeat="doc in marque.docs">
-        <p ng-show="doc.legende != ''">{{doc.legende}}</p>
-        <a ng-href="img/marque/{{doc.idDocumentMarque}}.jpg" target="_blank"><img ng-src="img/marque/{{doc.idDocumentMarque}}.jpg"/></a>
-        <div class="legend">{{doc.source}}<span ng-show="doc.source != ''"> - </span>{{doc.date}}</div>
-      </div>-->
+    <div class="actions">
+      <button type="button" class="btn btn--secondary btn--sm" ng-click="openSaisie('edit', 'marque', marque.idMarque)"><i ma-icon="edit"></i>Modifier la marque</button>
+      <button type="button" class="btn btn--primary btn--sm" ng-click="openSaisie('add', 'modele', marque.idMarque)"><i ma-icon="plus"></i>Ajouter un modèle</button>
     </div>
-
   </div>
 
-
-  <div id="sidebar">
-
-    <mesautos-sidebar cfg="sidebarCfg"></mesautos-sidebar>
-
-    <hr/>
-
-    <ul class="views">
-      <li ng-class="{selected: selectedView == 'modeles'}">
-        <div ng-click="showView('modeles')" class="tooltiped fa fa-list-ul"></div>
-        <div class="tooltip"><pre>Modèles</pre></div>
-      </li>
-      <li ng-class="{selected: selectedView == 'timeline'}">
-        <div ng-click="showView('timeline')" class="tooltiped fa fa-clock-o"></div>
-        <div class="tooltip"><pre>Timeline</pre></div>
-      </li>
-      <li ng-class="{selected: selectedView == 'histoire'}">
-        <div ng-click="showView('histoire')" class="tooltiped fa fa-quote-left"></div>
-        <div class="tooltip"><pre>Historique</pre></div>
-      </li>
-    </ul>
-
-    <div class="filters" ng-show="selectedView == 'modeles'">
-      <hr/>
-      <ul>
-        <li ng-repeat="categorie in categories">
-          <div ng-click="toggleFilter(categorie)">
-            <span ng-show="categorie.filter">&#x2714;</span>
-          </div>
-          <div ng-click="selectFilter(categorie.code)">{{categorie.label}}</div>
-        </li>
-      </ul>
+  <!-- Vues, filtres de catégorie et affichage sur une seule barre -->
+  <div class="toolbar">
+    <nav class="segmented tabs" aria-label="Vues de la marque" ng-if="hasChrono || marque.histo">
+      <button type="button" ng-class="{'is-on': vue === 'modeles'}" aria-pressed="{{vue === 'modeles'}}" ng-click="showView('modeles')">Modèles</button>
+      <button type="button" ng-if="hasChrono" ng-class="{'is-on': vue === 'chronologie'}" aria-pressed="{{vue === 'chronologie'}}" ng-click="showView('chronologie')">Chronologie</button>
+      <button type="button" ng-if="marque.histo" ng-class="{'is-on': vue === 'histoire'}" aria-pressed="{{vue === 'histoire'}}" ng-click="showView('histoire')">Histoire</button>
+    </nav>
+    <div class="chips" role="group" aria-label="Catégories" ng-if="vue !== 'histoire' && categories.length > 1">
+      <button type="button" class="chip" ng-repeat="c in categories track by c.code" ng-class="{'is-on': c.on}" aria-pressed="{{c.on}}"
+              ng-style="c.on ? {background: c.tint, color: c.ink} : {}"
+              ng-click="toggleCategorie(c)" ng-dblclick="onlyCategorie(c)">{{c.short}}</button>
     </div>
+    <div class="toolbar__right" ng-if="vue === 'modeles'">
+      <button type="button" class="btn btn--secondary btn--sm" ng-click="toggleOrdre()"><i ma-icon="sort"></i>{{ordre === 'desc' ? 'Plus récents d’abord' : 'Plus anciens d’abord'}}</button>
+      <div class="segmented segmented--icons" role="group" aria-label="Affichage">
+        <button type="button" ng-class="{'is-on': affichage === 'grille'}" aria-pressed="{{affichage === 'grille'}}" ng-click="setAffichage('grille')" aria-label="Grille"><i ma-icon="grid"></i></button>
+        <button type="button" ng-class="{'is-on': affichage === 'liste'}" aria-pressed="{{affichage === 'liste'}}" ng-click="setAffichage('liste')" aria-label="Liste"><i ma-icon="list"></i></button>
+      </div>
+    </div>
+    <div class="toolbar__right" ng-if="vue === 'chronologie'">
+      <div class="segmented segmented--icons" role="group" aria-label="Zoom">
+        <button type="button" ng-click="zoomOut()" ng-disabled="zoom <= 1" aria-label="Dézoomer"><i ma-icon="zoom-out"></i></button>
+        <button type="button" ng-click="zoomIn()" ng-disabled="zoom >= 8" aria-label="Zoomer"><i ma-icon="zoom-in"></i></button>
+      </div>
+    </div>
+  </div>
 
-    <hr/>
+  <!-- Modèles -->
+  <div ng-if="vue === 'modeles'">
+    <nav class="decennies-nav" ng-if="decennies.length > 1" aria-label="Décennies">
+      <button type="button" class="decennies-nav__item" ng-repeat="d in decennies" ng-click="scrollToId(d.id)">{{d.decennie}}</button>
+    </nav>
 
-    <ul class="actions">
-      <li ng-repeat="item in sidebar">
-        <a href="{{item.link}}" class="tooltiped fa fa-{{item.icon}}"></a>
-        <div class="tooltip"><pre>{{item.tooltip}}</pre></div>
-      </li>
-    </ul>
-  
+    <div class="empty" ng-if="!groups.length">Aucun modèle</div>
+
+    <section class="model-group" ng-repeat="g in groups" id="{{g.id}}">
+      <h2 class="section-title" ng-if="g.label">{{g.label}}</h2>
+
+      <div class="model-grid" ng-if="affichage === 'grille'">
+        <a class="model-card" ng-repeat="m in g.items track by m.idModele" href="#/modele/{{::m.idModele}}" id="modele-{{::m.idModele}}">
+          <span class="frame" ng-class="::{'is-empty': !m.photo}" data-img-host>
+            <img ng-if="::m.photo" class="frame__bg" loading="lazy" ng-src="{{::m.photo}}" alt="" ma-img-fallback>
+            <img ng-if="::m.photo" class="frame__img" loading="lazy" ng-src="{{::m.photo}}" alt="{{::m.nomModele}}" ma-img-fallback>
+            <span class="frame__empty"><i ma-icon="image"></i></span>
+            <span class="cat-pill cat-badge" ng-if="::m.categorie" ng-style="::{background: m.categorieCfg.tint, color: m.categorieCfg.ink}">{{::m.categorieCfg.short}}</span>
+          </span>
+          <span class="model-card__body">
+            <span class="model-card__title">
+              <span class="model-card__name">{{::m.nomModele}}</span>
+              <span class="model-card__year mono" ng-if="::m.yearInName">{{::m.yearInName}}</span>
+            </span>
+            <dl class="specs" ng-if="::m.specs.length">
+              <div class="specs__row" ng-repeat="s in ::m.specs"><dt>{{::s.k}}</dt><dd>{{::s.v}}</dd></div>
+            </dl>
+            <span class="model-card__comment" ng-if="::m.commentaire">{{::m.commentaire}}</span>
+          </span>
+        </a>
+      </div>
+
+      <div class="table-wrap" ng-if="affichage === 'liste'">
+        <table class="model-table">
+          <thead>
+            <tr>
+              <th scope="col"><span class="sr-only">Photo</span></th>
+              <th scope="col">Modèle</th>
+              <th scope="col">Année</th>
+              <th scope="col">Catégorie</th>
+              <th scope="col">Date</th>
+              <th scope="col">Production</th>
+              <th scope="col">Commentaire</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="m in g.items track by m.idModele" id="modele-{{::m.idModele}}">
+              <td>
+                <a class="frame model-table__thumb" ng-class="::{'is-empty': !m.photo}" href="#/modele/{{::m.idModele}}" data-img-host aria-label="{{::m.nomModele}}">
+                  <img ng-if="::m.photo" class="frame__img model-table__img" loading="lazy" ng-src="{{::m.photo}}" alt="" ma-img-fallback>
+                  <span class="frame__empty"><i ma-icon="image"></i></span>
+                </a>
+              </td>
+              <td><a class="model-table__name" href="#/modele/{{::m.idModele}}">{{::m.nomModele}}</a></td>
+              <td class="mono">{{::m.yearInName}}</td>
+              <td><span class="cat-pill" ng-if="::m.categorie" ng-style="::{background: m.categorieCfg.tint, color: m.categorieCfg.ink}">{{::m.categorieCfg.short}}</span></td>
+              <td class="mono">{{::m.periode}}</td>
+              <td class="mono">{{::m.production}}</td>
+              <td class="model-table__comment">{{::m.commentaire}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <!-- Chronologie -->
+  <div ng-if="vue === 'chronologie'">
+    <div class="chrono" ng-if="chrono">
+      <div class="chrono__canvas" ng-style="{width: chrono.width + 'px', height: chrono.height + 'px'}" ng-click="select(null)">
+        <div class="chrono__line" ng-repeat="y in chrono.grid" ng-style="{left: y.left + 'px'}"></div>
+        <div class="chrono__year" ng-repeat="y in chrono.grid" ng-style="{left: (y.left + 6) + 'px'}">{{y.year}}</div>
+        <div class="chrono__today" ng-if="chrono.today !== null" ng-style="{left: chrono.today + 'px'}"></div>
+
+        <button type="button" class="chrono__event" ng-repeat="e in chrono.events" ng-class="{'is-on': sel === e}"
+                ng-style="{left: e.left + 'px', top: e.top + 'px', width: e.width + 'px'}"
+                ng-click="select(e); $event.stopPropagation()" aria-label="{{e.m.nomModele}}, {{e.periode}}">
+          <span class="chrono__label"><span class="dot" ng-style="{background: e.color}"></span>{{e.m.nomModele}}</span>
+          <span class="chrono__bar" ng-style="{width: e.dur + 'px', background: e.color}"></span>
+        </button>
+
+        <div class="chrono__pop" ng-if="sel" ng-style="{left: sel.popLeft + 'px', top: sel.popTop + 'px'}" ng-click="$event.stopPropagation()">
+          <span class="frame frame--wide" ng-class="{'is-empty': !sel.m.photo}" data-img-host>
+            <img ng-if="sel.m.photo" class="frame__bg" ng-src="{{sel.m.photo}}" alt="" ma-img-fallback>
+            <img ng-if="sel.m.photo" class="frame__img" ng-src="{{sel.m.photo}}" alt="{{sel.m.nomModele}}" ma-img-fallback>
+            <span class="frame__empty"><i ma-icon="image"></i></span>
+          </span>
+          <div class="chrono__pop-body">
+            <div class="chrono__pop-title"><span>{{sel.m.nomModele}}</span><span class="mono">{{sel.periode}}</span></div>
+            <span class="chrono__pop-cat" ng-if="sel.m.categorie"><span class="dot" ng-style="{background: sel.color}"></span>{{sel.m.categorieCfg.short}}</span>
+            <a class="chrono__pop-link" href="#/modele/{{sel.m.idModele}}">Ouvrir le modèle<i ma-icon="arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Histoire -->
+  <div class="histoire" ng-if="vue === 'histoire'">
+    <aside class="histoire__toc" ng-if="histoToc.length" aria-label="Sommaire">
+      <h2 class="label">Sommaire</h2>
+      <ol>
+        <li ng-repeat="t in histoToc">
+          <button type="button" ng-click="scrollToCadre(t)">
+            <span class="histoire__date mono">{{t.date}}</span>
+            <span>{{t.titre}}</span>
+          </button>
+        </li>
+      </ol>
+    </aside>
+    <article class="histo histoire__body" ng-bind-html="marque.histo" ma-histo="marque.histo"></article>
   </div>
 
 </div>

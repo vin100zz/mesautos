@@ -1,0 +1,32 @@
+<div class="viewer" ng-if="v.open" role="dialog" aria-modal="true" aria-label="Visionneuse photo" ng-click="v.menu = false">
+  <div class="viewer__stage" data-img-host>
+    <img class="viewer__img" ng-src="{{cur().src}}" alt="{{cur().alt}}" ma-img-fallback>
+    <span class="photo-missing"><i ma-icon="image"></i></span>
+  </div>
+
+  <div class="viewer__top" ng-click="$event.stopPropagation()">
+    <button type="button" class="viewer__btn" ng-if="hasInfo()" ng-class="{'is-on': v.info}" ng-click="v.info = !v.info"
+            aria-pressed="{{v.info}}" aria-label="Informations"><i ma-icon="info"></i></button>
+    <button type="button" class="viewer__btn" ng-if="cur().actions.length" ng-class="{'is-on': v.menu}" ng-click="v.menu = !v.menu"
+            aria-expanded="{{v.menu}}" aria-label="Actions"><i ma-icon="dots"></i></button>
+    <button type="button" class="viewer__btn" ng-click="close()" aria-label="Fermer"><i ma-icon="x"></i></button>
+
+    <div class="menu viewer__menu" role="menu" ng-if="v.menu">
+      <button type="button" class="menu__item" role="menuitem" ng-repeat="a in cur().actions" ng-click="run(a)">
+        <i ma-icon="{{a.icon}}" ng-class="{'is-emblem': a.emblem}"></i>{{a.label}}
+      </button>
+    </div>
+  </div>
+
+  <button type="button" class="viewer__nav viewer__nav--prev" ng-if="v.photos.length > 1" ng-click="prev(); $event.stopPropagation()" aria-label="Photo précédente"><i ma-icon="chevron-left"></i></button>
+  <button type="button" class="viewer__nav viewer__nav--next" ng-if="v.photos.length > 1" ng-click="next(); $event.stopPropagation()" aria-label="Photo suivante"><i ma-icon="chevron-right"></i></button>
+
+  <div class="viewer__info" ng-if="v.info && hasInfo()" ng-click="$event.stopPropagation()">
+    <div class="viewer__source" ng-if="cur().source">{{cur().source}}</div>
+    <div class="viewer__date mono" ng-if="cur().date">{{cur().date}}</div>
+    <p class="viewer__legende" ng-if="cur().legende">{{cur().legende}}</p>
+    <div class="viewer__links" ng-if="cur().links.length">
+      <a ng-repeat="l in cur().links" href="{{l.url}}" target="_blank" rel="noopener"><i ma-icon="external"></i>{{l.label}}</a>
+    </div>
+  </div>
+</div>

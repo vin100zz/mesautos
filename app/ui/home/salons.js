@@ -1,21 +1,16 @@
 app.controller('SalonsCtrl', function ($scope, Auto) {
 
+  $scope.$parent.$root.pageTitle = " - Salons";
+
   Auto.query({}, function (res) {
-    $scope.salons = res.salons.map(function (salon) {
+    $scope.salons = (res.salons || []).slice().sort(function (a, b) {
+      return String(b).localeCompare(String(a), 'fr', { numeric: true });
+    }).map(function (annee) {
       return {
-        annee: salon
+        annee: annee,
+        mini: 'img/salon/' + annee + '/mini/1.jpg'
       };
     });
   });
-
-  $scope.salonBackgroundImage = function (salon) {
-    return {
-      'background-image': 'url(img/salon/' + salon.annee + '/mini/1.jpg)'
-    };
-  };
-
-  $scope.goToSalon = function (salon) {
-    window.location = '#/salon/' + salon.annee;
-  };
 
 });

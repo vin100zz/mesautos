@@ -1,48 +1,32 @@
-<div id="home">
+<div class="page">
 
-  <div id="content">
-
-    <ul id="miniatures">
-      <li ng-repeat="marque in miniatures.marques">
-        <div class="nom-marque" ng-class="{expanded: isExpanded(marque)}" ng-click="toggleMarque(marque)">{{marque.nomMarque}}</div>
-        <ul ng-if="isExpanded(marque)">
-          <li class="modele" ng-class="{jelai: modele.mini == 'Y'}" ng-repeat="modele in marque.modeles" ng-click="toggleMini(modele)">
-            <span class="fa fa-{{modele.mini == 'Y' ? 'check' : 'times'}}"></span>
-            <span>{{modele.nomModele}}</span>
-          </li>
-        </ul>
-      </li>
-    </ul>
-
+  <div class="page-head">
+    <h1 class="page-title">Miniatures</h1>
+    <div class="segmented" role="group" aria-label="Afficher">
+      <button type="button" ng-repeat="f in filtres" ng-class="{'is-on': filtre === f.id}" aria-pressed="{{filtre === f.id}}" ng-click="setFiltre(f.id)">{{f.label}}</button>
+    </div>
   </div>
 
-  <div id="sidebar">
-
-    <ul class="views">
-      <li>
-        <a href="#marques" class="tooltiped fa fa-car"></a>
-        <div class="tooltip"><pre>Marques</pre></div>
-      </li>
-      <li>
-        <a href="#salons" class="tooltiped fa fa-calendar"></a>
-        <div class="tooltip"><pre>Salons</pre></div>
-      </li>
-      <li>
-        <a href="#annees" class="tooltiped fa fa-bell"></a>
-        <div class="tooltip"><pre>Nouveautés</pre></div>
-      </li>
-      <li>
-        <a href="#courses" class="tooltiped fa fa-trophy"></a>
-        <div class="tooltip"><pre>Courses</pre></div>
-      </li>
-      <li class="selected">
-        <a href="#miniatures" class="tooltiped fa fa-star-o"></a>
-        <div class="tooltip"><pre>Miniatures</pre></div>
-      </li>
-    </ul>
-
+  <div class="mini-list">
+    <section class="mini-brand" ng-repeat="marque in miniatures.marques track by marque.idMarque">
+      <button type="button" class="mini-brand__head" ng-click="toggleMarque(marque)" aria-expanded="{{isExpanded(marque)}}">
+        <span class="logo-tile logo-tile--sm" data-img-host>
+          <img ng-src="{{logo(marque.idMarque)}}" alt="" ma-img-fallback>
+          <span class="logo-tile__initials">{{initials(marque.nomMarque)}}</span>
+        </span>
+        <span class="mini-brand__name">{{marque.nomMarque}}</span>
+        <i ma-icon="chevron-right" class="mini-brand__chevron" ng-class="{'is-open': isExpanded(marque)}"></i>
+      </button>
+      <ul class="mini-brand__models" ng-if="isExpanded(marque)">
+        <li ng-repeat="modele in marque.modeles | filter: filtreModele track by modele.idModele">
+          <button type="button" role="checkbox" class="mini-model" ng-class="{'is-on': modele.mini === 'Y'}" aria-checked="{{modele.mini === 'Y'}}" ng-click="toggleMini(modele)">
+            <span class="check"><i ma-icon="check"></i></span>
+            <span class="mini-model__name">{{nom(modele)}}</span>
+            <span class="mini-model__year mono">{{annee(modele)}}</span>
+          </button>
+        </li>
+      </ul>
+    </section>
   </div>
 
 </div>
-
-

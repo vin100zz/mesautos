@@ -1,0 +1,28 @@
+<div class="search" ng-if="state.open">
+  <div class="search__backdrop" ng-click="close()"></div>
+  <div class="search__panel" role="dialog" aria-modal="true" aria-label="Rechercher">
+    <div class="search__bar">
+      <i ma-icon="search"></i>
+      <input type="search" class="search__input" ng-model="q.text" ng-change="update()" ng-keydown="onKey($event)"
+             aria-label="Rechercher une marque ou un modèle" placeholder="Rechercher" autocomplete="off" spellcheck="false" ma-autofocus>
+      <button type="button" class="btn-icon" ng-click="close()" aria-label="Fermer"><i ma-icon="x"></i></button>
+    </div>
+    <div class="search__results" ng-if="groups.length">
+      <div ng-repeat="g in groups" role="group" aria-label="{{g.label}}">
+        <div class="search__group label">{{g.label}}</div>
+        <a ng-repeat="r in g.items" href="{{r.href}}" class="search__row" ng-class="{'is-active': r.index === active}"
+           ng-mouseenter="setActive(r.index)" ng-click="close()">
+          <span class="logo-tile search__logo" ng-if="r.kind === 'marque'" data-img-host>
+            <img ng-src="{{r.logo}}" alt="" ma-img-fallback>
+            <span class="logo-tile__initials">{{r.initials}}</span>
+          </span>
+          <span class="search__name">{{r.before}}<mark>{{r.match}}</mark>{{r.after}}</span>
+          <span class="search__meta">
+            <img ng-if="r.flag" class="flag" ng-src="{{r.flag}}" alt="">
+            <span ng-if="r.marque">{{r.marque}}</span>
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,140 @@
+/* La visionneuse reste sur fond noir : couleurs claires locales */
+.viewer {
+  --text: #F2F0EB;
+  --text-2: #B4B1AA;
+  --line-2: #2A2D33;
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: #000;
+  color: var(--text);
+}
+.viewer .menu {
+  --text: #1C1B18;
+  --text-2: #5F5B52;
+}
+.viewer__stage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.viewer__img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.viewer__stage.is-missing .viewer__img {
+  display: none;
+}
+.viewer__stage.is-missing .photo-missing {
+  display: flex;
+  font-size: 48px;
+}
+.viewer__top {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 10px;
+}
+.viewer__btn,
+.viewer__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(20, 21, 24, 0.6);
+  color: var(--text);
+  transition: background-color 0.15s;
+}
+.viewer__btn {
+  width: 44px;
+  height: 44px;
+}
+.viewer__btn:hover,
+.viewer__nav:hover {
+  background: rgba(40, 42, 46, 0.85);
+}
+.viewer__btn.is-on {
+  background: var(--accent);
+  color: #FFFFFF;
+}
+.viewer__menu {
+  top: 54px;
+  right: 54px;
+}
+.viewer__nav {
+  position: absolute;
+  top: 50%;
+  width: 52px;
+  height: 52px;
+  margin-top: -26px;
+  font-size: 20px;
+}
+.viewer__nav--prev {
+  left: 20px;
+}
+.viewer__nav--next {
+  right: 20px;
+}
+.viewer__info {
+  position: absolute;
+  left: 20px;
+  bottom: 20px;
+  max-width: min(440px, calc(100% - 40px));
+  padding: 16px 18px;
+  border-radius: 12px;
+  border: 1px solid var(--line-2);
+  background: rgba(20, 21, 24, 0.88);
+}
+.viewer__source {
+  font-size: 16px;
+  font-weight: 600;
+}
+.viewer__date {
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--text-2);
+}
+.viewer__legende {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-2);
+}
+.viewer__links {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 10px;
+}
+.viewer__links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--accent-text);
+}
+.viewer__links a:hover {
+  text-decoration: underline;
+}
+@media (max-width: 860px) {
+  .viewer__top {
+    top: 12px;
+    right: 12px;
+  }
+  .viewer__nav {
+    width: 44px;
+    height: 44px;
+    margin-top: -22px;
+  }
+  .viewer__nav--prev {
+    left: 8px;
+  }
+  .viewer__nav--next {
+    right: 8px;
+  }
+}

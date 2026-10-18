@@ -1,32 +1,47 @@
-app.controller('AnneeCtrl', function ($scope, $routeParams, $location, $filter, Auto, ImageManager) {
+app.controller('AnneeCtrl', function ($scope, $routeParams, Auto, ImageManager, Pays) {
 
-  $scope.annee = Auto.get({
+  $scope.annee = parseInt($routeParams.annee, 10);
+  $scope.prev = $scope.annee - 1;
+  $scope.next = $scope.annee + 1;
+  $scope.$parent.$root.pageTitle = " - Année " + $scope.annee;
+
+  Auto.get({
       service: 'annee',
       annee: $routeParams.annee
     },
     function (res) {
-      $scope.annee = $routeParams.annee;
+      var parPays = {};
+      $scope.pays = [];
 
-      $scope.$parent.$root.pageTitle = " - Année " + $scope.annee;
-
-      $scope.data = {};
-      res.gammes.forEach(gamme => {
-        if (!$scope.data[gamme.pays]) {
-          $scope.data[gamme.pays] = [];
+      (res.gammes || []).forEach(function (gamme) {
+        var code = Pays.code(gamme.pays);
+        if (!parPays[code]) {
+          parPays[code] = {
+            code: code,
+            nom: code ? Pays.nom(code) : '',
+            flag: Pays.flag(code),
+            gammes: []
+          };
+          $scope.pays.push(parPays[code]);
         }
-        $scope.data[gamme.pays].push({
+        parPays[code].gammes.push({
           link: '#/modele/' + gamme.idModele + '/' + gamme.idGamme,
           image: ImageManager.versionPath(gamme.idDocEmblematique),
           nomMarque: gamme.nomMarque,
-          nomModele: gamme.nomModele,
-          nomGamme: gamme.nom,
+          nomModele: (gamme.nomModele || '').trim(),
+          nomGamme: gamme.nom
         });
       });
 
-      Object.values($scope.data).forEach(gammes => {
-        gammes.sort((gamme1, gamme2) => gamme1.nomMarque.localeCompare(gamme2.nomMarque))
+      $scope.pays.forEach(function (pays) {
+        pays.gammes.sort(function (gamme1, gamme2) {
+          return gamme1.nomMarque.localeCompare(gamme2.nomMarque);
+        });
       });
-
+      $scope.pays.sort(function (pays1, pays2) {
+        return pays1.nom.localeCompare(pays2.nom);
+      });
+      $scope.loaded = true;
     });
 
 });

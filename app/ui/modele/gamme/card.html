@@ -1,42 +1,32 @@
-<div class="card">
+<figure class="doc" ng-class="{'is-menu-open': card.menuOpen}">
 
-  <div class="actions edition">
-    <div class="fa fa-ellipsis-h"></div>
-    <div class="dummy-for-hovering">
-      <ul class="menu">
-        <li ng-repeat="item in card.actions">
-          <a ng-click="item.action()">
-            <span class="tooltiped fa fa-{{item.icon}} fw"></span>
-            <span>{{item.label}}</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>  
-
-  <a href="{{card.src}}" target="_blank">
-    <img src="" data-ng-src="{{card.src}}">
-    <div ng-if="card.legende || card.date || card.source">
-      <div class="source-date" ng-if="card.date || card.source">
-        <span class="source">{{card.source}}</span>
-        <span class="date">{{card.date}}</span>
-      </div>
-      <div class="legend" ng-if="card.legende">{{card.legende}}</div>
-    </div>
+  <a class="doc__img" href="{{card.src}}" ng-click="card.open($event)" data-img-host>
+    <img ng-src="{{card.src}}" alt="{{card.alt}}" loading="lazy" ma-img-fallback>
+    <span class="photo-missing"><i ma-icon="image"></i></span>
   </a>
 
-  <div class="actions links" ng-show="card.links.length > 0">
-    <div class="fa fa-info"></div>
-    <div class="dummy-for-hovering">
-      <ul class="menu">
-        <li ng-repeat="item in card.links">
-          <a ng-click="item.action()">
-            <span class="tooltiped fa fa-{{item.icon}} fw"></span>
-            <span>{{item.label}}</span>
-          </a>
-        </li>
-      </ul>
-    </div>
+  <span class="doc__emblem" ng-if="card.emblemModele || card.emblemAnnee" role="img"
+        aria-label="{{card.emblemModele ? 'Photo du modèle' : 'Photo de l\'année-modèle'}}">
+    <i ma-icon="{{card.emblemModele ? 'star-fill' : 'star'}}"></i>
+  </span>
+
+  <button type="button" class="doc__menu-btn" ng-click="card.toggleMenu($event)" aria-label="Actions" aria-expanded="{{card.menuOpen}}"><i ma-icon="dots"></i></button>
+
+  <div class="menu doc__menu" role="menu" ng-if="card.menuOpen" ng-click="$event.stopPropagation()">
+    <button type="button" class="menu__item" role="menuitem" ng-repeat="a in card.actions" ng-click="card.run(a)">
+      <i ma-icon="{{a.icon}}" ng-class="{'is-emblem': a.emblem}"></i>{{a.label}}
+    </button>
+    <div class="menu__sep" ng-if="card.links.length"></div>
+    <a class="menu__item" role="menuitem" ng-repeat="l in card.links" href="{{l.url}}" target="_blank" rel="noopener"><i ma-icon="external"></i>{{l.label}}</a>
   </div>
 
-</div>
+  <figcaption class="doc__caption" ng-if="card.source || card.date || card.legende || card.links.length">
+    <div class="doc__line">
+      <span class="doc__source" ng-if="card.source">{{card.source}}</span>
+      <span class="doc__date mono" ng-if="card.date">{{card.date}}</span>
+      <button type="button" class="doc__link" ng-if="card.links.length" ng-click="card.toggleMenu($event)" aria-label="Liens"><i ma-icon="link"></i></button>
+    </div>
+    <div class="doc__legende" ng-if="card.legende">{{card.legende}}</div>
+  </figcaption>
+
+</figure>

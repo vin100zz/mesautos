@@ -1,5 +1,4 @@
-<a class="card" href="{{card.plain}}" target="_blank">
-
-  <img src="" data-ng-src="{{card.plain}}">
-
+<a class="photo" href="{{card.plain}}" ng-click="card.open($event)" data-img-host>
+  <img ng-src="{{card.plain}}" alt="{{card.alt}}" loading="lazy" ma-img-fallback>
+  <span class="photo-missing"><i ma-icon="image"></i></span>
 </a>

@@ -1,77 +1,18 @@
-<div id="home">
+<div class="page">
 
-  <div id="content">
-
-    <ul id="courses">
-
-      <li ng-repeat="(course, annees) in courses" class="course">
-
-        <div class="course-name">{{course | courseFilter}}</div>
-
-        <ul class="view grid">
-          <li ng-repeat="annee in annees" ng-click="goToCourseAnnee(course, annee)">
-            <div ng-style="courseAnneeBackgroundImage(course, annee)" class="thumbnail logo"></div>
-            <div class="mask">
-              <div class="info">
-                <div>{{annee}}</div>
-              </div>
-            </div>
-          </li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-          <li></li>
-        </ul>
-
-      </li>
-
-    </ul>
-
+  <div class="page-head">
+    <h1 class="page-title">Courses</h1>
   </div>
 
-  <div id="sidebar">
-
-    <ul class="views">
-      <li>
-        <a href="#marques" class="tooltiped fa fa-car"></a>
-        <div class="tooltip"><pre>Marques</pre></div>
-      </li>
-      <li>
-        <a href="#salons" class="tooltiped fa fa-calendar"></a>
-        <div class="tooltip"><pre>Salons</pre></div>
-      </li>
-      <li>
-        <a href="#annees" class="tooltiped fa fa-bell"></a>
-        <div class="tooltip"><pre>Nouveautés</pre></div>
-      </li>
-      <li class="selected">
-        <a href="#courses" class="tooltiped fa fa-trophy"></a>
-        <div class="tooltip"><pre>Courses</pre></div>
-      </li>
-      <li>
-        <a href="#miniatures" class="tooltiped fa fa-star-o"></a>
-        <div class="tooltip"><pre>Miniatures</pre></div>
-      </li>
-    </ul>
-
-  </div>
+  <section class="course-section" ng-repeat="course in courses track by course.nom">
+    <h2 class="section-title">{{::course.nom | courseFilter}}</h2>
+    <div class="year-grid">
+      <a class="year-tile" ng-repeat="a in course.annees track by a.annee" href="#/course/{{::course.nom}}/{{::a.annee}}" data-img-host>
+        <img loading="lazy" ng-src="{{::a.image}}" alt="" ma-img-fallback>
+        <span class="photo-missing"><i ma-icon="image"></i></span>
+        <span class="year-tile__label">{{::a.annee}}</span>
+      </a>
+    </div>
+  </section>
 
 </div>
-
-

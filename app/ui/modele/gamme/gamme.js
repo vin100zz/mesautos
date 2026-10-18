@@ -1,4 +1,4 @@
-app.directive('mesautosGamme', function (Deckgrid, Auto, ImageManager) {
+app.directive('mesautosGamme', function ($document, Auto, ImageManager, Saisie, Viewer) {
 
   return {
     scope: {
@@ -7,86 +7,111 @@ app.directive('mesautosGamme', function (Deckgrid, Auto, ImageManager) {
     templateUrl: 'app/ui/modele/gamme/gamme.html',
     controller: function ($scope) {
 
-      if ($scope.cfg) {
-        render();
-      }
+      $scope.openSaisie = Saisie.open;
+      $scope.photos = [];
+
+      var reload = function () {
+        window.location.reload();
+      };
+
+      var closeMenus = function () {
+        $scope.photos.forEach(function (photo) {
+          photo.menuOpen = false;
+        });
+      };
 
       function render() {
-        $scope.photos = $scope.cfg.gamme.docs.map(function (doc) {
-          doc.src = getImage(doc.idDocumentGamme);
-          doc.actions = [{
+        if (!$scope.cfg || !$scope.cfg.gamme) {
+          $scope.photos = [];
+          return;
+        }
+        var gamme = $scope.cfg.gamme;
+
+        $scope.photos = (gamme.docs || []).map(function (doc, index) {
+          var card = {
+            src: ImageManager.versionPath(doc.idDocumentGamme),
+            source: doc.source,
+            date: doc.date,
+            legende: doc.legende,
+            alt: [gamme.nom, doc.source, doc.date].filter(Boolean).join(' — '),
+            emblemModele: doc.emblem_modele === '1',
+            emblemAnnee: doc.emblem_anneeModele === '1',
+            menuOpen: false
+          };
+
+          card.actions = [{
             icon: 'edit',
-            label: 'Éditer',
+            label: 'Modifier le document',
             action: function () {
-              window.location.hash = '#/saisie/edit/docGamme?id=' + doc.idDocumentGamme;
+              Viewer.close();
+              Saisie.open('edit', 'docGamme', doc.idDocumentGamme);
             }
           }, {
-            icon: 'star-o',
-            label: 'Emblématique année-modèle',
+            icon: 'star',
+            emblem: true,
+            label: 'Photo de l\'année-modèle',
             action: function () {
               Auto.get({
                 service: 'set-emblem-anneeModele',
                 id: doc.idDocumentGamme
-              }, function () {
-                window.location.reload();
-              });
+              }, reload);
             }
           }, {
-            icon: 'star',
-            label: 'Emblématique modèle',
+            icon: 'star-fill',
+            emblem: true,
+            label: 'Photo du modèle',
             action: function () {
               Auto.get({
                 service: 'set-emblem-modele',
                 id: doc.idDocumentGamme
-              }, function () {
-                window.location.reload();
-              });
+              }, reload);
             }
           }];
-          doc.links = doc.liens.map(function (lien) {
+
+          card.links = (doc.liens || []).map(function (lien) {
             var label = lien.titre || lien.lien;
             return {
-              icon: 'external-link',
-              label: label.length > 25 ? (label.substr(0, 25) + '...') : label,
-              action: function () {
-                window.open(lien.lien);
-              }
+              url: lien.lien,
+              label: label.length > 40 ? (label.substr(0, 40) + '…') : label
             };
           });
-          return doc;
+
+          card.open = function (event) {
+            if (event.ctrlKey || event.metaKey || event.shiftKey || event.button !== 0) {
+              return;
+            }
+            event.preventDefault();
+            closeMenus();
+            Viewer.open($scope.photos, index);
+          };
+
+          card.toggleMenu = function (event) {
+            event.stopPropagation();
+            var open = !card.menuOpen;
+            closeMenus();
+            card.menuOpen = open;
+          };
+
+          card.run = function (action) {
+            card.menuOpen = false;
+            action.action();
+          };
+
+          return card;
         });
-
-        $scope.sidebar = [{
-          link: '#/saisie/edit/gamme?id=' + $scope.cfg.gamme.idGamme,
-          icon: 'edit',
-          tooltip: 'Éditer\n' + $scope.cfg.gamme.nom
-        }, {
-          link: '#/saisie/add/docGamme?id=' + $scope.cfg.gamme.idGamme,
-          icon: 'plus',
-          tooltip: 'Ajouter un document à\n' + $scope.cfg.gamme.nom
-        }];
       }
 
-      function getImage(idDocumentGamme) {
-        return ImageManager.versionPath(idDocumentGamme);
-      }
+      $scope.$watch('cfg.gamme', render);
 
-      $scope.backgroundImage = function (idDocumentGamme) {
-        return {
-          'background-image': 'url(' + getImage(idDocumentGamme) + ')'
-        };
-      };
-
-      $scope.openInNewWindow = function () {
-        window.open(getImage($scope.selected));
-      };
-
-      $scope.$watch('cfg', function (newValue, oldValue) {
-        if (newValue !== oldValue) {
-          render();
+      var onDocumentClick = function () {
+        if ($scope.photos.some(function (photo) { return photo.menuOpen; })) {
+          $scope.$apply(closeMenus);
         }
-      }, true);
-
+      };
+      $document.on('click', onDocumentClick);
+      $scope.$on('$destroy', function () {
+        $document.off('click', onDocumentClick);
+      });
     }
   };
 });

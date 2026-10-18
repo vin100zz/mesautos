@@ -1,25 +1,33 @@
-<div id="annee">
+<div class="page">
 
-  <div id="content">
+  <nav class="crumbs" aria-label="Fil d'Ariane">
+    <a href="#/annees">Nouveautés</a>
+  </nav>
 
-  	<ul>
-
-      <li ng-repeat="(pays, gammes) in data" class="pays">
-        <div><img ng-src="img/pays/{{pays}}.png" class="logo-pays"/>{{pays}}<span class="nom-pays">{{pays | nomPays}}</span></div>
-    	  <div deckgrid source="gammes" cardTemplate="app/ui/annee/card.html" class="deckgrid"></div>
-      </li>
-
-    </ul>
-
-  </div>
-
-  <div id="sidebar">
-
-    <div class="title">
-      Nouveautés {{annee}}
+  <div class="page-head">
+    <h1 class="page-title">{{annee}}</h1>
+    <div class="actions">
+      <a class="btn btn--secondary mono" href="#/annee/{{prev}}"><i ma-icon="chevron-left"></i>{{prev}}</a>
+      <a class="btn btn--secondary mono" href="#/annee/{{next}}">{{next}}<i ma-icon="chevron-right"></i></a>
     </div>
-  
   </div>
 
+  <div class="empty" ng-if="loaded && !pays.length">Aucune nouveauté</div>
+
+  <section class="pays-section" ng-repeat="p in pays track by p.code">
+    <h2 class="section-title" ng-if="p.nom"><img ng-if="p.flag" class="flag flag--lg" ng-src="{{p.flag}}" alt="">{{p.nom}}</h2>
+    <div class="gamme-grid">
+      <a class="gamme-card" ng-repeat="g in p.gammes" href="{{::g.link}}" target="_blank">
+        <span class="frame" ng-class="::{'is-empty': !g.image}" data-img-host>
+          <img ng-if="::g.image" class="frame__bg" loading="lazy" ng-src="{{::g.image}}" alt="" ma-img-fallback>
+          <img ng-if="::g.image" class="frame__img" loading="lazy" ng-src="{{::g.image}}" alt="{{::g.nomMarque}} {{::g.nomGamme}}" ma-img-fallback>
+          <span class="frame__empty"><i ma-icon="image"></i></span>
+        </span>
+        <span class="gamme-card__marque">{{::g.nomMarque}}</span>
+        <span class="gamme-card__gamme">{{::g.nomGamme || g.nomModele}}</span>
+        <span class="gamme-card__modele" ng-if="::g.nomGamme">{{::g.nomModele}}</span>
+      </a>
+    </div>
+  </section>
 
 </div>

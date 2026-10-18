@@ -1,213 +1,180 @@
-<div id="saisie">
+<div class="saisie" ng-if="state.open">
+  <div class="saisie__backdrop" ng-click="close()"></div>
 
-  <form ng-submit="update()">
-  
-  	<!-- lists -->
-    <datalist id="pays">
-    	<select>
-    		<option ng-repeat="pays in saisie.liste_pays">{{pays.pays}}</option>
-    	</select>
-		</datalist>
-		
-		<datalist id="source">
-			<select>
-		  	<option ng-repeat="source in saisie.liste_sources">{{source.source}}</option>
-		  </select>
-		</datalist>
-  
-  	<!-- ids -->
-  	<div hidden="hidden">
-	    <div class="control-group">
-	      <label class="control-label" for="idMarque">Id Marque</label>
-	      <div class="controls">
-	        <input type="text" readonly="readonly" class="input-xlarge" name="idMarque" ng-model="saisie.idMarque" />
-	      </div>
-	    </div>
-	
-			<div class="control-group">
-		     <label class="control-label" for="idModele">Id Modèle</label>
-		     <div class="controls">
-		       <input type="text" readonly="readonly" class="input-xlarge" name="idModele" ng-model="saisie.idModele" />
-		     </div>
-		   </div>
-	
-			<div class="control-group">
-	      <label class="control-label" for="idVersion">Id Version</label>
-	      <div class="controls">
-	        <input type="text" readonly="readonly" class="input-xlarge" name="idVersion" ng-model="saisie.idVersion" />
-	      </div>
-	    </div>
-	
-			<div class="control-group">
-	      <label class="control-label" for="idDocMarque">Id Doc Marque</label>
-	      <div class="controls">
-	        <input type="text" readonly="readonly" class="input-xlarge" name="idDocMarque" ng-model="saisie.idDocumentMarque" />
-	      </div>
-	    </div>
-		      
-	    <div class="control-group">
-	      <label class="control-label" for="iddocGamme">Id Doc Version</label>
-	      <div class="controls">
-	        <input type="text" readonly="readonly" class="input-xlarge" name="iddocGamme" ng-model="saisie.idDocumentVersion" />
-	      </div>
-	    </div>
+  <form class="saisie__panel" role="dialog" aria-modal="true" aria-labelledby="saisie-titre" ng-submit="update()" novalidate>
+
+    <div class="saisie__head">
+      <div class="saisie__head-text">
+        <div class="saisie__eyebrow label">{{eyebrow()}}</div>
+        <h2 id="saisie-titre" class="saisie__title">{{titre()}}</h2>
+        <div class="saisie__context" ng-if="saisie && objet !== 'marque'">
+          <span class="saisie__chip" ng-if="saisie.nomMarque">
+            <span class="logo-tile saisie__chip-logo" data-img-host><img ng-src="img/logo/{{saisie.idMarque}}.png" alt="" ma-img-fallback></span>
+            {{saisie.nomMarque}}
+          </span>
+          <span class="saisie__chip" ng-if="(objet === 'gamme' || objet === 'docGamme') && saisie.nomModele">{{saisie.nomModele}}</span>
+          <span class="saisie__chip" ng-if="objet === 'docGamme'">{{saisie.annee}}<span ng-if="saisie.nom"> · {{saisie.nom}}</span></span>
+        </div>
+      </div>
+      <button type="button" class="btn-icon" ng-click="close()" aria-label="Fermer"><i ma-icon="x"></i></button>
     </div>
 
-		<!-- marque -->
-		<div class="control-group">
-      <label class="control-label" for="nomMarque">Nom Marque</label>
-      <div class="controls">
-        <input type="text" class="input-xlarge" id="nomMarque" ng-model="saisie.nomMarque" ng-readonly="objet != 'marque'" />
+    <div class="saisie__body" ng-if="saisie">
+
+      <datalist id="saisie-pays">
+        <option ng-repeat="p in saisie.liste_pays" value="{{p.pays}}"></option>
+      </datalist>
+      <datalist id="saisie-sources">
+        <option ng-repeat="s in saisie.liste_sources" value="{{s.source}}"></option>
+      </datalist>
+
+      <!-- Marque -->
+      <div class="field" ng-if="objet === 'marque'">
+        <label for="s-nomMarque">Nom de la marque</label>
+        <input id="s-nomMarque" class="input" type="text" ng-model="saisie.nomMarque" ma-autofocus>
       </div>
-    </div> 
-    
-    <div class="control-group" ng-show="objet == 'marque'">
-      <label class="control-label" for="pays">Pays</label>
-      <div class="controls">
-        <input list="pays" type="text" class="input-xlarge" ng-model="saisie.pays" />
+      <div class="field-row" ng-if="objet === 'marque'">
+        <div class="field">
+          <label for="s-pays">Pays</label>
+          <div class="saisie__pays">
+            <img ng-if="pays.flag(saisie.pays)" class="flag" ng-src="{{pays.flag(saisie.pays)}}" alt="">
+            <input id="s-pays" class="input" type="text" list="saisie-pays" ng-model="saisie.pays">
+          </div>
+        </div>
+        <div class="field">
+          <label for="s-lieu">Lieu</label>
+          <input id="s-lieu" class="input" type="text" ng-model="saisie.lieu">
+        </div>
+      </div>
+
+      <!-- Modèle -->
+      <div class="field" ng-if="objet === 'modele'">
+        <label for="s-nomModele">Nom du modèle</label>
+        <input id="s-nomModele" class="input" type="text" ng-model="saisie.nomModele" ma-autofocus>
+      </div>
+      <div class="field" ng-if="objet === 'modele'">
+        <span class="field__label" id="s-cat-label">Catégorie</span>
+        <div class="choices" role="radiogroup" aria-labelledby="s-cat-label">
+          <button type="button" class="choice" role="radio" ng-repeat="item in saisie.liste_categories | filter: isCategorie"
+                  aria-checked="{{saisie.categorie === item.categorie}}" ng-class="{'is-on': saisie.categorie === item.categorie}"
+                  ng-click="saisie.categorie = item.categorie">
+            <span class="dot" ng-style="{background: categorie.cfg(item.categorie).color}"></span>
+            <span class="choice__label">{{item.categorie | categorieType}}</span>
+            <i ma-icon="check" class="choice__check"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Période (marque et modèle) -->
+      <div class="field-row" ng-if="objet === 'marque' || objet === 'modele'">
+        <div class="field">
+          <label for="s-debut">Début</label>
+          <input id="s-debut" class="input" type="text" ng-model="saisie.debut">
+        </div>
+        <div class="field">
+          <label for="s-fin">Fin</label>
+          <input id="s-fin" class="input" type="text" ng-model="saisie.fin">
+        </div>
+      </div>
+
+      <!-- Caractéristiques du modèle -->
+      <div class="field-row" ng-if="objet === 'modele'">
+        <div class="field">
+          <label for="s-cylMin">Cylindrée min.</label>
+          <input id="s-cylMin" class="input" type="text" ng-model="saisie.cylindree_min">
+        </div>
+        <div class="field">
+          <label for="s-cylMax">Cylindrée max.</label>
+          <input id="s-cylMax" class="input" type="text" ng-model="saisie.cylindree_max">
+        </div>
+        <div class="field">
+          <label for="s-puissMin">Puissance min.</label>
+          <input id="s-puissMin" class="input" type="text" ng-model="saisie.puissance_min">
+        </div>
+        <div class="field">
+          <label for="s-puissMax">Puissance max.</label>
+          <input id="s-puissMax" class="input" type="text" ng-model="saisie.puissance_max">
+        </div>
+      </div>
+      <div class="field" ng-if="objet === 'modele'">
+        <label for="s-production">Production</label>
+        <input id="s-production" class="input" type="text" ng-model="saisie.production">
+      </div>
+      <div class="field" ng-if="objet === 'modele'">
+        <label for="s-commentaire">Commentaire</label>
+        <textarea id="s-commentaire" class="input" rows="4" ng-model="saisie.commentaire"></textarea>
+      </div>
+
+      <!-- Gamme -->
+      <div class="field-row" ng-if="objet === 'gamme'">
+        <div class="field">
+          <label for="s-annee">Année-modèle</label>
+          <input id="s-annee" class="input mono" type="text" ng-model="saisie.annee" ma-autofocus>
+        </div>
+        <div class="field">
+          <label for="s-type">Type</label>
+          <select id="s-type" class="input" ng-model="saisie.type" ng-options="item.type as (item.type | categorieType) for item in saisie.liste_types"></select>
+        </div>
+      </div>
+      <div class="field" ng-if="objet === 'gamme'">
+        <label for="s-nomGamme">Nom de la gamme</label>
+        <input id="s-nomGamme" class="input" type="text" ng-model="saisie.nom">
+      </div>
+
+      <!-- Document -->
+      <div class="saisie__apercu" ng-if="apercu" data-img-host>
+        <img ng-src="{{apercu}}" alt="" ma-img-fallback>
+        <span class="photo-missing"><i ma-icon="image"></i></span>
+      </div>
+      <div class="field" ng-if="objet === 'docGamme' || objet === 'docMarque'">
+        <label for="s-source">Source</label>
+        <input id="s-source" class="input" type="text" list="saisie-sources" ng-model="saisie.source">
+      </div>
+      <div class="field" ng-if="objet === 'docGamme' || objet === 'docMarque'">
+        <label for="s-date">Date</label>
+        <input id="s-date" class="input" type="text" ng-model="saisie.date">
+      </div>
+      <div class="field" ng-if="objet === 'docGamme' || objet === 'docMarque'">
+        <label for="s-legende">Légende</label>
+        <textarea id="s-legende" class="input" rows="3" ng-model="saisie.legende"></textarea>
+      </div>
+
+      <!-- Ordre des modèles -->
+      <div class="field" ng-if="objet === 'marque' && action === 'edit' && saisie.modeles.length">
+        <span class="field__label">Ordre des modèles</span>
+        <ol class="ordre">
+          <li class="ordre__item" ng-repeat="m in saisie.modeles track by m.idModele">
+            <span class="ordre__label">{{m.nomModele}}</span>
+            <button type="button" class="ordre__btn" ng-click="move(saisie.modeles, $index, -1)" ng-disabled="$first" aria-label="Monter {{m.nomModele}}"><i ma-icon="chevron-up"></i></button>
+            <button type="button" class="ordre__btn" ng-click="move(saisie.modeles, $index, 1)" ng-disabled="$last" aria-label="Descendre {{m.nomModele}}"><i ma-icon="chevron-down"></i></button>
+          </li>
+        </ol>
+      </div>
+
+      <!-- Liens du document -->
+      <div class="field" ng-if="objet === 'docGamme' && action === 'edit'">
+        <span class="field__label">Liens</span>
+        <ol class="ordre" ng-if="saisie.liens.length">
+          <li class="ordre__item" ng-repeat="l in saisie.liens track by l.idLienGamme">
+            <span class="ordre__label" title="{{l.lien}}">{{lienLabel(l)}}</span>
+            <button type="button" class="ordre__btn" ng-click="move(saisie.liens, $index, -1)" ng-disabled="$first" aria-label="Monter le lien"><i ma-icon="chevron-up"></i></button>
+            <button type="button" class="ordre__btn" ng-click="move(saisie.liens, $index, 1)" ng-disabled="$last" aria-label="Descendre le lien"><i ma-icon="chevron-down"></i></button>
+            <button type="button" class="ordre__btn" ng-click="removeLink($index)" aria-label="Supprimer le lien"><i ma-icon="x"></i></button>
+          </li>
+        </ol>
+        <div class="saisie__lien">
+          <label for="s-urlLien" class="sr-only">Adresse du lien</label>
+          <input id="s-urlLien" class="input" type="url" placeholder="https://" ng-model="saisie.urlLien">
+          <label for="s-titreLien" class="sr-only">Titre du lien</label>
+          <input id="s-titreLien" class="input" type="text" placeholder="Titre" ng-model="saisie.titreLien">
+          <button type="button" class="btn btn--secondary" ng-click="addLink()" ng-disabled="!saisie.urlLien">Ajouter</button>
+        </div>
       </div>
     </div>
 
-    <div class="control-group" ng-show="objet == 'marque'">
-      <label class="control-label" for="lieu">Lieu</label>
-      <div class="controls">
-        <input list="lieu" type="text" class="input-xlarge" ng-model="saisie.lieu" />
-      </div>
+    <div class="saisie__foot">
+      <button type="button" class="btn btn--ghost" ng-click="close()">Annuler</button>
+      <button type="submit" class="btn btn--primary" ng-disabled="!saisie || saving"><i ma-icon="check"></i>Enregistrer</button>
     </div>
-    
-    <!-- modele -->
-    <div class="control-group" ng-show="objet != 'marque' && objet != 'docMarque'">
-      <label class="control-label" for="nomModele">Nom Modèle</label>
-      <div class="controls">
-        <input type="text" class="input-xlarge" id="nomModele" ng-model="saisie.nomModele" ng-readonly="objet != 'modele'" />
-      </div>
-    </div>
-    
-    <div class="control-group" ng-show="objet == 'modele'">
-      <label class="control-label" for="categorie">Catégorie</label>
-      <div class="controls">
-      	<select ng-model="saisie.categorie" ng-options="item.categorie as item.categorie | categorieType for item in saisie.liste_categories"></select>
-      </div>
-    </div>
-    
-    <div class="control-group" ng-show="objet == 'marque' || objet == 'modele'">
-      <label class="control-label" for="debut">Début</label>
-      <div class="controls">
-        <input type="text" class="input-xlarge" id="debut" ng-model="saisie.debut" />
-      </div>
-    </div>
-    
-    <div class="control-group" ng-show="objet == 'marque' || objet == 'modele'">
-      <label class="control-label" for="fin">Fin</label>
-      <div class="controls">
-        <input type="text" class="input-xlarge" id="fin" ng-model="saisie.fin" />
-      </div>
-    </div>
-    
-    <div class="control-group" ng-show="objet == 'modele'">
-      <label class="control-label" for="cylMin">Cylindrée Min</label>
-      <div class="controls">
-        <input type="text" class="input-xlarge" id="cylMin" ng-model="saisie.cylindree_min" />
-      </div>
-    </div>
-    
-    <div class="control-group" ng-show="objet == 'modele'">
-      <label class="control-label" for="cylMax">Cylindrée Max</label>
-      <div class="controls">
-        <input type="text" class="input-xlarge" id="cylMax" ng-model="saisie.cylindree_max" />
-      </div>
-    </div>
-    
-    <div class="control-group" ng-show="objet == 'modele'">
-      <label class="control-label" for="puissMin">Puissance Min</label>
-      <div class="controls">
-        <input type="text" class="input-xlarge" id="puissMin" ng-model="saisie.puissance_min" />
-      </div>
-    </div>
-    
-    <div class="control-group" ng-show="objet == 'modele'">
-      <label class="control-label" for="puissMax">Puissance Max</label>
-      <div class="controls">
-        <input type="text" class="input-xlarge" id="puissMax" ng-model="saisie.puissance_max" />
-      </div>
-    </div>
-    
-    <div class="control-group" ng-show="objet == 'modele'">
-      <label class="control-label" for="production">Production</label>
-      <div class="controls">
-        <input type="text" class="input-xlarge" id="production" ng-model="saisie.production" />
-      </div>
-    </div>
-    
-    <div class="control-group" ng-show="objet == 'modele'">
-      <label class="control-label" for="commentaire">Commentaire</label>
-      <div class="controls">
-        <textarea type="text" class="input-xlarge" id="commentaire" ng-model="saisie.commentaire" ></textarea>
-      </div>
-    </div>
-    
-    <!-- annee-modèle -->		    
-    <div class="control-group" ng-show="objet == 'gamme' || objet == 'docGamme'">
-      <label class="control-label" for="anneeModele">Année Modèle</label>
-      <div class="controls">
-        <input type="text" class="input-xlarge" id="anneeModele" ng-model="saisie.annee" ng-readonly="objet == 'docGamme'" />
-      </div>
-    </div>
-    
-    <div class="control-group" ng-show="objet == 'gamme' || objet == 'docGamme'">
-      <label class="control-label" for="type">Nom Gamme</label>
-      <div class="controls">
-        <input type="text" class="input-xlarge" ng-model="saisie.nom" ng-readonly="objet == 'docGamme'" />
-      </div>
-    </div>
-    
-    <div class="control-group" ng-show="objet == 'gamme'">
-      <label class="control-label" for="type">Type</label>
-	  <div class="controls">
-      	<select ng-model="saisie.type" ng-options="item.type as item.type | categorieType for item in saisie.liste_types"></select>
-      </div>
-    </div>
-    
-    
-    <!-- doc -->
-		<div class="control-group" ng-show="objet == 'docMarque' || objet == 'docGamme'">
-      <label class="control-label" for="source">Source</label>
-      <div class="controls">
-        <input list="source" type="text" class="input-xlarge" id="source" ng-model="saisie.source" />
-      </div>
-    </div>
-    
-    <div class="control-group" ng-show="objet == 'docMarque' || objet == 'docGamme'">
-      <label class="control-label" for="date">Date</label>
-      <div class="controls">
-        <input type="text" class="input-xlarge" id="date" ng-model="saisie.date" />
-      </div>
-    </div>
-    
-    <div class="control-group" ng-show="objet == 'docMarque' || objet == 'docGamme'">
-      <label class="control-label" for="legende">Légende</label>
-      <div class="controls">
-        <textarea type="text" class="input-xlarge" id="legende" ng-model="saisie.legende" ></textarea>
-      </div>
-    </div>
-    
-    <!-- ordres -->   
-    <div ng-sorter cfg="modeleSorterCfg"></div>
-    <div ng-sorter cfg="lienGammeSorterCfg"></div>
-
-    <!-- ajout lien -->
-    <div class="control-group" ng-show="objet == 'docGamme' && action === 'edit'">
-      <label class="control-label" for="lien">Ajouter un lien</label>
-      <div class="controls">
-        <input type="text" class="input-xlarge" id="lien" ng-model="saisie.urlLien" placeholder="adresse (http://...)"></input>
-        <input type="text" class="input-xlarge" id="lien" ng-model="saisie.titreLien" placeholder="titre"></input>
-        <input type="button" class="button" ng-click="addLink()" value="+"></input>
-      </div>
-    </div>
-    
-    <div class="form-actions">
-      <button type="submit" id="update" class="button"><span class="fa fa-check"></span><span>Sauvegarder</span></button>
-    </div>
-
   </form>
 </div>

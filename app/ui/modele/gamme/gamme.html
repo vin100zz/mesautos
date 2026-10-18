@@ -1,17 +1,18 @@
+<section class="gamme" ng-if="cfg.gamme">
 
-<div id="gamme">
-
-  <div class="histo">
-    <div ng-bind-html="cfg.gamme.histo"></div>
+  <div class="gamme-head">
+    <h2 class="gamme-title">
+      {{cfg.gamme.nom || (cfg.gamme.type | categorieType) || '…'}}
+      <span class="gamme-title__type" ng-if="cfg.gamme.nom && cfg.gamme.type">{{cfg.gamme.type | categorieType}}</span>
+    </h2>
+    <div class="actions">
+      <button type="button" class="btn btn--secondary btn--sm" ng-click="openSaisie('edit', 'gamme', cfg.gamme.idGamme)"><i ma-icon="edit"></i>Modifier la gamme</button>
+      <button type="button" class="btn btn--primary btn--sm" ng-click="openSaisie('add', 'docGamme', cfg.gamme.idGamme)"><i ma-icon="plus"></i>Ajouter un document</button>
+    </div>
   </div>
 
- <div deckgrid source="photos" cardTemplate="app/ui/modele/gamme/card.html" class="deckgrid nb-columns-{{nbColumns}}"></div>
+  <div class="gamme-histo histo histo--note" ng-if="cfg.gamme.histo" ng-bind-html="cfg.gamme.histo"></div>
 
- <ul class="actions">
-    <li ng-repeat="item in sidebar">
-      <a href="{{item.link}}" class="tooltiped fa fa-{{item.icon}}"></a>
-      <div class="tooltip"><pre>{{item.tooltip}}</pre></div>
-    </li>
-  </ul>
+  <div deckgrid source="photos" cardTemplate="app/ui/modele/gamme/card.html" class="deckgrid"></div>
 
-</div>
+</section>

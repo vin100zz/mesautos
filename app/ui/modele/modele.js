@@ -1,4 +1,4 @@
-app.controller('ModeleCtrl', function ($scope, $route, $routeParams, Auto, ImageManager) {
+app.controller('ModeleCtrl', function ($scope, $route, $routeParams, Auto, Categorie, ImageManager) {
 
   Auto.get({
     service: 'modele',
@@ -10,18 +10,17 @@ app.controller('ModeleCtrl', function ($scope, $route, $routeParams, Auto, Image
 
     $scope.$parent.$root.pageTitle = " - " + $scope.marque.nomMarque + " - " + $scope.modele.nomModele;
 
-    $scope.sidebar = [{
-      link: '#/saisie/edit/modele?id=' + $scope.modele.idModele,
-      icon: 'edit',
-      tooltip: 'Éditer\n' + $scope.modele.nomModele
-    }, {
-      link: '#/saisie/add/gamme?id=' + $scope.modele.idModele,
-      icon: 'plus',
-      tooltip: 'Ajouter une gamme\n' + $scope.modele.nomModele
-    }];
+    var nomModele = ($scope.modele.nomModele || '').trim();
+    var yearInName = / \((\d\d\d\d)\)$/.exec(nomModele);
+    $scope.nom = yearInName ? nomModele.substr(0, nomModele.length - 7).trim() : nomModele;
+    $scope.annee = yearInName ? yearInName[1] : '';
+    $scope.categorie = $scope.modele.categorie ? Categorie.cfg($scope.modele.categorie) : null;
+    $scope.logo = ImageManager.logoPath($scope.marque.idMarque);
+    $scope.initials = ImageManager.initials($scope.marque.nomMarque);
 
     $scope.selectedGamme = null;
     $scope.anneeModeles.forEach(function (anneeModele) {
+      anneeModele.image = getImageForAnneeModele(anneeModele);
       anneeModele.gammes.forEach(function (gamme) {
         if (gamme.idGamme === $routeParams.idGamme) {
           $scope.selectedGamme = gamme;
@@ -35,27 +34,39 @@ app.controller('ModeleCtrl', function ($scope, $route, $routeParams, Auto, Image
     $scope.gammeCfg = {
       gamme: $scope.selectedGamme
     };
-
-    $scope.sidebarCfg = {
-      marque: $scope.marque
-    };
   });
 
-  $scope.getImageForAnneeModele = function (anneeModele) {
+  var getImageForAnneeModele = function (anneeModele) {
     var emblemAnneeModele = null;
     anneeModele.gammes.forEach(function (gamme) {
-      var emblemGamme = gamme.docs.find(function (doc) {
+      var emblemGamme = (gamme.docs || []).find(function (doc) {
         return doc.emblem_anneeModele === '1';
       });
       if (emblemGamme) {
         emblemAnneeModele = emblemGamme;
       }
     });
-    emblemAnneeModele = emblemAnneeModele || anneeModele.gammes[0].docs[0];
-    return ImageManager.versionPath(emblemAnneeModele.idDocumentGamme);
+    if (!emblemAnneeModele) {
+      anneeModele.gammes.some(function (gamme) {
+        emblemAnneeModele = (gamme.docs || [])[0] || null;
+        return !!emblemAnneeModele;
+      });
+    }
+    return emblemAnneeModele ? ImageManager.versionPath(emblemAnneeModele.idDocumentGamme) : null;
+  };
+
+  $scope.isSelected = function (gamme) {
+    return !!$scope.selectedGamme && gamme.idGamme === $scope.selectedGamme.idGamme;
+  };
+
+  $scope.isCurrent = function (anneeModele) {
+    return !!$scope.selectedGamme && anneeModele.gammes.indexOf($scope.selectedGamme) >= 0;
   };
 
   $scope.select = function (gamme) {
+    if (!gamme) {
+      return;
+    }
     $scope.selectedGamme = gamme;
     $scope.gammeCfg.gamme = gamme;
     window.location = '#modele/' + $scope.modele.idModele + '/' + gamme.idGamme;

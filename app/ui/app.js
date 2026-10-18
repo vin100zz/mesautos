@@ -5,84 +5,95 @@ app.config(['$routeProvider', function ($routeProvider) {
 	$routeProvider.
 	when('/marques', {
 		templateUrl: 'app/ui/home/marques.html',
-		controller: 'MarquesCtrl'
+		controller: 'MarquesCtrl',
+		section: 'marques'
 	}).
 	when('/salons', {
 		templateUrl: 'app/ui/home/salons.html',
-		controller: 'SalonsCtrl'
+		controller: 'SalonsCtrl',
+		section: 'salons'
 	}).
 	when('/annees', {
 		templateUrl: 'app/ui/home/annees.html',
-		controller: 'AnneesCtrl'
+		controller: 'AnneesCtrl',
+		section: 'nouveautes'
 	}).
 	when('/courses', {
 		templateUrl: 'app/ui/home/courses.html',
-		controller: 'CoursesCtrl'
+		controller: 'CoursesCtrl',
+		section: 'courses'
 	}).
 	when('/miniatures', {
 		templateUrl: 'app/ui/home/miniatures.html',
-		controller: 'MiniaturesCtrl'
+		controller: 'MiniaturesCtrl',
+		section: 'miniatures'
 	}).
 	when('/marque/:marqueId', {
 		templateUrl: 'app/ui/marque/marque.html',
-		controller: 'MarqueCtrl'
+		controller: 'MarqueCtrl',
+		section: 'marques',
+		reloadOnSearch: false
 	}).
 	when('/marque/:marqueId/:modeleId', {
 		templateUrl: 'app/ui/marque/marque.html',
-		controller: 'MarqueCtrl'
+		controller: 'MarqueCtrl',
+		section: 'marques',
+		reloadOnSearch: false
 	}).
 	when('/modele/:modeleId', {
 		templateUrl: 'app/ui/modele/modele.html',
-		controller: 'ModeleCtrl'
+		controller: 'ModeleCtrl',
+		section: 'marques'
 	}).
 	when('/modele/:modeleId/:idGamme', {
 		templateUrl: 'app/ui/modele/modele.html',
-		controller: 'ModeleCtrl'
-	}).
-	when('/saisie/:action/:objet', {
-		templateUrl: 'app/ui/saisie/saisie.html',
-		controller: 'SaisieCtrl'
+		controller: 'ModeleCtrl',
+		section: 'marques'
 	}).
 	when('/salon/:annee', {
 		templateUrl: 'app/ui/salon/salon.html',
-		controller: 'SalonCtrl'
+		controller: 'SalonCtrl',
+		section: 'salons'
 	}).
 	when('/annee/:annee', {
 		templateUrl: 'app/ui/annee/annee.html',
-		controller: 'AnneeCtrl'
+		controller: 'AnneeCtrl',
+		section: 'nouveautes'
 	}).
 	when('/course/:course/:annee', {
 		templateUrl: 'app/ui/course/course.html',
-		controller: 'CourseCtrl'
+		controller: 'CourseCtrl',
+		section: 'courses'
 	}).
 	otherwise({
 		redirectTo: '/marques'
 	});
 }]);
 
+app.run(function ($rootScope, Saisie, Viewer, Search) {
+	$rootScope.openSaisie = Saisie.open;
 
-/* Main */
-app.controller('MainCtrl', function ($scope, $routeParams, Auto) {
-	$scope.list = Auto.get({
-		service: 'list'
+	$rootScope.$on('$routeChangeStart', function () {
+		Viewer.close();
+		Search.close();
 	});
 
-	$scope.show = false;
+	$rootScope.$on('$routeChangeSuccess', function (event, current) {
+		var route = current && current.$$route;
+		var section = route ? route.section : null;
+		if (current && current.params && current.params.marqueId === '1129') {
+			section = 'perso';
+		}
+		$rootScope.section = section;
+	});
+});
 
-	$scope.showResults = function (evt) {
-		$scope.show = $scope.searchText.length > 1;
-		evt.stopPropagation();
-	};
-	$scope.hideResults = function () {
-		$scope.show = false;
-	};
 
-	$scope.goToMarque = function (marque) {
-		$scope.show = false;
-		window.location = '#/marque/' + marque.idMarque;
-	};
-	$scope.goToModele = function (modele) {
-		$scope.show = false;
-		window.location = '#/marque/' + modele.idMarque + '#modele-' + modele.idModele;
+/* Main */
+app.controller('MainCtrl', function ($scope, Search, Viewer, Saisie) {
+	$scope.openSearch = Search.open;
+
+	$scope.locked = function () {
+		return Search.state.open || Viewer.state.open || Saisie.state.open;
 	};
 });
