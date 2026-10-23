@@ -1,0 +1,96 @@
+/* 3B · Atelier, delight — méthodologie 3 (skill impeccable, commande delight)
+   Affinage : l'identité Atelier est conservée. Thèse : la collection est faite de documents d'époque,
+   l'interface se comporte comme du papier photo. Grain de papier, révélateur pendant le chargement
+   des photos, grande lettre qui s'encre quand sa section est à l'écran. */
+
+:root {
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .36 0 0 0 0 .27 0 0 0 0 .14 0 0 0 .11 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E") 0 0 / 220px 220px fixed;
+  --encre: #F2C6B2;
+}
+
+/* Surfaces du navigateur, depuis la palette */
+html {
+  caret-color: var(--accent);
+  accent-color: var(--accent);
+}
+::selection {
+  background: #F3C8B4;
+  color: var(--text);
+}
+
+/* 1. Grain de papier : sur le plan de travail seulement (fond fixe partagé avec l'en-tête collant) */
+html {
+  background: var(--grain), var(--bg);
+}
+body {
+  background: transparent;
+}
+.sticky-head {
+  background:
+    linear-gradient(var(--line), var(--line)) center bottom / var(--sticky-line) 1px no-repeat,
+    var(--grain),
+    var(--bg);
+}
+.brand__frame {
+  background: transparent;
+}
+
+/* 2. Attente : le cadre d'une photo en chargement « se révèle » comme une épreuve dans le bain.
+   Calque sous l'image : invisible dès qu'elle est peinte ; jamais sur un cadre sans photo. */
+.frame,
+.year-tile {
+  isolation: isolate;
+}
+.frame:not(.is-empty):not(.is-missing)::before,
+.year-tile:not(.is-missing)::before {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background:
+    radial-gradient(120% 90% at 50% 60%, rgba(120, 82, 40, 0.28), rgba(120, 82, 40, 0) 70%),
+    linear-gradient(180deg, rgba(160, 120, 70, 0.1), rgba(90, 60, 25, 0.22));
+  opacity: 0;
+  animation: ma-revelateur 2.8s cubic-bezier(0.45, 0, 0.25, 1) 0.3s 6 alternate both;
+}
+@keyframes ma-revelateur {
+  to {
+    opacity: 1;
+  }
+}
+
+/* 3. Moment focal : la lettre de la section à l'écran s'encre, puis se vide quand on la quitte */
+@supports (animation-timeline: view()) {
+  /* zone de lecture : la bande juste sous l'en-tête collant */
+  .letter-section {
+    view-timeline: --ma-lettre block;
+    view-timeline-inset: calc(var(--header-h) + var(--sticky-h, 0px)) 58%;
+  }
+  .letter-section__letter {
+    animation: ma-encre linear both;
+    animation-timeline: --ma-lettre;
+    animation-range: cover 0% cover 100%;
+  }
+  @keyframes ma-encre {
+    0%,
+    100% {
+      color: transparent;
+    }
+    8%,
+    92% {
+      color: var(--encre);
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .frame:not(.is-empty):not(.is-missing)::before,
+  .year-tile:not(.is-missing)::before {
+    animation: none;
+    opacity: 0.6;
+  }
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D8CCB6;
+}

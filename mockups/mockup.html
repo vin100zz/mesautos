@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mes Autos — maquette</title>
+
+  <!-- Les feuilles de style réelles de l'application, dans le même ordre que index.html -->
+  <link rel="stylesheet" href="../style/fonts.css">
+  <link rel="stylesheet" href="../lib/reset-css/reset.css">
+  <link rel="stylesheet" href="../style/app.css">
+  <link rel="stylesheet" href="../style/histo.css">
+  <link rel="stylesheet" href="../app/ui/common/search/search.css">
+  <link rel="stylesheet" href="../app/ui/common/viewer/viewer.css">
+  <link rel="stylesheet" href="../app/ui/saisie/saisie.css">
+  <link rel="stylesheet" href="../app/ui/home/home.css">
+  <link rel="stylesheet" href="../app/ui/marque/marque.css">
+  <link rel="stylesheet" href="../app/ui/modele/modele.css">
+  <link rel="stylesheet" href="../app/ui/annee/annee.css">
+
+  <!-- Thème proposé : uniquement des surcharges d'habillage (couleurs, fonds, textures, ombres, effets) -->
+  <link rel="stylesheet" id="mk-theme">
+
+  <style>
+    /* Sélecteur de maquette : hors application, masqué sur les captures (?shot=1) */
+    .mk-switch { position: fixed; z-index: 1000; right: 14px; bottom: 14px; display: flex; gap: 6px; align-items: center;
+      padding: 6px; border-radius: 12px; background: rgba(20, 20, 20, .86); color: #fff; font: 12px/1.2 system-ui, sans-serif;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, .3); }
+    .mk-switch select { height: 28px; padding: 0 6px; border: 0; border-radius: 7px; background: #fff; color: #111; font: inherit; }
+    .mk-switch a { padding: 0 8px; color: #fff; opacity: .8; text-decoration: underline; }
+    html.mk-shot .mk-switch { display: none; }
+  </style>
+
+  <script src="assets/brands.js"></script>
+  <script src="themes/themes.js"></script>
+  <script src="mockup.js" defer></script>
+</head>
+
+<body>
+</body>
+</html>

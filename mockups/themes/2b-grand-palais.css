@@ -1,0 +1,122 @@
+/* 2B · Grand Palais — méthodologie 2 (skill frontend-design)
+   Sujet : le Salon de l'Automobile sous la verrière du Grand Palais (1901–1961).
+   Pierre claire, lumière zénithale, charpente « vert réséda », rehauts laiton.
+   Audace unique : la verrière vue d'en dessous, en perspective, en haut de l'écran. */
+
+:root {
+  --bg: #EEECE6;
+  --surface: #FBFAF7;
+  --surface-2: #E8E6DF;
+  --surface-3: #E1DFD7;
+  --line: #DAD8D0;
+  --line-2: #CFCDC4;
+  --line-3: #C0BEB4;
+  --text: #1F2622;
+  --text-2: #4E5751;
+  --text-3: #7D857F;
+  --text-4: #B2B7B1;
+  --accent: #4D6B5B;
+  --accent-hover: #3F5B4C;
+  --accent-text: #3D5A4B;
+  --accent-soft: #DCE7E0;
+  --emblem: #B98A3E;
+  --laiton: #B98A3E;
+  --verriere: #DCE7E3;
+  --shadow-sm: 0 1px 2px rgba(30, 48, 40, 0.06), 0 8px 20px -6px rgba(30, 48, 40, 0.12);
+  --shadow-md: 0 2px 4px rgba(30, 48, 40, 0.07), 0 20px 36px -12px rgba(30, 48, 40, 0.24);
+}
+
+/* Lumière zénithale et verrière : une même image fixe peinte sous la page, l'en-tête et l'en-tête collant,
+   pour une jonction invisible. Nervures et pannes en perspective, fondues vers l'horizon. */
+:root {
+  --verriere-bg:
+    url('assets/2b-verriere.svg') center top / 2600px 420px no-repeat fixed,
+    linear-gradient(180deg, var(--verriere) 0%, #E6EBE6 28%, var(--bg) 58%, #ECE8E0 100%) fixed;
+}
+html {
+  background: var(--verriere-bg);
+}
+body {
+  background: transparent;
+}
+
+/* En-tête : même verrière, un voile clair à peine plus lumineux */
+.site-header {
+  background: linear-gradient(rgba(255, 255, 255, 0.34), rgba(255, 255, 255, 0.34)), var(--verriere-bg);
+  backdrop-filter: none;
+  border-bottom-color: rgba(77, 107, 91, 0.2);
+}
+.brand-mark rect {
+  fill: var(--accent);
+}
+.brand-mark rect:last-child {
+  fill: var(--laiton);
+}
+.search-trigger {
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(77, 107, 91, 0.18);
+}
+.sticky-head {
+  background:
+    linear-gradient(rgba(77, 107, 91, 0.18), rgba(77, 107, 91, 0.18)) center bottom / var(--sticky-line) 1px no-repeat,
+    var(--verriere-bg);
+}
+
+/* Le reste reste calme : pierre, réséda, laiton */
+.brand__frame {
+  background: transparent;
+}
+.am-card.is-current .am-card__year {
+  color: var(--laiton);
+}
+.cat-badge {
+  box-shadow: 0 2px 8px rgba(30, 48, 40, 0.12);
+}
+.model-table th,
+.model-table tbody tr:hover {
+  background: #F4F4EF;
+}
+.chrono__line {
+  background: #E6E7E1;
+}
+.year-tile__label {
+  background: linear-gradient(180deg, rgba(20, 32, 26, 0) 0%, rgba(20, 32, 26, 0.68) 100%);
+}
+.year-tile:hover .year-tile__label {
+  color: #EBD9B4;
+}
+.search__name mark {
+  background: rgba(185, 138, 62, 0.22);
+  color: var(--text);
+}
+.decennie__annee.is-empty {
+  color: #C3C7C0;
+}
+
+/* Hors des couleurs codées en dur de l'existant */
+.input:focus {
+  box-shadow: 0 0 0 3px rgba(77, 107, 91, 0.18);
+}
+.chrono__event.is-on .dot {
+  box-shadow: 0 0 0 3px rgba(77, 107, 91, 0.28);
+}
+.field > label,
+.field__label,
+.chrono__event {
+  color: #37403A;
+}
+
+.search__backdrop {
+  background: rgba(31, 38, 34, 0.32);
+  backdrop-filter: blur(3px);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #C9CCC4;
+}
+
+/* Autocritique après captures :
+   - 1er essai : treillis en pseudo-élément transformé (perspective CSS) derrière un en-tête dépoli.
+     Lu comme des « rayons » sur le contenu, effacé sous le flou : abandonné ;
+   - 2e essai : la verrière dessinée en SVG et peinte en fond fixe sous la page, l'en-tête et l'en-tête
+     collant (jonction invisible, pas de flou). Opacité divisée par deux au 3e passage pour rester sobre. */
