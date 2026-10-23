@@ -1,6 +1,11 @@
-/* Tokens — thème « Atelier » : crème, cartes blanches, ombres douces */
+/* Tokens — thème « Atelier » : plan de travail crème éclairé par le haut, bandeau kraft (en-tête
+   et en-tête collant), cartes blanches, ombres douces. Terre cuite : action et sélection ;
+   ambre : position (lettres, décennies à l'écran) */
 :root {
-  --bg: #F5F1E8;
+  --bg: #F8F4EC;
+  --band: #EDE4D3;
+  --band-line: rgba(90, 62, 20, 0.12);
+  --band-hover: rgba(255, 255, 255, 0.55);
   --surface: #FFFFFF;
   --surface-2: #F3EEE4;
   --surface-3: #EDE7DA;
@@ -9,14 +14,16 @@
   --line-3: #CFC7B7;
   --text: #1C1B18;
   --text-2: #5F5B52;
-  --text-3: #8A857A;
-  --text-4: #BDB6A6;
+  --text-3: #6B665C;
+  --text-4: #ADA593;
   --tile: #FFFFFF;
   --accent: #D13F17;
   --accent-hover: #B9370F;
   --accent-text: #B3360F;
   --accent-soft: #FBE3D9;
   --emblem: #E39A0E;
+  --pos-soft: #F5E1B0;
+  --pos-ink: #6B4800;
   --shadow-sm: 0 1px 2px rgba(60, 40, 10, 0.06), 0 6px 18px rgba(60, 40, 10, 0.07);
   --shadow-md: 0 2px 4px rgba(60, 40, 10, 0.07), 0 14px 34px rgba(60, 40, 10, 0.13);
   --shadow-lg: 0 20px 60px rgba(40, 28, 8, 0.22);
@@ -32,7 +39,13 @@
   box-sizing: border-box;
 }
 html {
-  background: var(--bg);
+  /* lumière douce venue du haut, crème vers sable */
+  background:
+    radial-gradient(1400px 640px at 50% 18%, rgba(255, 252, 245, 0.95), rgba(255, 252, 245, 0) 70%),
+    linear-gradient(180deg, #F9F5EE 0%, #F4EEE3 60%, #F0E9DC 100%);
+  background-attachment: fixed;
+  caret-color: var(--accent);
+  accent-color: var(--accent);
   /* place de la barre de défilement toujours réservée : pas de décalage d'une page à l'autre */
   overflow-y: auto;
   scrollbar-gutter: stable;
@@ -40,9 +53,12 @@ html {
 html:has(body.is-locked) {
   overflow: hidden;
 }
+::selection {
+  background: #F3C8B4;
+  color: var(--text);
+}
 body {
   min-height: 100vh;
-  background: var(--bg);
   color: var(--text);
   font-family: var(--font);
   font-size: 15px;
@@ -102,9 +118,8 @@ img {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(255, 255, 255, 0.94);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--line);
+  background: var(--band);
+  border-bottom: 1px solid var(--band-line);
 }
 .site-header__inner {
   padding: 0 var(--gutter);
@@ -155,7 +170,7 @@ img {
 }
 .site-nav a:hover {
   color: var(--text);
-  background: var(--surface-2);
+  background: var(--band-hover);
 }
 .site-nav a.is-active {
   background: var(--accent-soft);
@@ -178,7 +193,7 @@ img {
   height: 36px;
   padding: 0 14px;
   border-radius: 999px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--band-line);
   background: var(--bg);
   color: var(--text-3);
   font-size: 14px;
@@ -228,9 +243,8 @@ img {
 }
 
 /* En-tête collant (ma-sticky-head), premier élément de la page : déjà à sa place d'accroche,
-   juste sous la bordure du header, il ne bouge pas au défilement */
+   juste sous la bordure du header, il ne bouge pas au défilement. Il prolonge le bandeau du header. */
 .sticky-head {
-  --sticky-line: calc(100% - 2 * var(--gutter));
   position: sticky;
   top: calc(var(--header-h) + 1px);
   z-index: 40;
@@ -239,7 +253,7 @@ img {
   padding-top: 22px;
   padding-left: var(--gutter);
   padding-right: var(--gutter);
-  background: linear-gradient(var(--line), var(--line)) center bottom / var(--sticky-line) 1px no-repeat, var(--bg);
+  background: linear-gradient(var(--band-line), var(--band-line)) center bottom / 100% 1px no-repeat, var(--band);
 }
 .section-title {
   display: flex;
@@ -381,7 +395,7 @@ img {
   height: 32px;
   padding: 0 13px;
   border-radius: 999px;
-  border: 1px solid var(--line-2);
+  border: 1px solid rgba(90, 62, 20, 0.2);
   background: transparent;
   color: var(--text-3);
   font-size: 13px;
@@ -516,7 +530,7 @@ img {
   font-weight: 800;
   font-size: 26px;
   letter-spacing: 0.02em;
-  color: var(--text-4);
+  color: var(--text-3);
 }
 .logo-tile.is-missing img {
   display: none;
@@ -781,7 +795,7 @@ select.input option {
 ::-webkit-scrollbar-thumb {
   border: 3px solid var(--bg);
   border-radius: 10px;
-  background: #D6CFC1;
+  background: #D8CCB6;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #C4BCAD;

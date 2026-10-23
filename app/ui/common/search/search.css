@@ -44,7 +44,7 @@
   outline: none;
 }
 .search__input::placeholder {
-  color: var(--text-4);
+  color: var(--text-3);
 }
 .search__input::-webkit-search-cancel-button {
   display: none;

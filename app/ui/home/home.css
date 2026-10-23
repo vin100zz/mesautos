@@ -18,13 +18,13 @@
   font-weight: 500;
 }
 .az__letter:hover:not(:disabled) {
-  background: var(--surface);
+  background: var(--band-hover);
   color: var(--accent-text);
 }
 /* lettres actuellement à l'écran */
 .az__letter.is-visible {
-  background: var(--accent-soft);
-  color: var(--accent-text);
+  background: var(--pos-soft);
+  color: var(--pos-ink);
 }
 .az__letter:disabled {
   color: var(--text-4);
@@ -119,14 +119,13 @@
   min-width: 0;
   text-align: center;
 }
-/* zone invisible (couleur du fond) : au survol le logo zoome et s'y fait recadrer */
+/* zone invisible (transparente sur le fond) : au survol le logo zoome et s'y fait recadrer */
 .brand__frame {
   position: relative;
   width: 100%;
   aspect-ratio: 5 / 4;
   overflow: hidden;
   border-radius: 20px;
-  background: var(--bg);
 }
 .brand__logo {
   position: absolute;
@@ -149,7 +148,7 @@
   font-weight: 800;
   font-size: 30px;
   letter-spacing: 0.02em;
-  color: var(--text-4);
+  color: var(--text-3);
 }
 .brand__logo.is-missing img {
   display: none;

@@ -4,7 +4,7 @@
 (function () {
 
   var THEMES = [
-    { id: 'actuel', name: 'Actuel (Atelier)', group: 'Référence' }
+    { id: 'actuel', name: 'Avant 3A (Atelier)', group: 'Référence' }
   ].concat(window.MK_THEMES || []);
 
   var SCREENS = [

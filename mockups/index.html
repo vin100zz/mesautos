@@ -145,7 +145,8 @@
   <p class="lede">Six propositions pour rendre l'appli moins tristounette en restant sobre, selon trois méthodes.
     <strong>La disposition ne change pas</strong> : chaque proposition est une seule feuille de style qui surcharge
     couleurs, fonds, textures, ombres et effets, posée sur les vraies feuilles de style de l'appli.
-    Les visuels (logos, photos, drapeaux) sont des substituts générés : les vrais ne sont pas dans le dépôt.</p>
+    Les visuels (logos, photos, drapeaux) sont des substituts générés : les vrais ne sont pas dans le dépôt.
+    <strong>La proposition 3A a été retenue et intégrée à l’appli.</strong></p>
 
   <div class="bar" role="group" aria-label="Choix de l'écran">
     <span class="bar__label">Écran</span>
@@ -218,7 +219,7 @@
 
   var THEMES = {
     'actuel': {
-      name: 'Actuel · Atelier', idea: 'La référence : le thème en place aujourd’hui.',
+      name: 'Avant · Atelier', idea: 'La référence : le thème d’origine, avant l’adoption de 3A.',
       items: ['Fond crème uni, cartes blanches, ombres douces', 'Accent terre cuite, ambre pour les emblèmes', 'Archivo étendue pour les titres, Plex Mono pour les données'],
       recap: ['–', 'Crème uni', '–', 66, 59, 'Fond crème']
     },
@@ -247,6 +248,7 @@
     '3a-colorize': {
       name: '3A · Atelier, colorize', idea: 'La couleur porte la hiérarchie et l’atmosphère.',
       items: ['Bandeau kraft (en-tête + barre collante) comme seconde couche neutre', 'Plan de travail éclairé par un dégradé', 'Terre cuite réservée à l’action et à la sélection', 'Ambre pour la position : lettres et décennies à l’écran', 'Sélection de texte et curseur aux couleurs de l’appli, contrastes à 4,5:1'],
+      note: 'Retenue : intégrée aux feuilles de style de l’appli.',
       recap: ['Conservée', 'Bandeau + dégradé', '–', 0, 0, '–']
     },
     '3b-delight': {
@@ -275,7 +277,7 @@
       '<ul>' + t.items.map(function (i) { return '<li>' + esc(i) + '</li>'; }).join('') + '</ul>' +
       (t.note ? '<p class="prop__note">' + esc(t.note) + '</p>' : '') +
       '<div class="links"><a href="' + url(id, 'marques') + '">Ouvrir la maquette</a>' +
-      '<a href="' + (id === 'actuel' ? REPO.replace(/mockups\/$/, '') + 'style/app.css' : REPO + 'themes/' + id + '.css') + '">Feuille de style</a>' +
+      '<a href="' + (id === 'actuel' ? REPO + 'base/style/app.css' : REPO + 'themes/' + id + '.css') + '">Feuille de style</a>' +
       (t.extra || []).map(function (e) { return '<a href="' + BASE + 'mockup.html?' + e[1] + '">' + esc(e[0]) + '</a>'; }).join('') +
       '</div></div>' +
       '<a class="shot" data-shot="' + id + '" href="' + url(id, state.screen) + '"><img alt="' + esc(t.name) + '" loading="lazy" src="' + shotSrc(id) + '"><span class="shot__open">Ouvrir</span></a>';
