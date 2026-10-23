@@ -1,9 +1,10 @@
-/* Tokens — thème « Atelier » : plan de travail crème éclairé par le haut, bandeau kraft (en-tête
-   et en-tête collant), cartes blanches, ombres douces. Terre cuite : action et sélection ;
-   ambre : position (lettres, décennies à l'écran) */
+/* Tokens — thème « Atelier » : plan de travail crème éclairé par le haut, bandeaux kraft (header du
+   site plus soutenu, en-tête collant des pages), cartes blanches, ombres douces. Terre cuite : action
+   et sélection ; ambre : position (lettres, décennies à l'écran) */
 :root {
   --bg: #F8F4EC;
   --band: #EDE4D3;
+  --band-2: #E0D2B9;
   --band-line: rgba(90, 62, 20, 0.12);
   --band-hover: rgba(255, 255, 255, 0.55);
   --surface: #FFFFFF;
@@ -118,7 +119,7 @@ img {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: var(--band);
+  background: var(--band-2);
   border-bottom: 1px solid var(--band-line);
 }
 .site-header__inner {
@@ -173,8 +174,8 @@ img {
   background: var(--band-hover);
 }
 .site-nav a.is-active {
-  background: var(--accent-soft);
-  color: var(--accent-text);
+  background: var(--accent);
+  color: #FFFFFF;
 }
 .site-nav .icon {
   font-size: 16px;
@@ -830,7 +831,7 @@ select.input option {
     flex-basis: 100%;
     margin: 0 calc(var(--gutter) * -1);
     padding: 6px calc(var(--gutter) - 6px);
-    border-top: 1px solid var(--line);
+    border-top: 1px solid var(--band-line);
   }
   .search-trigger {
     width: auto;

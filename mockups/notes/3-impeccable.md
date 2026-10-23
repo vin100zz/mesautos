@@ -23,6 +23,8 @@ du « craft floor », puis contrôle par son détecteur (`impeccable detect`).
 
 **Retenue et intégrée** directement dans les feuilles de style de l'appli (`style/app.css`, `home.css`, `marque.css`,
 `modele.css`, `search.css`). Le rendu de l'appli est identique au pixel près à celui de la maquette 3A.
+Ajustements après essai : header global d'un kraft plus soutenu (`--band-2`) pour le distinguer de l'en-tête
+des pages, et onglet actif en terre cuite pleine (l'onglet rose pâle ne ressortait qu'à 1,03:1 sur le bandeau).
 Les maquettes lisent désormais une copie d'avant 3A (`mockups/base/`) pour que les propositions restent comparables.
 
 Stratégie nommée avant d'éditer, comme l'exige `colorize` :
