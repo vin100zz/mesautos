@@ -1,0 +1,131 @@
+/* 2A · Prospectus — méthodologie 2 (skill frontend-design)
+   Sujet : les prospectus automobiles imprimés en offset. Papier couché, encre bleu-noir,
+   deux tons directs (bleu imprimeur, jaune). Audace unique : les grandes lettres du mur
+   des marques, imprimées hors repérage. Texture : une vraie trame de points dans le coin. */
+
+:root {
+  --bg: #F3F2EE;
+  --surface: #FFFFFF;
+  --surface-2: #ECEBE6;
+  --surface-3: #E4E3DD;
+  --line: #DEDDD6;
+  --line-2: #D2D1CA;
+  --line-3: #C2C1B9;
+  --text: #1A2230;
+  --text-2: #4C5465;
+  --text-3: #7A8190;
+  --text-4: #B3B7BF;
+  --accent: #24509A;
+  --accent-hover: #1C4283;
+  --accent-text: #1F4A91;
+  --accent-soft: #E0E7F3;
+  --emblem: #E3A21D;
+  --jaune: #F2B33D;
+  --trame: url('assets/2a-trame.svg') right top / 760px 520px no-repeat fixed;
+  /* rendu imprimé : filet d'encre net plutôt qu'ombre floue */
+  --shadow-sm: 0 0 0 1px rgba(26, 34, 48, 0.08), 0 1px 0 rgba(26, 34, 48, 0.05);
+  --shadow-md: 0 0 0 1px rgba(26, 34, 48, 0.12), 0 14px 26px -14px rgba(26, 34, 48, 0.4);
+}
+
+html {
+  background: var(--trame), var(--bg);
+}
+body {
+  background: transparent;
+}
+
+/* En-tête : papier blanc, trame qui transparaît, filet d'encre */
+.site-header {
+  background: var(--trame), rgba(255, 255, 255, 0.88);
+  backdrop-filter: none;
+  border-bottom-color: rgba(26, 34, 48, 0.12);
+}
+.brand-mark rect {
+  fill: var(--accent);
+}
+.brand-mark rect:last-child {
+  fill: var(--jaune);
+}
+.search-trigger {
+  background: rgba(255, 255, 255, 0.7);
+}
+/* En-tête de page collant : la même trame, calée sur l'écran, pour une jonction invisible */
+.sticky-head {
+  background:
+    linear-gradient(var(--line-2), var(--line-2)) center bottom / var(--sticky-line) 1px no-repeat,
+    var(--trame),
+    var(--bg);
+}
+
+/* Audace unique : lettres en deux tons directs, hors repérage */
+.letter-section__letter {
+  -webkit-text-stroke: 2px var(--accent);
+  text-shadow: 0.05em 0.04em 0 rgba(242, 179, 61, 0.55);
+}
+
+.brand__frame {
+  background: transparent;
+}
+
+/* Cartes et vignettes : papier imprimé, filet net */
+.model-card:hover,
+.photo:hover,
+.doc__img:hover,
+.year-tile:hover {
+  box-shadow: var(--shadow-md);
+}
+.gamme-card:hover .frame,
+.model-card:target {
+  box-shadow: 0 0 0 2px var(--accent), var(--shadow-md);
+}
+.am-card.is-current {
+  border-color: var(--accent);
+}
+.cat-badge {
+  box-shadow: 0 0 0 1px rgba(26, 34, 48, 0.08);
+}
+.model-table th,
+.model-table tbody tr:hover {
+  background: #F7F7F4;
+}
+.chrono__line {
+  background: #ECECE7;
+}
+
+/* Jaune : réservé aux marques (emblèmes, correspondances de recherche) */
+.search__name mark {
+  background: rgba(242, 179, 61, 0.38);
+  color: var(--text);
+}
+.year-tile:hover .year-tile__label {
+  color: #FCE3A8;
+}
+.decennie__annee.is-empty {
+  color: #C9CCD2;
+}
+
+/* Hors des couleurs codées en dur de l'existant */
+.input:focus {
+  box-shadow: 0 0 0 3px rgba(36, 80, 154, 0.16);
+}
+.chrono__event.is-on .dot {
+  box-shadow: 0 0 0 3px rgba(36, 80, 154, 0.25);
+}
+.field > label,
+.field__label,
+.chrono__event {
+  color: #333B4A;
+}
+
+/* Recherche : voile d'encre */
+.search__backdrop {
+  background: rgba(26, 34, 48, 0.32);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CDD0D6;
+}
+
+/* Autocritique après captures :
+   - la trame se lit comme une impression, pas comme un motif décoratif, tant qu'elle reste dans le coin ;
+   - j'ai retiré un liseré « gamme de couleurs CMJN » sous l'en-tête : un accessoire de trop (conseil Chanel). */

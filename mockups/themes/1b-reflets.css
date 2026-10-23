@@ -1,0 +1,174 @@
+/* 1B · Reflets — méthodologie 1 (sans skill)
+   Idée : la lumière sur une carrosserie. Ciel d'aube pâle qui descend vers le sable,
+   une grande bande de reflet en diagonale, filets « chromés » et un éclat qui glisse
+   sur les photos au survol. */
+
+:root {
+  --bg: #F3F0E9;
+  --surface-2: #F1EEE7;
+  --line: #E2DDD3;
+  --chrome: linear-gradient(180deg, #FFFFFF 0%, #F1EFEA 48%, #E4E0D8 52%, #F7F5F1 100%);
+  --shadow-sm: 0 1px 1px rgba(30, 35, 45, 0.05), 0 6px 16px -4px rgba(30, 35, 45, 0.10);
+  --shadow-md: 0 2px 4px rgba(30, 35, 45, 0.06), 0 18px 36px -10px rgba(30, 35, 45, 0.22);
+}
+
+/* Fond : aube froide en haut, sable chaud en bas, reflet diagonal très doux */
+html {
+  background:
+    linear-gradient(112deg, transparent 30%, rgba(255, 255, 255, 0.55) 44%, rgba(255, 255, 255, 0) 58%),
+    linear-gradient(180deg, #E8ECEE 0%, #F1F0EB 38%, #F4EFE6 70%, #F1E9DC 100%);
+  background-attachment: fixed;
+}
+body {
+  background: transparent;
+}
+
+/* En-tête chromé : dégradé métal et double filet clair / sombre */
+.site-header {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(246, 246, 244, 0.82) 100%);
+  backdrop-filter: blur(16px) saturate(1.5);
+  border-bottom: 1px solid rgba(20, 25, 35, 0.09);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.9), 0 12px 24px -20px rgba(20, 25, 35, 0.5);
+}
+.site-nav a.is-active {
+  background: linear-gradient(180deg, #FFF1EA, #FBDDD0);
+  box-shadow: inset 0 1px 0 #FFFFFF, inset 0 -1px 0 rgba(209, 63, 23, 0.12);
+}
+.search-trigger {
+  background: linear-gradient(180deg, #F2F1EE, #FBFAF8);
+  box-shadow: inset 0 1px 2px rgba(20, 25, 35, 0.08);
+}
+
+/* En-tête de page collant : verre fumé clair */
+.sticky-head {
+  background:
+    linear-gradient(90deg, transparent, rgba(20, 25, 35, 0.12) 15%, rgba(20, 25, 35, 0.12) 85%, transparent) center bottom / var(--sticky-line) 1px no-repeat,
+    rgba(243, 241, 236, 0.74);
+  backdrop-filter: blur(16px) saturate(1.4);
+}
+
+/* Boutons : laque brillante */
+.btn--primary {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(0, 0, 0, 0) 51%),
+    linear-gradient(180deg, #DE4A20, #BF350E);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 1px 1px rgba(120, 30, 5, 0.3), 0 8px 18px -8px rgba(209, 63, 23, 0.7);
+}
+.btn--primary:hover {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.26) 0%, rgba(255, 255, 255, 0.06) 50%, rgba(0, 0, 0, 0) 51%),
+    linear-gradient(180deg, #E5552B, #B9310C);
+}
+.btn--secondary,
+.pays-flags__all,
+.am-toggle {
+  background: var(--chrome);
+  border-color: rgba(20, 25, 35, 0.1);
+  box-shadow: inset 0 1px 0 #FFFFFF, 0 1px 2px rgba(20, 25, 35, 0.07);
+}
+.segmented {
+  background: linear-gradient(180deg, #ECEAE5, #F8F7F4);
+  border-color: rgba(20, 25, 35, 0.08);
+  box-shadow: inset 0 1px 2px rgba(20, 25, 35, 0.08);
+}
+.segmented button.is-on {
+  background: linear-gradient(180deg, #3A3D44 0%, #1B1D22 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.18), 0 2px 5px -1px rgba(0, 0, 0, 0.35);
+}
+
+/* Filets chromés (clair sous sombre) */
+.section-title::after {
+  height: 2px;
+  background: linear-gradient(180deg, rgba(20, 25, 35, 0.1) 50%, rgba(255, 255, 255, 0.9) 50%);
+  -webkit-mask: linear-gradient(90deg, #000, transparent);
+  mask: linear-gradient(90deg, #000, transparent);
+}
+.letter-section {
+  border-top-color: rgba(20, 25, 35, 0.1);
+}
+.toolbar {
+  border-top-color: rgba(20, 25, 35, 0.1);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+/* Marques : lettres d'enseigne chromées */
+.letter-section__letter {
+  background: linear-gradient(180deg, #FFFFFF 0%, #EFE9E2 46%, #D9CFC4 50%, #F6F2EC 78%, #FFFFFF 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  filter: drop-shadow(0 2px 3px rgba(120, 40, 10, 0.12));
+}
+.brand__frame {
+  background: transparent;
+}
+.brand__name {
+  transition: color 0.2s, letter-spacing 0.3s;
+}
+
+/* Cartes : blanc net, arête lumineuse en haut */
+.model-card,
+.table-wrap,
+.chrono,
+.mini-brand,
+.am-card {
+  background: linear-gradient(180deg, #FFFFFF 0%, #FCFBF9 100%);
+  box-shadow: inset 0 1px 0 #FFFFFF, 0 0 0 1px rgba(20, 25, 35, 0.05), var(--shadow-sm);
+}
+.model-card:hover {
+  box-shadow: inset 0 1px 0 #FFFFFF, 0 0 0 1px rgba(20, 25, 35, 0.05), var(--shadow-md);
+}
+
+/* Éclat qui glisse sur les photos au survol */
+.frame::after,
+.doc__img::after,
+.year-tile::after,
+.photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(105deg, transparent 35%, rgba(255, 255, 255, 0.38) 48%, rgba(255, 255, 255, 0.08) 54%, transparent 62%);
+  transform: translateX(-110%);
+  transition: transform 0s;
+}
+.model-card:hover .frame::after,
+.gamme-card:hover .frame::after,
+.doc__img:hover::after,
+.year-tile:hover::after,
+.photo:hover::after {
+  transform: translateX(110%);
+  transition: transform 0.9s cubic-bezier(0.3, 0.6, 0.2, 1);
+}
+.cat-badge {
+  z-index: 2;
+}
+.year-tile__label {
+  z-index: 2;
+}
+
+.am-card.is-current {
+  box-shadow: 0 0 0 1px rgba(20, 25, 35, 0.05), 0 10px 24px -10px rgba(209, 63, 23, 0.5);
+}
+.am-gamme.is-on {
+  background: linear-gradient(180deg, #E0502A, #C1360E);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Nouveautés : pastille laquée au survol */
+a.decennie__annee {
+  transition: background-color 0.15s, box-shadow 0.15s;
+}
+a.decennie__annee:hover {
+  background: linear-gradient(180deg, #FFF3EC, #FADACB);
+  box-shadow: inset 0 1px 0 #FFFFFF, 0 4px 10px -6px rgba(209, 63, 23, 0.6);
+}
+
+/* Recherche */
+.search__backdrop {
+  background: linear-gradient(180deg, rgba(30, 36, 48, 0.32), rgba(30, 36, 48, 0.18));
+  backdrop-filter: blur(5px);
+}
+.search__panel {
+  box-shadow: inset 0 1px 0 #FFFFFF, var(--shadow-lg);
+}

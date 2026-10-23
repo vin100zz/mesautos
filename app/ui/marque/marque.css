@@ -40,7 +40,7 @@
   gap: 10px 14px;
   margin-top: 16px;
   padding: 12px 0;
-  border-top: 1px solid var(--line);
+  border-top: 1px solid var(--band-line);
   transition: margin 0.2s, padding 0.2s;
 }
 .tabs button {
@@ -77,13 +77,13 @@
   font-size: 12px;
 }
 .decennies-nav__item:hover {
-  background: var(--surface);
+  background: var(--band-hover);
   color: var(--accent-text);
 }
 /* décennies actuellement à l'écran */
 .decennies-nav__item.is-visible {
-  background: var(--accent-soft);
-  color: var(--accent-text);
+  background: var(--pos-soft);
+  color: var(--pos-ink);
 }
 
 /* Modèles */
@@ -159,7 +159,7 @@
 .specs dt {
   flex: none;
   width: 80px;
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--text-3);
@@ -184,7 +184,7 @@
 }
 .model-table th {
   padding: 10px 14px;
-  background: #FBF9F4;
+  background: var(--band);
   font-family: var(--mono);
   font-size: 11px;
   font-weight: 500;

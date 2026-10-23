@@ -1,0 +1,100 @@
+/* 3A · Atelier, colorize — méthodologie 3 (skill impeccable, commande colorize)
+   Affinage : l'identité Atelier est conservée. La couleur porte la hiérarchie et l'atmosphère :
+   seconde couche neutre (kraft) pour l'en-tête et la barre collante, plan de travail éclairé par le haut,
+   terre cuite réservée à l'action et à la sélection, ambre pour la position. */
+
+:root {
+  --bg: #F8F4EC;
+  --band: #EDE4D3;
+  --band-line: rgba(90, 62, 20, 0.12);
+  --text-4: #ADA593;
+  --pos-soft: #F5E1B0;
+  --pos-ink: #6B4800;
+}
+
+/* Surfaces du navigateur, depuis la palette */
+html {
+  caret-color: var(--accent);
+  accent-color: var(--accent);
+}
+::selection {
+  background: #F3C8B4;
+  color: var(--text);
+}
+
+/* Plan de travail : lumière douce venue du haut, crème vers sable */
+html {
+  background:
+    radial-gradient(1400px 640px at 50% 18%, rgba(255, 252, 245, 0.95), rgba(255, 252, 245, 0) 70%),
+    linear-gradient(180deg, #F9F5EE 0%, #F4EEE3 60%, #F0E9DC 100%);
+  background-attachment: fixed;
+}
+body {
+  background: transparent;
+}
+
+/* Seconde couche neutre : en-tête + barre collante forment un seul bandeau kraft */
+.site-header {
+  background: var(--band);
+  backdrop-filter: none;
+  border-bottom-color: var(--band-line);
+}
+.sticky-head {
+  background: linear-gradient(var(--band-line), var(--band-line)) center bottom / 100% 1px no-repeat, var(--band);
+}
+.search-trigger {
+  background: var(--bg);
+  border-color: var(--band-line);
+}
+.site-nav a:hover,
+.az__letter:hover:not(:disabled),
+.decennies-nav__item:hover {
+  background: rgba(255, 255, 255, 0.55);
+}
+.toolbar {
+  border-top-color: var(--band-line);
+}
+.chip {
+  border-color: rgba(90, 62, 20, 0.2);
+}
+.model-table th {
+  background: var(--band);
+}
+
+/* Position (où suis-je) en ambre ; la terre cuite reste à l'action et à la sélection */
+.az__letter.is-visible,
+.decennies-nav__item.is-visible {
+  background: var(--pos-soft);
+  color: var(--pos-ink);
+}
+
+/* Le mur des marques se fond dans le plan éclairé */
+.brand__frame {
+  background: transparent;
+}
+
+::-webkit-scrollbar {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  border-color: var(--bg);
+  background: #D8CCB6;
+}
+
+/* Finition (détecteur impeccable) : défauts mécaniques hérités de l'existant, corrigés au passage.
+   Gris secondaire à 3,3–3,7:1 → 4,5:1 minimum partout ; libellés de 10 px → 11 px ;
+   texte de substitution (initiales, placeholder) lisible. */
+:root {
+  --text-3: #6B665C;
+}
+.specs dt {
+  font-size: 11px;
+}
+.brand__initials,
+.logo-tile__initials,
+.search__input::placeholder {
+  color: var(--text-3);
+}
+.am-gamme__type.is-mini {
+  opacity: 1;
+}

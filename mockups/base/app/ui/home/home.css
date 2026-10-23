@@ -1,0 +1,416 @@
+/* Index alphabétique (dans l'en-tête de page) */
+.az {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex: 1 1 520px;
+  gap: 2px;
+}
+.az__letter {
+  width: 30px;
+  height: 30px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 13px;
+  font-weight: 500;
+}
+.az__letter:hover:not(:disabled) {
+  background: var(--surface);
+  color: var(--accent-text);
+}
+/* lettres actuellement à l'écran */
+.az__letter.is-visible {
+  background: var(--accent-soft);
+  color: var(--accent-text);
+}
+.az__letter:disabled {
+  color: var(--text-4);
+}
+
+/* Pays en drapeaux (dans l'en-tête de page) */
+.pays-flags {
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px;
+}
+.pays-flags__all {
+  height: 30px;
+  margin-right: 8px;
+  padding: 0 13px;
+  border: 1px solid var(--line-2);
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: 12px;
+  font-weight: 700;
+}
+.pays-flags__all:hover {
+  border-color: var(--line-3);
+}
+.pays-flags__flag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 30px;
+  padding: 0;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  transition: background-color 0.15s;
+}
+.pays-flags__flag img {
+  width: 24px;
+  height: 16px;
+  border-radius: 3px;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.08);
+  transition: filter 0.2s, opacity 0.2s, transform 0.2s;
+}
+.pays-flags__flag:hover {
+  background: var(--surface);
+}
+.pays-flags__flag:hover img {
+  transform: scale(1.15);
+}
+.pays-flags__flag.is-off img {
+  filter: grayscale(1);
+  opacity: 0.3;
+}
+
+/* Marques : grande lettre collante + mur de logos */
+.letter-section {
+  display: grid;
+  grid-template-columns: clamp(110px, 9vw, 180px) minmax(0, 1fr);
+  gap: 28px;
+  padding: 30px 0 36px;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: calc(var(--header-h) + var(--sticky-h, 0px));
+}
+.letter-section:first-of-type {
+  padding-top: 6px;
+  border-top: 0;
+}
+.letter-section__letter {
+  position: sticky;
+  top: calc(var(--header-h) + var(--sticky-h, 0px) + 14px);
+  align-self: start;
+  font-stretch: 125%;
+  font-weight: 800;
+  font-size: clamp(96px, 8vw, 168px);
+  line-height: 0.8;
+  color: transparent;
+  -webkit-text-stroke: 2px var(--accent);
+}
+.brand-wall {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(clamp(120px, 7.5vw, 170px), 1fr));
+  gap: 30px 22px;
+}
+.brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  text-align: center;
+}
+/* zone invisible (couleur du fond) : au survol le logo zoome et s'y fait recadrer */
+.brand__frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  overflow: hidden;
+  border-radius: 20px;
+  background: var(--bg);
+}
+.brand__logo {
+  position: absolute;
+  inset: 9%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* le blanc des logos se fond dans le crème */
+  mix-blend-mode: multiply;
+  transition: transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.brand__logo img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+.brand__initials {
+  display: none;
+  font-stretch: 125%;
+  font-weight: 800;
+  font-size: 30px;
+  letter-spacing: 0.02em;
+  color: var(--text-4);
+}
+.brand__logo.is-missing img {
+  display: none;
+}
+.brand__logo.is-missing .brand__initials {
+  display: block;
+}
+.brand:hover .brand__logo {
+  transform: scale(1.75);
+}
+.brand__name {
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.25;
+  overflow-wrap: anywhere;
+  transition: color 0.2s;
+}
+.brand:hover .brand__name {
+  color: var(--accent-text);
+}
+.brand__meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: -6px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-3);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 0.25s, transform 0.25s;
+}
+.brand:hover .brand__meta,
+.brand:focus-visible .brand__meta {
+  opacity: 1;
+  transform: none;
+}
+
+/* Tuiles d'année (salons, courses) */
+.year-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(clamp(200px, 12vw, 300px), 1fr));
+  gap: 16px;
+}
+.year-tile {
+  position: relative;
+  display: block;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--surface-3);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.year-tile:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+.year-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s;
+}
+.year-tile:hover img {
+  transform: scale(1.04);
+}
+.year-tile.is-missing img {
+  display: none;
+}
+.year-tile.is-missing .photo-missing {
+  display: flex;
+  padding-bottom: 20%;
+}
+.year-tile__label {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 36px 16px 12px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.65) 100%);
+  color: #FFFFFF;
+  font-stretch: 125%;
+  font-weight: 800;
+  font-size: 26px;
+  line-height: 1;
+}
+.year-tile.is-missing .year-tile__label {
+  background: none;
+  color: var(--text);
+}
+.year-tile:hover .year-tile__label {
+  color: #FFE3D8;
+}
+.year-tile.is-missing:hover .year-tile__label {
+  color: var(--accent-text);
+}
+.course-section {
+  margin-bottom: 36px;
+}
+
+/* Nouveautés */
+.decennies {
+  overflow-x: auto;
+}
+.decennie {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  align-items: center;
+  min-width: 760px;
+  border-bottom: 1px solid var(--line);
+}
+.decennie__label {
+  font-stretch: 125%;
+  font-weight: 800;
+  font-size: 17px;
+  color: var(--text-3);
+}
+.decennie__annees {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+}
+.decennie__cell {
+  display: flex;
+}
+.decennie__annee {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  margin: 3px;
+  border-radius: 999px;
+  font-family: var(--mono);
+  font-size: 15px;
+  color: var(--text);
+}
+a.decennie__annee:hover {
+  background: var(--accent-soft);
+  color: var(--accent-text);
+}
+.decennie__annee.is-empty {
+  color: #CEC7B8;
+}
+
+/* Miniatures */
+.mini-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.mini-brand {
+  overflow: hidden;
+  border-radius: 18px;
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+.mini-brand__head {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  padding: 10px 18px;
+  border: 0;
+  background: transparent;
+  text-align: left;
+}
+.mini-brand__head .logo-tile {
+  box-shadow: 0 0 0 1px var(--line);
+}
+.mini-brand__name {
+  flex: 1;
+  font-size: 18px;
+  font-weight: 700;
+}
+.mini-brand__chevron {
+  color: var(--text-3);
+  font-size: 18px;
+  transition: transform 0.2s;
+}
+.mini-brand__chevron.is-open {
+  transform: rotate(90deg);
+}
+.mini-brand__models {
+  columns: 4 240px;
+  column-gap: 24px;
+  padding: 8px 18px 16px;
+  border-top: 1px solid var(--line);
+}
+.mini-brand__models li {
+  break-inside: avoid;
+}
+.mini-model {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 34px;
+  padding: 3px 6px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-2);
+  font-size: 14px;
+  text-align: left;
+}
+.mini-model:hover {
+  background: var(--surface-2);
+}
+.mini-model.is-on {
+  color: var(--text);
+  font-weight: 600;
+}
+.mini-model__name {
+  flex: 1;
+  min-width: 0;
+}
+.mini-model__year {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-3);
+}
+
+@media (max-width: 860px) {
+  .az {
+    order: 3;
+    flex: 1 1 100%;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .az__letter {
+    flex: none;
+  }
+  .pays-flags {
+    order: 4;
+  }
+  .letter-section {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 14px;
+    padding: 20px 0 26px;
+  }
+  .letter-section__letter {
+    position: static;
+    font-size: 64px;
+  }
+  .brand-wall {
+    grid-template-columns: repeat(auto-fill, minmax(96px, 1fr));
+    gap: 20px 12px;
+  }
+  .year-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+  }
+  .year-tile__label {
+    font-size: 20px;
+  }
+  .mini-brand__head {
+    padding: 10px 12px;
+    gap: 12px;
+  }
+}
