@@ -94,3 +94,21 @@ body {
 ::-webkit-scrollbar-thumb {
   background: #D8CCB6;
 }
+
+/* Finition (détecteur impeccable) : défauts mécaniques hérités de l'existant, corrigés au passage.
+   Gris secondaire à 3,3–3,7:1 → 4,5:1 minimum partout ; libellés de 10 px → 11 px ;
+   texte de substitution (initiales, placeholder) lisible. */
+:root {
+  --text-3: #6B665C;
+}
+.specs dt {
+  font-size: 11px;
+}
+.brand__initials,
+.logo-tile__initials,
+.search__input::placeholder {
+  color: var(--text-3);
+}
+.am-gamme__type.is-mini {
+  opacity: 1;
+}

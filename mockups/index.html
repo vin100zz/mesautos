@@ -1,0 +1,327 @@
+<!doctype html>
+<title>Habillages Mes Autos</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta charset="utf-8">
+<style>
+  /* Polices de l'appli (fichiers locaux, licence OFL) */
+  @font-face { font-family: 'Archivo'; font-weight: 100 900; font-stretch: 62% 125%; font-display: swap; src: url('../style/fonts/archivo-latin.woff2') format('woff2'); }
+  @font-face { font-family: 'IBM Plex Mono'; font-weight: 400; font-display: swap; src: url('../style/fonts/ibm-plex-mono-400-latin.woff2') format('woff2'); }
+  @font-face { font-family: 'IBM Plex Mono'; font-weight: 500; font-display: swap; src: url('../style/fonts/ibm-plex-mono-500-latin.woff2') format('woff2'); }
+
+  /* Mise en page : un fil de propositions, texte à gauche, capture à droite ; le sélecteur d'écran change toutes les captures */
+  :root {
+    --bg: #F5F1E8;
+    --surface: #FFFFFF;
+    --line: #E4DED2;
+    --fg: #1C1B18;
+    --fg-2: #5F5B52;
+    --fg-3: #6B665C;
+    --accent: #D13F17;
+    --accent-ink: #B3360F;
+    --accent-soft: #FBE3D9;
+    --shot-shadow: 0 1px 2px rgba(60, 40, 10, 0.08), 0 14px 32px -12px rgba(60, 40, 10, 0.28);
+    --font: 'Archivo', system-ui, sans-serif;
+    --mono: 'IBM Plex Mono', ui-monospace, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1A1815; --surface: #24211D; --line: #38342D; --fg: #F1ECE2; --fg-2: #C2BBAE; --fg-3: #A49D90;
+      --accent: #EE6A44; --accent-ink: #F4865F; --accent-soft: #3A251C; --shot-shadow: 0 14px 32px -12px rgba(0, 0, 0, 0.6);
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1A1815; --surface: #24211D; --line: #38342D; --fg: #F1ECE2; --fg-2: #C2BBAE; --fg-3: #A49D90;
+    --accent: #EE6A44; --accent-ink: #F4865F; --accent-soft: #3A251C; --shot-shadow: 0 14px 32px -12px rgba(0, 0, 0, 0.6);
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font: 15px/1.5 var(--font);
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    max-width: 1320px;
+    margin: 0 auto;
+    padding-block: 40px 96px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  a { color: var(--accent-ink); }
+  a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  h1, h2, h3 { text-wrap: balance; margin: 0; }
+  h1 { font-stretch: 125%; font-weight: 800; font-size: clamp(30px, 5vw, 46px); line-height: 1.02; letter-spacing: -0.01em; }
+  h2 { font-stretch: 125%; font-weight: 800; font-size: 24px; line-height: 1.1; }
+  h3 { font-stretch: 112%; font-weight: 800; font-size: 20px; line-height: 1.15; }
+  p { margin: 0; }
+  .lede { max-width: 64ch; margin-top: 14px; font-size: 17px; color: var(--fg-2); }
+  .lede strong { color: var(--fg); }
+
+  /* Barre d'écrans, collante */
+  .bar {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 5;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px 16px;
+    margin: 28px 0 8px;
+    padding: 10px 0;
+    background: var(--bg);
+    border-bottom: 1px solid var(--line);
+  }
+  body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+  .bar__label { font-size: 13px; color: var(--fg-3); }
+  .seg { display: inline-flex; flex-wrap: wrap; gap: 4px; }
+  .seg button {
+    height: 32px; padding: 0 12px; border: 1px solid var(--line); border-radius: 999px;
+    background: var(--surface); color: var(--fg-2); font: 600 13px var(--font); cursor: pointer;
+  }
+  .seg button[aria-pressed="true"] { background: var(--fg); border-color: var(--fg); color: var(--bg); }
+  .seg button:disabled { opacity: 0.4; cursor: default; }
+
+  /* Méthodologies */
+  .method { padding-top: 56px; }
+  .method__head { display: grid; gap: 10px; max-width: 76ch; }
+  .method__num { font-family: var(--mono); font-size: 13px; color: var(--accent-ink); }
+  .method__head p { color: var(--fg-2); }
+
+  .prop {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2.1fr);
+    gap: 28px 40px;
+    align-items: start;
+    padding: 32px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .prop:last-child { border-bottom: 0; }
+  .prop__text { display: grid; gap: 12px; min-width: 0; }
+  .prop__idea { font-size: 16px; color: var(--fg); }
+  .prop ul { margin: 0; padding-left: 18px; color: var(--fg-2); display: grid; gap: 4px; }
+  .prop__note { font-size: 13px; color: var(--fg-3); }
+  .links { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: 14px; font-weight: 600; }
+  .shot {
+    display: block;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    background: var(--surface);
+    box-shadow: var(--shot-shadow);
+    aspect-ratio: 1440 / 900;
+    max-width: 100%;
+  }
+  .shot img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: top; }
+  .shot.is-mobile { aspect-ratio: 390 / 844; width: min(320px, 100%); justify-self: center; }
+  .shot__open {
+    position: absolute; right: 10px; bottom: 10px; padding: 5px 10px; border-radius: 999px;
+    background: rgba(28, 27, 24, 0.78); color: #FFFFFF; font-size: 12px; font-weight: 600; text-decoration: none;
+  }
+
+  /* Tableau récapitulatif */
+  .table-wrap { overflow-x: auto; margin-top: 18px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); }
+  table { width: 100%; min-width: 820px; border-collapse: collapse; font-size: 14px; }
+  th, td { padding: 10px 14px; text-align: left; vertical-align: top; border-top: 1px solid var(--line); }
+  thead th { border-top: 0; font-size: 12px; font-weight: 600; color: var(--fg-3); }
+  td.num { font-family: var(--mono); font-variant-numeric: tabular-nums; text-align: right; white-space: nowrap; }
+  tbody th { font-weight: 700; white-space: nowrap; }
+
+  .obs { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin-top: 18px; }
+  .obs > div { padding: 16px 18px; border-radius: 12px; background: var(--surface); border: 1px solid var(--line); display: grid; gap: 6px; }
+  .obs p { color: var(--fg-2); font-size: 14px; }
+
+  @media (max-width: 900px) {
+    .prop { grid-template-columns: minmax(0, 1fr); }
+  }
+</style>
+
+<main class="wrap" data-base="">
+  <h1>Habillages pour Mes Autos</h1>
+  <p class="lede">Six propositions pour rendre l'appli moins tristounette en restant sobre, selon trois méthodes.
+    <strong>La disposition ne change pas</strong> : chaque proposition est une seule feuille de style qui surcharge
+    couleurs, fonds, textures, ombres et effets, posée sur les vraies feuilles de style de l'appli.
+    Les visuels (logos, photos, drapeaux) sont des substituts générés : les vrais ne sont pas dans le dépôt.</p>
+
+  <div class="bar" role="group" aria-label="Choix de l'écran">
+    <span class="bar__label">Écran</span>
+    <div class="seg" id="screens"></div>
+    <div class="seg" id="devices"></div>
+  </div>
+
+  <section class="method" id="reference">
+    <div class="prop" data-theme-id="actuel"></div>
+  </section>
+
+  <div id="methods"></div>
+
+  <section class="method" id="synthese">
+    <div class="method__head">
+      <h2>Comparaison</h2>
+      <p>Signalements du détecteur impeccable (pages rendues à 1440 px, quatre écrans). Les thèmes 1 et 2 n'ont pas
+        été corrigés selon ce détecteur : ce n'est pas leur méthode, le chiffre sert de repère.</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Thème</th><th>Identité Atelier</th><th>Fond</th><th>Effets</th><th>Contraste insuffisant</th><th>Texte &lt; 11 px</th><th>Autres tics relevés</th></tr>
+        </thead>
+        <tbody id="recap"></tbody>
+      </table>
+    </div>
+    <div class="obs">
+      <div><h3>Sans skill</h3><p>Reste proche de l'existant et ajoute surtout de la matière : verre dépoli, émail, reflets.
+        C'est la méthode qui empile le plus d'effets ; le détecteur relève du texte en dégradé (1A, 1B) et un halo coloré (1B).</p></div>
+      <div><h3>frontend-design</h3><p>Part du sujet (prospectus d'époque, Salon au Grand Palais), écarte le couple crème + terre cuite
+        qu'elle juge convenu et limite chaque proposition à une seule audace. Les plus singulières, mais elles changent la palette.</p></div>
+      <div><h3>impeccable</h3><p>Classe la demande en affinage et préserve donc l'identité. Visuellement la plus sage ;
+        la plus rigoureuse : rôles de couleur, états, contrastes portés à 4,5:1, effets réservés aux moments utiles.</p></div>
+    </div>
+  </section>
+</main>
+
+<script>
+(function () {
+  var main = document.querySelector('main');
+  var BASE = main.getAttribute('data-base') || '';
+  var REPO = 'https://github.com/vin100zz/mesautos/blob/claude/app-look-feel-mockups-mzh2h8/mockups/';
+
+  var SCREENS = [
+    ['marques', 'Marques', true], ['marque', 'Marque', true], ['modele', 'Modèle', true], ['salons', 'Salons', false],
+    ['nouveautes', 'Nouveautés', false], ['annee', 'Nouveautés 1967', false], ['recherche', 'Recherche', false]
+  ];
+
+  var METHODS = [
+    {
+      id: 'sans-skill', num: 'Méthode 1', title: 'Sans skill',
+      text: 'Mon seul jugement, avant de charger la moindre skill. Point de départ : garder l’identité (crème, terre cuite, Archivo) et lui donner de la matière et de la lumière.',
+      notes: null,
+      themes: ['1a-papier', '1b-reflets']
+    },
+    {
+      id: 'frontend-design', num: 'Méthode 2', title: 'Skill frontend-design',
+      text: 'La skill impose de partir du sujet (l’automobile d’époque), d’écrire un plan de couleurs, de le confronter aux clichés des pages générées, puis de ne garder qu’une audace par proposition. Elle a écarté le couple crème + terre cuite, qu’elle range parmi ces clichés.',
+      notes: 'notes/2-frontend-design.md',
+      themes: ['2a-prospectus', '2b-grand-palais']
+    },
+    {
+      id: 'impeccable', num: 'Méthode 3', title: 'Skill impeccable',
+      text: 'La skill charge le contexte du projet et classe la demande en affinage, pas en refonte : l’identité Atelier est donc préservée. Mode « Operate » (on consulte et on enrichit une collection), une commande de la skill par proposition, finition contrôlée par son détecteur.',
+      notes: 'notes/3-impeccable.md',
+      themes: ['3a-colorize', '3b-delight']
+    }
+  ];
+
+  var THEMES = {
+    'actuel': {
+      name: 'Actuel · Atelier', idea: 'La référence : le thème en place aujourd’hui.',
+      items: ['Fond crème uni, cartes blanches, ombres douces', 'Accent terre cuite, ambre pour les emblèmes', 'Archivo étendue pour les titres, Plex Mono pour les données'],
+      recap: ['–', 'Crème uni', '–', 66, 59, 'Fond crème']
+    },
+    '1a-papier': {
+      name: '1A · Papier chaud', idea: 'La page devient une feuille de papier sous une lumière chaude.',
+      items: ['Grain très fin sur toute l’interface', 'Halo ambré venu du haut à gauche, voile terre cuite à droite', 'En-têtes en verre dépoli, boutons « émaillés »', 'Filets en fondu, grandes lettres teintées de l’intérieur', 'Halo blanc derrière le logo survolé'],
+      note: 'Halo au survol : à voir dans la maquette.',
+      recap: ['Conservée', 'Halo + grain', 'Survol des logos', 69, 59, 'Texte en dégradé']
+    },
+    '1b-reflets': {
+      name: '1B · Reflets', idea: 'La lumière sur une carrosserie.',
+      items: ['Ciel d’aube pâle qui descend vers le sable', 'Grande bande de reflet en diagonale', 'En-tête chromé, double filet clair et sombre', 'Boutons laqués, lettres d’enseigne chromées', 'Éclat qui glisse sur les photos au survol'],
+      note: 'Éclat au survol : à voir dans la maquette.',
+      recap: ['Conservée', 'Dégradé + reflet', 'Éclat au survol des photos', 74, 59, 'Texte en dégradé, halo coloré']
+    },
+    '2a-prospectus': {
+      name: '2A · Prospectus', idea: 'Les prospectus automobiles imprimés en offset.',
+      items: ['Papier couché, encre bleu-noir', 'Accent bleu imprimeur, jaune en ton direct', 'Une vraie trame de points dans le coin haut droit', 'Audace unique : les grandes lettres imprimées hors repérage', 'Cartes à filet net plutôt qu’ombres floues'],
+      recap: ['Remplacée', 'Trame de points', '–', 69, 59, '–']
+    },
+    '2b-grand-palais': {
+      name: '2B · Grand Palais', idea: 'Le Salon de l’Automobile sous la verrière.',
+      items: ['Pierre claire et lumière zénithale', 'Vert réséda (la charpente du Grand Palais) en accent, laiton en rehaut', 'Audace unique : la verrière vue d’en dessous, en perspective, fondue dans la lumière', 'Aucun effet de survol ajouté'],
+      recap: ['Remplacée', 'Dégradé + verrière', '–', 69, 59, '–']
+    },
+    '3a-colorize': {
+      name: '3A · Atelier, colorize', idea: 'La couleur porte la hiérarchie et l’atmosphère.',
+      items: ['Bandeau kraft (en-tête + barre collante) comme seconde couche neutre', 'Plan de travail éclairé par un dégradé', 'Terre cuite réservée à l’action et à la sélection', 'Ambre pour la position : lettres et décennies à l’écran', 'Sélection de texte et curseur aux couleurs de l’appli, contrastes à 4,5:1'],
+      recap: ['Conservée', 'Bandeau + dégradé', '–', 0, 0, '–']
+    },
+    '3b-delight': {
+      name: '3B · Atelier, delight', idea: 'L’interface se comporte comme du papier photo.',
+      items: ['Grain de papier sur le fond seulement, jamais sur les photos', 'Pendant le chargement, les photos « se révèlent » (ton sépia qui respire)', 'La grande lettre de la section à l’écran s’encre au défilement', 'Mêmes corrections de contraste que 3A'],
+      note: 'Lettres et révélateur : à voir dans la maquette (défiler la page Marques ; lien « chargement lent »).',
+      extra: [['Chargement lent', 'screen=salons&theme=3b-delight&lent=1']],
+      recap: ['Conservée', 'Grain', 'Révélateur, lettres au défilement', 0, 0, 'Fond crème (assumé)']
+    }
+  };
+
+  var state = { screen: 'marques', device: 'desktop' };
+
+  function url(theme, screen, extra) {
+    return BASE + 'mockup.html?screen=' + screen + '&theme=' + theme + (extra ? '&' + extra : '');
+  }
+  function shotSrc(theme) {
+    var mobile = state.device === 'mobile' && SCREENS.some(function (s) { return s[0] === state.screen && s[2]; });
+    return BASE + 'shots/' + theme + '-' + state.screen + (mobile ? '-mobile' : '') + '.jpg';
+  }
+  function esc(s) { return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+
+  function propHTML(id) {
+    var t = THEMES[id];
+    return '<div class="prop__text"><h3>' + esc(t.name) + '</h3><p class="prop__idea">' + esc(t.idea) + '</p>' +
+      '<ul>' + t.items.map(function (i) { return '<li>' + esc(i) + '</li>'; }).join('') + '</ul>' +
+      (t.note ? '<p class="prop__note">' + esc(t.note) + '</p>' : '') +
+      '<div class="links"><a href="' + url(id, 'marques') + '">Ouvrir la maquette</a>' +
+      '<a href="' + (id === 'actuel' ? REPO.replace(/mockups\/$/, '') + 'style/app.css' : REPO + 'themes/' + id + '.css') + '">Feuille de style</a>' +
+      (t.extra || []).map(function (e) { return '<a href="' + BASE + 'mockup.html?' + e[1] + '">' + esc(e[0]) + '</a>'; }).join('') +
+      '</div></div>' +
+      '<a class="shot" data-shot="' + id + '" href="' + url(id, state.screen) + '"><img alt="' + esc(t.name) + '" loading="lazy" src="' + shotSrc(id) + '"><span class="shot__open">Ouvrir</span></a>';
+  }
+
+  document.querySelector('[data-theme-id="actuel"]').innerHTML = propHTML('actuel');
+  document.getElementById('methods').innerHTML = METHODS.map(function (m) {
+    return '<section class="method" id="' + m.id + '"><div class="method__head"><span class="method__num">' + m.num + '</span><h2>' + esc(m.title) + '</h2><p>' + esc(m.text) + '</p>' +
+      (m.notes ? '<p><a href="' + REPO + m.notes + '">Notes de méthode</a></p>' : '') + '</div>' +
+      m.themes.map(function (id) { return '<div class="prop" data-theme-id="' + id + '">' + propHTML(id) + '</div>'; }).join('') + '</section>';
+  }).join('');
+
+  document.getElementById('recap').innerHTML = Object.keys(THEMES).map(function (id) {
+    var r = THEMES[id].recap;
+    return '<tr><th scope="row">' + esc(THEMES[id].name) + '</th><td>' + r[0] + '</td><td>' + r[1] + '</td><td>' + r[2] + '</td><td class="num">' + r[3] + '</td><td class="num">' + r[4] + '</td><td>' + r[5] + '</td></tr>';
+  }).join('');
+
+  var screensEl = document.getElementById('screens');
+  var devicesEl = document.getElementById('devices');
+  function renderBar() {
+    var hasMobile = SCREENS.some(function (s) { return s[0] === state.screen && s[2]; });
+    screensEl.innerHTML = SCREENS.map(function (s) {
+      return '<button type="button" data-screen="' + s[0] + '" aria-pressed="' + (s[0] === state.screen) + '">' + s[1] + '</button>';
+    }).join('');
+    devicesEl.innerHTML = [['desktop', 'Bureau'], ['mobile', 'Mobile']].map(function (d) {
+      return '<button type="button" data-device="' + d[0] + '" aria-pressed="' + (d[0] === state.device && (hasMobile || d[0] === 'desktop')) + '"' + (d[0] === 'mobile' && !hasMobile ? ' disabled' : '') + '>' + d[1] + '</button>';
+    }).join('');
+  }
+  function update() {
+    renderBar();
+    var mobile = state.device === 'mobile' && SCREENS.some(function (s) { return s[0] === state.screen && s[2]; });
+    Array.prototype.forEach.call(document.querySelectorAll('[data-shot]'), function (a) {
+      var id = a.getAttribute('data-shot');
+      a.href = url(id, state.screen);
+      a.classList.toggle('is-mobile', mobile);
+      a.querySelector('img').src = shotSrc(id);
+    });
+  }
+  screensEl.addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b) { return; }
+    state.screen = b.getAttribute('data-screen'); update();
+  });
+  devicesEl.addEventListener('click', function (e) {
+    var b = e.target.closest('button'); if (!b || b.disabled) { return; }
+    state.device = b.getAttribute('data-device'); update();
+  });
+  update();
+})();
+</script>

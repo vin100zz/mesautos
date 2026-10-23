@@ -40,8 +40,7 @@ body {
   border-bottom-color: var(--band-line);
 }
 .sticky-head {
-  background: var(--band);
-  box-shadow: 0 1px 0 var(--band-line), 0 14px 24px -20px rgba(90, 62, 20, 0.45);
+  background: linear-gradient(var(--band-line), var(--band-line)) center bottom / 100% 1px no-repeat, var(--band);
 }
 .search-trigger {
   background: var(--bg);
@@ -80,4 +79,22 @@ body {
 ::-webkit-scrollbar-thumb {
   border-color: var(--bg);
   background: #D8CCB6;
+}
+
+/* Finition (détecteur impeccable) : défauts mécaniques hérités de l'existant, corrigés au passage.
+   Gris secondaire à 3,3–3,7:1 → 4,5:1 minimum partout ; libellés de 10 px → 11 px ;
+   texte de substitution (initiales, placeholder) lisible. */
+:root {
+  --text-3: #6B665C;
+}
+.specs dt {
+  font-size: 11px;
+}
+.brand__initials,
+.logo-tile__initials,
+.search__input::placeholder {
+  color: var(--text-3);
+}
+.am-gamme__type.is-mini {
+  opacity: 1;
 }
